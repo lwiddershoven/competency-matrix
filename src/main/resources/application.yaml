@@ -9,6 +9,10 @@ spring:
   liquibase:
     change-log: classpath:db/changelog/db.changelog-master.yaml
 
+
+  test:
+    print-condition-evaluation-report: false
+
 server:
   port: 8080
 
@@ -25,7 +29,12 @@ management:
         enabled: true
       show-details: always
 
+
+
 logging:
   level:
     nl.leonw.competencymatrix: DEBUG
     org.springframework.jdbc: DEBUG
+#    org.testcontainers: DEBUG
+#    com.github.dockerjava: DEBUG
+#    org.springframework.boot.testcontainers: DEBUG
