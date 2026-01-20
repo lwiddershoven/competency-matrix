@@ -31,6 +31,17 @@ Or build and run the JAR:
 java -jar target/competency-matrix-0.0.1-SNAPSHOT.jar
 ```
 
+### With colima on a Mac
+
+To run the testcontainers I had to link the colima docker socket to a place that is known within the
+Colima VM so Ryuk can access docker (from within the container).
+
+Check https://github.com/testcontainers/testcontainers-java/issues/6450
+```zsh 
+docker context ls # will show you the socket
+ln -s ~/.colima/default/docker.sock ~/.docker/run/docker.sock
+```
+
 ### 3. Access the Application
 
 - **Web Application**: http://localhost:8080
