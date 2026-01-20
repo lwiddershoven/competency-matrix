@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:hx="http://www.w3.org/1999/xhtml"
+      th:replace="~{layout :: layout(title='Home', content=~{::main-content})}">
+<body>
+    <div th:fragment="main-content">
+        <hgroup>
+            <h1>Career Competency Matrix</h1>
+            <p>Explore roles and their skill requirements to plan your career development</p>
+        </hgroup>
+
+        <section>
+            <h2>Roles</h2>
+            <p>Select a role to view its required competencies and discover potential career paths.</p>
+
+            <div class="roles-grid">
+                <a th:each="role : ${roles}"
+                   th:href="@{/roles/{id}(id=${role.id})}"
+                   class="role-card">
+                    <h3 th:text="${role.name}">Role Name</h3>
+                    <p th:text="${role.description}">Role description</p>
+                </a>
+            </div>
+        </section>
+
+        <section>
+            <h2>Compare Roles</h2>
+            <p>Select two roles to compare their skill requirements side by side.</p>
+
+            <form th:action="@{/compare}" method="get" class="compare-form">
+                <div>
+                    <label for="from-role">From Role</label>
+                    <select id="from-role" name="from" required>
+                        <option value="">Select a role...</option>
+                        <option th:each="role : ${roles}"
+                                th:value="${role.id}"
+                                th:text="${role.name}">Role</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="to-role">To Role</label>
+                    <select id="to-role" name="to" required>
+                        <option value="">Select a role...</option>
+                        <option th:each="role : ${roles}"
+                                th:value="${role.id}"
+                                th:text="${role.name}">Role</option>
+                    </select>
+                </div>
+                <button type="submit">Compare</button>
+            </form>
+        </section>
+    </div>
+</body>
+</html>

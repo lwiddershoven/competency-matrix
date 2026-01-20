@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:hx="http://www.w3.org/1999/xhtml">
+<body>
+    <div th:fragment="categories(skillsByCategory, roleId)">
+        <div th:each="entry : ${skillsByCategory}" class="category-section">
+            <h3 th:text="${entry.key.name}">Category Name</h3>
+            <div class="skills-grid">
+                <div th:each="skillReq : ${entry.value}"
+                     th:replace="~{fragments/skill-card :: skill-card(${skillReq}, ${roleId})}">
+                </div>
+            </div>
+        </div>
+
+        <p th:if="${#maps.isEmpty(skillsByCategory)}">
+            No competencies defined for this role yet.
+        </p>
+    </div>
+</body>
+</html>

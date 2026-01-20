@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+    <div th:fragment="comparison(comparisons, fromRole, toRole)">
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Skill</th>
+                    <th th:text="${fromRole.name}">From Role</th>
+                    <th th:text="${toRole.name}">To Role</th>
+                    <th>Change</th>
+                </tr>
+            </thead>
+            <tbody>
+                <th:block th:each="comparison : ${comparisons}">
+                    <tr th:classappend="${comparison.hasChanged()} ? 'comparison-changed' : ''">
+                        <td class="skill-name">
+                            <small th:text="${comparison.category.name}" style="color: var(--pico-muted-color);">Category</small><br>
+                            <span th:text="${comparison.skill.name}">Skill Name</span>
+                        </td>
+                        <td>
+                            <span th:if="${comparison.fromLevel != null}"
+                                  class="level-badge"
+                                  th:classappend="'level-' + ${#strings.toLowerCase(comparison.fromLevel.name())}"
+                                  th:text="${comparison.fromLevel.displayName}">Level</span>
+                            <span th:unless="${comparison.fromLevel != null}">-</span>
+                        </td>
+                        <td>
+                            <span th:if="${comparison.toLevel != null}"
+                                  class="level-badge"
+                                  th:classappend="'level-' + ${#strings.toLowerCase(comparison.toLevel.name())}"
+                                  th:text="${comparison.toLevel.displayName}">Level</span>
+                            <span th:unless="${comparison.toLevel != null}">-</span>
+                        </td>
+                        <td>
+                            <span th:if="${comparison.isNew()}" class="comparison-new">New</span>
+                            <span th:if="${comparison.isUpgrade() && !comparison.isNew()}" class="comparison-upgrade">Upgrade</span>
+                            <span th:if="${comparison.isDowngrade() && !comparison.isRemoved()}" class="comparison-downgrade">Downgrade</span>
+                            <span th:if="${comparison.isRemoved()}" style="color: var(--pico-muted-color);">Removed</span>
+                            <span th:unless="${comparison.hasChanged()}">-</span>
+                        </td>
+                    </tr>
+                </th:block>
+            </tbody>
+        </table>
+
+        <p th:if="${#lists.isEmpty(comparisons)}">
+            No skills to compare between these roles.
+        </p>
+    </div>
+</body>
+</html>

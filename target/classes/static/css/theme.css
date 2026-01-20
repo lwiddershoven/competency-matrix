@@ -1,0 +1,246 @@
+/* Custom theme overrides for Pico CSS */
+
+.brand {
+    text-decoration: none;
+}
+
+/* Skill card styling */
+.skill-card {
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border-radius: var(--pico-border-radius);
+    background: var(--pico-card-background-color);
+    border: 1px solid var(--pico-card-border-color);
+    cursor: pointer;
+    transition: box-shadow 0.2s ease;
+}
+
+.skill-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.skill-card h4 {
+    margin-bottom: 0.5rem;
+}
+
+/* Proficiency level badges */
+.level-badge {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    border-radius: var(--pico-border-radius);
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.level-basic {
+    background-color: #e3f2fd;
+    color: #1565c0;
+}
+
+.level-decent {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+}
+
+.level-good {
+    background-color: #fff3e0;
+    color: #e65100;
+}
+
+.level-excellent {
+    background-color: #fce4ec;
+    color: #c2185b;
+}
+
+[data-theme="dark"] .level-basic {
+    background-color: #1565c0;
+    color: #e3f2fd;
+}
+
+[data-theme="dark"] .level-decent {
+    background-color: #2e7d32;
+    color: #e8f5e9;
+}
+
+[data-theme="dark"] .level-good {
+    background-color: #e65100;
+    color: #fff3e0;
+}
+
+[data-theme="dark"] .level-excellent {
+    background-color: #c2185b;
+    color: #fce4ec;
+}
+
+/* Category section */
+.category-section {
+    margin-bottom: 2rem;
+}
+
+.category-section h3 {
+    border-bottom: 2px solid var(--pico-primary);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Role cards on homepage */
+.role-card {
+    padding: 1.5rem;
+    border-radius: var(--pico-border-radius);
+    background: var(--pico-card-background-color);
+    border: 1px solid var(--pico-card-border-color);
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.role-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.role-card h3 {
+    margin-bottom: 0.5rem;
+    color: var(--pico-primary);
+}
+
+.role-card p {
+    margin-bottom: 0;
+    color: var(--pico-muted-color);
+}
+
+/* Grid layouts */
+.roles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+/* Comparison table */
+.comparison-table {
+    width: 100%;
+}
+
+.comparison-table th,
+.comparison-table td {
+    padding: 0.75rem;
+    text-align: left;
+}
+
+.comparison-table .skill-name {
+    font-weight: 500;
+}
+
+.comparison-table .category-row {
+    background-color: var(--pico-card-background-color);
+    font-weight: bold;
+}
+
+.comparison-changed {
+    background-color: rgba(255, 193, 7, 0.1);
+}
+
+.comparison-upgrade {
+    color: #2e7d32;
+}
+
+.comparison-downgrade {
+    color: #c62828;
+}
+
+.comparison-new {
+    color: #1565c0;
+}
+
+/* Next roles section */
+.next-roles {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.next-role-link {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: var(--pico-primary);
+    color: var(--pico-primary-inverse);
+    border-radius: var(--pico-border-radius);
+    text-decoration: none;
+    font-size: 0.875rem;
+}
+
+.next-role-link:hover {
+    background: var(--pico-primary-hover);
+    color: var(--pico-primary-inverse);
+}
+
+/* Compare form */
+.compare-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: end;
+}
+
+.compare-form select {
+    min-width: 200px;
+}
+
+/* Modal styling */
+dialog article {
+    min-width: 400px;
+    max-width: 600px;
+}
+
+dialog article header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+dialog article header button {
+    margin: 0;
+    padding: 0.5rem;
+}
+
+/* Level descriptions in modal */
+.level-descriptions {
+    margin-top: 1.5rem;
+}
+
+.level-description {
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border-radius: var(--pico-border-radius);
+    background: var(--pico-card-background-color);
+}
+
+.level-description h5 {
+    margin-bottom: 0.5rem;
+}
+
+.level-description p {
+    margin-bottom: 0;
+    font-size: 0.9rem;
+}
+
+/* Breadcrumb navigation */
+.breadcrumb {
+    margin-bottom: 1.5rem;
+}
+
+.breadcrumb a {
+    color: var(--pico-muted-color);
+}
+
+.breadcrumb span {
+    color: var(--pico-color);
+}

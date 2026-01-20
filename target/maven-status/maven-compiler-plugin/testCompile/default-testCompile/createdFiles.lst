@@ -1,0 +1,10 @@
+nl/leonw/competencymatrix/controller/HomeControllerTest.class
+nl/leonw/competencymatrix/service/CompetencyServiceTest.class
+nl/leonw/competencymatrix/TestcontainersConfiguration.class
+nl/leonw/competencymatrix/e2e/BrowseCompetenciesTest.class
+nl/leonw/competencymatrix/controller/RoleControllerTest.class
+nl/leonw/competencymatrix/repository/RoleRepositoryTest.class
+nl/leonw/competencymatrix/TestCompetencyMatrixApplication.class
+nl/leonw/competencymatrix/repository/CategoryRepositoryTest.class
+nl/leonw/competencymatrix/controller/CompareControllerTest.class
+nl/leonw/competencymatrix/CompetencyMatrixApplicationTests.class
