@@ -11,10 +11,8 @@ import java.util.Optional;
 @Repository
 public interface RoleSkillRequirementRepository extends CrudRepository<RoleSkillRequirement, Integer> {
 
-    @Query("SELECT * FROM role_skill_requirement WHERE role_id = :roleId")
     List<RoleSkillRequirement> findByRoleId(Integer roleId);
 
-    @Query("SELECT * FROM role_skill_requirement WHERE role_id = :roleId AND skill_id = :skillId")
     Optional<RoleSkillRequirement> findByRoleIdAndSkillId(Integer roleId, Integer skillId);
 
     Optional<RoleSkillRequirement> findByRoleIdAndSkillIdAndRequiredLevel(Integer roleId, Integer skillId, String requiredLevel);

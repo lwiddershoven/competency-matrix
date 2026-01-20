@@ -3,7 +3,7 @@ package nl.leonw.competencymatrix.model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Table;
 
-@Table("role")
+@Table("rolename")
 public record Role(
         @Id Integer id,
         String name,

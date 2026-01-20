@@ -11,13 +11,13 @@ import java.util.Optional;
 @Repository
 public interface RoleRepository extends CrudRepository<Role, Integer> {
 
-    @Query("SELECT * FROM role ORDER BY name")
+    @Query("SELECT * FROM rolename ORDER BY name")
     List<Role> findAllOrderByName();
 
     Optional<Role> findByName(String name);
 
     @Query("""
-            SELECT r.* FROM role r
+            SELECT r.* FROM rolename r
             JOIN role_progression rp ON r.id = rp.to_role_id
             WHERE rp.from_role_id = :roleId
             ORDER BY r.name
@@ -25,7 +25,7 @@ public interface RoleRepository extends CrudRepository<Role, Integer> {
     List<Role> findNextRoles(Integer roleId);
 
     @Query("""
-            SELECT r.* FROM role r
+            SELECT r.* FROM rolename r
             JOIN role_progression rp ON r.id = rp.from_role_id
             WHERE rp.to_role_id = :roleId
             ORDER BY r.name
