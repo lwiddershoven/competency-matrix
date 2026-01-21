@@ -7,9 +7,11 @@ import org.junit.jupiter.api.*;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.context.annotation.Import;
+import org.springframework.test.context.ActiveProfiles;
 
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 
+@ActiveProfiles("test")
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @Import(TestcontainersConfiguration.class)
 class BrowseCompetenciesTest {
@@ -79,7 +81,7 @@ class BrowseCompetenciesTest {
         page.waitForSelector(".category-section", new Page.WaitForSelectorOptions().setTimeout(5000));
 
         // Verify competencies are displayed
-        assertThat(page.locator(".category-section")).isVisible();
+        assertThat(page.locator(".category-section").first()).isVisible();
         assertThat(page.locator(".skill-card").first()).isVisible();
     }
 
