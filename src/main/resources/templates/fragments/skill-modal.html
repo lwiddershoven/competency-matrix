@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+    <div th:fragment="skill-detail(skill, requiredLevel)">
+        <header>
+            <h3 th:text="${skill.name}">Skill Name</h3>
+            <button onclick="closeSkillModal()" aria-label="Close">&times;</button>
+        </header>
+
+        <p th:if="${requiredLevel != null}">
+            Required level for this role:
+            <span class="level-badge"
+                  th:classappend="'level-' + ${#strings.toLowerCase(requiredLevel.name())}"
+                  th:text="${requiredLevel.displayName}">Level</span>
+        </p>
+
+        <div class="level-descriptions">
+            <h4>Proficiency Levels</h4>
+
+            <div class="level-description"
+                 th:classappend="${requiredLevel?.name() == 'BASIC'} ? 'highlighted' : ''">
+                <h5><span class="level-badge level-basic">Basic</span></h5>
+                <p th:text="${skill.basicDescription ?: 'No description available'}">Basic description</p>
+            </div>
+
+            <div class="level-description"
+                 th:classappend="${requiredLevel?.name() == 'DECENT'} ? 'highlighted' : ''">
+                <h5><span class="level-badge level-decent">Decent</span></h5>
+                <p th:text="${skill.decentDescription ?: 'No description available'}">Decent description</p>
+            </div>
+
+            <div class="level-description"
+                 th:classappend="${requiredLevel?.name() == 'GOOD'} ? 'highlighted' : ''">
+                <h5><span class="level-badge level-good">Good</span></h5>
+                <p th:text="${skill.goodDescription ?: 'No description available'}">Good description</p>
+            </div>
+
+            <div class="level-description"
+                 th:classappend="${requiredLevel?.name() == 'EXCELLENT'} ? 'highlighted' : ''">
+                <h5><span class="level-badge level-excellent">Excellent</span></h5>
+                <p th:text="${skill.excellentDescription ?: 'No description available'}">Excellent description</p>
+            </div>
+        </div>
+
+        <footer>
+            <button onclick="closeSkillModal()">Close</button>
+        </footer>
+    </div>
+</body>
+</html>

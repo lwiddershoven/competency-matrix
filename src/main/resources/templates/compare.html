@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:hx="http://www.w3.org/1999/xhtml"
+      th:replace="~{layout :: layout(title='Compare Roles', content=~{::main-content})}">
+<body>
+    <div th:fragment="main-content">
+        <nav class="breadcrumb">
+            <a th:href="@{/}">Home</a> &gt;
+            <span>Compare Roles</span>
+        </nav>
+
+        <hgroup>
+            <h1>Compare Roles</h1>
+            <p>Comparing skill requirements between
+                <strong th:text="${fromRole.name}">From Role</strong> and
+                <strong th:text="${toRole.name}">To Role</strong>
+            </p>
+        </hgroup>
+
+        <section>
+            <h2>Select Different Roles</h2>
+            <form th:action="@{/compare}" method="get" class="compare-form">
+                <div>
+                    <label for="from-role">From Role</label>
+                    <select id="from-role" name="from" required>
+                        <option th:each="role : ${allRoles}"
+                                th:value="${role.id}"
+                                th:text="${role.name}"
+                                th:selected="${role.id == fromRole.id}">Role</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="to-role">To Role</label>
+                    <select id="to-role" name="to" required>
+                        <option th:each="role : ${allRoles}"
+                                th:value="${role.id}"
+                                th:text="${role.name}"
+                                th:selected="${role.id == toRole.id}">Role</option>
+                    </select>
+                </div>
+                <button type="submit">Compare</button>
+            </form>
+        </section>
+
+        <hr>
+
+        <section>
+            <h2>Skill Comparison</h2>
+
+            <div id="comparison-container"
+                 hx:get="@{/compare/skills(from=${fromRole.id}, to=${toRole.id})}"
+                 hx-trigger="load"
+                 hx-swap="innerHTML">
+                <p aria-busy="true">Loading comparison...</p>
+            </div>
+        </section>
+
+        <section>
+            <h3>Legend</h3>
+            <ul>
+                <li><span class="comparison-upgrade">Green</span> - Skill level increases</li>
+                <li><span class="comparison-downgrade">Red</span> - Skill level decreases</li>
+                <li><span class="comparison-new">Blue</span> - New skill required</li>
+                <li>No highlight - Skill removed or unchanged</li>
+            </ul>
+        </section>
+    </div>
+</body>
+</html>
