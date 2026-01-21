@@ -7,3 +7,10 @@ All development must follow the project constitution at `.specify/memory/constit
 - Monolith First: Single deployable unit
 - Data Integrity: Validate all data, enforce referential integrity
 - User-Centric Design: 3-click rule, 2-second response times
+
+## Active Technologies
+- Java 25 (002-platform-modernization)
+- PostgreSQL 18.1 (no changes to schema or data) (002-platform-modernization)
+
+## Recent Changes
+- 002-platform-modernization: Added Java 25
