@@ -3,7 +3,7 @@
 <body>
     <div th:fragment="skill-card(skillReq, roleId)"
          class="skill-card"
-         hx-get="@{/roles/{roleId}/skills/{skillId}(roleId=${roleId}, skillId=${skillReq.skill().id()})}"
+         th:attr="hx-get=@{/roles/{roleId}/skills/{skillId}(roleId=${roleId}, skillId=${skillReq.skill().id()})}"
          hx-target="#skill-modal-content"
          hx-swap="innerHTML">
         <h4 th:text="${skillReq.skill().name()}">Skill Name</h4>
