@@ -51,6 +51,7 @@ As a professional planning a career step, I want to compare what is expected at 
 
 1. **Given** I am viewing a role's competency matrix, **When** I select my current level (e.g., "Medior") and target level (e.g., "Senior"), **Then** I see a comparison view highlighting differences in expectations
 2. **Given** I am in comparison mode, **When** I look at any skill category, **Then** I can see both levels' expectations displayed in a way that makes differences clear
+3. **Given** I am viewing a role comparison table, **When** I click on a skill name or proficiency level badge (e.g., "Decent", "Good"), **Then** a modal opens displaying the full skill description and all proficiency level expectations for that skill
 
 ---
 
@@ -91,6 +92,7 @@ As a professional considering different career paths, I want to easily switch be
 - **FR-009**: System MUST display meaningful messages when data is not available (no competencies for role, no description for level)
 - **FR-010**: System MUST allow users to compare skill requirements between two roles
 - **FR-011**: System MUST display "next roles" links on each role's page showing possible career progression paths (e.g., Junior Java Dev → Medior Java Dev; Senior Java Dev → Architect, Lead Dev, or Specialist)
+- **FR-012**: System MUST allow users to click on skill names and proficiency level badges in the role comparison view to open a modal displaying detailed skill descriptions and proficiency level expectations
 
 ### Key Entities
 

@@ -16,20 +16,32 @@
                     <tr th:classappend="${comparison.hasChanged()} ? 'comparison-changed' : ''">
                         <td class="skill-name">
                             <small th:text="${comparison.category.name}" style="color: var(--pico-muted-color);">Category</small><br>
-                            <span th:text="${comparison.skill.name}">Skill Name</span>
+                            <span th:text="${comparison.skill.name}"
+                                  th:attr="hx-get=@{/roles/{roleId}/skills/{skillId}(roleId=${toRole.id}, skillId=${comparison.skill.id})}"
+                                  hx-target="#skill-modal-content"
+                                  hx-swap="innerHTML"
+                                  style="cursor: pointer; text-decoration: underline;">Skill Name</span>
                         </td>
                         <td>
                             <span th:if="${comparison.fromLevel != null}"
                                   class="level-badge"
                                   th:classappend="'level-' + ${#strings.toLowerCase(comparison.fromLevel.name())}"
-                                  th:text="${comparison.fromLevel.displayName}">Level</span>
+                                  th:text="${comparison.fromLevel.displayName}"
+                                  th:attr="hx-get=@{/roles/{roleId}/skills/{skillId}(roleId=${fromRole.id}, skillId=${comparison.skill.id})}"
+                                  hx-target="#skill-modal-content"
+                                  hx-swap="innerHTML"
+                                  style="cursor: pointer;">Level</span>
                             <span th:unless="${comparison.fromLevel != null}">-</span>
                         </td>
                         <td>
                             <span th:if="${comparison.toLevel != null}"
                                   class="level-badge"
                                   th:classappend="'level-' + ${#strings.toLowerCase(comparison.toLevel.name())}"
-                                  th:text="${comparison.toLevel.displayName}">Level</span>
+                                  th:text="${comparison.toLevel.displayName}"
+                                  th:attr="hx-get=@{/roles/{roleId}/skills/{skillId}(roleId=${toRole.id}, skillId=${comparison.skill.id})}"
+                                  hx-target="#skill-modal-content"
+                                  hx-swap="innerHTML"
+                                  style="cursor: pointer;">Level</span>
                             <span th:unless="${comparison.toLevel != null}">-</span>
                         </td>
                         <td>
