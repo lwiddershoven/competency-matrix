@@ -5,9 +5,11 @@
         <div th:each="entry : ${skillsByCategory}" class="category-section">
             <h3 th:text="${entry.key.name}">Category Name</h3>
             <div class="skills-grid">
-                <div th:each="skillReq : ${entry.value}"
-                     th:replace="~{fragments/skill-card :: skill-card(${skillReq}, ${roleId})}">
-                </div>
+                <th:block th:each="skillReq : ${entry.value}">
+                    <div th:if="${skillReq != null}"
+                         th:replace="~{fragments/skill-card :: skill-card(${skillReq}, ${roleId})}">
+                    </div>
+                </th:block>
             </div>
         </div>
 

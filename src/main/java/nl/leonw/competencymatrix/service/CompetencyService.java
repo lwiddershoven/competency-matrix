@@ -97,9 +97,11 @@ public class CompetencyService {
             List<SkillWithRequirement> skillsWithReqs = new ArrayList<>();
 
             for (Skill skill : skills) {
-                RoleSkillRequirement req = requirementsBySkillId.get(skill.id());
-                if (req != null) {
-                    skillsWithReqs.add(new SkillWithRequirement(skill, req.getProficiencyLevel()));
+                if (skill != null) {
+                    RoleSkillRequirement req = requirementsBySkillId.get(skill.id());
+                    if (req != null) {
+                        skillsWithReqs.add(new SkillWithRequirement(skill, req.getProficiencyLevel()));
+                    }
                 }
             }
 
