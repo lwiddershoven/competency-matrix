@@ -1,20 +1,18 @@
---liquibase formatted sql
+-- Initial schema migration from Liquibase
+-- Original: db/changelog/001-initial-schema.sql
 
---changeset leonw:001-create-competency-category
 CREATE TABLE competency_category (
     id SERIAL PRIMARY KEY,
     name VARCHAR(100) NOT NULL UNIQUE,
     display_order INTEGER NOT NULL DEFAULT 0
 );
 
---changeset leonw:002-create-rolename
 CREATE TABLE rolename (
     id SERIAL PRIMARY KEY,
     name VARCHAR(100) NOT NULL UNIQUE,
     description TEXT
 );
 
---changeset leonw:003-create-skill
 CREATE TABLE skill (
     id SERIAL PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
@@ -32,7 +30,6 @@ CREATE TABLE skill (
 
 CREATE INDEX idx_skill_category_id ON skill(category_id);
 
---changeset leonw:004-create-role-skill-requirement
 CREATE TABLE role_skill_requirement (
     id SERIAL PRIMARY KEY,
     role_id INTEGER NOT NULL,
@@ -53,7 +50,6 @@ CREATE TABLE role_skill_requirement (
 CREATE INDEX idx_role_skill_role_id ON role_skill_requirement(role_id);
 CREATE INDEX idx_role_skill_skill_id ON role_skill_requirement(skill_id);
 
---changeset leonw:005-create-role-progression
 CREATE TABLE role_progression (
     id SERIAL PRIMARY KEY,
     from_role_id INTEGER NOT NULL,

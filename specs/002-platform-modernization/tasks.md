@@ -26,24 +26,24 @@ Project structure (Java Maven monolith):
 
 **Purpose**: Document baseline metrics and prepare migration environment
 
-- [ ] T001 Create database backup: `pg_dump competencymatrix > backup-$(date +%Y%m%d).sql`
-- [ ] T002 Tag current version: `git tag pre-quarkus-migration`
-- [ ] T003 [P] Document baseline performance metrics (startup time, memory footprint)
-- [ ] T004 [P] Document test coverage baseline: `./mvnw test` and record pass rate
-- [ ] T005 [P] Export database schema for comparison: `pg_dump --schema-only competencymatrix > schema-baseline.sql`
-- [ ] T006 [P] Record table row counts for all 6 entities (SQL query from quickstart.md)
-- [ ] T007 Update pom.xml: Remove Spring Boot parent, add Quarkus BOM (version 3.30.6)
-- [ ] T008 Update pom.xml: Remove all Spring Boot dependencies
-- [ ] T009 [P] Update pom.xml: Add Quarkus core extensions (resteasy-reactive-qute, jdbc-postgresql, flyway)
-- [ ] T010 [P] Update pom.xml: Add Quarkus observability extensions (micrometer-registry-prometheus, smallrye-health)
-- [ ] T011 [P] Update pom.xml: Add Quarkus test dependencies (junit5, test-testcontainers, rest-assured)
-- [ ] T012 [P] Update pom.xml: Keep Playwright and existing Testcontainers dependencies
-- [ ] T013 Update pom.xml: Replace spring-boot-maven-plugin with quarkus-maven-plugin
-- [ ] T014 Create src/main/resources/application.properties from application.yaml conversion
-- [ ] T015 Delete src/main/resources/application.yaml after conversion
-- [ ] T016 [P] Convert Liquibase changelog to Flyway: Copy db/changelog/001-initial-schema.sql → db/migration/V1__initial_schema.sql
-- [ ] T017 [P] Delete db/changelog/ directory after Flyway migration files created
-- [ ] T018 Verify project compiles: `./mvnw clean compile` (expected failures due to missing code changes)
+- [ ] T001 Create database backup: `pg_dump competencymatrix > backup-$(date +%Y%m%d).sql` (SKIPPED - DB not accessible)
+- [X] T002 Tag current version: `git tag pre-quarkus-migration`
+- [X] T003 [P] Document baseline performance metrics (startup time, memory footprint)
+- [X] T004 [P] Document test coverage baseline: `./mvnw test` and record pass rate (29/29 tests passing)
+- [ ] T005 [P] Export database schema for comparison: `pg_dump --schema-only competencymatrix > schema-baseline.sql` (SKIPPED - DB not accessible)
+- [ ] T006 [P] Record table row counts for all 6 entities (SQL query from quickstart.md) (SKIPPED - DB not accessible)
+- [X] T007 Update pom.xml: Remove Spring Boot parent, add Quarkus BOM (version 3.30.6)
+- [X] T008 Update pom.xml: Remove all Spring Boot dependencies
+- [X] T009 [P] Update pom.xml: Add Quarkus core extensions (quarkus-rest-qute, jdbc-postgresql, flyway)
+- [X] T010 [P] Update pom.xml: Add Quarkus observability extensions (micrometer-registry-prometheus, smallrye-health)
+- [X] T011 [P] Update pom.xml: Add Quarkus test dependencies (junit5, rest-assured, testcontainers)
+- [X] T012 [P] Update pom.xml: Keep Playwright and existing Testcontainers dependencies
+- [X] T013 Update pom.xml: Replace spring-boot-maven-plugin with quarkus-maven-plugin
+- [X] T014 Create src/main/resources/application.properties from application.yaml conversion
+- [X] T015 Delete src/main/resources/application.yaml after conversion
+- [X] T016 [P] Convert Liquibase changelog to Flyway: Copy db/changelog/001-initial-schema.sql → db/migration/V1__initial_schema.sql
+- [X] T017 [P] Delete db/changelog/ directory after Flyway migration files created
+- [X] T018 Verify project compiles: `./mvnw clean compile` (expected failures due to missing code changes - CONFIRMED)
 
 **Checkpoint**: Dependency and configuration migration complete - ready for code migration
 
@@ -57,39 +57,39 @@ Project structure (Java Maven monolith):
 
 ### Model Layer Migration (No Spring/Quarkus annotations)
 
-- [ ] T019 [P] Update src/main/java/nl/leonw/competencymatrix/model/Role.java: Remove @Table, @Id annotations (plain record)
-- [ ] T020 [P] Update src/main/java/nl/leonw/competencymatrix/model/Skill.java: Remove @Table, @Id, @Column annotations (plain record)
-- [ ] T021 [P] Update src/main/java/nl/leonw/competencymatrix/model/CompetencyCategory.java: Remove @Table, @Id annotations (plain record)
-- [ ] T022 [P] Update src/main/java/nl/leonw/competencymatrix/model/ProficiencyLevel.java: No changes (enum is framework-independent)
-- [ ] T023 [P] Update src/main/java/nl/leonw/competencymatrix/model/RoleSkillRequirement.java: Remove @Table, @Id, @Column annotations (plain record)
-- [ ] T024 [P] Update src/main/java/nl/leonw/competencymatrix/model/RoleProgression.java: Remove @Table, @Id, @Column annotations (plain record)
+- [X] T019 [P] Update src/main/java/nl/leonw/competencymatrix/model/Role.java: Remove @Table, @Id annotations (plain record)
+- [X] T020 [P] Update src/main/java/nl/leonw/competencymatrix/model/Skill.java: Remove @Table, @Id, @Column annotations (plain record)
+- [X] T021 [P] Update src/main/java/nl/leonw/competencymatrix/model/CompetencyCategory.java: Remove @Table, @Id annotations (plain record)
+- [X] T022 [P] Update src/main/java/nl/leonw/competencymatrix/model/ProficiencyLevel.java: No changes (enum is framework-independent)
+- [X] T023 [P] Update src/main/java/nl/leonw/competencymatrix/model/RoleSkillRequirement.java: Remove @Table, @Id, @Column annotations (plain record)
+- [X] T024 [P] Update src/main/java/nl/leonw/competencymatrix/model/RoleProgression.java: Remove @Table, @Id, @Column annotations (plain record)
 
 ### Repository Layer Migration (Spring Data → Plain JDBC)
 
-- [ ] T025 [P] Rewrite src/main/java/nl/leonw/competencymatrix/repository/RoleRepository.java: @ApplicationScoped class with @Inject DataSource, manual JDBC queries
-- [ ] T026 [P] Rewrite src/main/java/nl/leonw/competencymatrix/repository/SkillRepository.java: @ApplicationScoped class with @Inject DataSource, manual JDBC queries
-- [ ] T027 [P] Rewrite src/main/java/nl/leonw/competencymatrix/repository/CategoryRepository.java: @ApplicationScoped class with @Inject DataSource, manual JDBC queries
-- [ ] T028 [P] Rewrite src/main/java/nl/leonw/competencymatrix/repository/RoleSkillRequirementRepository.java: @ApplicationScoped class with @Inject DataSource, manual JDBC queries
-- [ ] T029 [P] Rewrite src/main/java/nl/leonw/competencymatrix/repository/RoleProgressionRepository.java: @ApplicationScoped class with @Inject DataSource, manual JDBC queries
+- [X] T025 [P] Rewrite src/main/java/nl/leonw/competencymatrix/repository/RoleRepository.java: @ApplicationScoped class with @Inject DataSource, manual JDBC queries
+- [X] T026 [P] Rewrite src/main/java/nl/leonw/competencymatrix/repository/SkillRepository.java: @ApplicationScoped class with @Inject DataSource, manual JDBC queries
+- [X] T027 [P] Rewrite src/main/java/nl/leonw/competencymatrix/repository/CategoryRepository.java: @ApplicationScoped class with @Inject DataSource, manual JDBC queries
+- [X] T028 [P] Rewrite src/main/java/nl/leonw/competencymatrix/repository/RoleSkillRequirementRepository.java: @ApplicationScoped class with @Inject DataSource, manual JDBC queries
+- [X] T029 [P] Rewrite src/main/java/nl/leonw/competencymatrix/repository/RoleProgressionRepository.java: @ApplicationScoped class with @Inject DataSource, manual JDBC queries
 
 ### Service Layer Migration (@Service → @ApplicationScoped)
 
-- [ ] T030 Update src/main/java/nl/leonw/competencymatrix/service/CompetencyService.java: Replace @Service with @ApplicationScoped, @Autowired with @Inject, org.springframework.transaction.annotation.Transactional with jakarta.transaction.Transactional
+- [X] T030 Update src/main/java/nl/leonw/competencymatrix/service/CompetencyService.java: Replace @Service with @ApplicationScoped, @Autowired with @Inject, org.springframework.transaction.annotation.Transactional with jakarta.transaction.Transactional
 
 ### Configuration Migration (@Component → @ApplicationScoped + @Observes StartupEvent)
 
-- [ ] T031 Update src/main/java/nl/leonw/competencymatrix/config/DataSeeder.java: Replace @Component + ApplicationRunner with @ApplicationScoped + @Observes StartupEvent
+- [X] T031 Update src/main/java/nl/leonw/competencymatrix/config/DataSeeder.java: Replace @Component + ApplicationRunner with @ApplicationScoped + @Observes StartupEvent
 
 ### Controller → Resource Migration (Spring MVC → JAX-RS)
 
-- [ ] T032 Rename src/main/java/nl/leonw/competencymatrix/controller/ → src/main/java/nl/leonw/competencymatrix/resource/
-- [ ] T033 Update HomeController → HomeResource: @Controller → @Path("/"), @GetMapping → @GET + @Produces(TEXT_HTML) + @Blocking, @PostMapping → @POST + @Blocking, Model → Template.data(), inject Template instances
-- [ ] T034 Update RoleController → RoleResource: @Controller + @RequestMapping → @Path("/roles"), @GetMapping → @GET + @Path + @Produces(TEXT_HTML) + @Blocking, @PathVariable → @PathParam, inject Template instances
-- [ ] T035 Update CompareController → CompareResource: @Controller → @Path("/compare"), @GetMapping → @GET + @Produces(TEXT_HTML) + @Blocking, @RequestParam → @QueryParam, inject Template instances
+- [X] T032 Rename src/main/java/nl/leonw/competencymatrix/controller/ → src/main/java/nl/leonw/competencymatrix/resource/
+- [X] T033 Update HomeController → HomeResource: @Controller → @Path("/"), @GetMapping → @GET + @Produces(TEXT_HTML) + @Blocking, @PostMapping → @POST + @Blocking, Model → Template.data(), inject Template instances
+- [X] T034 Update RoleController → RoleResource: @Controller + @RequestMapping → @Path("/roles"), @GetMapping → @GET + @Path + @Produces(TEXT_HTML) + @Blocking, @PathVariable → @PathParam, inject Template instances
+- [X] T035 Update CompareController → CompareResource: @Controller → @Path("/compare"), @GetMapping → @GET + @Produces(TEXT_HTML) + @Blocking, @RequestParam → @QueryParam, inject Template instances
 
 ### Static Resources Migration
 
-- [ ] T036 Move src/main/resources/static/ → src/main/resources/META-INF/resources/
+- [X] T036 Move src/main/resources/static/ → src/main/resources/META-INF/resources/
 
 **Checkpoint**: Foundation code migration complete - application structure ready for template and test migration
 

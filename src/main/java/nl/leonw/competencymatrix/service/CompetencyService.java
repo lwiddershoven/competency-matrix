@@ -1,39 +1,28 @@
 package nl.leonw.competencymatrix.service;
 
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
+import jakarta.transaction.Transactional;
 import nl.leonw.competencymatrix.model.*;
 import nl.leonw.competencymatrix.repository.*;
-import nl.leonw.competencymatrix.model.CompetencyCategory;
-import nl.leonw.competencymatrix.model.ProficiencyLevel;
-import nl.leonw.competencymatrix.model.Role;
-import nl.leonw.competencymatrix.model.RoleSkillRequirement;
-import nl.leonw.competencymatrix.model.Skill;
-import nl.leonw.competencymatrix.repository.CategoryRepository;
-import nl.leonw.competencymatrix.repository.RoleRepository;
-import nl.leonw.competencymatrix.repository.RoleSkillRequirementRepository;
-import nl.leonw.competencymatrix.repository.SkillRepository;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.*;
 
-@Service
-@Transactional(readOnly = true)
+@ApplicationScoped
+@Transactional(Transactional.TxType.SUPPORTS)
 public class CompetencyService {
 
-    private final RoleRepository roleRepository;
-    private final CategoryRepository categoryRepository;
-    private final SkillRepository skillRepository;
-    private final RoleSkillRequirementRepository requirementRepository;
+    @Inject
+    RoleRepository roleRepository;
 
-    public CompetencyService(RoleRepository roleRepository,
-                             CategoryRepository categoryRepository,
-                             SkillRepository skillRepository,
-                             RoleSkillRequirementRepository requirementRepository) {
-        this.roleRepository = roleRepository;
-        this.categoryRepository = categoryRepository;
-        this.skillRepository = skillRepository;
-        this.requirementRepository = requirementRepository;
-    }
+    @Inject
+    CategoryRepository categoryRepository;
+
+    @Inject
+    SkillRepository skillRepository;
+
+    @Inject
+    RoleSkillRequirementRepository requirementRepository;
 
     public List<Role> getAllRoles() {
         return roleRepository.findAllOrderByName();

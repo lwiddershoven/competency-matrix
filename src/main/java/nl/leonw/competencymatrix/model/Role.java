@@ -1,11 +1,8 @@
 package nl.leonw.competencymatrix.model;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.relational.core.mapping.Table;
-
-@Table("rolename")
+// Plain record - no framework annotations
 public record Role(
-        @Id Integer id,
+        Integer id,
         String name,
         String description
 ) {
