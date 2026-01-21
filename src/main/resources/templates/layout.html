@@ -1,31 +1,31 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-      xmlns:hx="http://www.w3.org/1999/xhtml"
-      th:fragment="layout(title, content)"
-      th:data-theme="${theme ?: 'light'}">
+<html data-theme="{theme ?: 'light'}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title th:text="${title} + ' - Career Competency Matrix'">Career Competency Matrix</title>
+    <title>{title ?: 'Home'} - Career Competency Matrix</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
-    <link rel="stylesheet" th:href="@{/css/theme.css}">
+    <link rel="stylesheet" href="/css/theme.css">
     <script src="https://unpkg.com/htmx.org@2.0.4"></script>
 </head>
 <body>
     <header class="container">
         <nav>
             <ul>
-                <li><a th:href="@{/}" class="brand"><strong>Competency Matrix</strong></a></li>
+                <li><a href="/" class="brand"><strong>Competency Matrix</strong></a></li>
             </ul>
             <ul>
                 <li>
-                    <button hx:post="@{/theme}"
+                    <button hx-post="/theme"
                             hx-swap="none"
                             hx-on::after-request="toggleTheme()"
                             class="outline secondary"
                             id="theme-toggle">
-                        <span th:if="${theme == 'dark'}">Light Mode</span>
-                        <span th:unless="${theme == 'dark'}">Dark Mode</span>
+                        {#if theme == 'dark'}
+                        <span>Light Mode</span>
+                        {#else}
+                        <span>Dark Mode</span>
+                        {/if}
                     </button>
                 </li>
             </ul>
@@ -33,7 +33,7 @@
     </header>
 
     <main class="container">
-        <th:block th:replace="${content}" />
+        {#insert content}Default content{/insert}
     </main>
 
     <footer class="container">
@@ -46,7 +46,7 @@
         </article>
     </dialog>
 
-    <script th:inline="javascript">
+    <script>
         function toggleTheme() {
             const html = document.documentElement;
             const currentTheme = html.getAttribute('data-theme');

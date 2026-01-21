@@ -2,22 +2,16 @@ package nl.leonw.competencymatrix.e2e;
 
 import com.microsoft.playwright.*;
 import com.microsoft.playwright.options.SelectOption;
-import nl.leonw.competencymatrix.TestcontainersConfiguration;
+import io.quarkus.test.junit.QuarkusTest;
 import org.junit.jupiter.api.*;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.web.server.LocalServerPort;
-import org.springframework.context.annotation.Import;
-import org.springframework.test.context.ActiveProfiles;
 
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 
-@ActiveProfiles("test")
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-@Import(TestcontainersConfiguration.class)
+@QuarkusTest
 class BrowseCompetenciesTest {
 
-    @LocalServerPort
-    private int port;
+    @io.quarkus.test.common.http.TestHTTPResource("/")
+    String url;
 
     private static Playwright playwright;
     private static Browser browser;
@@ -48,7 +42,7 @@ class BrowseCompetenciesTest {
     }
 
     private String baseUrl() {
-        return "http://localhost:" + port;
+        return url;
     }
 
     @Test

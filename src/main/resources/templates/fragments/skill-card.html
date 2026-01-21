@@ -1,15 +1,7 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:hx="http://www.w3.org/1999/xhtml">
-<body>
-    <div th:fragment="skill-card(skillReq, roleId)"
-         class="skill-card"
-         th:attr="hx-get=@{/roles/{roleId}/skills/{skillId}(roleId=${roleId}, skillId=${skillReq.skill().id()})}"
-         hx-target="#skill-modal-content"
-         hx-swap="innerHTML">
-        <h4 th:text="${skillReq.skill().name()}">Skill Name</h4>
-        <span class="level-badge"
-              th:classappend="'level-' + ${#strings.toLowerCase(skillReq.requiredLevel().name())}"
-              th:text="${skillReq.requiredLevel().displayName}">Level</span>
-    </div>
-</body>
-</html>
+<div class="skill-card"
+     hx-get="/roles/{roleId}/skills/{skillReq.skill().id()}"
+     hx-target="#skill-modal-content"
+     hx-swap="innerHTML">
+    <h4>{skillReq.skill().name()}</h4>
+    <span class="level-badge level-{skillReq.requiredLevel().name().toLowerCase()}">{skillReq.requiredLevel().displayName}</span>
+</div>

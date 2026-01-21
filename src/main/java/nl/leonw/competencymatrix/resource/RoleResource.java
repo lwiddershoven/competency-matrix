@@ -18,6 +18,14 @@ public class RoleResource {
     Template role;
 
     @Inject
+    @io.quarkus.qute.Location("fragments/category-section")
+    Template categorySection;
+
+    @Inject
+    @io.quarkus.qute.Location("fragments/skill-modal")
+    Template skillModal;
+
+    @Inject
     CompetencyService competencyService;
 
     @GET
@@ -46,10 +54,7 @@ public class RoleResource {
         Role roleEntity = competencyService.getRoleById(id)
                 .orElseThrow(() -> new NotFoundException("Role not found"));
 
-        // For htmx requests, return fragment template
-        // Note: Fragment template handling needs to be implemented based on Qute fragment support
-        Template fragmentTemplate = role; // This will need to be the fragment template
-        return fragmentTemplate
+        return categorySection
                 .data("skillsByCategory", competencyService.getSkillsByCategoryForRole(id))
                 .data("roleId", id)
                 .data("theme", theme);
@@ -70,10 +75,7 @@ public class RoleResource {
                 .map(req -> req.getProficiencyLevel())
                 .orElse(null);
 
-        // For htmx requests, return fragment template
-        // Note: Fragment template handling needs to be implemented based on Qute fragment support
-        Template fragmentTemplate = role; // This will need to be the fragment template
-        return fragmentTemplate
+        return skillModal
                 .data("skill", skill)
                 .data("requiredLevel", requiredLevel)
                 .data("theme", theme);

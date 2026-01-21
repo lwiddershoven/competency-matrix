@@ -16,6 +16,10 @@ public class CompareResource {
     Template compare;
 
     @Inject
+    @io.quarkus.qute.Location("fragments/comparison-table")
+    Template comparisonTable;
+
+    @Inject
     CompetencyService competencyService;
 
     @GET
@@ -49,10 +53,7 @@ public class CompareResource {
         Role toRole = competencyService.getRoleById(to)
                 .orElseThrow(() -> new NotFoundException("To role not found"));
 
-        // For htmx requests, return fragment template
-        // Note: Fragment template handling needs to be implemented based on Qute fragment support
-        Template fragmentTemplate = compare; // This will need to be the fragment template
-        return fragmentTemplate
+        return comparisonTable
                 .data("comparisons", competencyService.compareRoles(from, to))
                 .data("fromRole", fromRole)
                 .data("toRole", toRole)
