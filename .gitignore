@@ -43,3 +43,7 @@ secrets.yml
 node_modules
 /.kotlin/
 /.config/
+
+# Quarkus
+.quarkus/
+quarkus.log
