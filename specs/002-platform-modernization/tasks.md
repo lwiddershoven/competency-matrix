@@ -331,6 +331,46 @@ If issues discovered:
 
 ---
 
+---
+
+## Phase 8: Health Endpoint Path Standardization
+
+**Purpose**: Remove custom health endpoint path configuration and restore Quarkus defaults, update documentation to reflect standard `/q/health` paths
+
+### Configuration Cleanup
+
+- [ ] T087 Remove custom health path: Delete `quarkus.smallrye-health.root-path=/health` from src/main/resources/application.properties (restores default `/q/health` prefix)
+
+### Documentation Updates
+
+- [ ] T088 [P] Update README.md: Change health endpoint URLs from `http://localhost:9000/health*` to `http://localhost:9000/q/health*` (lines 48-50)
+- [ ] T089 [P] Update MONITORING.md: Change health endpoint URLs from `/health` to `/q/health`, `/health/live` to `/q/health/live`, `/health/ready` to `/q/health/ready` (lines 40-42)
+- [ ] T090 [P] Update specs/002-platform-modernization/quickstart.md:
+  - Remove line 187 (`quarkus.smallrye-health.root-path=/health`)
+  - Update curl commands at lines 450-452 to use `/q/health*` paths
+- [ ] T091 Update specs/002-platform-modernization/tasks.md: Update T064 task description to reference `/q/health` paths instead of `/health` (line 164)
+
+### Validation
+
+- [ ] T092 Run health endpoint tests: `mvn test -Dtest=HealthEndpointTest` - verify all 4 tests pass with `/q/health` prefix
+- [ ] T093 Run observability validation tests: `mvn test -Dtest=ObservabilityValidationTest` - verify all 6 tests pass
+- [ ] T094 Manual validation: Start application with `./mvnw quarkus:dev` and verify:
+  - `curl http://localhost:9000/q/health` returns 200 with health status
+  - `curl http://localhost:9000/q/health/live` returns 200 with liveness status
+  - `curl http://localhost:9000/q/health/ready` returns 200 with readiness status
+  - Old paths (`/health` without `/q`) return 404
+- [ ] T095 Full test suite: `mvn clean verify` - expect BUILD SUCCESS, all tests passing
+
+**Checkpoint**: Health endpoints standardized to Quarkus defaults, documentation consistent, tests passing
+
+**Rationale**:
+- Aligns with Quarkus conventions (FR-011 compliance per spec.md)
+- Eliminates custom configuration (Simplicity First per constitution.md)
+- Tests already use `@TestHTTPResource` with correct paths
+- Consistent with existing research.md and url-mappings.md documentation
+
+---
+
 ## Notes
 
 - **TDD Compliance**: Per project constitution, tests are migrated FIRST (Phase 3) before validation
