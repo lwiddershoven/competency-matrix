@@ -1,6 +1,8 @@
 package nl.leonw.competencymatrix.validation;
 
 import io.quarkus.test.junit.QuarkusTest;
+
+import io.quarkus.test.common.http.TestHTTPResource;
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
@@ -15,14 +17,25 @@ import static org.hamcrest.Matchers.*;
 @QuarkusTest
 class ObservabilityValidationTest {
 
+    @TestHTTPResource(value = "/health", management = true)
+    String healthUrl;
+
+    @TestHTTPResource(value = "/health/live", management = true)
+    String livenessUrl;
+
+    @TestHTTPResource(value = "/health/ready", management = true)
+    String readinessUrl;
+
+    @TestHTTPResource(value = "/metrics", management = true)
+    String metricsUrl;
+
     /**
      * T070: Verify Prometheus metrics endpoint returns valid Prometheus format
      */
     @Test
     void shouldExposePrometheusMetricsEndpoint() {
         String metricsResponse = given()
-            .port(9000)
-            .when().get("/metrics")
+            .when().get(metricsUrl)
             .then()
                 .statusCode(200)
                 .contentType(anyOf(
@@ -50,8 +63,7 @@ class ObservabilityValidationTest {
     @Test
     void shouldProvideDetailedHealthCheckInformation() {
         given()
-            .port(9000)
-            .when().get("/health")
+            .when().get(healthUrl)
             .then()
                 .statusCode(200)
                 .body("status", is("UP"))
@@ -67,8 +79,7 @@ class ObservabilityValidationTest {
     @Test
     void shouldIncludeDatabaseConnectivityInHealthCheck() {
         String healthResponse = given()
-            .port(9000)
-            .when().get("/health")
+            .when().get(healthUrl)
             .then()
                 .statusCode(200)
                 .body("checks.find { it.name == 'Database connections health check' }", notNullValue())
@@ -84,8 +95,7 @@ class ObservabilityValidationTest {
     @Test
     void shouldExposeApplicationSpecificMetrics() {
         String metricsResponse = given()
-            .port(9000)
-            .when().get("/metrics")
+            .when().get(metricsUrl)
             .then()
                 .statusCode(200)
                 .extract().asString();
@@ -106,8 +116,7 @@ class ObservabilityValidationTest {
     @Test
     void shouldProvideReadinessProbe() {
         given()
-            .port(9000)
-            .when().get("/health/ready")
+            .when().get(readinessUrl)
             .then()
                 .statusCode(200)
                 .body("status", is("UP"));
@@ -121,8 +130,7 @@ class ObservabilityValidationTest {
     @Test
     void shouldProvideLivenessProbe() {
         given()
-            .port(9000)
-            .when().get("/health/live")
+            .when().get(livenessUrl)
             .then()
                 .statusCode(200)
                 .body("status", is("UP"));
