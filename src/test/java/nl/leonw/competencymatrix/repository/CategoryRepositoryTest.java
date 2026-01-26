@@ -16,6 +16,9 @@ class CategoryRepositoryTest {
     @Inject
     CategoryRepository categoryRepository;
 
+    @Inject
+    SkillRepository skillRepository;
+
     @Test
     @Transactional
     void testFindByNameIgnoreCase_exactMatch() {
@@ -24,11 +27,11 @@ class CategoryRepositoryTest {
         categoryRepository.save(category);
 
         // When
-        Optional<CompetencyCategory> result = categoryRepository.findByNameIgnoreCase("Programming");
+        Optional<CompetencyCategory> result = categoryRepository.findByNameIgnoreCase("TestCategoryExact");
 
         // Then
         assertTrue(result.isPresent());
-        assertEquals("Programming", result.get().name());
+        assertEquals("TestCategoryExact", result.get().name());
     }
 
     @Test
@@ -99,9 +102,25 @@ class CategoryRepositoryTest {
         categoryRepository.save(category);
 
         // When
-        Optional<CompetencyCategory> result = categoryRepository.findByNameIgnoreCase("NonExistent");
+        Optional<CompetencyCategory> result = categoryRepository.findByNameIgnoreCase("NonExistentCategory");
 
         // Then
         assertFalse(result.isPresent());
+    }
+
+    @Test
+    @Transactional
+    void testDeleteAll() {
+        // Given
+        categoryRepository.save(new CompetencyCategory(null, "DeleteCategoryOne", 1));
+        categoryRepository.save(new CompetencyCategory(null, "DeleteCategoryTwo", 2));
+        skillRepository.deleteAll();
+
+        // When
+        int deleted = categoryRepository.deleteAll();
+
+        // Then
+        assertTrue(deleted >= 2);
+        assertEquals(0, categoryRepository.count());
     }
 }

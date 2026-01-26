@@ -178,6 +178,17 @@ public class RoleRepository {
         }
     }
 
+    public int deleteAll() {
+        String sql = "DELETE FROM rolename";
+        try (Connection conn = dataSource.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            return stmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException("Failed to delete all roles", e);
+        }
+    }
+
     private Role mapRow(ResultSet rs) throws SQLException {
         return new Role(
                 rs.getInt("id"),

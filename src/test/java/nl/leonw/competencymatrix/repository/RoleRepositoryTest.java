@@ -20,73 +20,89 @@ class RoleRepositoryTest {
     @Transactional
     void testFindByNameIgnoreCase_exactMatch() {
         // Given
-        Role role = new Role(null, "Senior Developer", "Experienced developer");
+        Role role = new Role(null, "TestSeniorDeveloperExact", "Experienced developer");
         roleRepository.save(role);
 
         // When
-        Optional<Role> result = roleRepository.findByNameIgnoreCase("Senior Developer");
+        Optional<Role> result = roleRepository.findByNameIgnoreCase("TestSeniorDeveloperExact");
 
         // Then
         assertTrue(result.isPresent());
-        assertEquals("Senior Developer", result.get().name());
+        assertEquals("TestSeniorDeveloperExact", result.get().name());
     }
 
     @Test
     @Transactional
     void testFindByNameIgnoreCase_lowercase() {
         // Given
-        Role role = new Role(null, "Senior Developer", "Experienced developer");
+        Role role = new Role(null, "TestSeniorDeveloperLower", "Experienced developer");
         roleRepository.save(role);
 
         // When
-        Optional<Role> result = roleRepository.findByNameIgnoreCase("senior developer");
+        Optional<Role> result = roleRepository.findByNameIgnoreCase("testseniordeveloperlower");
 
         // Then
         assertTrue(result.isPresent());
-        assertEquals("Senior Developer", result.get().name());
+        assertEquals("TestSeniorDeveloperLower", result.get().name());
     }
 
     @Test
     @Transactional
     void testFindByNameIgnoreCase_uppercase() {
         // Given
-        Role role = new Role(null, "Senior Developer", "Experienced developer");
+        Role role = new Role(null, "TestSeniorDeveloperUpper", "Experienced developer");
         roleRepository.save(role);
 
         // When
-        Optional<Role> result = roleRepository.findByNameIgnoreCase("SENIOR DEVELOPER");
+        Optional<Role> result = roleRepository.findByNameIgnoreCase("TESTSENIORDEVELOPERUPPER");
 
         // Then
         assertTrue(result.isPresent());
-        assertEquals("Senior Developer", result.get().name());
+        assertEquals("TestSeniorDeveloperUpper", result.get().name());
     }
 
     @Test
     @Transactional
     void testFindByNameIgnoreCase_withExtraSpaces() {
         // Given
-        Role role = new Role(null, "Senior Developer", "Experienced developer");
+        Role role = new Role(null, "TestSeniorDeveloperSpaces", "Experienced developer");
         roleRepository.save(role);
 
         // When
-        Optional<Role> result = roleRepository.findByNameIgnoreCase("  Senior Developer  ");
+        Optional<Role> result = roleRepository.findByNameIgnoreCase("  TestSeniorDeveloperSpaces  ");
 
         // Then
         assertTrue(result.isPresent());
-        assertEquals("Senior Developer", result.get().name());
+        assertEquals("TestSeniorDeveloperSpaces", result.get().name());
     }
 
     @Test
     @Transactional
     void testFindByNameIgnoreCase_notFound() {
         // Given
-        Role role = new Role(null, "Senior Developer", "Experienced developer");
+        Role role = new Role(null, "TestSeniorDeveloperMissing", "Experienced developer");
         roleRepository.save(role);
 
         // When
-        Optional<Role> result = roleRepository.findByNameIgnoreCase("Junior Developer");
+        Optional<Role> result = roleRepository.findByNameIgnoreCase("MissingDeveloperRole");
 
         // Then
         assertFalse(result.isPresent());
+    }
+
+    @Test
+    @Transactional
+    void testDeleteAll() {
+        // Given
+        roleRepository.save(new Role(null, "DeleteRoleOne", "Desc"));
+        roleRepository.save(new Role(null, "DeleteRoleTwo", "Desc"));
+
+        // When
+        int deleted = roleRepository.deleteAll();
+
+        // Then
+        assertTrue(deleted >= 2);
+        assertTrue(roleRepository.findByNameIgnoreCase("DeleteRoleOne").isEmpty());
+        assertTrue(roleRepository.findByNameIgnoreCase("DeleteRoleTwo").isEmpty());
     }
 }

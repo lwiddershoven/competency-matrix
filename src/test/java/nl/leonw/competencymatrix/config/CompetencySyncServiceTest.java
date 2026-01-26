@@ -2,11 +2,24 @@ package nl.leonw.competencymatrix.config;
 
 import io.quarkus.test.junit.QuarkusTest;
 import jakarta.inject.Inject;
+import jakarta.transaction.Transactional;
+import nl.leonw.competencymatrix.model.CompetencyCategory;
+import nl.leonw.competencymatrix.model.Role;
+import nl.leonw.competencymatrix.model.RoleProgression;
+import nl.leonw.competencymatrix.model.RoleSkillRequirement;
+import nl.leonw.competencymatrix.model.Skill;
+import nl.leonw.competencymatrix.repository.CategoryRepository;
+import nl.leonw.competencymatrix.repository.RoleProgressionRepository;
+import nl.leonw.competencymatrix.repository.RoleRepository;
+import nl.leonw.competencymatrix.repository.RoleSkillRequirementRepository;
+import nl.leonw.competencymatrix.repository.SkillRepository;
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
+import java.util.List;
+import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -15,6 +28,21 @@ class CompetencySyncServiceTest {
 
     @Inject
     CompetencySyncService syncService;
+
+    @Inject
+    CategoryRepository categoryRepository;
+
+    @Inject
+    SkillRepository skillRepository;
+
+    @Inject
+    RoleRepository roleRepository;
+
+    @Inject
+    RoleSkillRequirementRepository requirementRepository;
+
+    @Inject
+    RoleProgressionRepository progressionRepository;
 
     @Test
     void testParseYaml_validStructure() {
@@ -139,5 +167,95 @@ class CompetencySyncServiceTest {
         // When & Then
         RuntimeException exception = assertThrows(RuntimeException.class, () -> syncService.validateYaml(data));
         assertTrue(exception.getMessage().contains("must have all four levels"));
+    }
+
+    @Test
+    @Transactional
+    void syncMerge_updatesExistingCategory() {
+        CompetencyCategory existing = categoryRepository.save(new CompetencyCategory(null, "MergeCategory", 1));
+
+        YamlCompetencyData data = new YamlCompetencyData(
+                List.of(new YamlCompetencyData.CategoryData("MergeCategory", 5, List.of())),
+                List.of(),
+                List.of()
+        );
+
+        SyncResult result = syncService.syncMerge(data);
+
+        CompetencyCategory updated = categoryRepository.findByNameIgnoreCase("MergeCategory").orElseThrow();
+        assertEquals(existing.id(), updated.id());
+        assertEquals(5, updated.displayOrder());
+        assertEquals(1, result.categoriesUpdated());
+    }
+
+    @Test
+    @Transactional
+    void syncMerge_updatesExistingSkill() {
+        CompetencyCategory category = categoryRepository.save(new CompetencyCategory(null, "SkillCategory", 1));
+        skillRepository.save(new Skill(null, "MergeSkill", category.id(), "Old", "Old", "Old", "Old"));
+
+        YamlCompetencyData.SkillData yamlSkill = new YamlCompetencyData.SkillData(
+                "MergeSkill",
+                "SkillCategory",
+                Map.of("basic", "New", "decent", "New", "good", "New", "excellent", "New")
+        );
+        YamlCompetencyData data = new YamlCompetencyData(
+                List.of(new YamlCompetencyData.CategoryData("SkillCategory", 1, List.of(yamlSkill))),
+                List.of(),
+                List.of()
+        );
+
+        SyncResult result = syncService.syncMerge(data);
+
+        Skill updated = skillRepository.findByNameAndCategoryIdIgnoreCase("MergeSkill", category.id()).orElseThrow();
+        assertEquals("New", updated.goodDescription());
+        assertEquals(1, result.skillsUpdated());
+    }
+
+    @Test
+    @Transactional
+    void syncMerge_updatesExistingRole() {
+        Role existing = roleRepository.save(new Role(null, "MergeRole", "Old description"));
+
+        YamlCompetencyData.RoleData yamlRole = new YamlCompetencyData.RoleData(
+                "MergeRole",
+                "New description",
+                List.of()
+        );
+        YamlCompetencyData data = new YamlCompetencyData(
+                List.of(),
+                List.of(yamlRole),
+                List.of()
+        );
+
+        SyncResult result = syncService.syncMerge(data);
+
+        Role updated = roleRepository.findByNameIgnoreCase("MergeRole").orElseThrow();
+        assertEquals(existing.id(), updated.id());
+        assertEquals("New description", updated.description());
+        assertEquals(1, result.rolesUpdated());
+    }
+
+    @Test
+    @Transactional
+    void syncReplace_deletesEntitiesInDependencyOrder() {
+        CompetencyCategory category = categoryRepository.save(new CompetencyCategory(null, "ReplaceCategory", 1));
+        Skill skill = skillRepository.save(new Skill(null, "ReplaceSkill", category.id(), "B", "D", "G", "E"));
+        Role role = roleRepository.save(new Role(null, "ReplaceRole", "Desc"));
+        requirementRepository.save(new RoleSkillRequirement(null, role.id(), skill.id(), "GOOD"));
+        Role toRole = roleRepository.save(new Role(null, "ReplaceRoleNext", "Desc"));
+        progressionRepository.save(new RoleProgression(null, role.id(), toRole.id()));
+
+        SyncResult result = syncService.syncReplace(new YamlCompetencyData(List.of(), List.of(), List.of()));
+
+        assertTrue(result.progressionsDeleted() >= 1);
+        assertTrue(result.requirementsDeleted() >= 1);
+        assertTrue(result.skillsDeleted() >= 1);
+        assertTrue(result.categoriesDeleted() >= 1);
+        assertTrue(result.rolesDeleted() >= 1);
+        assertTrue(categoryRepository.findByNameIgnoreCase("ReplaceCategory").isEmpty());
+        assertTrue(skillRepository.findByNameAndCategoryIdIgnoreCase("ReplaceSkill", category.id()).isEmpty());
+        assertTrue(roleRepository.findByNameIgnoreCase("ReplaceRole").isEmpty());
+        assertTrue(roleRepository.findByNameIgnoreCase("ReplaceRoleNext").isEmpty());
     }
 }

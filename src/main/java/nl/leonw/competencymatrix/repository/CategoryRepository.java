@@ -147,6 +147,17 @@ public class CategoryRepository {
         }
     }
 
+    public int deleteAll() {
+        String sql = "DELETE FROM competency_category";
+        try (Connection conn = dataSource.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            return stmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException("Failed to delete all categories", e);
+        }
+    }
+
     private CompetencyCategory mapRow(ResultSet rs) throws SQLException {
         return new CompetencyCategory(
                 rs.getInt("id"),

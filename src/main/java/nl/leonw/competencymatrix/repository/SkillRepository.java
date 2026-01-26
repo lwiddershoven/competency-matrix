@@ -170,6 +170,17 @@ public class SkillRepository {
         }
     }
 
+    public int deleteAll() {
+        String sql = "DELETE FROM skill";
+        try (Connection conn = dataSource.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            return stmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException("Failed to delete all skills", e);
+        }
+    }
+
     private Skill mapRow(ResultSet rs) throws SQLException {
         return new Skill(
                 rs.getInt("id"),
