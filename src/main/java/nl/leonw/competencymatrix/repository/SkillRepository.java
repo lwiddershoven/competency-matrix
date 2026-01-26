@@ -72,6 +72,24 @@ public class SkillRepository {
         }
     }
 
+    public Optional<Skill> findByNameAndCategoryIdIgnoreCase(String name, Integer categoryId) {
+        String sql = "SELECT id, name, category_id, basic_description, decent_description, good_description, excellent_description FROM skill WHERE LOWER(TRIM(name)) = LOWER(TRIM(?)) AND category_id = ?";
+        try (Connection conn = dataSource.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setString(1, name);
+            stmt.setInt(2, categoryId);
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    return Optional.of(mapRow(rs));
+                }
+                return Optional.empty();
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException("Failed to fetch skill by name (ignore case) and category: " + name + ", " + categoryId, e);
+        }
+    }
+
     public List<Skill> findByRoleId(Integer roleId) {
         String sql = """
                 SELECT s.id, s.name, s.category_id, s.basic_description, s.decent_description, s.good_description, s.excellent_description
@@ -149,6 +167,32 @@ public class SkillRepository {
             return skill;
         } catch (SQLException e) {
             throw new RuntimeException("Failed to update skill: " + skill.id(), e);
+        }
+    }
+
+    public int deleteAll() {
+        String sql = "DELETE FROM skill";
+        try (Connection conn = dataSource.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            return stmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException("Failed to delete all skills", e);
+        }
+    }
+
+    public long count() {
+        String sql = "SELECT COUNT(*) FROM skill";
+        try (Connection conn = dataSource.getConnection();
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            ResultSet rs = stmt.executeQuery()) {
+
+            if (rs.next()) {
+                return rs.getLong(1);
+            }
+            return 0;
+        } catch (SQLException e) {
+            throw new RuntimeException("Failed to count categories", e);
         }
     }
 

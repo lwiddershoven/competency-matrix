@@ -1,0 +1,105 @@
+package nl.leonw.competencymatrix.config;
+
+import io.quarkus.test.junit.QuarkusTest;
+import jakarta.inject.Inject;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+@QuarkusTest
+class SyncConfigurationTest {
+
+    @Inject
+    CompetencySyncService syncService;
+
+    @Test
+    void resolveSyncMode_returnsMergeForMergeValue() {
+        SyncMode result = syncService.resolveSyncMode("merge");
+
+        assertEquals(SyncMode.MERGE, result);
+    }
+
+    @Test
+    void resolveSyncMode_returnsReplaceForReplaceValue() {
+        SyncMode result = syncService.resolveSyncMode("replace");
+
+        assertEquals(SyncMode.REPLACE, result);
+    }
+
+    @Test
+    void resolveSyncMode_isCaseInsensitive() {
+        SyncMode result = syncService.resolveSyncMode("MERGE");
+
+        assertEquals(SyncMode.MERGE, result);
+    }
+
+    @Test
+    void resolveSyncMode_trimsWhitespace() {
+        SyncMode result = syncService.resolveSyncMode("  merge  ");
+
+        assertEquals(SyncMode.MERGE, result);
+    }
+
+    @Test
+    void resolveSyncMode_defaultsToNoneWhenValueMissing() {
+        SyncMode result = syncService.resolveSyncMode(null);
+
+        assertEquals(SyncMode.NONE, result);
+    }
+
+    @Test
+    void resolveSyncMode_defaultsToNoneWhenValueBlank() {
+        SyncMode result = syncService.resolveSyncMode("   ");
+
+        assertEquals(SyncMode.NONE, result);
+    }
+
+    @Test
+    void resolveSyncMode_throwsForInvalidValue() {
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class,
+                () -> syncService.resolveSyncMode("invalid"));
+
+        assertTrue(exception.getMessage().contains("merge"));
+        assertTrue(exception.getMessage().contains("replace"));
+        assertTrue(exception.getMessage().contains("none"));
+    }
+
+    @Test
+    void resolveSyncMode_acceptsAllValidModes() {
+        assertEquals(SyncMode.MERGE, syncService.resolveSyncMode("merge"));
+        assertEquals(SyncMode.REPLACE, syncService.resolveSyncMode("replace"));
+        assertEquals(SyncMode.NONE, syncService.resolveSyncMode("none"));
+    }
+
+    @Test
+    void resolveSyncMode_rejectInvalidModeWithHelpfulMessage() {
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class,
+                () -> syncService.resolveSyncMode("invalid"));
+
+        String message = exception.getMessage();
+        assertTrue(message.contains("merge"), "Should mention merge option");
+        assertTrue(message.contains("replace"), "Should mention replace option");
+        assertTrue(message.contains("none"), "Should mention none option");
+    }
+
+    @Test
+    void resolveSyncMode_returnsNoneForNoneValue() {
+        SyncMode result = syncService.resolveSyncMode("none");
+
+        assertEquals(SyncMode.NONE, result);
+    }
+
+    @Test
+    void resolveSyncMode_noneModeIsCaseInsensitive() {
+        SyncMode result = syncService.resolveSyncMode("NONE");
+
+        assertEquals(SyncMode.NONE, result);
+    }
+
+    @Test
+    void resolveSyncMode_noneModeTrimsWhitespace() {
+        SyncMode result = syncService.resolveSyncMode("  none  ");
+
+        assertEquals(SyncMode.NONE, result);
+    }
+}

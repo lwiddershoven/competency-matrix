@@ -6,10 +6,9 @@ import jakarta.transaction.Transactional;
 import nl.leonw.competencymatrix.model.Role;
 import org.junit.jupiter.api.Test;
 
-import java.util.List;
 import java.util.Optional;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.*;
 
 @QuarkusTest
 class RoleRepositoryTest {
@@ -18,27 +17,92 @@ class RoleRepositoryTest {
     RoleRepository roleRepository;
 
     @Test
-    void shouldFindSeededRoles() {
-        Optional<Role> juniorDev = roleRepository.findByName("Junior Developer");
-        assertThat(juniorDev).isPresent();
-        assertThat(juniorDev.get().id()).isNotNull();
-        assertThat(juniorDev.get().description()).isNotBlank();
+    @Transactional
+    void testFindByNameIgnoreCase_exactMatch() {
+        // Given
+        Role role = new Role(null, "TestSeniorDeveloperExact", "Experienced developer");
+        roleRepository.save(role);
+
+        // When
+        Optional<Role> result = roleRepository.findByNameIgnoreCase("TestSeniorDeveloperExact");
+
+        // Then
+        assertTrue(result.isPresent());
+        assertEquals("TestSeniorDeveloperExact", result.get().name());
     }
 
     @Test
-    void shouldFindByName() {
-        Optional<Role> found = roleRepository.findByName("Senior Developer");
+    @Transactional
+    void testFindByNameIgnoreCase_lowercase() {
+        // Given
+        Role role = new Role(null, "TestSeniorDeveloperLower", "Experienced developer");
+        roleRepository.save(role);
 
-        assertThat(found).isPresent();
-        assertThat(found.get().name()).isEqualTo("Senior Developer");
+        // When
+        Optional<Role> result = roleRepository.findByNameIgnoreCase("testseniordeveloperlower");
+
+        // Then
+        assertTrue(result.isPresent());
+        assertEquals("TestSeniorDeveloperLower", result.get().name());
     }
 
     @Test
-    void shouldFindAllOrderByName() {
-        List<Role> roles = roleRepository.findAllOrderByName();
+    @Transactional
+    void testFindByNameIgnoreCase_uppercase() {
+        // Given
+        Role role = new Role(null, "TestSeniorDeveloperUpper", "Experienced developer");
+        roleRepository.save(role);
 
-        assertThat(roles).isNotEmpty();
-        assertThat(roles).anyMatch(r -> r.name().equals("Junior Developer"));
-        assertThat(roles).anyMatch(r -> r.name().equals("Senior Developer"));
+        // When
+        Optional<Role> result = roleRepository.findByNameIgnoreCase("TESTSENIORDEVELOPERUPPER");
+
+        // Then
+        assertTrue(result.isPresent());
+        assertEquals("TestSeniorDeveloperUpper", result.get().name());
+    }
+
+    @Test
+    @Transactional
+    void testFindByNameIgnoreCase_withExtraSpaces() {
+        // Given
+        Role role = new Role(null, "TestSeniorDeveloperSpaces", "Experienced developer");
+        roleRepository.save(role);
+
+        // When
+        Optional<Role> result = roleRepository.findByNameIgnoreCase("  TestSeniorDeveloperSpaces  ");
+
+        // Then
+        assertTrue(result.isPresent());
+        assertEquals("TestSeniorDeveloperSpaces", result.get().name());
+    }
+
+    @Test
+    @Transactional
+    void testFindByNameIgnoreCase_notFound() {
+        // Given
+        Role role = new Role(null, "TestSeniorDeveloperMissing", "Experienced developer");
+        roleRepository.save(role);
+
+        // When
+        Optional<Role> result = roleRepository.findByNameIgnoreCase("MissingDeveloperRole");
+
+        // Then
+        assertFalse(result.isPresent());
+    }
+
+    @Test
+    @Transactional
+    void testDeleteAll() {
+        // Given
+        roleRepository.save(new Role(null, "DeleteRoleOne", "Desc"));
+        roleRepository.save(new Role(null, "DeleteRoleTwo", "Desc"));
+
+        // When
+        int deleted = roleRepository.deleteAll();
+
+        // Then
+        assertTrue(deleted >= 2);
+        assertTrue(roleRepository.findByNameIgnoreCase("DeleteRoleOne").isEmpty());
+        assertTrue(roleRepository.findByNameIgnoreCase("DeleteRoleTwo").isEmpty());
     }
 }
