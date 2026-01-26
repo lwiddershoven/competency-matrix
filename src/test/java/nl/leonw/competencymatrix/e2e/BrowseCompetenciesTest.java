@@ -10,6 +10,7 @@ import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertTha
 @QuarkusTest
 class BrowseCompetenciesTest {
 
+    public static final int TIMEOUT = 500;
     @io.quarkus.test.common.http.TestHTTPResource("/")
     String url;
 
@@ -34,6 +35,8 @@ class BrowseCompetenciesTest {
     void createContextAndPage() {
         context = browser.newContext();
         page = context.newPage();
+        page.navigate(baseUrl());
+        page.setDefaultTimeout(100); // Locator timeouts
     }
 
     @AfterEach
@@ -47,8 +50,6 @@ class BrowseCompetenciesTest {
 
     @Test
     void shouldDisplayHomePageWithRoles() {
-        page.navigate(baseUrl());
-
         assertThat(page.locator("h1")).containsText("Career Competency Matrix");
         assertThat(page.locator(".roles-grid")).isVisible();
         assertThat(page.locator(".role-card").first()).isVisible();
@@ -56,8 +57,6 @@ class BrowseCompetenciesTest {
 
     @Test
     void shouldNavigateToRoleDetailPage() {
-        page.navigate(baseUrl());
-
         // Click on Junior Developer role
         page.locator(".role-card:has-text('Junior Developer')").click();
 
@@ -68,11 +67,10 @@ class BrowseCompetenciesTest {
 
     @Test
     void shouldDisplayCompetenciesForRole() {
-        page.navigate(baseUrl());
         page.locator(".role-card:has-text('Junior Developer')").click();
 
         // Wait for categories to load via htmx
-        page.waitForSelector(".category-section", new Page.WaitForSelectorOptions().setTimeout(5000));
+        page.waitForSelector(".category-section", new Page.WaitForSelectorOptions().setTimeout(TIMEOUT));
 
         // Verify competencies are displayed
         assertThat(page.locator(".category-section").first()).isVisible();
@@ -81,17 +79,16 @@ class BrowseCompetenciesTest {
 
     @Test
     void shouldOpenSkillModalOnClick() {
-        page.navigate(baseUrl());
         page.locator(".role-card:has-text('Junior Developer')").click();
 
         // Wait for categories to load
-        page.waitForSelector(".skill-card", new Page.WaitForSelectorOptions().setTimeout(5000));
+        page.waitForSelector(".skill-card", new Page.WaitForSelectorOptions().setTimeout(TIMEOUT));
 
         // Click on a skill card
         page.locator(".skill-card").first().click();
 
         // Wait for modal to open
-        page.waitForSelector("dialog[open]", new Page.WaitForSelectorOptions().setTimeout(5000));
+        page.waitForSelector("dialog[open]", new Page.WaitForSelectorOptions().setTimeout(TIMEOUT));
 
         // Verify modal is open and has content
         assertThat(page.locator("dialog")).isVisible();
@@ -100,8 +97,6 @@ class BrowseCompetenciesTest {
 
     @Test
     void shouldNavigateToComparePageAndShowComparison() {
-        page.navigate(baseUrl());
-
         // Select roles in compare form
         page.selectOption("#from-role", new SelectOption().setLabel("Junior Developer"));
         page.selectOption("#to-role", new SelectOption().setLabel("Senior Developer"));
@@ -111,7 +106,7 @@ class BrowseCompetenciesTest {
         assertThat(page.locator("h1")).containsText("Compare Roles");
 
         // Wait for comparison table to load
-        page.waitForSelector(".comparison-table", new Page.WaitForSelectorOptions().setTimeout(5000));
+        page.waitForSelector(".comparison-table", new Page.WaitForSelectorOptions().setTimeout(TIMEOUT));
 
         // Verify comparison is displayed
         assertThat(page.locator(".comparison-table")).isVisible();
@@ -119,7 +114,6 @@ class BrowseCompetenciesTest {
 
     @Test
     void shouldToggleTheme() {
-        page.navigate(baseUrl());
 
         // Initial theme should be light
         assertThat(page.locator("html[data-theme='light']")).isVisible();
@@ -134,7 +128,6 @@ class BrowseCompetenciesTest {
 
     @Test
     void shouldShowCareerProgressionLinks() {
-        page.navigate(baseUrl());
         page.locator(".role-card:has-text('Junior Developer')").click();
 
         // Verify progression links are shown
@@ -146,15 +139,14 @@ class BrowseCompetenciesTest {
     void shouldNavigateWithin3Clicks() {
         // User Story: Browse competencies within 3 clicks
         // Click 1: From home, click on a role
-        page.navigate(baseUrl());
         page.locator(".role-card:has-text('Senior Developer')").click();
 
         // Click 2: Click on a skill to see details
-        page.waitForSelector(".skill-card", new Page.WaitForSelectorOptions().setTimeout(5000));
+        page.waitForSelector(".skill-card", new Page.WaitForSelectorOptions().setTimeout(TIMEOUT));
         page.locator(".skill-card").first().click();
 
         // Verify we can see skill details in modal (within 2 clicks)
-        page.waitForSelector("dialog[open]", new Page.WaitForSelectorOptions().setTimeout(5000));
+        page.waitForSelector("dialog[open]", new Page.WaitForSelectorOptions().setTimeout(TIMEOUT));
         assertThat(page.locator("dialog .level-descriptions")).isVisible();
     }
 }
