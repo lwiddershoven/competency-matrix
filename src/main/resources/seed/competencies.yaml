@@ -82,7 +82,6 @@ categories:
           decent: "Provides constructive feedback"
           good: "Reviews architectural decisions, mentors juniors"
           excellent: "Defines review standards, coaches reviewers"
-
   - name: "Soft Skills"
     skills:
       - name: "Communication"
@@ -103,6 +102,51 @@ categories:
           decent: "Breaks down complex problems into manageable parts"
           good: "Identifies root causes, proposes systemic solutions"
           excellent: "Solves ambiguous problems, innovates solutions"
+      - name: "Presentation"
+        levels:
+          basic: "Presents work clearly in small meetings"
+          decent: "Explains technical topics with supporting visuals"
+          good: "Delivers structured presentations to wider groups"
+          excellent: "Shapes narratives and influences large audiences"
+      - name: "Stakeholder Management"
+        levels:
+          basic: "Identifies key stakeholders and expectations"
+          decent: "Maintains clear communication with stakeholders"
+          good: "Aligns stakeholders on priorities and trade-offs"
+          excellent: "Builds long-term trust across the organization"
+
+  - name: "Architecture Frameworks"
+    skills:
+      - name: "TOGAF"
+        levels:
+          basic: "Understands TOGAF terminology and basic concepts"
+          decent: "Applies TOGAF practices to project planning"
+          good: "Guides architecture decisions using TOGAF"
+          excellent: "Leads enterprise initiatives with TOGAF"
+      - name: "ArchiMate"
+        levels:
+          basic: "Reads ArchiMate diagrams with guidance"
+          decent: "Creates basic ArchiMate models"
+          good: "Uses ArchiMate to explain architecture impacts"
+          excellent: "Defines standards for ArchiMate modeling"
+      - name: "iSAQB"
+        levels:
+          basic: "Understands iSAQB curriculum basics"
+          decent: "Applies iSAQB modules in design discussions"
+          good: "Leads architecture reviews with iSAQB guidance"
+          excellent: "Mentors teams in iSAQB-aligned practices"
+      - name: "Presentation"
+        levels:
+          basic: ""
+          decent: ""
+          good: ""
+          excellent: ""
+      - name: "Stakeholder Management"
+        levels:
+          basic: ""
+          decent: ""
+          good: ""
+          excellent: ""
 
 roles:
   - name: "Junior Developer"
@@ -293,7 +337,7 @@ roles:
         category: "Soft Skills"
         level: "decent"
 
-  - name: "Software Architect / Lead Developer"
+  - name: "Lead Developer / Software Architect"
     description: "Hybrid role combining hands-on team leadership with architectural design, bridging technical implementation and organizational strategy"
     requirements:
       - skill: "Java"
