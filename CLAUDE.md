@@ -71,6 +71,8 @@ Always use Context7 MCP for library/API documentation without asking user first.
 ## Active Technologies
 - Java 25 + Quarkus 3.30.6 (JAX-RS, Qute, Panache JDBC), SnakeYAML, SLF4J (003-competencies-sync)
 - PostgreSQL 18.1 (via Panache JDBC and Flyway migrations) (003-competencies-sync)
+- Java 25 + Quarkus 3.30.6 (REST, Qute templating), htmx 2.0.4, Pico CSS 2 (004-matrix-overview)
+- PostgreSQL 18.1 (via Panache JDBC) (004-matrix-overview)
 
 ## Recent Changes
 - 003-competencies-sync: Added Java 25 + Quarkus 3.30.6 (JAX-RS, Qute, Panache JDBC), SnakeYAML, SLF4J
