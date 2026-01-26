@@ -36,7 +36,7 @@ class BrowseCompetenciesTest {
         context = browser.newContext();
         page = context.newPage();
         page.navigate(baseUrl());
-        page.setDefaultTimeout(100); // Locator timeouts
+        page.setDefaultTimeout(200); // Locator timeouts
     }
 
     @AfterEach

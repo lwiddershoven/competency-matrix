@@ -81,4 +81,25 @@ class SyncConfigurationTest {
         assertTrue(message.contains("replace"), "Should mention replace option");
         assertTrue(message.contains("none"), "Should mention none option");
     }
+
+    @Test
+    void resolveSyncMode_returnsNoneForNoneValue() {
+        SyncMode result = syncService.resolveSyncMode("none");
+
+        assertEquals(SyncMode.NONE, result);
+    }
+
+    @Test
+    void resolveSyncMode_noneModeIsCaseInsensitive() {
+        SyncMode result = syncService.resolveSyncMode("NONE");
+
+        assertEquals(SyncMode.NONE, result);
+    }
+
+    @Test
+    void resolveSyncMode_noneModeTrimsWhitespace() {
+        SyncMode result = syncService.resolveSyncMode("  none  ");
+
+        assertEquals(SyncMode.NONE, result);
+    }
 }
