@@ -21,14 +21,14 @@ This starts PostgreSQL 18.1 on port 5432 with the database `competencymatrix`.
 ### 2. Run the Application
 
 ```bash
-./mvnw spring-boot:run
+./mvnw quarkus:dev
 ```
 
 Or build and run the JAR:
 
 ```bash
 ./mvnw clean package -DskipTests
-java -jar target/competency-matrix-0.0.1-SNAPSHOT.jar
+java -jar target/quarkus-app/quarkus-run.jar
 ```
 
 ### With colima on a Mac
@@ -45,8 +45,10 @@ ln -s ~/.colima/default/docker.sock ~/.docker/run/docker.sock
 ### 3. Access the Application
 
 - **Web Application**: http://localhost:8080
-- **Health Check**: http://localhost:9000/actuator/health
-- **Prometheus Metrics**: http://localhost:9000/actuator/prometheus
+- **Health Check**: http://localhost:9000/health
+- **Liveness Probe**: http://localhost:9000/health/live
+- **Readiness Probe**: http://localhost:9000/health/ready
+- **Prometheus Metrics**: http://localhost:9000/metrics
 
 ## Running Tests
 
@@ -67,7 +69,7 @@ The E2E tests require Playwright browsers to be installed:
 ./mvnw exec:java -e -D exec.mainClass=com.microsoft.playwright.CLI -D exec.args="install chromium"
 
 # Run E2E tests
-./mvnw test -Dtest=*E2E*
+./mvnw test -Dtest='BrowseCompetenciesTest'
 ```
 
 ## Docker Build
@@ -93,10 +95,11 @@ docker-compose -f docker-compose.yaml up
 
 ## Technology Stack
 
-- **Backend**: Java 25, Spring Boot 4, Spring Data JDBC
-- **Frontend**: Thymeleaf, htmx, Pico CSS
-- **Database**: PostgreSQL 18.1, Liquibase
-- **Testing**: JUnit Jupiter, Testcontainers, Playwright
+- **Backend**: Java 25, Quarkus 3.30.6, JAX-RS, Panache JDBC
+- **Frontend**: Qute Templates, htmx, Pico CSS
+- **Database**: PostgreSQL 18.1, Flyway
+- **Testing**: JUnit 5, Quarkus Test, Testcontainers, REST Assured, Playwright
+- **Observability**: Micrometer, SmallRye Health, Prometheus metrics
 
 ### PostgreSQL 18+ Data Directory
 
@@ -115,33 +118,34 @@ The `docker-compose.yaml` in this project uses the new PostgreSQL 18+ location. 
 src/
 ├── main/
 │   ├── java/nl/leonw/competencymatrix/
-│   │   ├── CompetencyMatrixApplication.java
 │   │   ├── config/          # DataSeeder
-│   │   ├── controller/      # HomeController, RoleController, CompareController
+│   │   ├── resource/        # JAX-RS Resources (HomeResource, RoleResource, CompareResource)
 │   │   ├── model/           # Role, Skill, Category, etc.
-│   │   ├── repository/      # Spring Data JDBC repositories
+│   │   ├── repository/      # Repositories with Panache patterns
 │   │   └── service/         # CompetencyService
 │   └── resources/
-│       ├── application.yaml
-│       ├── db/changelog/    # Liquibase migrations
+│       ├── application.properties
+│       ├── db/migration/    # Flyway migrations
 │       ├── seed/            # Initial data (competencies.yaml)
-│       ├── templates/       # Thymeleaf templates
+│       ├── templates/       # Qute templates
 │       └── static/css/      # Custom CSS
 └── test/
     ├── java/nl/leonw/competencymatrix/
-    │   ├── controller/      # Controller tests
+    │   ├── resource/        # REST Assured resource tests
     │   ├── repository/      # Repository tests
     │   ├── service/         # Service tests
+    │   ├── validation/      # Migration validation tests
     │   └── e2e/             # Playwright E2E tests
     └── resources/
 ```
 
 ## Configuration
 
-Key configuration options in `application.yaml`:
+Key configuration options in `application.properties`:
 
 | Property | Default | Description |
 |----------|---------|-------------|
-| `server.port` | 8080 | Main application port |
-| `management.server.port` | 9000 | Actuator/metrics port |
-| `spring.datasource.url` | jdbc:postgresql://localhost:5432/competencymatrix | Database URL |
+| `quarkus.http.port` | 8080 | Main application port |
+| `quarkus.management.port` | 9000 | Management/metrics port |
+| `quarkus.datasource.jdbc.url` | jdbc:postgresql://localhost:5432/competencymatrix | Database URL |
+| `quarkus.flyway.migrate-at-start` | true | Run migrations on startup |

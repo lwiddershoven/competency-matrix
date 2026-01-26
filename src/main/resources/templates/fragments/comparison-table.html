@@ -1,64 +1,62 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<body>
-    <div th:fragment="comparison(comparisons, fromRole, toRole)">
-        <table class="comparison-table">
-            <thead>
-                <tr>
-                    <th>Skill</th>
-                    <th th:text="${fromRole.name}">From Role</th>
-                    <th th:text="${toRole.name}">To Role</th>
-                    <th>Change</th>
-                </tr>
-            </thead>
-            <tbody>
-                <th:block th:each="comparison : ${comparisons}">
-                    <tr th:classappend="${comparison.hasChanged()} ? 'comparison-changed' : ''">
-                        <td class="skill-name">
-                            <small th:text="${comparison.category.name}" style="color: var(--pico-muted-color);">Category</small><br>
-                            <span th:text="${comparison.skill.name}"
-                                  th:attr="hx-get=@{/roles/{roleId}/skills/{skillId}(roleId=${toRole.id}, skillId=${comparison.skill.id})}"
-                                  hx-target="#skill-modal-content"
-                                  hx-swap="innerHTML"
-                                  style="cursor: pointer; text-decoration: underline;">Skill Name</span>
-                        </td>
-                        <td>
-                            <span th:if="${comparison.fromLevel != null}"
-                                  class="level-badge"
-                                  th:classappend="'level-' + ${#strings.toLowerCase(comparison.fromLevel.name())}"
-                                  th:text="${comparison.fromLevel.displayName}"
-                                  th:attr="hx-get=@{/roles/{roleId}/skills/{skillId}(roleId=${fromRole.id}, skillId=${comparison.skill.id})}"
-                                  hx-target="#skill-modal-content"
-                                  hx-swap="innerHTML"
-                                  style="cursor: pointer;">Level</span>
-                            <span th:unless="${comparison.fromLevel != null}">-</span>
-                        </td>
-                        <td>
-                            <span th:if="${comparison.toLevel != null}"
-                                  class="level-badge"
-                                  th:classappend="'level-' + ${#strings.toLowerCase(comparison.toLevel.name())}"
-                                  th:text="${comparison.toLevel.displayName}"
-                                  th:attr="hx-get=@{/roles/{roleId}/skills/{skillId}(roleId=${toRole.id}, skillId=${comparison.skill.id})}"
-                                  hx-target="#skill-modal-content"
-                                  hx-swap="innerHTML"
-                                  style="cursor: pointer;">Level</span>
-                            <span th:unless="${comparison.toLevel != null}">-</span>
-                        </td>
-                        <td>
-                            <span th:if="${comparison.isNew()}" class="comparison-new">New</span>
-                            <span th:if="${comparison.isUpgrade() && !comparison.isNew()}" class="comparison-upgrade">Upgrade</span>
-                            <span th:if="${comparison.isDowngrade() && !comparison.isRemoved()}" class="comparison-downgrade">Downgrade</span>
-                            <span th:if="${comparison.isRemoved()}" style="color: var(--pico-muted-color);">Removed</span>
-                            <span th:unless="${comparison.hasChanged()}">-</span>
-                        </td>
-                    </tr>
-                </th:block>
-            </tbody>
-        </table>
+<table class="comparison-table">
+    <thead>
+        <tr>
+            <th>Skill</th>
+            <th>{fromRole.name}</th>
+            <th>{toRole.name}</th>
+            <th>Change</th>
+        </tr>
+    </thead>
+    <tbody>
+        {#for comparison in comparisons}
+        <tr class="{#if comparison.hasChanged()}comparison-changed{/if}">
+            <td class="skill-name">
+                <small style="color: var(--pico-muted-color);">{comparison.category.name}</small><br>
+                <span hx-get="/roles/{toRole.id}/skills/{comparison.skill.id}"
+                      hx-target="#skill-modal-content"
+                      hx-swap="innerHTML"
+                      style="cursor: pointer; text-decoration: underline;">{comparison.skill.name}</span>
+            </td>
+            <td>
+                {#if comparison.fromLevel != null}
+                <span class="level-badge level-{comparison.fromLevel.name().toLowerCase()}"
+                      hx-get="/roles/{fromRole.id}/skills/{comparison.skill.id}"
+                      hx-target="#skill-modal-content"
+                      hx-swap="innerHTML"
+                      style="cursor: pointer;">{comparison.fromLevel.displayName}</span>
+                {#else}
+                <span>-</span>
+                {/if}
+            </td>
+            <td>
+                {#if comparison.toLevel != null}
+                <span class="level-badge level-{comparison.toLevel.name().toLowerCase()}"
+                      hx-get="/roles/{toRole.id}/skills/{comparison.skill.id}"
+                      hx-target="#skill-modal-content"
+                      hx-swap="innerHTML"
+                      style="cursor: pointer;">{comparison.toLevel.displayName}</span>
+                {#else}
+                <span>-</span>
+                {/if}
+            </td>
+            <td>
+                {#if comparison.isNew()}
+                <span class="comparison-new">New</span>
+                {#else if comparison.isUpgrade()}
+                <span class="comparison-upgrade">Upgrade</span>
+                {#else if comparison.isDowngrade() && !comparison.isRemoved()}
+                <span class="comparison-downgrade">Downgrade</span>
+                {#else if comparison.isRemoved()}
+                <span style="color: var(--pico-muted-color);">Removed</span>
+                {#else}
+                <span>-</span>
+                {/if}
+            </td>
+        </tr>
+        {/for}
+    </tbody>
+</table>
 
-        <p th:if="${#lists.isEmpty(comparisons)}">
-            No skills to compare between these roles.
-        </p>
-    </div>
-</body>
-</html>
+{#if comparisons.isEmpty()}
+<p>No skills to compare between these roles.</p>
+{/if}

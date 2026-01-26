@@ -1,26 +1,14 @@
 package nl.leonw.competencymatrix.config;
 
+import io.quarkus.runtime.StartupEvent;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.enterprise.event.Observes;
+import jakarta.inject.Inject;
+import jakarta.transaction.Transactional;
 import nl.leonw.competencymatrix.model.*;
 import nl.leonw.competencymatrix.repository.*;
-import nl.leonw.competencymatrix.model.CompetencyCategory;
-import nl.leonw.competencymatrix.model.Role;
-import nl.leonw.competencymatrix.model.RoleProgression;
-import nl.leonw.competencymatrix.model.RoleSkillRequirement;
-import nl.leonw.competencymatrix.model.Skill;
-import nl.leonw.competencymatrix.repository.CategoryRepository;
-import nl.leonw.competencymatrix.repository.RoleProgressionRepository;
-import nl.leonw.competencymatrix.repository.RoleRepository;
-import nl.leonw.competencymatrix.repository.RoleSkillRequirementRepository;
-import nl.leonw.competencymatrix.repository.SkillRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.boot.ApplicationArguments;
-import org.springframework.boot.ApplicationRunner;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
-import org.springframework.boot.sql.init.dependency.DependsOnDatabaseInitialization;
-import org.springframework.core.io.ClassPathResource;
-import org.springframework.stereotype.Component;
-import org.springframework.transaction.annotation.Transactional;
 import org.yaml.snakeyaml.Yaml;
 
 import java.io.InputStream;
@@ -28,55 +16,51 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@Component
-@DependsOnDatabaseInitialization
-@ConditionalOnProperty(
-    prefix = "app.data",
-    name = "seed",
-    havingValue = "true",
-    matchIfMissing = true
-)
-public class DataSeeder implements ApplicationRunner {
+@ApplicationScoped
+public class DataSeeder {
 
     private static final Logger log = LoggerFactory.getLogger(DataSeeder.class);
 
-    private final CategoryRepository categoryRepository;
-    private final RoleRepository roleRepository;
-    private final SkillRepository skillRepository;
-    private final RoleSkillRequirementRepository requirementRepository;
-    private final RoleProgressionRepository progressionRepository;
+    @Inject
+    CategoryRepository categoryRepository;
 
-    public DataSeeder(CategoryRepository categoryRepository,
-                      RoleRepository roleRepository,
-                      SkillRepository skillRepository,
-                      RoleSkillRequirementRepository requirementRepository,
-                      RoleProgressionRepository progressionRepository) {
-        this.categoryRepository = categoryRepository;
-        this.roleRepository = roleRepository;
-        this.skillRepository = skillRepository;
-        this.requirementRepository = requirementRepository;
-        this.progressionRepository = progressionRepository;
-    }
+    @Inject
+    RoleRepository roleRepository;
 
-    @Override
+    @Inject
+    SkillRepository skillRepository;
+
+    @Inject
+    RoleSkillRequirementRepository requirementRepository;
+
+    @Inject
+    RoleProgressionRepository progressionRepository;
+
     @Transactional
-    public void run(ApplicationArguments args) throws Exception {
-        if (categoryRepository.count() > 0) {
-            log.info("Database already seeded, skipping");
-            return;
-        }
+    void onStart(@Observes StartupEvent event) {
+        try {
+            if (categoryRepository.count() > 0) {
+                log.info("Database already seeded, skipping");
+                return;
+            }
 
-        log.info("Seeding database from competencies.yaml");
-        seedFromYaml();
-        log.info("Database seeding complete");
+            log.info("Seeding database from competencies.yaml");
+            seedFromYaml();
+            log.info("Database seeding complete");
+        } catch (Exception e) {
+            log.error("Failed to seed database", e);
+            throw new RuntimeException("Database seeding failed", e);
+        }
     }
 
     @SuppressWarnings("unchecked")
     private void seedFromYaml() throws Exception {
         Yaml yaml = new Yaml();
-        ClassPathResource resource = new ClassPathResource("seed/competencies.yaml");
 
-        try (InputStream inputStream = resource.getInputStream()) {
+        try (InputStream inputStream = getClass().getClassLoader().getResourceAsStream("seed/competencies.yaml")) {
+            if (inputStream == null) {
+                throw new RuntimeException("Could not find seed/competencies.yaml on classpath");
+            }
             Map<String, Object> data = yaml.load(inputStream);
 
             // Seed categories
