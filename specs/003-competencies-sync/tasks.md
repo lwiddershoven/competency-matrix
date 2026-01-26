@@ -127,17 +127,17 @@
 
 ### Tests for User Story 3 (TDD - Write FIRST, Ensure they FAIL)
 
-- [ ] T052 [P] [US3] Write unit test for none mode config validation in src/test/java/nl/leonw/competencymatrix/config/SyncConfigurationTest.java
-- [ ] T053 [P] [US3] Write unit test for missing property default behavior in src/test/java/nl/leonw/competencymatrix/config/SyncConfigurationTest.java
-- [ ] T054 [P] [US3] Write integration test for none mode skipping sync in src/test/java/nl/leonw/competencymatrix/integration/CompetencySyncIntegrationTest.java
-- [ ] T055 [P] [US3] Write integration test for empty database with none mode in src/test/java/nl/leonw/competencymatrix/integration/CompetencySyncIntegrationTest.java
+- [x] T052 [P] [US3] Write unit test for none mode config validation in src/test/java/nl/leonw/competencymatrix/config/SyncConfigurationTest.java
+- [x] T053 [P] [US3] Write unit test for missing property default behavior in src/test/java/nl/leonw/competencymatrix/config/SyncConfigurationTest.java
+- [x] T054 [P] [US3] Write integration test for none mode skipping sync in src/test/java/nl/leonw/competencymatrix/integration/CompetencySyncIntegrationTest.java
+- [x] T055 [P] [US3] Write integration test for empty database with none mode in src/test/java/nl/leonw/competencymatrix/integration/CompetencySyncIntegrationTest.java
 
 ### Implementation for User Story 3
 
-- [ ] T056 [US3] Implement none mode early return logic in CompetencySyncService
-- [ ] T057 [US3] Implement WARNING log for missing property in CompetencySyncService
-- [ ] T058 [US3] Implement INFO log for explicitly set none mode in CompetencySyncService
-- [ ] T059 [US3] Update DataSeeder to handle none mode in src/main/java/nl/leonw/competencymatrix/config/DataSeeder.java
+- [x] T056 [US3] Implement none mode early return logic in CompetencySyncService
+- [x] T057 [US3] Implement WARNING log for missing property in CompetencySyncService
+- [x] T058 [US3] Implement INFO log for explicitly set none mode in CompetencySyncService
+- [x] T059 [US3] Update DataSeeder to handle none mode in src/main/java/nl/leonw/competencymatrix/config/DataSeeder.java
 
 **Checkpoint**: All three sync modes should now be independently functional - administrators have full control over sync behavior
 
