@@ -101,19 +101,19 @@
 
 ### Tests for User Story 2 (TDD - Write FIRST, Ensure they FAIL)
 
-- [ ] T042 [P] [US2] Write unit test for replace mode config validation in src/test/java/nl/leonw/competencymatrix/config/SyncConfigurationTest.java
-- [ ] T043 [P] [US2] Write unit test for entity deletion order in src/test/java/nl/leonw/competencymatrix/config/CompetencySyncServiceTest.java
-- [ ] T044 [P] [US2] Write integration test for replace mode with existing data in src/test/java/nl/leonw/competencymatrix/integration/CompetencySyncIntegrationTest.java
-- [ ] T045 [P] [US2] Write integration test for removing roles in replace mode in src/test/java/nl/leonw/competencymatrix/integration/CompetencySyncIntegrationTest.java
-- [ ] T046 [P] [US2] Write integration test for fresh database seeding in replace mode in src/test/java/nl/leonw/competencymatrix/integration/CompetencySyncIntegrationTest.java
+- [x] T042 [P] [US2] Write unit test for replace mode config validation in src/test/java/nl/leonw/competencymatrix/config/SyncConfigurationTest.java
+- [x] T043 [P] [US2] Write unit test for entity deletion order in src/test/java/nl/leonw/competencymatrix/config/CompetencySyncServiceTest.java
+- [x] T044 [P] [US2] Write integration test for replace mode with existing data in src/test/java/nl/leonw/competencymatrix/integration/CompetencySyncIntegrationTest.java
+- [x] T045 [P] [US2] Write integration test for removing roles in replace mode in src/test/java/nl/leonw/competencymatrix/integration/CompetencySyncIntegrationTest.java
+- [x] T046 [P] [US2] Write integration test for fresh database seeding in replace mode in src/test/java/nl/leonw/competencymatrix/integration/CompetencySyncIntegrationTest.java
 
 ### Implementation for User Story 2
 
-- [ ] T047 [US2] Implement replace mode entry point method (syncReplace) in CompetencySyncService
-- [ ] T048 [US2] Implement entity deletion in reverse dependency order (deleteAllEntities) in CompetencySyncService
-- [ ] T049 [US2] Implement fresh seeding after deletion (seedFromYaml) in CompetencySyncService reusing merge logic
-- [ ] T050 [US2] Add logging for deletion operations in CompetencySyncService
-- [ ] T051 [US2] Update DataSeeder to handle replace mode in src/main/java/nl/leonw/competencymatrix/config/DataSeeder.java
+- [x] T047 [US2] Implement replace mode entry point method (syncReplace) in CompetencySyncService
+- [x] T048 [US2] Implement entity deletion in reverse dependency order (deleteAllEntities) in CompetencySyncService
+- [x] T049 [US2] Implement fresh seeding after deletion (seedFromYaml) in CompetencySyncService reusing merge logic
+- [x] T050 [US2] Add logging for deletion operations in CompetencySyncService
+- [x] T051 [US2] Update DataSeeder to handle replace mode in src/main/java/nl/leonw/competencymatrix/config/DataSeeder.java
 
 **Checkpoint**: At this point, both merge and replace modes should work independently - administrators can choose incremental or full reset
 

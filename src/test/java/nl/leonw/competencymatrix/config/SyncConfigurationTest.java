@@ -61,5 +61,24 @@ class SyncConfigurationTest {
 
         assertTrue(exception.getMessage().contains("merge"));
         assertTrue(exception.getMessage().contains("replace"));
+        assertTrue(exception.getMessage().contains("none"));
+    }
+
+    @Test
+    void resolveSyncMode_acceptsAllValidModes() {
+        assertEquals(SyncMode.MERGE, syncService.resolveSyncMode("merge"));
+        assertEquals(SyncMode.REPLACE, syncService.resolveSyncMode("replace"));
+        assertEquals(SyncMode.NONE, syncService.resolveSyncMode("none"));
+    }
+
+    @Test
+    void resolveSyncMode_rejectInvalidModeWithHelpfulMessage() {
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class,
+                () -> syncService.resolveSyncMode("invalid"));
+
+        String message = exception.getMessage();
+        assertTrue(message.contains("merge"), "Should mention merge option");
+        assertTrue(message.contains("replace"), "Should mention replace option");
+        assertTrue(message.contains("none"), "Should mention none option");
     }
 }
