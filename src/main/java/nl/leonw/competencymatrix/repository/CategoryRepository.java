@@ -69,6 +69,23 @@ public class CategoryRepository {
         }
     }
 
+    public Optional<CompetencyCategory> findByNameIgnoreCase(String name) {
+        String sql = "SELECT id, name, display_order FROM competency_category WHERE LOWER(TRIM(name)) = LOWER(TRIM(?))";
+        try (Connection conn = dataSource.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setString(1, name);
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    return Optional.of(mapRow(rs));
+                }
+                return Optional.empty();
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException("Failed to fetch category by name (ignore case): " + name, e);
+        }
+    }
+
     public CompetencyCategory save(CompetencyCategory category) {
         if (category.id() == null) {
             return insert(category);

@@ -17,10 +17,10 @@
 
 **Purpose**: Configuration and data structures needed by all user stories
 
-- [ ] T001 [P] Create SyncMode enum in src/main/java/nl/leonw/competencymatrix/config/SyncMode.java
-- [ ] T002 [P] Create YamlCompetencyData records in src/main/java/nl/leonw/competencymatrix/config/YamlCompetencyData.java
-- [ ] T003 [P] Create SyncResult record in src/main/java/nl/leonw/competencymatrix/config/SyncResult.java
-- [ ] T004 Add competency.sync.mode property to src/main/resources/application.properties
+- [x] T001 [P] Create SyncMode enum in src/main/java/nl/leonw/competencymatrix/config/SyncMode.java
+- [x] T002 [P] Create YamlCompetencyData records in src/main/java/nl/leonw/competencymatrix/config/YamlCompetencyData.java
+- [x] T003 [P] Create SyncResult record in src/main/java/nl/leonw/competencymatrix/config/SyncResult.java
+- [x] T004 Add competency.sync.mode property to src/main/resources/application.properties
 
 ---
 
@@ -32,26 +32,26 @@
 
 ### Repository Enhancements
 
-- [ ] T005 [P] Write test for findByNameIgnoreCase in src/test/java/nl/leonw/competencymatrix/repository/CategoryRepositoryTest.java
-- [ ] T006 [P] Implement findByNameIgnoreCase in src/main/java/nl/leonw/competencymatrix/repository/CategoryRepository.java
-- [ ] T007 [P] Write test for findByNameAndCategoryIdIgnoreCase in src/test/java/nl/leonw/competencymatrix/repository/SkillRepositoryTest.java
-- [ ] T008 [P] Implement findByNameAndCategoryIdIgnoreCase in src/main/java/nl/leonw/competencymatrix/repository/SkillRepository.java
-- [ ] T009 [P] Write test for findByNameIgnoreCase in src/test/java/nl/leonw/competencymatrix/repository/RoleRepositoryTest.java
-- [ ] T010 [P] Implement findByNameIgnoreCase in src/main/java/nl/leonw/competencymatrix/repository/RoleRepository.java
-- [ ] T011 [P] Write test for deleteAll in src/test/java/nl/leonw/competencymatrix/repository/RoleSkillRequirementRepositoryTest.java
-- [ ] T012 [P] Implement deleteAll in src/main/java/nl/leonw/competencymatrix/repository/RoleSkillRequirementRepository.java
-- [ ] T013 [P] Write test for deleteAll in src/test/java/nl/leonw/competencymatrix/repository/RoleProgressionRepositoryTest.java
-- [ ] T014 [P] Implement deleteAll in src/main/java/nl/leonw/competencymatrix/repository/RoleProgressionRepository.java
+- [x] T005 [P] Write test for findByNameIgnoreCase in src/test/java/nl/leonw/competencymatrix/repository/CategoryRepositoryTest.java
+- [x] T006 [P] Implement findByNameIgnoreCase in src/main/java/nl/leonw/competencymatrix/repository/CategoryRepository.java
+- [x] T007 [P] Write test for findByNameAndCategoryIdIgnoreCase in src/test/java/nl/leonw/competencymatrix/repository/SkillRepositoryTest.java
+- [x] T008 [P] Implement findByNameAndCategoryIdIgnoreCase in src/main/java/nl/leonw/competencymatrix/repository/SkillRepository.java
+- [x] T009 [P] Write test for findByNameIgnoreCase in src/test/java/nl/leonw/competencymatrix/repository/RoleRepositoryTest.java
+- [x] T010 [P] Implement findByNameIgnoreCase in src/main/java/nl/leonw/competencymatrix/repository/RoleRepository.java
+- [x] T011 [P] Write test for deleteAll in src/test/java/nl/leonw/competencymatrix/repository/RoleSkillRequirementRepositoryTest.java
+- [x] T012 [P] Implement deleteAll in src/main/java/nl/leonw/competencymatrix/repository/RoleSkillRequirementRepository.java
+- [x] T013 [P] Write test for deleteAll in src/test/java/nl/leonw/competencymatrix/repository/RoleProgressionRepositoryTest.java
+- [x] T014 [P] Implement deleteAll in src/main/java/nl/leonw/competencymatrix/repository/RoleProgressionRepository.java
 
 ### Core Sync Service
 
-- [ ] T015 Write test for YAML parsing in src/test/java/nl/leonw/competencymatrix/config/CompetencySyncServiceTest.java
-- [ ] T016 Create CompetencySyncService class in src/main/java/nl/leonw/competencymatrix/config/CompetencySyncService.java
-- [ ] T017 Implement YAML parsing method (parseYaml) in CompetencySyncService
-- [ ] T018 Write test for YAML validation in src/test/java/nl/leonw/competencymatrix/config/CompetencySyncServiceTest.java
-- [ ] T019 Implement YAML validation method (validateYaml) in CompetencySyncService
-- [ ] T020 Write test for string normalization in src/test/java/nl/leonw/competencymatrix/config/CompetencySyncServiceTest.java
-- [ ] T021 Implement string normalization method (normalize) in CompetencySyncService
+- [x] T015 Write test for YAML parsing in src/test/java/nl/leonw/competencymatrix/config/CompetencySyncServiceTest.java
+- [x] T016 Create CompetencySyncService class in src/main/java/nl/leonw/competencymatrix/config/CompetencySyncService.java
+- [x] T017 Implement YAML parsing method (parseYaml) in CompetencySyncService
+- [x] T018 Write test for YAML validation in src/test/java/nl/leonw/competencymatrix/config/CompetencySyncServiceTest.java
+- [x] T019 Implement YAML validation method (validateYaml) in CompetencySyncService
+- [x] T020 Write test for string normalization in src/test/java/nl/leonw/competencymatrix/config/CompetencySyncServiceTest.java
+- [x] T021 Implement string normalization method (normalize) in CompetencySyncService
 
 **Checkpoint**: Foundation ready - user story implementation can now begin in parallel
 

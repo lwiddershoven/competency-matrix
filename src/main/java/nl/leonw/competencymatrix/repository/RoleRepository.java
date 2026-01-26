@@ -69,6 +69,23 @@ public class RoleRepository {
         }
     }
 
+    public Optional<Role> findByNameIgnoreCase(String name) {
+        String sql = "SELECT id, name, description FROM rolename WHERE LOWER(TRIM(name)) = LOWER(TRIM(?))";
+        try (Connection conn = dataSource.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setString(1, name);
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    return Optional.of(mapRow(rs));
+                }
+                return Optional.empty();
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException("Failed to fetch role by name (ignore case): " + name, e);
+        }
+    }
+
     public List<Role> findNextRoles(Integer roleId) {
         String sql = """
                 SELECT r.id, r.name, r.description FROM rolename r

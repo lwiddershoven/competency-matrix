@@ -98,6 +98,17 @@ public class RoleProgressionRepository {
         }
     }
 
+    public int deleteAll() {
+        String sql = "DELETE FROM role_progression";
+        try (Connection conn = dataSource.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            return stmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException("Failed to delete all progressions", e);
+        }
+    }
+
     private RoleProgression mapRow(ResultSet rs) throws SQLException {
         return new RoleProgression(
                 rs.getInt("id"),

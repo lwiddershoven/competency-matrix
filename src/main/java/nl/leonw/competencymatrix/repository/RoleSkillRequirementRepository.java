@@ -140,6 +140,17 @@ public class RoleSkillRequirementRepository {
         }
     }
 
+    public int deleteAll() {
+        String sql = "DELETE FROM role_skill_requirement";
+        try (Connection conn = dataSource.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            return stmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException("Failed to delete all requirements", e);
+        }
+    }
+
     private RoleSkillRequirement mapRow(ResultSet rs) throws SQLException {
         return new RoleSkillRequirement(
                 rs.getInt("id"),
