@@ -129,4 +129,43 @@ class CompetencySyncIntegrationTest {
                 List.of()
         );
     }
+
+    @Test
+    @Transactional
+    void noneMode_skipsSyncAndLeavesDatabaseUnchanged() {
+        CompetencyCategory existingCategory = categoryRepository.save(new CompetencyCategory(null, "ExistingCategory", 1));
+        Skill existingSkill = skillRepository.save(new Skill(null, "ExistingSkill", existingCategory.id(), "Basic", "Decent", "Good", "Excellent"));
+        Role existingRole = roleRepository.save(new Role(null, "ExistingRole", "Description"));
+
+        YamlCompetencyData yamlData = createTestYamlData();
+        SyncResult result = syncService.syncNone(yamlData);
+
+        assertEquals(0, result.categoriesAdded());
+        assertEquals(0, result.skillsAdded());
+        assertEquals(0, result.rolesAdded());
+        assertEquals(0, result.categoriesUpdated());
+        assertEquals(0, result.skillsUpdated());
+        assertEquals(0, result.rolesUpdated());
+
+        assertFalse(categoryRepository.findByNameIgnoreCase("ExistingCategory").isEmpty());
+        assertFalse(skillRepository.findByNameAndCategoryIdIgnoreCase("ExistingSkill", existingCategory.id()).isEmpty());
+        assertFalse(roleRepository.findByNameIgnoreCase("ExistingRole").isEmpty());
+    }
+
+    @Test
+    @Transactional
+    void noneMode_keepsEmptyDatabaseEmpty() {
+        roleRepository.deleteAll();
+        skillRepository.deleteAll();
+        categoryRepository.deleteAll();
+        SyncResult result = syncService.syncNone(createTestYamlData());
+
+        assertEquals(0, result.categoriesAdded());
+        assertEquals(0, result.skillsAdded());
+        assertEquals(0, result.rolesAdded());
+
+        assertEquals(0, categoryRepository.count());
+        assertEquals(0, skillRepository.count());
+        assertEquals(0, roleRepository.findAllOrderByName().size());
+    }
 }

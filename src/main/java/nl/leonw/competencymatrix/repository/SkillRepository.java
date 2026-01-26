@@ -181,6 +181,21 @@ public class SkillRepository {
         }
     }
 
+    public long count() {
+        String sql = "SELECT COUNT(*) FROM skill";
+        try (Connection conn = dataSource.getConnection();
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            ResultSet rs = stmt.executeQuery()) {
+
+            if (rs.next()) {
+                return rs.getLong(1);
+            }
+            return 0;
+        } catch (SQLException e) {
+            throw new RuntimeException("Failed to count categories", e);
+        }
+    }
+
     private Skill mapRow(ResultSet rs) throws SQLException {
         return new Skill(
                 rs.getInt("id"),

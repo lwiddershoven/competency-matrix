@@ -272,6 +272,18 @@ public class CompetencySyncService {
     }
 
     /**
+     * Synchronization method for none mode - skips all sync operations.
+     * Returns an empty result indicating no changes were made.
+     *
+     * @param data Parsed YAML data (ignored in none mode)
+     * @return Empty SyncResult indicating no operations performed
+     */
+    public SyncResult syncNone(YamlCompetencyData data) {
+        log.info("Sync mode set to none; skipping all synchronization operations.");
+        return emptyResult();
+    }
+
+    /**
      * Normalizes a string for case/space-insensitive matching.
      * Converts to lowercase, trims, and collapses multiple spaces.
      *
