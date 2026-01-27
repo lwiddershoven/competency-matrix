@@ -21,8 +21,7 @@
                             {#for entry in matrix.rolesByFamily.entrySet()}
                                 {#for columnHeader in entry.value}
                                     <th class="role-header" title="{columnHeader.role.name}">
-                                        <div class="role-family-header">{entry.key}</div>
-                                        <div class="role-name">{columnHeader.abbreviation}</div>
+                                        <div class="role-name">{columnHeader.role.name}</div>
                                     </th>
                                 {/for}
                             {/for}

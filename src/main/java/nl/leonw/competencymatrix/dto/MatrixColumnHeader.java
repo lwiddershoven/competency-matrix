@@ -3,15 +3,14 @@ package nl.leonw.competencymatrix.dto;
 import nl.leonw.competencymatrix.model.Role;
 
 /**
- * Column header for a role in the matrix with abbreviation support.
- *
- * Feature: 004-matrix-overview
- * Purpose: Provides role display metadata for matrix column headers
+ * Column header for a role in the matrix.
+ * <p>
+ * Feature: 004-matrix-overview Purpose: Provides role display metadata for matrix column headers
  */
 public record MatrixColumnHeader(
-    Role role,
-    String abbreviation
+    Role role
 ) {
+
     /**
      * Create column header from role with automatic abbreviation generation.
      *
@@ -22,46 +21,7 @@ public record MatrixColumnHeader(
         if (role == null) {
             throw new IllegalArgumentException("role must not be null");
         }
-        String abbrev = generateAbbreviation(role.name());
-        return new MatrixColumnHeader(role, abbrev);
-    }
-
-    /**
-     * Generate abbreviation for role name.
-     * Names ≤15 chars: return as-is
-     * Names >15 chars: extract up to 3 uppercase letters
-     *
-     * Examples:
-     * - "Junior Developer" → "Junior Developer" (≤15 chars)
-     * - "Software Architect" → "SA" (2 uppercase letters)
-     * - "Lead Developer / Software Architect" → "LDS" (3 uppercase letters)
-     *
-     * @param name Role name
-     * @return Abbreviated name
-     */
-    private static String generateAbbreviation(String name) {
-        if (name == null || name.isEmpty()) {
-            return "";
-        }
-
-        if (name.length() <= 15) {
-            return name;
-        }
-
-        // Extract uppercase letters (up to 3)
-        StringBuilder abbrev = new StringBuilder();
-        for (char c : name.toCharArray()) {
-            if (Character.isUpperCase(c) && abbrev.length() < 3) {
-                abbrev.append(c);
-            }
-        }
-
-        // Fallback if no uppercase letters found: take first 3 chars
-        if (abbrev.isEmpty()) {
-            return name.substring(0, Math.min(3, name.length()));
-        }
-
-        return abbrev.toString();
+        return new MatrixColumnHeader(role);
     }
 
     /**
@@ -77,9 +37,6 @@ public record MatrixColumnHeader(
     public MatrixColumnHeader {
         if (role == null) {
             throw new IllegalArgumentException("role must not be null");
-        }
-        if (abbreviation == null || abbreviation.isEmpty()) {
-            throw new IllegalArgumentException("abbreviation must not be null or empty");
         }
     }
 }

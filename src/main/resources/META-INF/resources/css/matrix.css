@@ -33,7 +33,7 @@
 
 .matrix-table .role-header {
     min-width: 80px;
-    vertical-align: bottom;
+    vertical-align: top;
 }
 
 .role-family-header {
@@ -70,6 +70,7 @@
 .matrix-table thead th.skill-header {
     left: 0;
     z-index: 4;
+    vertical-align: top;
 }
 
 /* T025: Level badge styling */
