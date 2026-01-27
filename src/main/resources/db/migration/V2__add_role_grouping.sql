@@ -35,6 +35,5 @@ UPDATE rolename SET role_family = 'Other', seniority_order = 999
 ALTER TABLE rolename ALTER COLUMN role_family SET NOT NULL;
 ALTER TABLE rolename ALTER COLUMN seniority_order SET NOT NULL;
 
--- Add comment explaining the schema
-COMMENT ON COLUMN rolename.role_family IS 'Role family grouping (e.g., Developer, Architect, Operations) for matrix display';
-COMMENT ON COLUMN rolename.seniority_order IS 'Ordering within role family (1=Junior, 2=Medior, etc.)';
+-- Note: role_family = Role family grouping (e.g., Developer, Architect, Operations) for matrix display
+-- Note: seniority_order = Ordering within role family (1=Junior, 2=Medior, etc.)
