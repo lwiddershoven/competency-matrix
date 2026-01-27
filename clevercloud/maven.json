@@ -1,7 +1,7 @@
 {
     "build": {
         "type": "maven",
-        "goal": "clean package -X -DskipJib -Dquarkus.container-image.build=false -Dquarkus.container-image.push=false -DskipTests=true"
+        "goal": "clean package -DskipJib -Dquarkus.container-image.build=false -Dquarkus.container-image.push=false -DskipTests=true"
     },
     "deploy": {
         "type": "jar",
