@@ -29,7 +29,7 @@ class RoleSkillRequirementRepositoryTest {
         // Given - create test data with unique names
         CompetencyCategory category = categoryRepository.save(new CompetencyCategory(null, "TestCategoryForReq", 999));
         Skill skill = skillRepository.save(new Skill(null, "TestSkillForReq", category.id(), "B", "D", "G", "E"));
-        Role role = roleRepository.save(new Role(null, "TestRoleForReq", "Desc"));
+        Role role = roleRepository.save(new Role(null, "TestRoleForReq", "Desc", "Other", 999));
         RoleSkillRequirement req1 = requirementRepository.save(new RoleSkillRequirement(null, role.id(), skill.id(), "DECENT"));
 
         // Verify data exists

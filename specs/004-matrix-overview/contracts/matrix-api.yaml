@@ -1,0 +1,183 @@
+openapi: 3.0.3
+info:
+  title: Competency Matrix Overview API
+  description: |
+    API endpoints for the competency matrix table overview feature.
+    Provides server-side rendered HTML views and htmx partial fragments.
+  version: 1.0.0
+  contact:
+    name: Competency Matrix Team
+
+servers:
+  - url: http://localhost:8080
+    description: Local development server
+
+paths:
+  /matrix:
+    get:
+      summary: Matrix overview page
+      description: |
+        Returns the complete matrix overview page with all skills as rows and all roles as columns.
+        Supports optional category filtering via query parameter.
+      operationId: getMatrixOverview
+      tags:
+        - Matrix Overview
+      parameters:
+        - name: category
+          in: query
+          description: Optional category ID to filter skills
+          required: false
+          schema:
+            type: integer
+            example: 1
+      responses:
+        '200':
+          description: Matrix overview page (HTML)
+          content:
+            text/html:
+              schema:
+                type: string
+                example: |
+                  <!DOCTYPE html>
+                  <html>
+                  <body>
+                    <table class="matrix-table">
+                      <thead>
+                        <tr>
+                          <th>Skills / Roles</th>
+                          <th>Junior Developer</th>
+                          ...
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th>Java</th>
+                          <td><span class="level-badge level-basic">Basic</span></td>
+                          ...
+                        </tr>
+                      </tbody>
+                    </table>
+                  </body>
+                  </html>
+        '400':
+          description: Invalid category ID
+          content:
+            text/html:
+              schema:
+                type: string
+                example: |
+                  <div class="error">Category not found</div>
+
+  /matrix/tooltips/skill/{skillId}:
+    get:
+      summary: Skill tooltip content (htmx partial)
+      description: |
+        Returns HTML fragment for skill tooltip content.
+        Loaded dynamically via htmx when user hovers over proficiency badge.
+      operationId: getSkillTooltip
+      tags:
+        - Matrix Overview
+      parameters:
+        - name: skillId
+          in: path
+          description: Skill ID
+          required: true
+          schema:
+            type: integer
+            format: int64
+            example: 42
+        - name: level
+          in: query
+          description: Proficiency level to display description for
+          required: true
+          schema:
+            type: string
+            enum: [BASIC, DECENT, GOOD, EXCELLENT]
+            example: DECENT
+      responses:
+        '200':
+          description: Tooltip HTML fragment
+          content:
+            text/html:
+              schema:
+                type: string
+                example: |
+                  <div class="tooltip-content">
+                    <h5>Spring Boot</h5>
+                    <p><strong class="level-badge level-decent">Decent</strong></p>
+                    <p>Can create REST APIs using Spring Boot starters and auto-configuration...</p>
+                  </div>
+        '404':
+          description: Skill not found
+          content:
+            text/html:
+              schema:
+                type: string
+                example: |
+                  <div class="tooltip-error">Skill not found</div>
+
+  /matrix/filter:
+    get:
+      summary: Matrix table body (htmx partial)
+      description: |
+        Returns only the table body rows for category filtering.
+        Used by htmx to update matrix content without full page reload.
+      operationId: getMatrixTableBody
+      tags:
+        - Matrix Overview
+      parameters:
+        - name: category
+          in: query
+          description: Category ID to filter by (empty for all)
+          required: false
+          schema:
+            type: integer
+            example: 2
+      responses:
+        '200':
+          description: Table body rows (HTML fragment)
+          content:
+            text/html:
+              schema:
+                type: string
+                example: |
+                  <tbody id="matrix-body">
+                    <tr>
+                      <th>Java</th>
+                      <td><span class="level-badge level-basic">Basic</span></td>
+                      ...
+                    </tr>
+                    ...
+                  </tbody>
+
+components:
+  schemas:
+    ProficiencyLevel:
+      type: string
+      enum:
+        - BASIC
+        - DECENT
+        - GOOD
+        - EXCELLENT
+      description: |
+        Four-tier proficiency scale:
+        - BASIC: Foundational knowledge
+        - DECENT: Working proficiency
+        - GOOD: Advanced proficiency
+        - EXCELLENT: Expert-level mastery
+
+    RoleFamily:
+      type: string
+      enum:
+        - Developer
+        - Architect
+        - Operations
+      description: |
+        Role groupings for matrix column organization.
+        Roles are grouped by family and sorted by seniority within each group.
+
+tags:
+  - name: Matrix Overview
+    description: |
+      Endpoints for the competency matrix table overview feature.
+      All endpoints return server-side rendered HTML (full pages or htmx partials).

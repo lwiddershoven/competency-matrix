@@ -401,7 +401,8 @@ public class CompetencySyncService {
                 counters.rolesAdded++;
                 log.info("Role added: {}", created.name());
             } else if (roleNeedsUpdate(existing, yamlRole)) {
-                Role updated = roleRepository.save(new Role(existing.id(), yamlRole.name(), yamlRole.description()));
+                Role updated = roleRepository.save(new Role(existing.id(), yamlRole.name(), yamlRole.description(),
+                    yamlRole.roleFamily(), yamlRole.seniorityOrder()));
                 roleIndex.put(normalizedName, updated);
                 counters.rolesUpdated++;
                 log.info("Role updated: {}", updated.name());
@@ -644,6 +645,8 @@ public class CompetencySyncService {
         for (Map<String, Object> roleMap : rolesList) {
             String name = (String) roleMap.get("name");
             String description = (String) roleMap.get("description");
+            String roleFamily = (String) roleMap.get("roleFamily");
+            Integer seniorityOrder = (Integer) roleMap.get("seniorityOrder");
             List<Map<String, Object>> requirementsList = (List<Map<String, Object>>) roleMap.get("requirements");
 
             List<YamlCompetencyData.RequirementData> requirements = new ArrayList<>();
@@ -657,7 +660,7 @@ public class CompetencySyncService {
                 }
             }
 
-            roles.add(new YamlCompetencyData.RoleData(name, description, requirements));
+            roles.add(new YamlCompetencyData.RoleData(name, description, roleFamily, seniorityOrder, requirements));
         }
 
         return roles;

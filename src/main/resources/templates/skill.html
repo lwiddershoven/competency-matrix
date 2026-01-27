@@ -1,0 +1,79 @@
+{#include layout title=skill.name}
+    {#content}
+        <nav class="breadcrumb">
+            <a href="/">Home</a> >
+            <a href="/matrix">Competency Matrix</a> >
+            <span>{skill.name}</span>
+        </nav>
+
+        <hgroup>
+            <h1>{skill.name}</h1>
+            <p>Skill proficiency levels and descriptions</p>
+        </hgroup>
+
+        <section class="skill-details">
+            <h2>Proficiency Levels</h2>
+            
+            <div class="skill-levels-table">
+                <table class="levels-table">
+                    <tbody>
+                        <tr>
+                            <td class="level-label">
+                                <span class="level-badge level-basic">Basic</span>
+                            </td>
+                            <td class="level-description">
+                                {#if skill.basicDescription}
+                                    <p>{skill.basicDescription}</p>
+                                {#else}
+                                    <p><em>No description available for Basic level.</em></p>
+                                {/if}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="level-label">
+                                <span class="level-badge level-decent">Decent</span>
+                            </td>
+                            <td class="level-description">
+                                {#if skill.decentDescription}
+                                    <p>{skill.decentDescription}</p>
+                                {#else}
+                                    <p><em>No description available for Decent level.</em></p>
+                                {/if}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="level-label">
+                                <span class="level-badge level-good">Good</span>
+                            </td>
+                            <td class="level-description">
+                                {#if skill.goodDescription}
+                                    <p>{skill.goodDescription}</p>
+                                {#else}
+                                    <p><em>No description available for Good level.</em></p>
+                                {/if}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="level-label">
+                                <span class="level-badge level-excellent">Excellent</span>
+                            </td>
+                            <td class="level-description">
+                                {#if skill.excellentDescription}
+                                    <p>{skill.excellentDescription}</p>
+                                {#else}
+                                    <p><em>No description available for Excellent level.</em></p>
+                                {/if}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="skill-navigation">
+            <p>
+                <a href="/matrix" class="btn">← Back to Competency Matrix</a>
+            </p>
+        </section>
+    {/content}
+{/include}

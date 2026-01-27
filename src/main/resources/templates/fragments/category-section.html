@@ -1,12 +1,40 @@
 {#for entry in skillsByCategory}
 <div class="category-section">
     <h3>{entry.key.name}</h3>
-    <div class="skills-grid">
-        {#for skillReq in entry.value}
-        {#if skillReq != null}
-        {#include fragments/skill-card /}
-        {/if}
-        {/for}
+    <div class="category-skills-table">
+        <table class="skills-table">
+            <thead>
+                <tr>
+                    <th>Skill</th>
+                    <th>Required Level</th>
+                    <th>Level Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                {#for skillReq in entry.value}
+                {#if skillReq != null}
+                <tr class="skill-row"
+                    hx-get="/roles/{roleId}/skills/{skillReq.skill().id()}"
+                    hx-target="#skill-modal-content"
+                    hx-swap="innerHTML">
+                    <td class="skill-name">
+                        <a href="/skills/{skillReq.skill().id()}">{skillReq.skill().name()}</a>
+                    </td>
+                    <td class="skill-level">
+                        <span class="level-badge level-{skillReq.requiredLevel().name().toLowerCase()}">{skillReq.requiredLevel().displayName}</span>
+                    </td>
+                    <td class="skill-description">
+                        {#if skillReq.skill().getDescriptionForLevel(skillReq.requiredLevel())}
+                            {skillReq.skill().getDescriptionForLevel(skillReq.requiredLevel())}
+                        {#else}
+                            <em>No description available</em>
+                        {/if}
+                    </td>
+                </tr>
+                {/if}
+                {/for}
+            </tbody>
+        </table>
     </div>
 </div>
 {/for}

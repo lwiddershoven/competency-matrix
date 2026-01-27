@@ -53,7 +53,7 @@ class CompetencySyncIntegrationTest {
     void replaceMode_replacesExistingDataCompletely() {
         CompetencyCategory category = categoryRepository.save(new CompetencyCategory(null, "ToBeDeleted", 1));
         Skill skill = skillRepository.save(new Skill(null, "OldSkill", category.id(), "Basic", "Decent", "Good", "Excellent"));
-        Role role = roleRepository.save(new Role(null, "OldRole", "Old description"));
+        Role role = roleRepository.save(new Role(null, "OldRole", "Old description", "Other", 999));
 
         SyncResult result = syncService.syncReplace(createTestYamlData());
 
@@ -74,8 +74,8 @@ class CompetencySyncIntegrationTest {
     @Test
     @Transactional
     void replaceMode_removesRolesNotInYaml() {
-        Role extraRole = roleRepository.save(new Role(null, "ExtraRole", "Should be deleted"));
-        Role extraRole2 = roleRepository.save(new Role(null, "ExtraRole2", "Should also be deleted"));
+        Role extraRole = roleRepository.save(new Role(null, "ExtraRole", "Should be deleted", "Other", 999));
+        Role extraRole2 = roleRepository.save(new Role(null, "ExtraRole2", "Should also be deleted", "Other", 999));
 
         SyncResult result = syncService.syncReplace(createTestYamlData());
 
@@ -120,6 +120,8 @@ class CompetencySyncIntegrationTest {
         YamlCompetencyData.RoleData yamlRole = new YamlCompetencyData.RoleData(
                 "Senior Developer",
                 "Technical leader who guides team decisions",
+                "Developer",
+                3,
                 List.of(new YamlCompetencyData.RequirementData("Java", "Programming", "good"))
         );
 
@@ -135,7 +137,7 @@ class CompetencySyncIntegrationTest {
     void noneMode_skipsSyncAndLeavesDatabaseUnchanged() {
         CompetencyCategory existingCategory = categoryRepository.save(new CompetencyCategory(null, "ExistingCategory", 1));
         Skill existingSkill = skillRepository.save(new Skill(null, "ExistingSkill", existingCategory.id(), "Basic", "Decent", "Good", "Excellent"));
-        Role existingRole = roleRepository.save(new Role(null, "ExistingRole", "Description"));
+        Role existingRole = roleRepository.save(new Role(null, "ExistingRole", "Description", "Other", 999));
 
         YamlCompetencyData yamlData = createTestYamlData();
         SyncResult result = syncService.syncNone(yamlData);

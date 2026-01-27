@@ -19,6 +19,26 @@ public class RoleSkillRequirementRepository {
     @Inject
     DataSource dataSource;
 
+    /**
+     * Find all role-skill requirements.
+     * Used for matrix overview (Feature 004).
+     */
+    public List<RoleSkillRequirement> findAll() {
+        String sql = "SELECT id, role_id, skill_id, required_level FROM role_skill_requirement";
+        try (Connection conn = dataSource.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql);
+             ResultSet rs = stmt.executeQuery()) {
+
+            List<RoleSkillRequirement> requirements = new ArrayList<>();
+            while (rs.next()) {
+                requirements.add(mapRow(rs));
+            }
+            return requirements;
+        } catch (SQLException e) {
+            throw new RuntimeException("Failed to fetch all requirements", e);
+        }
+    }
+
     public List<RoleSkillRequirement> findByRoleId(Integer roleId) {
         String sql = "SELECT id, role_id, skill_id, required_level FROM role_skill_requirement WHERE role_id = ?";
         try (Connection conn = dataSource.getConnection();

@@ -47,3 +47,10 @@ node_modules
 # Quarkus
 .quarkus/
 quarkus.log
+
+# IDE
+.idea/
+
+# Sensitive files
+.env*
+*.log

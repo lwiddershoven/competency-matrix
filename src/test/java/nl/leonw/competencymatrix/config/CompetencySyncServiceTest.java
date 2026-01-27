@@ -120,7 +120,7 @@ class CompetencySyncServiceTest {
                         java.util.Map.of("basic", "B", "decent", "D", "good", "G", "excellent", "E")))
         );
         YamlCompetencyData.RoleData role = new YamlCompetencyData.RoleData(
-                "Developer", "Desc", java.util.List.of()
+                "Developer", "Desc", "Other", 999, java.util.List.of()
         );
         YamlCompetencyData data = new YamlCompetencyData(
                 java.util.List.of(category),
@@ -215,11 +215,10 @@ class CompetencySyncServiceTest {
     @Test
     @Transactional
     void syncMerge_updatesExistingRole() {
-        Role existing = roleRepository.save(new Role(null, "MergeRole", "Old description"));
+        Role existing = roleRepository.save(new Role(null, "MergeRole", "Old description", "Other", 999));
 
         YamlCompetencyData.RoleData yamlRole = new YamlCompetencyData.RoleData(
-                "MergeRole",
-                "New description",
+                "MergeRole", "New description", "Other", 999,
                 List.of()
         );
         YamlCompetencyData data = new YamlCompetencyData(
@@ -241,9 +240,9 @@ class CompetencySyncServiceTest {
     void syncReplace_deletesEntitiesInDependencyOrder() {
         CompetencyCategory category = categoryRepository.save(new CompetencyCategory(null, "ReplaceCategory", 1));
         Skill skill = skillRepository.save(new Skill(null, "ReplaceSkill", category.id(), "B", "D", "G", "E"));
-        Role role = roleRepository.save(new Role(null, "ReplaceRole", "Desc"));
+        Role role = roleRepository.save(new Role(null, "ReplaceRole", "Desc", "Other", 999));
         requirementRepository.save(new RoleSkillRequirement(null, role.id(), skill.id(), "GOOD"));
-        Role toRole = roleRepository.save(new Role(null, "ReplaceRoleNext", "Desc"));
+        Role toRole = roleRepository.save(new Role(null, "ReplaceRoleNext", "Desc", "Other", 999));
         progressionRepository.save(new RoleProgression(null, role.id(), toRole.id()));
 
         SyncResult result = syncService.syncReplace(new YamlCompetencyData(List.of(), List.of(), List.of()));

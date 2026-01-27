@@ -22,8 +22,8 @@ class RoleProgressionRepositoryTest {
     @Transactional
     void testDeleteAll() {
         // Given - create test data with unique names
-        Role role1 = roleRepository.save(new Role(null, "TestJuniorProg", "Test junior"));
-        Role role2 = roleRepository.save(new Role(null, "TestSeniorProg", "Test senior"));
+        Role role1 = roleRepository.save(new Role(null, "TestJuniorProg", "Test junior", "Other", 999));
+        Role role2 = roleRepository.save(new Role(null, "TestSeniorProg", "Test senior", "Other", 999));
         RoleProgression prog1 = progressionRepository.save(new RoleProgression(null, role1.id(), role2.id()));
 
         // Verify data exists
