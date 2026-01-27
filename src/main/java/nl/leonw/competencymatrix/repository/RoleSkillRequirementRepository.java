@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -120,15 +121,17 @@ public class RoleSkillRequirementRepository {
     }
 
     private RoleSkillRequirement insert(RoleSkillRequirement requirement) {
-        String sql = "INSERT INTO role_skill_requirement (role_id, skill_id, required_level) VALUES (?, ?, ?) RETURNING id";
+        String sql = "INSERT INTO role_skill_requirement (role_id, skill_id, required_level) VALUES (?, ?, ?)";
         try (Connection conn = dataSource.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
+             PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
 
             stmt.setInt(1, requirement.roleId());
             stmt.setInt(2, requirement.skillId());
             stmt.setString(3, requirement.requiredLevel());
 
-            try (ResultSet rs = stmt.executeQuery()) {
+            stmt.executeUpdate();
+
+            try (ResultSet rs = stmt.getGeneratedKeys()) {
                 if (rs.next()) {
                     return new RoleSkillRequirement(rs.getInt(1), requirement.roleId(),
                             requirement.skillId(), requirement.requiredLevel());

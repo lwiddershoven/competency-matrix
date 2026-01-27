@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -161,16 +162,18 @@ public class RoleRepository {
     }
 
     private Role insert(Role role) {
-        String sql = "INSERT INTO rolename (name, description, role_family, seniority_order) VALUES (?, ?, ?, ?) RETURNING id";
+        String sql = "INSERT INTO rolename (name, description, role_family, seniority_order) VALUES (?, ?, ?, ?)";
         try (Connection conn = dataSource.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
+             PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
 
             stmt.setString(1, role.name());
             stmt.setString(2, role.description());
             stmt.setString(3, role.roleFamily());
             stmt.setInt(4, role.seniorityOrder());
 
-            try (ResultSet rs = stmt.executeQuery()) {
+            stmt.executeUpdate();
+
+            try (ResultSet rs = stmt.getGeneratedKeys()) {
                 if (rs.next()) {
                     return new Role(rs.getInt(1), role.name(), role.description(), role.roleFamily(), role.seniorityOrder());
                 }

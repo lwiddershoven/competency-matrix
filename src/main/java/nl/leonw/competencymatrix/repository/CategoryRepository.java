@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -95,14 +96,16 @@ public class CategoryRepository {
     }
 
     private CompetencyCategory insert(CompetencyCategory category) {
-        String sql = "INSERT INTO competency_category (name, display_order) VALUES (?, ?) RETURNING id";
+        String sql = "INSERT INTO competency_category (name, display_order) VALUES (?, ?)";
         try (Connection conn = dataSource.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
+             PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
 
             stmt.setString(1, category.name());
             stmt.setInt(2, category.displayOrder());
 
-            try (ResultSet rs = stmt.executeQuery()) {
+            stmt.executeUpdate();
+
+            try (ResultSet rs = stmt.getGeneratedKeys()) {
                 if (rs.next()) {
                     return new CompetencyCategory(rs.getInt(1), category.name(), category.displayOrder());
                 }
