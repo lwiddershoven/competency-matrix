@@ -1,0 +1,49 @@
+{#include layout title="Competency Matrix"}
+    {#content}
+        <nav class="breadcrumb">
+            <a href="/">Home</a> &gt;
+            <span>Competency Matrix</span>
+        </nav>
+
+        <hgroup>
+            <h1>Competency Matrix</h1>
+            <p>Overview of all competencies across all roles</p>
+        </hgroup>
+
+        {#if matrix.rolesByFamily.isEmpty()}
+            <p>No roles found. Please load seed data first.</p>
+        {#else}
+            <div class="matrix-container">
+                <table class="matrix-table">
+                    <thead>
+                        <tr>
+                            <th class="skill-header">Skill</th>
+                            {#for entry in matrix.rolesByFamily.entrySet()}
+                                {#for columnHeader in entry.value}
+                                    <th class="role-header" title="{columnHeader.role.name}">
+                                        <div class="role-family-header">{entry.key}</div>
+                                        <div class="role-name">{columnHeader.abbreviation}</div>
+                                    </th>
+                                {/for}
+                            {/for}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {#for row in matrix.rows}
+                            <tr>
+                                <th class="skill-name">{row.skill.name}</th>
+                                {#for cell in row.cells}
+                                    <td class="matrix-cell {cell.levelCssClass}">
+                                        {#if !cell.isEmpty}
+                                            <span class="level-badge">{cell.displayText}</span>
+                                        {/if}
+                                    </td>
+                                {/for}
+                            </tr>
+                        {/for}
+                    </tbody>
+                </table>
+            </div>
+        {/if}
+    {/content}
+{/include}

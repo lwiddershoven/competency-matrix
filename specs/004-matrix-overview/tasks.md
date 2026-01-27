@@ -63,24 +63,24 @@ All paths are relative to repository root:
 
 > **NOTE: Write these tests FIRST, ensure they FAIL before implementation**
 
-- [ ] T013 [P] [US1] Write integration test for matrix page rendering in `src/test/java/nl/leonw/competencymatrix/resource/MatrixOverviewResourceTest.java`
-- [ ] T014 [P] [US1] Write integration test for skill alphabetical sorting in `src/test/java/nl/leonw/competencymatrix/resource/MatrixOverviewResourceTest.java`
-- [ ] T015 [P] [US1] Write integration test for role grouping by family in `src/test/java/nl/leonw/competencymatrix/resource/MatrixOverviewResourceTest.java`
-- [ ] T016 [P] [US1] Write unit test for role grouping logic in `src/test/java/nl/leonw/competencymatrix/service/CompetencyServiceTest.java`
-- [ ] T017 [P] [US1] Write unit test for empty cell creation in `src/test/java/nl/leonw/competencymatrix/service/CompetencyServiceTest.java`
+- [X] T013 [P] [US1] Write integration test for matrix page rendering in `src/test/java/nl/leonw/competencymatrix/resource/MatrixOverviewResourceTest.java`
+- [X] T014 [P] [US1] Write integration test for skill alphabetical sorting in `src/test/java/nl/leonw/competencymatrix/resource/MatrixOverviewResourceTest.java`
+- [X] T015 [P] [US1] Write integration test for role grouping by family in `src/test/java/nl/leonw/competencymatrix/resource/MatrixOverviewResourceTest.java`
+- [X] T016 [P] [US1] Write unit test for role grouping logic in `src/test/java/nl/leonw/competencymatrix/service/CompetencyServiceTest.java`
+- [X] T017 [P] [US1] Write unit test for empty cell creation in `src/test/java/nl/leonw/competencymatrix/service/CompetencyServiceTest.java`
 
 ### Implementation for User Story 1
 
-- [ ] T018 [US1] Implement `buildMatrixViewModel()` core logic in `src/main/java/nl/leonw/competencymatrix/service/CompetencyService.java`
-- [ ] T019 [US1] Implement role grouping and sorting in `buildMatrixViewModel()` in `src/main/java/nl/leonw/competencymatrix/service/CompetencyService.java`
-- [ ] T020 [US1] Implement MatrixRow construction with empty cell handling in `src/main/java/nl/leonw/competencymatrix/service/CompetencyService.java`
-- [ ] T021 [US1] Create MatrixOverviewResource with GET /matrix endpoint in `src/main/java/nl/leonw/competencymatrix/resource/MatrixOverviewResource.java`
-- [ ] T022 [US1] Create main matrix template in `src/main/resources/templates/matrix-overview.html`
-- [ ] T023 [US1] Create matrix CSS styles for table layout in `src/main/resources/META-INF/resources/css/matrix.css`
-- [ ] T024 [US1] Implement sticky header CSS (position: sticky) in `src/main/resources/META-INF/resources/css/matrix.css`
-- [ ] T025 [US1] Implement level badge CSS styling in `src/main/resources/META-INF/resources/css/matrix.css`
-- [ ] T026 [US1] Add matrix navigation link to layout template in `src/main/resources/templates/layout.html`
-- [ ] T027 [US1] Include matrix.css in layout template in `src/main/resources/templates/layout.html`
+- [X] T018 [US1] Implement `buildMatrixViewModel()` core logic in `src/main/java/nl/leonw/competencymatrix/service/CompetencyService.java`
+- [X] T019 [US1] Implement role grouping and sorting in `buildMatrixViewModel()` in `src/main/java/nl/leonw/competencymatrix/service/CompetencyService.java`
+- [X] T020 [US1] Implement MatrixRow construction with empty cell handling in `src/main/java/nl/leonw/competencymatrix/service/CompetencyService.java`
+- [X] T021 [US1] Create MatrixOverviewResource with GET /matrix endpoint in `src/main/java/nl/leonw/competencymatrix/resource/MatrixOverviewResource.java`
+- [X] T022 [US1] Create main matrix template in `src/main/resources/templates/matrix-overview.html`
+- [X] T023 [US1] Create matrix CSS styles for table layout in `src/main/resources/META-INF/resources/css/matrix.css`
+- [X] T024 [US1] Implement sticky header CSS (position: sticky) in `src/main/resources/META-INF/resources/css/matrix.css`
+- [X] T025 [US1] Implement level badge CSS styling in `src/main/resources/META-INF/resources/CSS/matrix.css`
+- [X] T026 [US1] Add matrix navigation link to layout template in `src/main/resources/templates/layout.html`
+- [X] T027 [US1] Include matrix.css in layout template in `src/main/resources/templates/layout.html`
 
 **Checkpoint**: At this point, User Story 1 should be fully functional - users can view complete matrix with sticky headers
 

@@ -19,6 +19,26 @@ public class SkillRepository {
     @Inject
     DataSource dataSource;
 
+    /**
+     * Find all skills ordered by name (alphabetically).
+     * Used for matrix overview (Feature 004).
+     */
+    public List<Skill> findAllOrderByName() {
+        String sql = "SELECT id, name, category_id, basic_description, decent_description, good_description, excellent_description FROM skill ORDER BY name";
+        try (Connection conn = dataSource.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql);
+             ResultSet rs = stmt.executeQuery()) {
+
+            List<Skill> skills = new ArrayList<>();
+            while (rs.next()) {
+                skills.add(mapRow(rs));
+            }
+            return skills;
+        } catch (SQLException e) {
+            throw new RuntimeException("Failed to fetch all skills", e);
+        }
+    }
+
     public List<Skill> findByCategoryId(Integer categoryId) {
         String sql = "SELECT id, name, category_id, basic_description, decent_description, good_description, excellent_description FROM skill WHERE category_id = ? ORDER BY name";
         try (Connection conn = dataSource.getConnection();

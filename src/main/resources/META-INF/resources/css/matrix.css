@@ -1,0 +1,130 @@
+/**
+ * Matrix Overview Styles
+ * Feature: 004-matrix-overview
+ * Tasks: T023-T025 - Matrix table layout, sticky headers, level badges
+ */
+
+/* T023: Matrix table layout */
+.matrix-container {
+    max-height: calc(100vh - 250px);
+    overflow: auto;
+    position: relative;
+    margin: 2rem 0;
+}
+
+.matrix-table {
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 100%;
+    font-size: 0.875rem;
+}
+
+.matrix-table th,
+.matrix-table td {
+    border: 1px solid var(--pico-muted-border-color);
+    padding: 0.5rem;
+    text-align: center;
+}
+
+.matrix-table .skill-name {
+    text-align: left;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.matrix-table .role-header {
+    min-width: 80px;
+    vertical-align: bottom;
+}
+
+.role-family-header {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: var(--pico-muted-color);
+    margin-bottom: 0.25rem;
+}
+
+.role-name {
+    font-weight: 600;
+}
+
+/* T024: Sticky header implementation */
+.matrix-table thead th {
+    position: sticky;
+    top: 0;
+    background-color: var(--pico-card-background-color);
+    z-index: 3;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Fixed row headers (horizontal scroll) */
+.matrix-table tbody th {
+    position: sticky;
+    left: 0;
+    background-color: var(--pico-card-background-color);
+    z-index: 2;
+    box-shadow: 2px 0 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Top-left corner (both sticky) */
+.matrix-table thead th.skill-header {
+    left: 0;
+    z-index: 4;
+}
+
+/* T025: Level badge styling */
+.level-badge {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+}
+
+/* Proficiency level colors */
+.level-basic .level-badge {
+    background-color: #e3f2fd;
+    color: #1976d2;
+}
+
+.level-decent .level-badge {
+    background-color: #fff3e0;
+    color: #f57c00;
+}
+
+.level-good .level-badge {
+    background-color: #f3e5f5;
+    color: #7b1fa2;
+}
+
+.level-excellent .level-badge {
+    background-color: #e8f5e9;
+    color: #388e3c;
+}
+
+/* Empty cells */
+.matrix-cell {
+    background-color: var(--pico-background-color);
+}
+
+.matrix-cell:empty {
+    background-color: var(--pico-muted-background-color);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .matrix-table {
+        font-size: 0.75rem;
+    }
+
+    .matrix-table th,
+    .matrix-table td {
+        padding: 0.25rem;
+    }
+
+    .level-badge {
+        font-size: 0.625rem;
+        padding: 0.125rem 0.25rem;
+    }
+}

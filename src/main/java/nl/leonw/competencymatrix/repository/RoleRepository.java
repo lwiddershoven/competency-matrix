@@ -20,7 +20,7 @@ public class RoleRepository {
     DataSource dataSource;
 
     public List<Role> findAllOrderByName() {
-        String sql = "SELECT id, name, description FROM rolename ORDER BY name";
+        String sql = "SELECT id, name, description, role_family, seniority_order FROM rolename ORDER BY name";
         try (Connection conn = dataSource.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql);
              ResultSet rs = stmt.executeQuery()) {
@@ -35,8 +35,28 @@ public class RoleRepository {
         }
     }
 
+    /**
+     * Find all roles ordered by role family (alphabetically) and seniority within each family.
+     * Used for matrix overview (Feature 004).
+     */
+    public List<Role> findAllOrderByFamilyAndSeniority() {
+        String sql = "SELECT id, name, description, role_family, seniority_order FROM rolename ORDER BY role_family, seniority_order";
+        try (Connection conn = dataSource.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql);
+             ResultSet rs = stmt.executeQuery()) {
+
+            List<Role> roles = new ArrayList<>();
+            while (rs.next()) {
+                roles.add(mapRow(rs));
+            }
+            return roles;
+        } catch (SQLException e) {
+            throw new RuntimeException("Failed to fetch all roles ordered by family and seniority", e);
+        }
+    }
+
     public Optional<Role> findById(Integer id) {
-        String sql = "SELECT id, name, description FROM rolename WHERE id = ?";
+        String sql = "SELECT id, name, description, role_family, seniority_order FROM rolename WHERE id = ?";
         try (Connection conn = dataSource.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
 
@@ -53,7 +73,7 @@ public class RoleRepository {
     }
 
     public Optional<Role> findByName(String name) {
-        String sql = "SELECT id, name, description FROM rolename WHERE name = ?";
+        String sql = "SELECT id, name, description, role_family, seniority_order FROM rolename WHERE name = ?";
         try (Connection conn = dataSource.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
 
@@ -70,7 +90,7 @@ public class RoleRepository {
     }
 
     public Optional<Role> findByNameIgnoreCase(String name) {
-        String sql = "SELECT id, name, description FROM rolename WHERE LOWER(TRIM(name)) = LOWER(TRIM(?))";
+        String sql = "SELECT id, name, description, role_family, seniority_order FROM rolename WHERE LOWER(TRIM(name)) = LOWER(TRIM(?))";
         try (Connection conn = dataSource.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
 
@@ -88,7 +108,7 @@ public class RoleRepository {
 
     public List<Role> findNextRoles(Integer roleId) {
         String sql = """
-                SELECT r.id, r.name, r.description FROM rolename r
+                SELECT r.id, r.name, r.description, r.role_family, r.seniority_order FROM rolename r
                 JOIN role_progression rp ON r.id = rp.to_role_id
                 WHERE rp.from_role_id = ?
                 ORDER BY r.name
@@ -111,7 +131,7 @@ public class RoleRepository {
 
     public List<Role> findPreviousRoles(Integer roleId) {
         String sql = """
-                SELECT r.id, r.name, r.description FROM rolename r
+                SELECT r.id, r.name, r.description, r.role_family, r.seniority_order FROM rolename r
                 JOIN role_progression rp ON r.id = rp.from_role_id
                 WHERE rp.to_role_id = ?
                 ORDER BY r.name
