@@ -79,4 +79,24 @@ class MatrixOverviewResourceTest {
             "Role families should be displayed"
         );
     }
+
+    /**
+     * T028: Integration test for tooltip endpoint
+     * Verifies that GET /matrix/tooltips/skill/{id} returns tooltip HTML with skill details.
+     */
+    @Test
+    void shouldReturnTooltipForSkill() {
+        // Get a skill from seeded data
+        var skill = skillRepository.findAllOrderByName().stream()
+                .findFirst()
+                .orElseThrow(() -> new RuntimeException("No skills in test database"));
+
+        given()
+            .queryParam("level", "BASIC")
+            .when().get("/matrix/tooltips/skill/{skillId}", skill.id())
+            .then()
+                .statusCode(200)
+                .body(containsString(skill.name()))
+                .body(containsString("Basic"));
+    }
 }

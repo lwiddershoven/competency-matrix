@@ -34,7 +34,7 @@ All paths are relative to repository root:
 
 ---
 
-## Phase 2: Foundational (Blocking Prerequisites)
+## Phase 2: Foundational (Blocking Prerequisites) role
 
 **Purpose**: Core DTOs and service methods that ALL user stories depend on
 
@@ -94,24 +94,24 @@ All paths are relative to repository root:
 
 ### Tests for User Story 2
 
-- [ ] T028 [P] [US2] Write integration test for tooltip endpoint GET /matrix/tooltips/skill/{id} in `src/test/java/nl/leonw/competencymatrix/resource/MatrixOverviewResourceTest.java`
-- [ ] T029 [P] [US2] Write E2E test for hover tooltip display in `src/test/java/nl/leonw/competencymatrix/e2e/MatrixOverviewE2ETest.java`
-- [ ] T030 [P] [US2] Write E2E test for touch tooltip interaction in `src/test/java/nl/leonw/competencymatrix/e2e/MatrixOverviewE2ETest.java`
-- [ ] T031 [P] [US2] Write E2E test for tooltip viewport boundaries in `src/test/java/nl/leonw/competencymatrix/e2e/MatrixOverviewE2ETest.java`
+- [X] T028 [P] [US2] Write integration test for tooltip endpoint GET /matrix/tooltips/skill/{id} in `src/test/java/nl/leonw/competencymatrix/resource/MatrixOverviewResourceTest.java`
+- [X] T029 [P] [US2] Write E2E test for hover tooltip display in `src/test/java/nl/leonw/competencymatrix/e2e/MatrixOverviewE2ETest.java`
+- [X] T030 [P] [US2] Write E2E test for touch tooltip interaction in `src/test/java/nl/leonw/competencymatrix/e2e/MatrixOverviewE2ETest.java`
+- [X] T031 [P] [US2] Write E2E test for tooltip viewport boundaries in `src/test/java/nl/leonw/competencymatrix/e2e/MatrixOverviewE2ETest.java`
 
 ### Implementation for User Story 2
 
-- [ ] T032 [US2] Add GET /matrix/tooltips/skill/{skillId} endpoint to MatrixOverviewResource in `src/main/java/nl/leonw/competencymatrix/resource/MatrixOverviewResource.java`
-- [ ] T033 [US2] Extend CompetencyService with `getSkillById()` method in `src/main/java/nl/leonw/competencymatrix/service/CompetencyService.java`
-- [ ] T034 [US2] Add `getDescriptionForLevel()` method to Skill model in `src/main/java/nl/leonw/competencymatrix/model/Skill.java`
-- [ ] T035 [US2] Create tooltip fragment template in `src/main/resources/templates/fragments/matrix-tooltip.html`
-- [ ] T036 [US2] Add popover attributes to proficiency badges in matrix template in `src/main/resources/templates/matrix-overview.html`
-- [ ] T037 [US2] Add htmx lazy loading attributes to proficiency badges in `src/main/resources/templates/matrix-overview.html`
-- [ ] T038 [US2] Create matrix.js for tooltip positioning logic in `src/main/resources/META-INF/resources/js/matrix.js`
-- [ ] T039 [US2] Implement Popover API event listeners in `src/main/resources/META-INF/resources/js/matrix.js`
-- [ ] T040 [US2] Implement viewport boundary detection for tooltips in `src/main/resources/META-INF/resources/js/matrix.js`
-- [ ] T041 [US2] Add tooltip CSS styling (max-width 90vw, max-height 90vh) in `src/main/resources/META-INF/resources/css/matrix.css`
-- [ ] T042 [US2] Include matrix.js in layout template in `src/main/resources/templates/layout.html`
+- [X] T032 [US2] Add GET /matrix/tooltips/skill/{skillId} endpoint to MatrixOverviewResource in `src/main/java/nl/leonw/competencymatrix/resource/MatrixOverviewResource.java`
+- [X] T033 [US2] Extend CompetencyService with `getSkillById()` method in `src/main/java/nl/leonw/competencymatrix/service/CompetencyService.java`
+- [X] T034 [US2] Add `getDescriptionForLevel()` method to Skill model in `src/main/java/nl/leonw/competencymatrix/model/Skill.java`
+- [X] T035 [US2] Create tooltip fragment template in `src/main/resources/templates/fragments/matrix-tooltip.html`
+- [X] T036 [US2] Add popover attributes to proficiency badges in matrix template in `src/main/resources/templates/matrix-overview.html`
+- [X] T037 [US2] Add htmx lazy loading attributes to proficiency badges in `src/main/resources/templates/matrix-overview.html`
+- [X] T038 [US2] Create matrix.js for tooltip positioning logic in `src/main/resources/META-INF/resources/js/matrix.js`
+- [X] T039 [US2] Implement Popover API event listeners in `src/main/resources/META-INF/resources/js/matrix.js`
+- [X] T040 [US2] Implement viewport boundary detection for tooltips in `src/main/resources/META-INF/resources/js/matrix.js`
+- [X] T041 [US2] Add tooltip CSS styling (max-width 90vw, max-height 90vh) in `src/main/resources/META-INF/resources/css/matrix.css`
+- [X] T042 [US2] Include matrix.js in layout template in `src/main/resources/templates/layout.html`
 
 **Checkpoint**: At this point, User Stories 1 AND 2 should both work - users can view matrix and see tooltip details on hover
 

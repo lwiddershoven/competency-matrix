@@ -6,10 +6,9 @@
 
 /* T023: Matrix table layout */
 .matrix-container {
-    max-height: calc(100vh - 250px);
-    overflow: auto;
     position: relative;
     margin: 2rem 0;
+    /* Removed max-height and overflow to prevent scrollbars and tooltip repaint issues */
 }
 
 .matrix-table {
@@ -49,6 +48,7 @@
 }
 
 /* T024: Sticky header implementation */
+/* Headers stick to viewport during page scroll (not container scroll) */
 .matrix-table thead th {
     position: sticky;
     top: 0;
@@ -57,7 +57,7 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Fixed row headers (horizontal scroll) */
+/* Fixed row headers for horizontal page scroll */
 .matrix-table tbody th {
     position: sticky;
     left: 0;
@@ -112,6 +112,64 @@
     background-color: var(--pico-muted-background-color);
 }
 
+/* T041: Tooltip styling with viewport constraints */
+.level-badge-button {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    font: inherit;
+    color: inherit;
+}
+
+.level-badge-button:hover {
+    opacity: 0.9;
+}
+
+.level-badge-button:focus {
+    outline: 2px solid var(--pico-primary);
+    outline-offset: 2px;
+}
+
+[popover].tooltip-popover {
+    max-width: min(90vw, 500px);
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 1rem;
+    background: var(--pico-card-background-color);
+    border: 1px solid var(--pico-muted-border-color);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+}
+
+.tooltip-content h4 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.tooltip-level {
+    margin-bottom: 0.75rem;
+}
+
+.tooltip-description {
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.tooltip-loading {
+    padding: 0.5rem;
+    text-align: center;
+    color: var(--pico-muted-color);
+}
+
+/* Dark mode adjustments for tooltips */
+[data-theme="dark"] [popover].tooltip-popover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .matrix-table {
@@ -126,5 +184,14 @@
     .level-badge {
         font-size: 0.625rem;
         padding: 0.125rem 0.25rem;
+    }
+
+    [popover].tooltip-popover {
+        max-width: 95vw;
+        padding: 0.75rem;
+    }
+
+    .tooltip-content h4 {
+        font-size: 1rem;
     }
 }

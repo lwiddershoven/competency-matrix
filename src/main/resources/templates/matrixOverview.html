@@ -35,7 +35,23 @@
                                 {#for cell in row.cells}
                                     <td class="matrix-cell {cell.levelCssClass}">
                                         {#if !cell.isEmpty}
-                                            <span class="level-badge">{cell.displayText}</span>
+                                            <button
+                                                class="level-badge-button"
+                                                popovertarget="tooltip-{cell.skillId}-{cell.roleId}"
+                                                hx-get="/matrix/tooltips/skill/{cell.skillId}?level={cell.requiredLevel.name()}"
+                                                hx-trigger="mouseenter once, focus once"
+                                                hx-target="#tooltip-{cell.skillId}-{cell.roleId}"
+                                                hx-swap="innerHTML"
+                                                aria-describedby="tooltip-{cell.skillId}-{cell.roleId}">
+                                                <span class="level-badge">{cell.displayText}</span>
+                                            </button>
+                                            <div
+                                                popover="manual"
+                                                id="tooltip-{cell.skillId}-{cell.roleId}"
+                                                role="tooltip"
+                                                class="tooltip-popover">
+                                                <div class="tooltip-loading" aria-busy="true">Loading...</div>
+                                            </div>
                                         {/if}
                                     </td>
                                 {/for}
