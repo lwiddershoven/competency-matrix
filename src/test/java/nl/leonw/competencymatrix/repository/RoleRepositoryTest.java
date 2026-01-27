@@ -20,7 +20,7 @@ class RoleRepositoryTest {
     @Transactional
     void testFindByNameIgnoreCase_exactMatch() {
         // Given
-        Role role = new Role(null, "TestSeniorDeveloperExact", "Experienced developer");
+        Role role = new Role(null, "TestSeniorDeveloperExact", "Experienced developer", "Other", 999);
         roleRepository.save(role);
 
         // When
@@ -35,7 +35,7 @@ class RoleRepositoryTest {
     @Transactional
     void testFindByNameIgnoreCase_lowercase() {
         // Given
-        Role role = new Role(null, "TestSeniorDeveloperLower", "Experienced developer");
+        Role role = new Role(null, "TestSeniorDeveloperLower", "Experienced developer", "Other", 999);
         roleRepository.save(role);
 
         // When
@@ -50,7 +50,7 @@ class RoleRepositoryTest {
     @Transactional
     void testFindByNameIgnoreCase_uppercase() {
         // Given
-        Role role = new Role(null, "TestSeniorDeveloperUpper", "Experienced developer");
+        Role role = new Role(null, "TestSeniorDeveloperUpper", "Experienced developer", "Other", 999);
         roleRepository.save(role);
 
         // When
@@ -65,7 +65,7 @@ class RoleRepositoryTest {
     @Transactional
     void testFindByNameIgnoreCase_withExtraSpaces() {
         // Given
-        Role role = new Role(null, "TestSeniorDeveloperSpaces", "Experienced developer");
+        Role role = new Role(null, "TestSeniorDeveloperSpaces", "Experienced developer", "Other", 999);
         roleRepository.save(role);
 
         // When
@@ -80,7 +80,7 @@ class RoleRepositoryTest {
     @Transactional
     void testFindByNameIgnoreCase_notFound() {
         // Given
-        Role role = new Role(null, "TestSeniorDeveloperMissing", "Experienced developer");
+        Role role = new Role(null, "TestSeniorDeveloperMissing", "Experienced developer", "Other", 999);
         roleRepository.save(role);
 
         // When
@@ -94,8 +94,8 @@ class RoleRepositoryTest {
     @Transactional
     void testDeleteAll() {
         // Given
-        roleRepository.save(new Role(null, "DeleteRoleOne", "Desc"));
-        roleRepository.save(new Role(null, "DeleteRoleTwo", "Desc"));
+        roleRepository.save(new Role(null, "DeleteRoleOne", "Desc", "Other", 999));
+        roleRepository.save(new Role(null, "DeleteRoleTwo", "Desc", "Other", 999));
 
         // When
         int deleted = roleRepository.deleteAll();

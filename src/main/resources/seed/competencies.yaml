@@ -205,6 +205,8 @@ categories:
 
 roles:
   - name: "Junior Developer"
+    roleFamily: "Developer"
+    seniorityOrder: 1
     description: "Junior software developer die de fundamenten leert"
     requirements:
       - skill: "Java"
@@ -227,6 +229,8 @@ roles:
         level: "basic"
 
   - name: "Medior Developer"
+    roleFamily: "Developer"
+    seniorityOrder: 2
     description: "Ervaren developer die zelfstandig aan features werkt"
     requirements:
       - skill: "Java"
@@ -330,6 +334,8 @@ roles:
         level: "good"
 
   - name: "Senior Developer"
+    roleFamily: "Developer"
+    seniorityOrder: 3
     description: "Technische leider die team beslissingen begeleidt en mentort"
     requirements:
       - skill: "Java"
@@ -403,6 +409,8 @@ roles:
         level: "good"
 
   - name: "Specialist Developer"
+    roleFamily: "Developer"
+    seniorityOrder: 4
     description: "Diepgaand technisch expert met beheersing in ten minste één technologisch domein (bijv. Java ecosysteem, data engineering, beveiliging) die gespecialiseerde consulting levert en excellentie in hun gebied stimuleert"
     requirements:
       - skill: "Java"
@@ -437,6 +445,8 @@ roles:
         level: "excellent"
 
   - name: "Lead Developer"
+    roleFamily: "Developer"
+    seniorityOrder: 5
     description: "Begeleidt development team door technische beslissingen, verwijdert blockers, en zorgt voor delivery kwaliteit terwijl hands-on development behouden blijft"
     requirements:
       - skill: "Java"
@@ -501,6 +511,8 @@ roles:
         level: "basic"
 
   - name: "Lead Developer / Software Architect"
+    roleFamily: "Architect"
+    seniorityOrder: 1
     description: "Hybride rol die hands-on team leadership combineert met architectonisch design, overbrugt technische implementatie en organisatorische strategie"
     requirements:
       - skill: "Java"
@@ -550,6 +562,8 @@ roles:
         level: "decent"
 
   - name: "Software Architect"
+    roleFamily: "Architect"
+    seniorityOrder: 2
     description: "Definieert technische strategie en standaarden across development en platform teams, aligneert architectuur met IT management doelstellingen, en zorgt voor technische coherentie across de IT organisatie"
     requirements:
       - skill: "Java"
@@ -599,6 +613,8 @@ roles:
         level: "excellent"
 
   - name: "Solution Architect"
+    roleFamily: "Architect"
+    seniorityOrder: 3
     description: "Partnert met business stakeholders om vereisten te begrijpen, modelleert business processen en domeinen, en ontwerpt oplossingen die business value leveren terwijl integratie met enterprise architectuur gewaarborgd is"
     requirements:
       - skill: "Java"
@@ -639,6 +655,8 @@ roles:
         level: "decent"
 
   - name: "DevOps Engineer"
+    roleFamily: "Operations"
+    seniorityOrder: 1
     description: "Infrastructure en automation specialist"
     requirements:
       - skill: "Python"

@@ -3,6 +3,7 @@ package nl.leonw.competencymatrix.service;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
+import nl.leonw.competencymatrix.dto.MatrixViewModel;
 import nl.leonw.competencymatrix.model.*;
 import nl.leonw.competencymatrix.repository.*;
 
@@ -137,6 +138,25 @@ public class CompetencyService {
             map.put(req.skillId(), req);
         }
         return map;
+    }
+
+    /**
+     * Build matrix view model with all skills and roles.
+     * Feature: 004-matrix-overview
+     * Task: T012 - Method stub for Phase 3 implementation
+     *
+     * @param categoryId Optional category ID to filter skills (null = show all)
+     * @return MatrixViewModel with rows, column headers, and filter state
+     */
+    public MatrixViewModel buildMatrixViewModel(Integer categoryId) {
+        // TODO: Implement in Phase 3 (T013-T027)
+        // Will build:
+        // 1. Fetch all skills (or filtered by categoryId)
+        // 2. Fetch all roles ordered by roleFamily + seniorityOrder
+        // 3. Group roles by family (Developer, Architect, Operations)
+        // 4. For each skill, create MatrixRow with cells for each role
+        // 5. Return MatrixViewModel.filtered() or .unfiltered()
+        throw new UnsupportedOperationException("buildMatrixViewModel not yet implemented - Phase 3");
     }
 
     public record SkillWithRequirement(Skill skill, ProficiencyLevel requiredLevel) {}

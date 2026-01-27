@@ -27,10 +27,10 @@ All paths are relative to repository root:
 
 **Purpose**: Database schema changes and foundational infrastructure for matrix feature
 
-- [ ] T001 Create database migration `src/main/resources/db/migration/V2__add_role_grouping.sql`
-- [ ] T002 Run migration to add `role_family` and `seniority_order` columns to `rolename` table
-- [ ] T003 [P] Update seed data `src/main/resources/seed/competencies.yaml` with `roleFamily` and `seniorityOrder` fields
-- [ ] T004 [P] Update Role model to include `roleFamily` and `seniorityOrder` fields in `src/main/java/nl/leonw/competencymatrix/model/Role.java`
+- [x] T001 Create database migration `src/main/resources/db/migration/V2__add_role_grouping.sql`
+- [x] T002 Run migration to add `role_family` and `seniority_order` columns to `rolename` table
+- [x] T003 [P] Update seed data `src/main/resources/seed/competencies.yaml` with `roleFamily` and `seniorityOrder` fields
+- [x] T004 [P] Update Role model to include `roleFamily` and `seniorityOrder` fields in `src/main/java/nl/leonw/competencymatrix/model/Role.java`
 
 ---
 
@@ -40,14 +40,14 @@ All paths are relative to repository root:
 
 **⚠️ CRITICAL**: No user story work can begin until this phase is complete
 
-- [ ] T005 [P] Create MatrixViewModel DTO in `src/main/java/nl/leonw/competencymatrix/dto/MatrixViewModel.java`
-- [ ] T006 [P] Create MatrixRow DTO in `src/main/java/nl/leonw/competencymatrix/dto/MatrixRow.java`
-- [ ] T007 [P] Create MatrixCell DTO in `src/main/java/nl/leonw/competencymatrix/dto/MatrixCell.java`
-- [ ] T008 [P] Create MatrixColumnHeader DTO in `src/main/java/nl/leonw/competencymatrix/dto/MatrixColumnHeader.java`
-- [ ] T009 Write unit test for MatrixCell factory methods in `src/test/java/nl/leonw/competencymatrix/dto/MatrixCellTest.java`
-- [ ] T010 [P] Write unit test for MatrixCell CSS class generation in `src/test/java/nl/leonw/competencymatrix/dto/MatrixCellTest.java`
-- [ ] T011 [P] Write unit test for MatrixColumnHeader abbreviation generation in `src/test/java/nl/leonw/competencymatrix/dto/MatrixColumnHeaderTest.java`
-- [ ] T012 Extend CompetencyService with `buildMatrixViewModel()` method stub in `src/main/java/nl/leonw/competencymatrix/service/CompetencyService.java`
+- [x] T005 [P] Create MatrixViewModel DTO in `src/main/java/nl/leonw/competencymatrix/dto/MatrixViewModel.java`
+- [x] T006 [P] Create MatrixRow DTO in `src/main/java/nl/leonw/competencymatrix/dto/MatrixRow.java`
+- [x] T007 [P] Create MatrixCell DTO in `src/main/java/nl/leonw/competencymatrix/dto/MatrixCell.java`
+- [x] T008 [P] Create MatrixColumnHeader DTO in `src/main/java/nl/leonw/competencymatrix/dto/MatrixColumnHeader.java`
+- [x] T009 Write unit test for MatrixCell factory methods in `src/test/java/nl/leonw/competencymatrix/dto/MatrixCellTest.java`
+- [x] T010 [P] Write unit test for MatrixCell CSS class generation in `src/test/java/nl/leonw/competencymatrix/dto/MatrixCellTest.java`
+- [x] T011 [P] Write unit test for MatrixColumnHeader abbreviation generation in `src/test/java/nl/leonw/competencymatrix/dto/MatrixColumnHeaderTest.java`
+- [x] T012 Extend CompetencyService with `buildMatrixViewModel()` method stub in `src/main/java/nl/leonw/competencymatrix/service/CompetencyService.java`
 
 **Checkpoint**: Foundation ready - user story implementation can now begin in parallel
 

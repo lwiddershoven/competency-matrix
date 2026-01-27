@@ -32,10 +32,13 @@ public record YamlCompetencyData(
 
     /**
      * Represents a role from YAML.
+     * UPDATED: Added roleFamily and seniorityOrder for matrix grouping (Feature 004).
      */
     public record RoleData(
         String name,
         String description,
+        String roleFamily,
+        Integer seniorityOrder,
         List<RequirementData> requirements
     ) {}
 

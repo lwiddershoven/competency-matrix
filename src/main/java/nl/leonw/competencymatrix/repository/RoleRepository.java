@@ -141,16 +141,18 @@ public class RoleRepository {
     }
 
     private Role insert(Role role) {
-        String sql = "INSERT INTO rolename (name, description) VALUES (?, ?) RETURNING id";
+        String sql = "INSERT INTO rolename (name, description, role_family, seniority_order) VALUES (?, ?, ?, ?) RETURNING id";
         try (Connection conn = dataSource.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
 
             stmt.setString(1, role.name());
             stmt.setString(2, role.description());
+            stmt.setString(3, role.roleFamily());
+            stmt.setInt(4, role.seniorityOrder());
 
             try (ResultSet rs = stmt.executeQuery()) {
                 if (rs.next()) {
-                    return new Role(rs.getInt(1), role.name(), role.description());
+                    return new Role(rs.getInt(1), role.name(), role.description(), role.roleFamily(), role.seniorityOrder());
                 }
                 throw new SQLException("Insert failed, no ID returned");
             }
@@ -160,13 +162,15 @@ public class RoleRepository {
     }
 
     private Role update(Role role) {
-        String sql = "UPDATE rolename SET name = ?, description = ? WHERE id = ?";
+        String sql = "UPDATE rolename SET name = ?, description = ?, role_family = ?, seniority_order = ? WHERE id = ?";
         try (Connection conn = dataSource.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
 
             stmt.setString(1, role.name());
             stmt.setString(2, role.description());
-            stmt.setInt(3, role.id());
+            stmt.setString(3, role.roleFamily());
+            stmt.setInt(4, role.seniorityOrder());
+            stmt.setInt(5, role.id());
 
             int rowsAffected = stmt.executeUpdate();
             if (rowsAffected == 0) {
@@ -193,7 +197,9 @@ public class RoleRepository {
         return new Role(
                 rs.getInt("id"),
                 rs.getString("name"),
-                rs.getString("description")
+                rs.getString("description"),
+                rs.getString("role_family"),
+                rs.getInt("seniority_order")
         );
     }
 }
