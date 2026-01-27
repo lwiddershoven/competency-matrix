@@ -1,7 +1,8 @@
 {#include layout title=role.name}
     {#content}
         <nav class="breadcrumb">
-            <a href="/">Home</a> &gt;
+            <a href="/">Home</a> >
+            <a href="/matrix">Competency Matrix</a> >
             <span>{role.name}</span>
         </nav>
 
@@ -14,14 +15,20 @@
         <section>
             <h3>Career Progression</h3>
             <p>This role can progress to:</p>
-            <div class="next-roles">
+            <div class="next-roles-compact">
                 {#for nextRole in nextRoles}
-                <a href="/roles/{nextRole.id}" class="next-role-link">{nextRole.name}</a>
-                <a href="/compare?from={role.id}&to={nextRole.id}"
-                   class="outline"
-                   style="padding: 0.5rem 1rem; font-size: 0.875rem;">
-                    Compare with {nextRole.name}
-                </a>
+                <div class="progression-item">
+                    <div class="role-progressions">
+                        <a href="/roles/{nextRole.id}" class="next-role-link">{nextRole.name}</a>
+                    </div>
+                    <div class="comparison-links">
+                        <a href="/compare?from={role.id}&to={nextRole.id}"
+                           class="outline"
+                           style="padding: 0.25rem 0.5rem; font-size: 0.75rem;">
+                            Compare with {nextRole.name}
+                        </a>
+                    </div>
+                </div>
                 {/for}
             </div>
         </section>

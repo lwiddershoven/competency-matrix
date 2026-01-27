@@ -10,6 +10,26 @@
             <p>Overview of all competencies across all roles</p>
         </hgroup>
 
+        {#if matrix.categories && matrix.categories.size() > 1}
+            <div class="matrix-filters">
+                <form method="GET" action="/matrix" class="filter-form">
+                    <label for="categoryFilter">Filter by Category:</label>
+                    <select name="category" id="categoryFilter" onchange="this.form.submit()">
+                        <option value="">All Categories</option>
+                        {#for category in matrix.categories}
+                            <option value="{category.id}" 
+                                    {#if matrix.selectedCategoryId == category.id.toString()}selected{/if}>
+                                {category.name}
+                            </option>
+                        {/for}
+                    </select>
+                    <noscript>
+                        <button type="submit">Apply Filter</button>
+                    </noscript>
+                </form>
+            </div>
+        {/if}
+
         {#if matrix.rolesByFamily.isEmpty()}
             <p>No roles found. Please load seed data first.</p>
         {#else}
@@ -21,7 +41,9 @@
                             {#for entry in matrix.rolesByFamily.entrySet()}
                                 {#for columnHeader in entry.value}
                                     <th class="role-header" title="{columnHeader.role.name}">
-                                        <div class="role-name">{columnHeader.role.name}</div>
+                                        <a href="/roles/{columnHeader.role.id}" class="role-name-link" title="View details for {columnHeader.role.name}">
+                                            <div class="role-name">{columnHeader.role.name}</div>
+                                        </a>
                                     </th>
                                 {/for}
                             {/for}
@@ -30,7 +52,11 @@
                     <tbody>
                         {#for row in matrix.rows}
                             <tr>
-                                <th class="skill-name">{row.skill.name}</th>
+                                <th class="skill-header">
+                                    <a href="/skills/{row.skill.id}" class="skill-name-link" title="View details for {row.skill.name}">
+                                        {row.skill.name}
+                                    </a>
+                                </th>
                                 {#for cell in row.cells}
                                     <td class="matrix-cell {cell.levelCssClass}">
                                         {#if !cell.isEmpty}
