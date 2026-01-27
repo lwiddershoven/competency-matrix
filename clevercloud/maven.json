@@ -1,18 +1,10 @@
 {
-  "build": {
-    "goals": [
-      "clean",
-      "quarkus:build",
-      "-DskipTests"
-    ]
-  },
-  "deploy": {
-    "start": [
-      "java",
-      "-Djava.net.preferIPv4Stack=true",
-      "-Dquarkus.http.port=8080",
-      "-jar",
-      "target/competency-matrix-0.0.1-SNAPSHOT-runner.jar"
-    ]
-  }
+    "build": {
+        "type": "maven",
+        "goal": "package -DskipJib -Dquarkus.container-image.build=false -Dquarkus.container-image.push=false -DskipTests=true"
+    },
+    "deploy": {
+        "type": "jar",
+        "jar": "target/quarkus-app/quarkus-run.jar"
+    }
 }
