@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Optional;
 
 @ApplicationScoped
@@ -61,14 +62,16 @@ public class RoleProgressionRepository {
     }
 
     private RoleProgression insert(RoleProgression progression) {
-        String sql = "INSERT INTO role_progression (from_role_id, to_role_id) VALUES (?, ?) RETURNING id";
+        String sql = "INSERT INTO role_progression (from_role_id, to_role_id) VALUES (?, ?)";
         try (Connection conn = dataSource.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
+             PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
 
             stmt.setInt(1, progression.fromRoleId());
             stmt.setInt(2, progression.toRoleId());
 
-            try (ResultSet rs = stmt.executeQuery()) {
+            stmt.executeUpdate();
+
+            try (ResultSet rs = stmt.getGeneratedKeys()) {
                 if (rs.next()) {
                     return new RoleProgression(rs.getInt(1), progression.fromRoleId(), progression.toRoleId());
                 }

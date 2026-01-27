@@ -54,3 +54,4 @@ quarkus.log
 # Sensitive files
 .env*
 *.log
+/.clever.json

@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -143,9 +144,9 @@ public class SkillRepository {
     }
 
     private Skill insert(Skill skill) {
-        String sql = "INSERT INTO skill (name, category_id, basic_description, decent_description, good_description, excellent_description) VALUES (?, ?, ?, ?, ?, ?) RETURNING id";
+        String sql = "INSERT INTO skill (name, category_id, basic_description, decent_description, good_description, excellent_description) VALUES (?, ?, ?, ?, ?, ?)";
         try (Connection conn = dataSource.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
+             PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
 
             stmt.setString(1, skill.name());
             stmt.setInt(2, skill.categoryId());
@@ -154,7 +155,9 @@ public class SkillRepository {
             stmt.setString(5, skill.goodDescription());
             stmt.setString(6, skill.excellentDescription());
 
-            try (ResultSet rs = stmt.executeQuery()) {
+            stmt.executeUpdate();
+
+            try (ResultSet rs = stmt.getGeneratedKeys()) {
                 if (rs.next()) {
                     return new Skill(rs.getInt(1), skill.name(), skill.categoryId(),
                             skill.basicDescription(), skill.decentDescription(),
