@@ -1,0 +1,30 @@
+name: Software Design
+skills:
+- name: Design Patterns
+  levels: {basic: Herkent bekende patronen zoals Singleton en Factory, decent: 'Past
+      patronen toe waar passend, begrijpt trade-offs', good: Combineert patronen om
+      complexe problemen op te lossen, excellent: 'Creëert domeinspecifieke patronen,
+      leert anderen'}
+- name: Architecture
+  levels: {basic: Begrijpt basis gelaagde architectuur, decent: Ontwerpt componenten
+      met duidelijke grenzen, good: 'Ontwerpt microservices, evalueert architectonische
+      trade-offs', excellent: 'Leidt systeemarchitectuur, definieert technische strategie'}
+- name: API Design
+  levels: {basic: Creëert basis REST endpoints, decent: 'Ontwerpt consistente, gedocumenteerde
+      API''s', good: Bouw schaalbare API's met versiebeheer en foutafhandeling, excellent: 'Definieert
+      API standaarden, ontwerpt complexe integraties'}
+- name: Object-Oriented Programming
+  levels: {basic: 'Begrijpt basis OOP concepten (classes, objects, inheritance)',
+    decent: 'Past encapsulation, inheritance en polymorphism toe', good: 'Ontwerpt
+      complexe object modellen, begrijpt SOLID principes', excellent: 'Creëert elegant
+      OOP architecturen, mentort anderen in OOP'}
+- name: Microservices Architectuur
+  levels: {basic: Begrijpt microservices concepten en voordelen, decent: Implementeert
+      eenvoudige microservices met communicatie, good: 'Ontwerpt service boundaries,
+      implementeert service discovery', excellent: 'Architecteert microservices platformen,
+      implementeert observability'}
+- name: Test-Driven Development
+  levels: {basic: 'Begrijpt TDD cyclus: Red-Green-Refactor', decent: Schrijft tests
+      eerst voor eenvoudige functionaliteit, good: 'Past TDD toe in complexe features,
+      bereikt hoge test coverage', excellent: 'Leidt TDD implementatie in teams, definieert
+      testing strategieën'}

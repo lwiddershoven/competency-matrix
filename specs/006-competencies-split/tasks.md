@@ -26,10 +26,10 @@ Project structure: Single monolith (backend + server-side rendered frontend)
 
 **Purpose**: Create split YAML files and verify structure
 
-- [ ] T001 Create categories directory at src/main/resources/seed/categories/
-- [ ] T002 Create roles directory at src/main/resources/seed/roles/
-- [ ] T003 [P] Create migration script to split competencies.yaml into category files in scripts/split-competencies.sh
-- [ ] T004 [P] Verify migration script preserves all data from original competencies.yaml
+- [X] T001 Create categories directory at src/main/resources/seed/categories/
+- [X] T002 Create roles directory at src/main/resources/seed/roles/
+- [X] T003 [P] Create migration script to split competencies.yaml into category files in scripts/split-competencies.sh
+- [X] T004 [P] Verify migration script preserves all data from original competencies.yaml
 
 ---
 
@@ -39,10 +39,10 @@ Project structure: Single monolith (backend + server-side rendered frontend)
 
 **⚠️ CRITICAL**: No user story work can begin until this phase is complete
 
-- [ ] T005 Add file discovery helper method discoverYamlFiles(String directoryPath) to CompetencySyncService.java
-- [ ] T006 Add filename-to-entity mapping helper method parseYamlFile(Path filePath) to CompetencySyncService.java
-- [ ] T007 Add duplicate detection helper method detectDuplicateCategories(List<CategoryData>, Map<String, String>) to CompetencySyncService.java
-- [ ] T008 Add duplicate detection helper method detectDuplicateRoles(List<RoleData>, Map<String, String>) to CompetencySyncService.java
+- [X] T005 Add file discovery helper method discoverYamlFiles(String directoryPath) to CompetencySyncService.java
+- [X] T006 Add filename-to-entity mapping helper method parseYamlFile(Path filePath) to CompetencySyncService.java
+- [X] T007 Add duplicate detection helper method detectDuplicateCategories(List<CategoryData>, Map<String, String>) to CompetencySyncService.java
+- [X] T008 Add duplicate detection helper method detectDuplicateRoles(List<RoleData>, Map<String, String>) to CompetencySyncService.java
 
 **Checkpoint**: Foundation ready - user story implementation can now begin in parallel
 
@@ -58,25 +58,25 @@ Project structure: Single monolith (backend + server-side rendered frontend)
 
 > **NOTE: Write these tests FIRST, ensure they FAIL before implementation**
 
-- [ ] T009 [P] [US1] Unit test: discoverYamlFiles() returns empty list for missing directory in src/test/java/nl/leonw/competencymatrix/config/CompetencySyncServiceTest.java
-- [ ] T010 [P] [US1] Unit test: discoverYamlFiles() returns sorted file paths for categories/ directory in CompetencySyncServiceTest.java
-- [ ] T011 [P] [US1] Unit test: discoverYamlFiles() filters non-YAML files in CompetencySyncServiceTest.java
-- [ ] T012 [P] [US1] Integration test: Load programming.yaml, verify CategoryData("Programming", skills) in CompetencySyncServiceTest.java
-- [ ] T013 [P] [US1] Integration test: Load all category files, verify 6 categories merged correctly in CompetencySyncServiceTest.java
-- [ ] T014 [P] [US1] Integration test: Empty category file returns valid CategoryData with empty skills list in CompetencySyncServiceTest.java
-- [ ] T015 [P] [US1] Integration test: Duplicate category names across files throws IllegalStateException with both filenames in CompetencySyncServiceTest.java
+- [X] T009 [P] [US1] Unit test: discoverYamlFiles() returns empty list for missing directory in src/test/java/nl/leonw/competencymatrix/config/CompetencySyncServiceTest.java
+- [X] T010 [P] [US1] Unit test: discoverYamlFiles() returns sorted file paths for categories/ directory in CompetencySyncServiceTest.java
+- [X] T011 [P] [US1] Unit test: discoverYamlFiles() filters non-YAML files in CompetencySyncServiceTest.java
+- [X] T012 [P] [US1] Integration test: Load programming.yaml, verify CategoryData("Programming", skills) in CompetencySyncServiceTest.java
+- [X] T013 [P] [US1] Integration test: Load all category files, verify 6 categories merged correctly in CompetencySyncServiceTest.java
+- [X] T014 [P] [US1] Integration test: Empty category file returns valid CategoryData with empty skills list in CompetencySyncServiceTest.java
+- [X] T015 [P] [US1] Integration test: Duplicate category names across files throws IllegalStateException with both filenames in CompetencySyncServiceTest.java
 
 ### Implementation for User Story 1
 
-- [ ] T016 [US1] Execute migration script to create category YAML files: programming.yaml, software-design.yaml, devops-infrastructure.yaml, quality-testing.yaml, soft-skills.yaml, architecture-frameworks.yaml in src/main/resources/seed/categories/
-- [ ] T017 [US1] Implement discoverYamlFiles() using Files.list() with try-with-resources per research.md in CompetencySyncService.java
-- [ ] T018 [US1] Implement detectDuplicateCategories() using HashMap tracking per research.md in CompetencySyncService.java
-- [ ] T019 [US1] Modify loadYamlData() to discover category files from categories/ directory in CompetencySyncService.java:300-310
-- [ ] T020 [US1] Modify loadYamlData() to loop through category files and merge into List<CategoryData> using List.addAll() in CompetencySyncService.java
-- [ ] T021 [US1] Add per-file error reporting with filename context when YAML parse fails in CompetencySyncService.java
-- [ ] T022 [US1] Add logging for category file discovery (info level) and missing directory (warn level) in CompetencySyncService.java
-- [ ] T023 [US1] Verify all unit tests pass (T009-T011)
-- [ ] T024 [US1] Verify all integration tests pass (T012-T015)
+- [X] T016 [US1] Execute migration script to create category YAML files: programming.yaml, software-design.yaml, devops-infrastructure.yaml, quality-testing.yaml, soft-skills.yaml, architecture-frameworks.yaml in src/main/resources/seed/categories/
+- [X] T017 [US1] Implement discoverYamlFiles() using Files.list() with try-with-resources per research.md in CompetencySyncService.java
+- [X] T018 [US1] Implement detectDuplicateCategories() using HashMap tracking per research.md in CompetencySyncService.java
+- [X] T019 [US1] Modify loadYamlData() to discover category files from categories/ directory in CompetencySyncService.java:300-310
+- [X] T020 [US1] Modify loadYamlData() to loop through category files and merge into List<CategoryData> using List.addAll() in CompetencySyncService.java
+- [X] T021 [US1] Add per-file error reporting with filename context when YAML parse fails in CompetencySyncService.java
+- [X] T022 [US1] Add logging for category file discovery (info level) and missing directory (warn level) in CompetencySyncService.java
+- [X] T023 [US1] Verify all unit tests pass (T009-T011)
+- [X] T024 [US1] Verify all integration tests pass (T012-T015)
 
 **Checkpoint**: At this point, category multi-file loading should be fully functional and independently testable
 
@@ -90,20 +90,20 @@ Project structure: Single monolith (backend + server-side rendered frontend)
 
 ### Tests for User Story 2 (TDD Approach)
 
-- [ ] T025 [P] [US2] Integration test: Load junior-developer.yaml, verify RoleData("Junior Developer", requirements) in CompetencySyncServiceTest.java
-- [ ] T026 [P] [US2] Integration test: Load all role files, verify 9 roles merged correctly in CompetencySyncServiceTest.java
-- [ ] T027 [P] [US2] Integration test: Empty role file returns valid RoleData with empty requirements list in CompetencySyncServiceTest.java
-- [ ] T028 [P] [US2] Integration test: Duplicate role names across files throws IllegalStateException with both filenames in CompetencySyncServiceTest.java
-- [ ] T029 [P] [US2] Integration test: Role requirements reference valid categories and skills from category files in CompetencySyncServiceTest.java
+- [X] T025 [P] [US2] Integration test: Load junior-developer.yaml, verify RoleData("Junior Developer", requirements) in CompetencySyncServiceTest.java
+- [X] T026 [P] [US2] Integration test: Load all role files, verify 9 roles merged correctly in CompetencySyncServiceTest.java
+- [X] T027 [P] [US2] Integration test: Empty role file returns valid RoleData with empty requirements list in CompetencySyncServiceTest.java
+- [X] T028 [P] [US2] Integration test: Duplicate role names across files throws IllegalStateException with both filenames in CompetencySyncServiceTest.java
+- [X] T029 [P] [US2] Integration test: Role requirements reference valid categories and skills from category files in CompetencySyncServiceTest.java
 
 ### Implementation for User Story 2
 
-- [ ] T030 [US2] Execute migration script to create role YAML files: junior-developer.yaml, medior-developer.yaml, senior-developer.yaml, specialist-developer.yaml, lead-developer.yaml, lead-developer-software-architect.yaml, software-architect.yaml, solution-architect.yaml, devops-engineer.yaml in src/main/resources/seed/roles/
-- [ ] T031 [US2] Implement detectDuplicateRoles() using HashMap tracking per research.md in CompetencySyncService.java
-- [ ] T032 [US2] Modify loadYamlData() to discover role files from roles/ directory in CompetencySyncService.java
-- [ ] T033 [US2] Modify loadYamlData() to loop through role files and merge into List<RoleData> using List.addAll() in CompetencySyncService.java
-- [ ] T034 [US2] Add logging for role file discovery (info level) and missing directory (warn level) in CompetencySyncService.java
-- [ ] T035 [US2] Verify all integration tests pass (T025-T029)
+- [X] T030 [US2] Execute migration script to create role YAML files: junior-developer.yaml, medior-developer.yaml, senior-developer.yaml, specialist-developer.yaml, lead-developer.yaml, lead-developer-software-architect.yaml, software-architect.yaml, solution-architect.yaml, devops-engineer.yaml in src/main/resources/seed/roles/
+- [X] T031 [US2] Implement detectDuplicateRoles() using HashMap tracking per research.md in CompetencySyncService.java
+- [X] T032 [US2] Modify loadYamlData() to discover role files from roles/ directory in CompetencySyncService.java
+- [X] T033 [US2] Modify loadYamlData() to loop through role files and merge into List<RoleData> using List.addAll() in CompetencySyncService.java
+- [X] T034 [US2] Add logging for role file discovery (info level) and missing directory (warn level) in CompetencySyncService.java
+- [X] T035 [US2] Verify all integration tests pass (T025-T029)
 
 **Checkpoint**: At this point, User Stories 1 AND 2 should both work independently (categories and roles load from separate files)
 
@@ -117,19 +117,19 @@ Project structure: Single monolith (backend + server-side rendered frontend)
 
 ### Tests for User Story 3 (TDD Approach)
 
-- [ ] T036 [P] [US3] Integration test: Invalid YAML syntax in category file logs error with filename and line number in CompetencySyncServiceTest.java
-- [ ] T037 [P] [US3] Integration test: Invalid YAML syntax in role file logs error with filename and line number in CompetencySyncServiceTest.java
-- [ ] T038 [P] [US3] Integration test: Missing required field in category file reports filename and field name in CompetencySyncServiceTest.java
-- [ ] T039 [P] [US3] Integration test: Missing required field in role file reports filename and field name in CompetencySyncServiceTest.java
-- [ ] T040 [P] [US3] Integration test: Schema mismatch (valid YAML, wrong structure) reports filename in error in CompetencySyncServiceTest.java
+- [X] T036 [P] [US3] Integration test: Invalid YAML syntax in category file logs error with filename and line number in CompetencySyncServiceTest.java
+- [X] T037 [P] [US3] Integration test: Invalid YAML syntax in role file logs error with filename and line number in CompetencySyncServiceTest.java
+- [X] T038 [P] [US3] Integration test: Missing required field in category file reports filename and field name in CompetencySyncServiceTest.java
+- [X] T039 [P] [US3] Integration test: Missing required field in role file reports filename and field name in CompetencySyncServiceTest.java
+- [X] T040 [P] [US3] Integration test: Schema mismatch (valid YAML, wrong structure) reports filename in error in CompetencySyncServiceTest.java
 
 ### Implementation for User Story 3
 
-- [ ] T041 [US3] Enhance parseYamlFile() to wrap SnakeYAML exceptions with filename context in CompetencySyncService.java
-- [ ] T042 [US3] Enhance validateYaml() to include filename in validation error messages in CompetencySyncService.java:127-193
-- [ ] T043 [US3] Update error logging to include file path in all error messages in CompetencySyncService.java
-- [ ] T044 [US3] Add structured error reporting with filename, line number, and error type in CompetencySyncService.java
-- [ ] T045 [US3] Verify all integration tests pass (T036-T040)
+- [X] T041 [US3] Enhance parseYamlFile() to wrap SnakeYAML exceptions with filename context in CompetencySyncService.java
+- [X] T042 [US3] Enhance validateYaml() to include filename in validation error messages in CompetencySyncService.java:127-193
+- [X] T043 [US3] Update error logging to include file path in all error messages in CompetencySyncService.java
+- [X] T044 [US3] Add structured error reporting with filename, line number, and error type in CompetencySyncService.java
+- [X] T045 [US3] Verify all integration tests pass (T036-T040)
 
 **Checkpoint**: All user stories should now be independently functional with enhanced error reporting
 
@@ -143,16 +143,16 @@ Project structure: Single monolith (backend + server-side rendered frontend)
 
 ### Tests for Progressions (TDD Approach)
 
-- [ ] T046 [P] Integration test: Load progressions.yaml, verify List<ProgressionData> contains all progressions in CompetencySyncServiceTest.java
-- [ ] T047 [P] Integration test: Missing progressions.yaml logs warning and returns empty list in CompetencySyncServiceTest.java
-- [ ] T048 [P] Integration test: Invalid progression references non-existent role and validation fails in CompetencySyncServiceTest.java
+- [X] T046 [P] Integration test: Load progressions.yaml, verify List<ProgressionData> contains all progressions in CompetencySyncServiceTest.java
+- [X] T047 [P] Integration test: Missing progressions.yaml logs warning and returns empty list in CompetencySyncServiceTest.java
+- [X] T048 [P] Integration test: Invalid progression references non-existent role and validation fails in CompetencySyncServiceTest.java
 
 ### Implementation for Progressions
 
-- [ ] T049 Execute migration script to create progressions.yaml from progressions section of competencies.yaml in src/main/resources/seed/
-- [ ] T050 Modify loadYamlData() to load progressions from progressions.yaml file in CompetencySyncService.java
-- [ ] T051 Add logging for progressions file discovery and parsing in CompetencySyncService.java
-- [ ] T052 Verify all progressions integration tests pass (T046-T048)
+- [X] T049 Execute migration script to create progressions.yaml from progressions section of competencies.yaml in src/main/resources/seed/
+- [X] T050 Modify loadYamlData() to load progressions from progressions.yaml file in CompetencySyncService.java
+- [X] T051 Add logging for progressions file discovery and parsing in CompetencySyncService.java
+- [X] T052 Verify all progressions integration tests pass (T046-T048)
 
 **Checkpoint**: Progressions now load from separate file, completing the multi-file split
 
@@ -162,14 +162,14 @@ Project structure: Single monolith (backend + server-side rendered frontend)
 
 **Purpose**: Documentation, cleanup, and final validation
 
-- [ ] T053 [P] Update README.md with new file structure and editing instructions
-- [ ] T054 [P] Verify quickstart.md instructions work end-to-end by following guide
-- [ ] T055 [P] Add inline code comments documenting file discovery and merging logic in CompetencySyncService.java
-- [ ] T056 Run full integration test suite to verify zero data loss (compare split files to original competencies.yaml)
-- [ ] T057 Measure and verify application startup time remains under 2 seconds (Success Criterion SC-002)
-- [ ] T058 [P] Archive original competencies.yaml to src/main/resources/seed/archive/competencies.yaml.backup for reference
-- [ ] T059 Code review: Verify Constitution compliance (Simplicity First, TDD, Data Integrity)
-- [ ] T060 Final validation: Edit one category file, one role file, restart, verify changes reflected correctly
+- [X] T053 [P] Update README.md with new file structure and editing instructions
+- [X] T054 [P] Verify quickstart.md instructions work end-to-end by following guide
+- [X] T055 [P] Add inline code comments documenting file discovery and merging logic in CompetencySyncService.java
+- [X] T056 Run full integration test suite to verify zero data loss (compare split files to original competencies.yaml)
+- [X] T057 Measure and verify application startup time remains under 2 seconds (Success Criterion SC-002)
+- [X] T058 [P] Archive original competencies.yaml to src/main/resources/seed/archive/competencies.yaml.backup for reference
+- [X] T059 Code review: Verify Constitution compliance (Simplicity First, TDD, Data Integrity)
+- [X] T060 Final validation: Edit one category file, one role file, restart, verify changes reflected correctly
 
 ---
 

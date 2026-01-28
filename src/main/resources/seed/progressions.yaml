@@ -1,0 +1,9 @@
+- {from: Junior Developer, to: Medior Developer}
+- {from: Medior Developer, to: Senior Developer}
+- {from: Senior Developer, to: Specialist Developer}
+- {from: Senior Developer, to: Lead Developer}
+- {from: Lead Developer, to: Lead Developer / Software Architect}
+- {from: Lead Developer / Software Architect, to: Software Architect}
+- {from: Software Architect, to: Solution Architect}
+- {from: Senior Developer, to: DevOps Engineer}
+- {from: Medior Developer, to: DevOps Engineer}

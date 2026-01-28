@@ -18,13 +18,18 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.yaml.snakeyaml.Yaml;
 
+import java.io.IOException;
 import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.stream.Stream;
 
 /**
  * Core service for synchronizing competencies from YAML to database.
@@ -297,17 +302,100 @@ public class CompetencySyncService {
         return value.trim().replaceAll("\\s+", " ").toLowerCase();
     }
 
+    /**
+     * Load competency data from multiple YAML files.
+     * T017-T022: Multi-file loading with error reporting and logging
+     *
+     * @return merged competency data from all files
+     */
     private YamlCompetencyData loadYamlData() {
-        try (InputStream inputStream = getClass().getClassLoader().getResourceAsStream(COMPETENCIES_PATH)) {
-            if (inputStream == null) {
-                throw new RuntimeException("Could not find " + COMPETENCIES_PATH + " on classpath");
+        log.info("Loading competency data from split YAML files");
+
+        List<YamlCompetencyData.CategoryData> allCategories = new ArrayList<>();
+        List<YamlCompetencyData.RoleData> allRoles = new ArrayList<>();
+        List<YamlCompetencyData.ProgressionData> allProgressions = new ArrayList<>();
+
+        Map<String, String> categoryFileMap = new HashMap<>();
+        Map<String, String> roleFileMap = new HashMap<>();
+
+        // T019: Discover and load category files from categories/ directory
+        List<Path> categoryFiles = discoverYamlFiles("seed/categories");
+        log.info("Discovered {} category files", categoryFiles.size());
+
+        for (Path categoryFile : categoryFiles) {
+            try {
+                log.info("Loading category file: {}", categoryFile.getFileName());
+                YamlCompetencyData data = parseYamlFile(categoryFile);
+
+                // T020: Merge categories using List.addAll()
+                if (data.categories() != null && !data.categories().isEmpty()) {
+                    for (YamlCompetencyData.CategoryData category : data.categories()) {
+                        categoryFileMap.put(category.name(), categoryFile.getFileName().toString());
+                    }
+                    allCategories.addAll(data.categories());
+                }
+            } catch (Exception e) {
+                // T021: Per-file error reporting with filename context
+                String error = String.format("Failed to load category file %s: %s",
+                        categoryFile.getFileName(), e.getMessage());
+                log.error(error, e);
+                throw new RuntimeException(error, e);
             }
-            return parseYaml(inputStream);
-        } catch (RuntimeException e) {
-            throw e;
-        } catch (Exception e) {
-            throw new RuntimeException("Failed to load competencies.yaml", e);
         }
+
+        // T018: Detect duplicate categories across files
+        detectDuplicateCategories(allCategories, categoryFileMap);
+
+        // Load role files from roles/ directory
+        List<Path> roleFiles = discoverYamlFiles("seed/roles");
+        log.info("Discovered {} role files", roleFiles.size());
+
+        for (Path roleFile : roleFiles) {
+            try {
+                log.info("Loading role file: {}", roleFile.getFileName());
+                YamlCompetencyData data = parseYamlFile(roleFile);
+
+                if (data.roles() != null && !data.roles().isEmpty()) {
+                    for (YamlCompetencyData.RoleData role : data.roles()) {
+                        roleFileMap.put(role.name(), roleFile.getFileName().toString());
+                    }
+                    allRoles.addAll(data.roles());
+                }
+            } catch (Exception e) {
+                String error = String.format("Failed to load role file %s: %s",
+                        roleFile.getFileName(), e.getMessage());
+                log.error(error, e);
+                throw new RuntimeException(error, e);
+            }
+        }
+
+        // Detect duplicate roles across files
+        detectDuplicateRoles(allRoles, roleFileMap);
+
+        // Load progressions from single file
+        var progressionsResource = getClass().getClassLoader().getResource("seed/progressions.yaml");
+        if (progressionsResource != null) {
+            try {
+                log.info("Loading progressions from progressions.yaml");
+                Path progressionsFile = Paths.get(progressionsResource.toURI());
+                YamlCompetencyData data = parseYamlFile(progressionsFile);
+
+                if (data.progressions() != null) {
+                    allProgressions.addAll(data.progressions());
+                }
+            } catch (Exception e) {
+                log.warn("Failed to load progressions.yaml: {}", e.getMessage());
+                // Progressions are optional, continue without them
+            }
+        } else {
+            log.warn("progressions.yaml not found, no progressions will be loaded");
+        }
+
+        // T022: Log summary of loaded data
+        log.info("Loaded {} categories, {} roles, {} progressions from split files",
+                allCategories.size(), allRoles.size(), allProgressions.size());
+
+        return new YamlCompetencyData(allCategories, allRoles, allProgressions);
     }
 
     private Map<String, CompetencyCategory> processCategories(List<YamlCompetencyData.CategoryData> categories,
@@ -682,5 +770,149 @@ public class CompetencySyncService {
         }
 
         return progressions;
+    }
+
+    /**
+     * Discovers YAML files in the specified directory path (classpath or filesystem).
+     * T005: File discovery helper method
+     *
+     * This method implements the file discovery pattern from research.md using Files.list()
+     * for efficient single-directory traversal. Files are sorted alphabetically for
+     * deterministic loading order.
+     *
+     * @param directoryPath directory path relative to classpath resources (e.g., "seed/categories")
+     * @return list of Path objects for .yaml files, sorted alphabetically (empty list if directory missing)
+     */
+    private List<Path> discoverYamlFiles(String directoryPath) {
+        try {
+            // Try to get directory from classpath resources (works with JAR and filesystem)
+            var resource = getClass().getClassLoader().getResource(directoryPath);
+
+            if (resource == null) {
+                // Missing directory is valid - log warning and return empty list
+                log.warn("Directory not found or inaccessible: {}", directoryPath);
+                return List.of();
+            }
+
+            Path dirPath = Paths.get(resource.toURI());
+
+            // Use try-with-resources for automatic stream cleanup
+            try (Stream<Path> paths = Files.list(dirPath)) {
+                return paths
+                        .filter(Files::isRegularFile)      // Only files, not subdirectories
+                        .filter(p -> p.toString().endsWith(".yaml"))  // Only YAML files
+                        .sorted()                           // Alphabetical order for determinism
+                        .toList();
+            }
+        } catch (Exception e) {
+            // Log warning but don't fail - missing directories are acceptable
+            log.warn("Failed to discover YAML files in {}: {}", directoryPath, e.getMessage());
+            return List.of();
+        }
+    }
+
+    /**
+     * Parses a single YAML file from a Path.
+     * T006: Filename-to-entity mapping helper method
+     * Handles both single entity files (category/role files) and full competencies files (progressions)
+     *
+     * @param filePath path to the YAML file
+     * @return parsed YamlCompetencyData
+     * @throws RuntimeException if parsing fails
+     */
+    @SuppressWarnings("unchecked")
+    private YamlCompetencyData parseYamlFile(Path filePath) {
+        try (InputStream inputStream = Files.newInputStream(filePath)) {
+            Yaml yaml = new Yaml();
+            Object rawData = yaml.load(inputStream);
+
+            String filename = filePath.getFileName().toString();
+
+            // Handle single entity files (categories/roles) vs progressions list
+            if (rawData instanceof Map) {
+                Map<String, Object> map = (Map<String, Object>) rawData;
+
+                // Check if this is a category file (has 'skills' key)
+                if (map.containsKey("skills")) {
+                    // Single category entity
+                    List<YamlCompetencyData.CategoryData> categories = parseCategories(List.of(map));
+                    return new YamlCompetencyData(categories, List.of(), List.of());
+                }
+                // Check if this is a role file (has 'requirements' key)
+                else if (map.containsKey("requirements") || map.containsKey("name")) {
+                    // Single role entity
+                    List<YamlCompetencyData.RoleData> roles = parseRoles(List.of(map));
+                    return new YamlCompetencyData(List.of(), roles, List.of());
+                }
+            }
+            // Handle progressions list (array of progression objects)
+            else if (rawData instanceof List) {
+                List<Map<String, Object>> list = (List<Map<String, Object>>) rawData;
+                List<YamlCompetencyData.ProgressionData> progressions = parseProgressions(list);
+                return new YamlCompetencyData(List.of(), List.of(), progressions);
+            }
+
+            throw new RuntimeException("Unrecognized YAML structure in " + filename);
+        } catch (IOException e) {
+            throw new RuntimeException("Failed to parse " + filePath.getFileName() + " at " + filePath, e);
+        } catch (Exception e) {
+            throw new RuntimeException("YAML syntax error in " + filePath.getFileName() + ": " + e.getMessage(), e);
+        }
+    }
+
+    /**
+     * Detects duplicate category names across multiple files.
+     * T007: Duplicate detection for categories
+     *
+     * @param categories list of all category data from all files
+     * @param fileMap    map of category name to source filename
+     * @throws IllegalStateException if duplicates found
+     */
+    private void detectDuplicateCategories(List<YamlCompetencyData.CategoryData> categories,
+                                           Map<String, String> fileMap) {
+        Map<String, String> seen = new HashMap<>();
+
+        for (YamlCompetencyData.CategoryData category : categories) {
+            String name = category.name();
+
+            if (seen.containsKey(name)) {
+                String error = String.format(
+                        "Duplicate category '%s' found in files: %s and %s",
+                        name, seen.get(name), fileMap.get(name)
+                );
+                log.error(error);
+                throw new IllegalStateException(error);
+            }
+
+            seen.put(name, fileMap.get(name));
+        }
+    }
+
+    /**
+     * Detects duplicate role names across multiple files.
+     * T008: Duplicate detection for roles
+     *
+     * @param roles    list of all role data from all files
+     * @param fileMap  map of role name to source filename
+     * @throws IllegalStateException if duplicates found
+     */
+    private void detectDuplicateRoles(List<YamlCompetencyData.RoleData> roles,
+                                      Map<String, String> fileMap) {
+        Map<String, String> seen = new HashMap<>();
+
+        for (YamlCompetencyData.RoleData role : roles) {
+            String name = role.name();
+
+            if (seen.containsKey(name)) {
+                String error = String.format(
+                        "Duplicate role '%s' found in files: %s and %s",
+                        name, seen.get(name), fileMap.get(name)
+                );
+                log.error(error);
+                throw new IllegalStateException(error);
+            }
+
+            seen.put(name, fileMap.get(name));
+        }
     }
 }
