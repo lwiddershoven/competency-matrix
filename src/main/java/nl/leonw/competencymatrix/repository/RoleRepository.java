@@ -42,7 +42,7 @@ public class RoleRepository {
      * This displays roles in career progression order across all families.
      */
     public List<Role> findAllOrderByFamilyAndSeniority() {
-        String sql = "SELECT id, name, description, role_family, seniority_order FROM rolename ORDER BY seniority_order, role_family";
+        String sql = "SELECT id, name, description, role_family, seniority_order FROM rolename ORDER BY seniority_order, role_family desc";
         try (Connection conn = dataSource.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql);
              ResultSet rs = stmt.executeQuery()) {
