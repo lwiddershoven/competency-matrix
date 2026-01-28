@@ -1,14 +1,14 @@
 name: Architecture Frameworks
 skills:
-- name: TOGAF
-  levels: {basic: Begrijpt TOGAF terminologie en basis concepten, decent: Past TOGAF
-      practices toe op projectplanning, good: Leidt architectonische beslissingen
-      met TOGAF, excellent: Leidt enterprise initiatieven met TOGAF}
-- name: ArchiMate
-  levels: {basic: Leest ArchiMate diagrammen met begeleiding, decent: Creëert basis
+  - name: TOGAF
+    levels: { basic: Begrijpt TOGAF terminologie en basis concepten, decent: Past TOGAF
+      practices toe op projectplanning,              good: Leidt architectonische beslissingen
+                met TOGAF, excellent: Leidt enterprise initiatieven met TOGAF }
+  - name: ArchiMate
+    levels: {             basic: Leest ArchiMate diagrammen met begeleiding, decent: Creëert basis
       ArchiMate modellen, good: Gebruikt ArchiMate om architectuur impact uit te leggen,
-    excellent: Definieert standaarden voor ArchiMate modellering}
-- name: iSAQB
-  levels: {basic: Begrijpt iSAQB curriculum basis, decent: Past iSAQB modules toe
+                          excellent: Definieert standaarden voor ArchiMate modellering }
+  - name: iSAQB
+    levels: {               basic: Begrijpt iSAQB curriculum basis, decent: Past iSAQB modules toe
       in design discussies, good: Leidt architecture reviews met iSAQB begeleiding,
-    excellent: Mentort teams in iSAQB-gealigneerde practices}
+                            excellent: Mentort teams in iSAQB-gealigneerde practices }

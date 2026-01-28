@@ -1,37 +1,37 @@
 name: Soft Skills
 skills:
-- name: Communication
-  levels: {basic: 'Communiceert binnen team, stelt vragen', decent: Legt technische
+  - name: Communication
+    levels: {                                         basic: 'Communiceert binnen team, stelt vragen', decent: Legt technische
       concepten uit aan niet-technische stakeholders, good: 'Faciliteert discussies,
       presenteert aan grotere groepen', excellent: 'Vertegenwoordigt team extern,
-      beïnvloedt stakeholders'}
-- name: Mentoring
-  levels: {basic: Helpt teamgenoten wanneer gevraagd, decent: Deelt actief kennis
+      beïnvloedt stakeholders' }
+  - name: Mentoring
+    levels: {      basic: Helpt teamgenoten wanneer gevraagd, decent: Deelt actief kennis
       binnen team, good: Mentort formeel junior developers, excellent: 'Ontwikkelt
-      mentoring programma''s, groeit toekomstige mentors'}
-- name: Problem Solving
-  levels: {basic: Lost goed gedefinieerde problemen op, decent: Breekt complexe problemen
+      mentoring programma''s, groeit toekomstige mentors' }
+  - name: Problem Solving
+    levels: {                  basic: Lost goed gedefinieerde problemen op, decent: Breekt complexe problemen
       op in beheersbare delen, good: 'Identificeert root causes, stelt systemische
-      oplossingen voor', excellent: 'Lost ambigue problemen op, innoveert oplossingen'}
-- name: Presentation
-  levels: {basic: Presenteert werk duidelijk in kleine bijeenkomsten, decent: Legt
-      technische onderwerpen uit met visuele ondersteuning, good: Levert gestructureerde
-      presentaties aan grotere groepen, excellent: Vormt narratieven en beïnvloedt
-      grote publieks}
-- name: Stakeholder Management
-  levels: {basic: Identificeert belangrijke stakeholders en verwachtingen, decent: Onderhoudt
-      duidelijke communicatie met stakeholders, good: Stemt stakeholders af op prioriteiten
-      en trade-offs, excellent: Bouw langetermijn vertrouwen op in de organisatie}
-- name: Project Management
-  levels: {basic: Begrijpt project lifecycle en planning basics, decent: Beheert eigen
+      oplossingen voor', excellent: 'Lost ambigue problemen op, innoveert oplossingen' }
+  - name: Presentation
+    levels: { basic: Presenteert werk duidelijk in kleine bijeenkomsten, decent: Legt
+      technische onderwerpen uit met visuele ondersteuning,                                     good: Levert gestructureerde
+                presentaties aan grotere groepen, excellent: Vormt narratieven en beïnvloedt
+                grote publieks }
+  - name: Stakeholder Management
+    levels: { basic: Identificeert belangrijke stakeholders en verwachtingen, decent: Onderhoudt
+      duidelijke communicatie met stakeholders,                  good: Stemt stakeholders af op prioriteiten
+                en trade-offs, excellent: Bouw langetermijn vertrouwen op in de organisatie }
+  - name: Project Management
+    levels: {                       basic: Begrijpt project lifecycle en planning basics, decent: Beheert eigen
       taken en deadlines effectief, good: 'Coördineert kleine projecten, beheert resources',
-    excellent: 'Leidt complexe projecten, definieert project strategieën'}
-- name: Technical Leadership
-  levels: {basic: Neemt technische ownership van eigen werk, decent: Leidt technische
+                                    excellent: 'Leidt complexe projecten, definieert project strategieën' }
+  - name: Technical Leadership
+    levels: {                 basic: Neemt technische ownership van eigen werk, decent: Leidt technische
       discussies binnen team, good: 'Begeleidt technische beslissingen, mentort junior
       developers', excellent: 'Definieert technische visie, beïnvloedt technische
-      richting organisatie'}
-- name: Motiveren
-  levels: {basic: Toont enthousiasme en energie in eigen werk, decent: Inspireert
-      teamgenoten door positieve houding, good: Motiveert anderen door doelen en vooruitgang
-      te tonen, excellent: Creëert een cultuur van motivatie en eigenaarschap}
+      richting organisatie' }
+  - name: Motiveren
+    levels: { basic: Toont enthousiasme en energie in eigen werk, decent: Inspireert
+      teamgenoten door positieve houding,             good: Motiveert anderen door doelen en vooruitgang
+                te tonen, excellent: Creëert een cultuur van motivatie en eigenaarschap }

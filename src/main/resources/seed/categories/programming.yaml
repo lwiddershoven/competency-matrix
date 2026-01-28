@@ -1,28 +1,28 @@
 name: Programming
 skills:
-- name: Java
-  levels: {basic: 'Kan basis Java code schrijven, begrijpt syntax en eenvoudige datastructuren',
-    decent: 'Schrijft schone code, begrijpt OOP en functionele principes, gebruikt
+  - name: Java
+    levels: { basic: 'Kan basis Java code schrijven, begrijpt syntax en eenvoudige datastructuren',
+              decent: 'Schrijft schone code, begrijpt OOP en functionele principes, gebruikt
       collections effectief', good: 'Ontwikkelt onderhoudbare systemen, is bedreven
       met streams en generics', excellent: 'Beheerst geavanceerde patronen, draagt
-      bij aan architectonische beslissingen'}
-- name: Python
-  levels: {basic: Kan scripts en eenvoudige programma's schrijven, decent: 'Gebruikt
+      bij aan architectonische beslissingen' }
+  - name: Python
+    levels: { basic: Kan scripts en eenvoudige programma's schrijven, decent: 'Gebruikt
       standaardbibliotheek effectief, schrijft leesbare code', good: 'Bouw applicaties
       met frameworks, begrijpt async patronen', excellent: 'Creëert bibliotheken,
-      optimaliseert performance, mentort anderen'}
-- name: SQL
-  levels: {basic: 'Schrijft eenvoudige SELECT, INSERT, UPDATE queries', decent: 'Gebruikt
+      optimaliseert performance, mentort anderen' }
+  - name: SQL
+    levels: { basic: 'Schrijft eenvoudige SELECT, INSERT, UPDATE queries', decent: 'Gebruikt
       JOINs, subqueries, begrijpt indexes', good: 'Optimaliseert complexe queries,
       ontwerpt schemas', excellent: 'Stemt database performance af, ontwerpt schaalbare
-      datamodellen'}
-- name: Spring Framework
-  levels: {basic: 'Begrijpt basis Spring concepten, kan bestaande applicaties uitbreiden',
-    decent: 'Bouw applicaties met Spring Boot, begrijpt dependency injection', good: 'Integreert
+      datamodellen' }
+  - name: Spring Framework
+    levels: { basic: 'Begrijpt basis Spring concepten, kan bestaande applicaties uitbreiden',
+              decent: 'Bouw applicaties met Spring Boot, begrijpt dependency injection', good: 'Integreert
       verschillende Spring modules (Security, Data, MVC)', excellent: 'Architecteert
-      complexe Spring systemen, optimaliseert performance'}
-- name: Git
-  levels: {basic: 'Kan basis Git commando''s uitvoeren (add, commit, push)', decent: 'Beheert
+      complexe Spring systemen, optimaliseert performance' }
+  - name: Git
+    levels: { basic: 'Kan basis Git commando''s uitvoeren (add, commit, push)', decent: 'Beheert
       branches, merge conflicts, begrijpt Git workflows', good: 'Levert code reviews,
       gebruikt geavanceerde Git features', excellent: 'Definieert Git strategies,
-      traint teams in best practices'}
+      traint teams in best practices' }

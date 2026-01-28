@@ -3,9 +3,9 @@ roleFamily: Developer
 seniorityOrder: 1
 description: Junior software developer die de fundamenten leert
 requirements:
-- {skill: Java, category: Programming, level: decent}
-- {skill: SQL, category: Programming, level: basic}
-- {skill: Git, category: Programming, level: basic}
-- {skill: Unit Testing, category: Quality & Testing, level: basic}
-- {skill: Communication, category: Soft Skills, level: basic}
-- {skill: Problem Solving, category: Soft Skills, level: basic}
+  - { skill: Java, category: Programming, level: decent }
+  - { skill: SQL, category: Programming, level: basic }
+  - { skill: Git, category: Programming, level: basic }
+  - { skill: Unit Testing, category: Quality & Testing, level: basic }
+  - { skill: Communication, category: Soft Skills, level: basic }
+  - { skill: Problem Solving, category: Soft Skills, level: basic }
