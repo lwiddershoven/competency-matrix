@@ -1,0 +1,14 @@
+name: DevOps Engineer
+roleFamily: Operations
+seniorityOrder: 1
+description: Infrastructure en automation specialist
+requirements:
+- {skill: Python, category: Programming, level: decent}
+- {skill: SQL, category: Programming, level: basic}
+- {skill: Architecture, category: Software Design, level: decent}
+- {skill: CI/CD, category: DevOps & Infrastructure, level: good}
+- {skill: Kubernetes, category: DevOps & Infrastructure, level: good}
+- {skill: Cloud Platforms, category: DevOps & Infrastructure, level: good}
+- {skill: Integration Testing, category: Quality & Testing, level: decent}
+- {skill: Communication, category: Soft Skills, level: decent}
+- {skill: Problem Solving, category: Soft Skills, level: good}

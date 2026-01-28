@@ -1,0 +1,17 @@
+name: Specialist Developer
+roleFamily: Developer
+seniorityOrder: 4
+description: Diepgaand technisch expert met beheersing in ten minste één technologisch
+  domein (bijv. Java ecosysteem, data engineering, beveiliging) die gespecialiseerde
+  consulting levert en excellentie in hun gebied stimuleert
+requirements:
+- {skill: Java, category: Programming, level: excellent}
+- {skill: SQL, category: Programming, level: good}
+- {skill: Design Patterns, category: Software Design, level: excellent}
+- {skill: Architecture, category: Software Design, level: decent}
+- {skill: Unit Testing, category: Quality & Testing, level: excellent}
+- {skill: Integration Testing, category: Quality & Testing, level: good}
+- {skill: Code Review, category: Quality & Testing, level: excellent}
+- {skill: Communication, category: Soft Skills, level: good}
+- {skill: Mentoring, category: Soft Skills, level: good}
+- {skill: Problem Solving, category: Soft Skills, level: excellent}

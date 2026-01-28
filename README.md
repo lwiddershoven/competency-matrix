@@ -126,7 +126,10 @@ src/
 │   └── resources/
 │       ├── application.properties
 │       ├── db/migration/    # Flyway migrations
-│       ├── seed/            # Initial data (competencies.yaml)
+│       ├── seed/            # Initial data (split YAML files)
+│       │   ├── categories/  # Category files (programming.yaml, etc.)
+│       │   ├── roles/       # Role files (junior-developer.yaml, etc.)
+│       │   └── progressions.yaml
 │       ├── templates/       # Qute templates
 │       └── static/css/      # Custom CSS
 └── test/
@@ -138,6 +141,65 @@ src/
     │   └── e2e/             # Playwright E2E tests
     └── resources/
 ```
+
+## Data Structure
+
+### Competency Data Files
+
+The competency data is organized in multiple YAML files for maintainability:
+
+```
+src/main/resources/seed/
+├── categories/                    # One file per competency category
+│   ├── programming.yaml           # Programming skills (Java, Python, SQL, etc.)
+│   ├── software-design.yaml       # Design Patterns, Architecture, API Design
+│   ├── devops-infrastructure.yaml # CI/CD, Kubernetes, Cloud, Docker
+│   ├── quality-testing.yaml       # Unit Testing, Integration Testing, etc.
+│   ├── soft-skills.yaml           # Communication, Mentoring, Problem Solving
+│   └── architecture-frameworks.yaml # TOGAF, ArchiMate, iSAQB
+├── roles/                         # One file per role definition
+│   ├── junior-developer.yaml
+│   ├── medior-developer.yaml
+│   ├── senior-developer.yaml
+│   ├── specialist-developer.yaml
+│   ├── lead-developer.yaml
+│   ├── lead-developer-software-architect.yaml
+│   ├── software-architect.yaml
+│   ├── solution-architect.yaml
+│   └── devops-engineer.yaml
+└── progressions.yaml              # Career progression paths
+```
+
+### Editing Competency Data
+
+Each category file contains skills and their proficiency levels:
+
+```yaml
+name: "Programming"
+displayOrder: 1
+skills:
+  - name: "Java"
+    levels:
+      basic: "Kan basis Java code schrijven..."
+      decent: "Schrijft schone code, begrijpt OOP..."
+      good: "Ontwikkelt onderhoudbare systemen..."
+      excellent: "Beheerst geavanceerde patronen..."
+```
+
+Each role file contains requirements and skill levels:
+
+```yaml
+name: "Junior Developer"
+description: "Entry-level software developer..."
+roleFamily: "Development"
+seniorityOrder: 1
+requirements:
+  - skillName: "Java"
+    categoryName: "Programming"
+    level: "basic"
+```
+
+For detailed editing instructions, see `specs/006-competencies-split/quickstart.md`.
 
 ## Configuration
 
