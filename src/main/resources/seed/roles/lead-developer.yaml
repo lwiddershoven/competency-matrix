@@ -6,7 +6,7 @@ description: Begeleidt development team door technische beslissingen, verwijdert
 requirements:
 - {skill: Java, category: Programming, level: excellent}
 - {skill: Spring Framework, category: Programming, level: good}
-- {skill: Git, category: Programming, level: excellent}
+- {skill: Git, category: Programming, level: good}
 - {skill: Python, category: Programming, level: decent}
 - {skill: SQL, category: Programming, level: good}
 - {skill: Design Patterns, category: Software Design, level: good}

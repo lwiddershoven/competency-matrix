@@ -7,6 +7,7 @@ description: Diepgaand technisch expert met beheersing in ten minste één techn
 requirements:
 - {skill: Java, category: Programming, level: excellent}
 - {skill: SQL, category: Programming, level: good}
+- { skill: Git, category: Programming, level: excellent }
 - {skill: Design Patterns, category: Software Design, level: excellent}
 - {skill: Architecture, category: Software Design, level: decent}
 - {skill: Unit Testing, category: Quality & Testing, level: excellent}

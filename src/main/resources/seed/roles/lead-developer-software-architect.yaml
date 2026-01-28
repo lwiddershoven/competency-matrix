@@ -6,6 +6,7 @@ description: Hybride rol die hands-on team leadership combineert met architecton
 requirements:
 - {skill: Java, category: Programming, level: good}
 - {skill: Design Patterns, category: Software Design, level: excellent}
+- { skill: Git, category: Programming, level: decent }
 - {skill: Architecture, category: Software Design, level: good}
 - {skill: API Design, category: Software Design, level: excellent}
 - {skill: CI/CD, category: DevOps & Infrastructure, level: good}
