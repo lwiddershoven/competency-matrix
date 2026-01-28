@@ -4,7 +4,8 @@ seniorityOrder: 3
 description: Technische leider die team beslissingen begeleidt en mentort
 requirements:
   - { skill: Java, category: Programming, level: good }
-  - { skill: Spring Framework, category: Programming, level: decent }
+  - { skill: Spring (alt. Quarkus), category: Programming, level: good }
+  - { skill: Quarkus (alt. Spring), category: Programming, level: good }
   - { skill: Git, category: Programming, level: good }
   - { skill: Python, category: Programming, level: decent }
   - { skill: SQL, category: Programming, level: good }

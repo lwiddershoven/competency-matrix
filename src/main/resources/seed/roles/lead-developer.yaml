@@ -4,8 +4,9 @@ seniorityOrder: 5
 description: Begeleidt development team door technische beslissingen, verwijdert blockers,
   en zorgt voor delivery kwaliteit terwijl hands-on development behouden blijft
 requirements:
-  - { skill: Java, category: Programming, level: excellent }
-  - { skill: Spring Framework, category: Programming, level: good }
+  - { skill: Java, category: Programming, level: good }
+  - { skill: Spring (alt. Quarkus), category: Programming, level: good }
+  - { skill: Quarkus (alt. Spring), category: Programming, level: good }
   - { skill: Git, category: Programming, level: good }
   - { skill: Python, category: Programming, level: decent }
   - { skill: SQL, category: Programming, level: good }

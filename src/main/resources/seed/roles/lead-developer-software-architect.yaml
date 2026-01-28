@@ -21,3 +21,5 @@ requirements:
   - { skill: Motiveren, category: Soft Skills, level: decent }
   - { skill: iSAQB, category: Architecture Frameworks, level: decent }
   - { skill: ArchiMate, category: Architecture Frameworks, level: basic }
+  - { skill: Spring (alt. Quarkus), category: Programming, level: good }
+  - { skill: Quarkus (alt. Spring), category: Programming, level: good }

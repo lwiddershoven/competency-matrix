@@ -16,11 +16,16 @@ skills:
       JOINs, subqueries, begrijpt indexes', good: 'Optimaliseert complexe queries,
       ontwerpt schemas', excellent: 'Stemt database performance af, ontwerpt schaalbare
       datamodellen' }
-  - name: Spring Framework
+  - name: Spring (alt. Quarkus)
     levels: { basic: 'Begrijpt basis Spring concepten, kan bestaande applicaties uitbreiden',
               decent: 'Bouw applicaties met Spring Boot, begrijpt dependency injection', good: 'Integreert
       verschillende Spring modules (Security, Data, MVC)', excellent: 'Architecteert
       complexe Spring systemen, optimaliseert performance' }
+  - name: Quarkus (alt. Spring)
+    levels: { basic: 'Begrijpt basis Quarkus concepten, kan bestaande applicaties uitbreiden',
+              decent: 'Bouw applicaties met Quarkus, begrijpt dependency injection en reactive programming', good: 'Integreert
+      verschillende Quarkus features (Security, Data, RESTEasy), optimaliseert voor serverless', excellent: 'Architecteert
+      complexe Quarkus systemen, implementeert geavanceerde patterns' }
   - name: Git
     levels: { basic: 'Kan basis Git commando''s uitvoeren (add, commit, push)', decent: 'Beheert
       branches, merge conflicts, begrijpt Git workflows', good: 'Levert code reviews,

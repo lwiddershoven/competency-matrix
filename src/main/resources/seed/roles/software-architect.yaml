@@ -6,6 +6,9 @@ description: Definieert technische strategie en standaarden across development e
   voor technische coherentie across de IT organisatie
 requirements:
   - { skill: Java, category: Programming, level: good }
+  - { skill: Python, category: Programming, level: decent }
+  - { skill: Git, category: Programming, level: decent }
+  - { skill: SQL, category: Programming, level: decent }
   - { skill: Design Patterns, category: Software Design, level: excellent }
   - { skill: Architecture, category: Software Design, level: excellent }
   - { skill: API Design, category: Software Design, level: excellent }
