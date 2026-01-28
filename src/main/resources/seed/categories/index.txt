@@ -1,0 +1,6 @@
+architecture-frameworks.yaml
+devops-infrastructure.yaml
+programming.yaml
+quality-testing.yaml
+soft-skills.yaml
+software-design.yaml

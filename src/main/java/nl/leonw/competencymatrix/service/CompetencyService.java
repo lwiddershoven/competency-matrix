@@ -4,10 +4,25 @@ import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
 import nl.leonw.competencymatrix.dto.MatrixViewModel;
-import nl.leonw.competencymatrix.model.*;
-import nl.leonw.competencymatrix.repository.*;
+import nl.leonw.competencymatrix.model.CompetencyCategory;
+import nl.leonw.competencymatrix.model.ProficiencyLevel;
+import nl.leonw.competencymatrix.model.Role;
+import nl.leonw.competencymatrix.model.RoleSkillRequirement;
+import nl.leonw.competencymatrix.model.Skill;
+import nl.leonw.competencymatrix.repository.CategoryRepository;
+import nl.leonw.competencymatrix.repository.RoleRepository;
+import nl.leonw.competencymatrix.repository.RoleSkillRequirementRepository;
+import nl.leonw.competencymatrix.repository.SkillRepository;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import java.util.Optional;
+import java.util.Set;
 
 @ApplicationScoped
 @Transactional(Transactional.TxType.SUPPORTS)
