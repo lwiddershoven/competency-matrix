@@ -18,18 +18,17 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.yaml.snakeyaml.Yaml;
 
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
-import java.util.stream.Stream;
 
 /**
  * Core service for synchronizing competencies from YAML to database.
@@ -303,7 +302,7 @@ public class CompetencySyncService {
     }
 
     /**
-     * Load competency data from multiple YAML files.
+     * Load competency data from multiple YAML files (JAR-compatible).
      * T017-T022: Multi-file loading with error reporting and logging
      *
      * @return merged competency data from all files
@@ -318,26 +317,27 @@ public class CompetencySyncService {
         Map<String, String> categoryFileMap = new HashMap<>();
         Map<String, String> roleFileMap = new HashMap<>();
 
-        // T019: Discover and load category files from categories/ directory
-        List<Path> categoryFiles = discoverYamlFiles("seed/categories");
-        log.info("Discovered {} category files", categoryFiles.size());
+        // T019: Discover and load category resources from classpath
+        List<String> categoryResources = discoverYamlResources("seed/categories");
+        log.info("Discovered {} category files", categoryResources.size());
 
-        for (Path categoryFile : categoryFiles) {
+        for (String resourcePath : categoryResources) {
             try {
-                log.info("Loading category file: {}", categoryFile.getFileName());
-                YamlCompetencyData data = parseYamlFile(categoryFile);
+                String filename = resourcePath.substring(resourcePath.lastIndexOf('/') + 1);
+                log.info("Loading category file: {}", filename);
+                YamlCompetencyData data = parseYamlResource(resourcePath);
 
                 // T020: Merge categories using List.addAll()
                 if (data.categories() != null && !data.categories().isEmpty()) {
                     for (YamlCompetencyData.CategoryData category : data.categories()) {
-                        categoryFileMap.put(category.name(), categoryFile.getFileName().toString());
+                        categoryFileMap.put(category.name(), filename);
                     }
                     allCategories.addAll(data.categories());
                 }
             } catch (Exception e) {
                 // T021: Per-file error reporting with filename context
-                String error = String.format("Failed to load category file %s: %s",
-                        categoryFile.getFileName(), e.getMessage());
+                String filename = resourcePath.substring(resourcePath.lastIndexOf('/') + 1);
+                String error = String.format("Failed to load category file %s: %s", filename, e.getMessage());
                 log.error(error, e);
                 throw new RuntimeException(error, e);
             }
@@ -346,24 +346,25 @@ public class CompetencySyncService {
         // T018: Detect duplicate categories across files
         detectDuplicateCategories(allCategories, categoryFileMap);
 
-        // Load role files from roles/ directory
-        List<Path> roleFiles = discoverYamlFiles("seed/roles");
-        log.info("Discovered {} role files", roleFiles.size());
+        // Load role resources from classpath
+        List<String> roleResources = discoverYamlResources("seed/roles");
+        log.info("Discovered {} role files", roleResources.size());
 
-        for (Path roleFile : roleFiles) {
+        for (String resourcePath : roleResources) {
             try {
-                log.info("Loading role file: {}", roleFile.getFileName());
-                YamlCompetencyData data = parseYamlFile(roleFile);
+                String filename = resourcePath.substring(resourcePath.lastIndexOf('/') + 1);
+                log.info("Loading role file: {}", filename);
+                YamlCompetencyData data = parseYamlResource(resourcePath);
 
                 if (data.roles() != null && !data.roles().isEmpty()) {
                     for (YamlCompetencyData.RoleData role : data.roles()) {
-                        roleFileMap.put(role.name(), roleFile.getFileName().toString());
+                        roleFileMap.put(role.name(), filename);
                     }
                     allRoles.addAll(data.roles());
                 }
             } catch (Exception e) {
-                String error = String.format("Failed to load role file %s: %s",
-                        roleFile.getFileName(), e.getMessage());
+                String filename = resourcePath.substring(resourcePath.lastIndexOf('/') + 1);
+                String error = String.format("Failed to load role file %s: %s", filename, e.getMessage());
                 log.error(error, e);
                 throw new RuntimeException(error, e);
             }
@@ -372,13 +373,12 @@ public class CompetencySyncService {
         // Detect duplicate roles across files
         detectDuplicateRoles(allRoles, roleFileMap);
 
-        // Load progressions from single file
-        var progressionsResource = getClass().getClassLoader().getResource("seed/progressions.yaml");
-        if (progressionsResource != null) {
+        // Load progressions from single file (classpath resource)
+        String progressionsPath = "seed/progressions.yaml";
+        if (getClass().getClassLoader().getResource(progressionsPath) != null) {
             try {
                 log.info("Loading progressions from progressions.yaml");
-                Path progressionsFile = Paths.get(progressionsResource.toURI());
-                YamlCompetencyData data = parseYamlFile(progressionsFile);
+                YamlCompetencyData data = parseYamlResource(progressionsPath);
 
                 if (data.progressions() != null) {
                     allProgressions.addAll(data.progressions());
@@ -773,60 +773,73 @@ public class CompetencySyncService {
     }
 
     /**
-     * Discovers YAML files in the specified directory path (classpath or filesystem).
-     * T005: File discovery helper method
-     *
-     * This method implements the file discovery pattern from research.md using Files.list()
-     * for efficient single-directory traversal. Files are sorted alphabetically for
-     * deterministic loading order.
+     * Discovers YAML resources from the classpath (JAR-compatible).
+     * Reads an index.txt file in the directory that lists all YAML files.
+     * This approach works in both development (file system) and production (JAR).
      *
      * @param directoryPath directory path relative to classpath resources (e.g., "seed/categories")
-     * @return list of Path objects for .yaml files, sorted alphabetically (empty list if directory missing)
+     * @return list of resource paths that exist on the classpath
      */
-    private List<Path> discoverYamlFiles(String directoryPath) {
-        try {
-            // Try to get directory from classpath resources (works with JAR and filesystem)
-            var resource = getClass().getClassLoader().getResource(directoryPath);
+    private List<String> discoverYamlResources(String directoryPath) {
+        String indexPath = directoryPath + "/index.txt";
+        List<String> foundResources = new ArrayList<>();
 
-            if (resource == null) {
-                // Missing directory is valid - log warning and return empty list
-                log.warn("Directory not found or inaccessible: {}", directoryPath);
-                return List.of();
+        try (InputStream indexStream = getClass().getClassLoader().getResourceAsStream(indexPath)) {
+            if (indexStream == null) {
+                log.warn("Index file not found: {}", indexPath);
+                return foundResources;
             }
 
-            Path dirPath = Paths.get(resource.toURI());
+            // Read index file line by line
+            try (java.io.BufferedReader reader = new java.io.BufferedReader(
+                    new java.io.InputStreamReader(indexStream, java.nio.charset.StandardCharsets.UTF_8))) {
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    line = line.trim();
+                    // Skip empty lines and comments
+                    if (line.isEmpty() || line.startsWith("#")) {
+                        continue;
+                    }
 
-            // Use try-with-resources for automatic stream cleanup
-            try (Stream<Path> paths = Files.list(dirPath)) {
-                return paths
-                        .filter(Files::isRegularFile)      // Only files, not subdirectories
-                        .filter(p -> p.toString().endsWith(".yaml"))  // Only YAML files
-                        .sorted()                           // Alphabetical order for determinism
-                        .toList();
+                    String resourcePath = directoryPath + "/" + line;
+
+                    // Verify the resource exists
+                    if (getClass().getClassLoader().getResource(resourcePath) != null) {
+                        foundResources.add(resourcePath);
+                        log.debug("Found resource: {}", resourcePath);
+                    } else {
+                        log.warn("Resource listed in index but not found: {}", resourcePath);
+                    }
+                }
             }
-        } catch (Exception e) {
-            // Log warning but don't fail - missing directories are acceptable
-            log.warn("Failed to discover YAML files in {}: {}", directoryPath, e.getMessage());
-            return List.of();
+        } catch (IOException e) {
+            log.error("Failed to read index file: {}", indexPath, e);
         }
+
+        return foundResources;
     }
 
+
     /**
-     * Parses a single YAML file from a Path.
+     * Parses a single YAML resource from the classpath (JAR-compatible).
      * T006: Filename-to-entity mapping helper method
      * Handles both single entity files (category/role files) and full competencies files (progressions)
      *
-     * @param filePath path to the YAML file
+     * @param resourcePath classpath resource path (e.g., "seed/categories/programming.yaml")
      * @return parsed YamlCompetencyData
      * @throws RuntimeException if parsing fails
      */
     @SuppressWarnings("unchecked")
-    private YamlCompetencyData parseYamlFile(Path filePath) {
-        try (InputStream inputStream = Files.newInputStream(filePath)) {
+    private YamlCompetencyData parseYamlResource(String resourcePath) {
+        try (InputStream inputStream = getClass().getClassLoader().getResourceAsStream(resourcePath)) {
+            if (inputStream == null) {
+                throw new RuntimeException("Resource not found: " + resourcePath);
+            }
+
             Yaml yaml = new Yaml();
             Object rawData = yaml.load(inputStream);
 
-            String filename = filePath.getFileName().toString();
+            String filename = resourcePath.substring(resourcePath.lastIndexOf('/') + 1);
 
             // Handle single entity files (categories/roles) vs progressions list
             if (rawData instanceof Map) {
@@ -854,9 +867,9 @@ public class CompetencySyncService {
 
             throw new RuntimeException("Unrecognized YAML structure in " + filename);
         } catch (IOException e) {
-            throw new RuntimeException("Failed to parse " + filePath.getFileName() + " at " + filePath, e);
+            throw new RuntimeException("Failed to parse " + resourcePath + ": " + e.getMessage(), e);
         } catch (Exception e) {
-            throw new RuntimeException("YAML syntax error in " + filePath.getFileName() + ": " + e.getMessage(), e);
+            throw new RuntimeException("YAML syntax error in " + resourcePath + ": " + e.getMessage(), e);
         }
     }
 

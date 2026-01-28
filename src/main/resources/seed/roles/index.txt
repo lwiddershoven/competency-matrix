@@ -1,0 +1,9 @@
+devops-engineer.yaml
+junior-developer.yaml
+lead-developer-software-architect.yaml
+lead-developer.yaml
+medior-developer.yaml
+senior-developer.yaml
+software-architect.yaml
+solution-architect.yaml
+specialist-developer.yaml
