@@ -6,7 +6,8 @@ description: Diepgaand technisch expert met beheersing in ten minste één techn
   consulting levert en excellentie in hun gebied stimuleert
 requirements:
 - {skill: Java, category: Programming, level: excellent}
-- {skill: SQL, category: Programming, level: good}
+- { skill: Spring Framework, category: Programming, level: excellent }
+- {skill: SQL, category: Programming, level: decent}
 - {skill: Design Patterns, category: Software Design, level: excellent}
 - {skill: Architecture, category: Software Design, level: decent}
 - {skill: Unit Testing, category: Quality & Testing, level: excellent}

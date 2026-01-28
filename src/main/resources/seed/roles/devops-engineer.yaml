@@ -4,11 +4,13 @@ seniorityOrder: 1
 description: Infrastructure en automation specialist
 requirements:
 - {skill: Python, category: Programming, level: decent}
-- {skill: SQL, category: Programming, level: basic}
+- { skill: Java, category: Programming, level: decent }
+- {skill: SQL, category: Programming, level: decent}
 - {skill: Architecture, category: Software Design, level: decent}
-- {skill: CI/CD, category: DevOps & Infrastructure, level: good}
-- {skill: Kubernetes, category: DevOps & Infrastructure, level: good}
+- {skill: CI/CD, category: DevOps & Infrastructure, level: excellent}
+- {skill: Kubernetes, category: DevOps & Infrastructure, level: excellent}
 - {skill: Cloud Platforms, category: DevOps & Infrastructure, level: good}
 - {skill: Integration Testing, category: Quality & Testing, level: decent}
-- {skill: Communication, category: Soft Skills, level: decent}
+- {skill: Communication, category: Soft Skills, level: good}
 - {skill: Problem Solving, category: Soft Skills, level: good}
+- { skill: Git, category: Programming, level: excellent }
