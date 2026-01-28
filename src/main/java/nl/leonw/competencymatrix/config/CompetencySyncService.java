@@ -27,6 +27,8 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 
+import static java.nio.charset.StandardCharsets.*;
+
 /**
  * Core service for synchronizing competencies from YAML to database.
  * Handles parsing, validation, and normalization operations.
@@ -35,7 +37,6 @@ import java.util.Optional;
 public class CompetencySyncService {
 
     private static final Logger log = LoggerFactory.getLogger(CompetencySyncService.class);
-    private static final String COMPETENCIES_PATH = "seed/competencies.yaml";
 
     @Inject
     CategoryRepository categoryRepository;
@@ -789,7 +790,7 @@ public class CompetencySyncService {
 
             // Read index file line by line
             try (java.io.BufferedReader reader = new java.io.BufferedReader(
-                    new java.io.InputStreamReader(indexStream, java.nio.charset.StandardCharsets.UTF_8))) {
+                    new java.io.InputStreamReader(indexStream, UTF_8))) {
                 String line;
                 while ((line = reader.readLine()) != null) {
                     line = line.trim();
