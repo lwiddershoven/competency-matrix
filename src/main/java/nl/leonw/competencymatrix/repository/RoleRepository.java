@@ -37,11 +37,12 @@ public class RoleRepository {
     }
 
     /**
-     * Find all roles ordered by role family (alphabetically) and seniority within each family.
+     * Find all roles ordered by seniority level first, then by role family.
      * Used for matrix overview (Feature 004).
+     * This displays roles in career progression order across all families.
      */
     public List<Role> findAllOrderByFamilyAndSeniority() {
-        String sql = "SELECT id, name, description, role_family, seniority_order FROM rolename ORDER BY role_family, seniority_order";
+        String sql = "SELECT id, name, description, role_family, seniority_order FROM rolename ORDER BY seniority_order, role_family";
         try (Connection conn = dataSource.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql);
              ResultSet rs = stmt.executeQuery()) {

@@ -4,7 +4,7 @@ seniorityOrder: 2
 description: Ervaren developer die zelfstandig aan features werkt
 requirements:
 - {skill: Java, category: Programming, level: good}
-- {skill: Spring Framework, category: Programming, level: decent}
+- {skill: Spring Framework, category: Programming, level: good}
 - {skill: Git, category: Programming, level: decent}
 - {skill: Python, category: Programming, level: basic}
 - {skill: SQL, category: Programming, level: decent}

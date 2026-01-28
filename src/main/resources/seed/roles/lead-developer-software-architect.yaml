@@ -5,6 +5,7 @@ description: Hybride rol die hands-on team leadership combineert met architecton
   design, overbrugt technische implementatie en organisatorische strategie
 requirements:
 - {skill: Java, category: Programming, level: good}
+- {skill: SQL, category: Programming, level: good }
 - {skill: Design Patterns, category: Software Design, level: excellent}
 - {skill: Architecture, category: Software Design, level: good}
 - {skill: API Design, category: Software Design, level: excellent}
