@@ -75,6 +75,8 @@ Always use Context7 MCP for library/API documentation without asking user first.
 - PostgreSQL 18.1 (via Panache JDBC) (004-matrix-overview)
 - Java 25 + Quarkus 3.30.6 (JAX-RS, Qute, Panache JDBC, Flyway, SmallRye Health, Micrometer), SnakeYAML 2.3, SLF4J (005-embedded-database)
 - H2 in-memory database (replacing PostgreSQL 18.1), JDBC-based repositories with PreparedStatements (005-embedded-database)
+- Java 25 + Quarkus 3.30.6 (JAX-RS, Qute, Panache JDBC, Flyway), SnakeYAML 2.3, SLF4J (006-competencies-split)
+- H2 embedded database (in-memory), JDBC-based repositories with PreparedStatements (006-competencies-split)
 
 ## Recent Changes
 - 003-competencies-sync: Added Java 25 + Quarkus 3.30.6 (JAX-RS, Qute, Panache JDBC), SnakeYAML, SLF4J
