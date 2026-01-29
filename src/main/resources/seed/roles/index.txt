@@ -7,3 +7,4 @@ lead-developer-software-architect.yaml
 lead-developer.yaml
 software-architect.yaml
 solution-architect.yaml
+scrum-master.yaml

@@ -1,32 +1,34 @@
 name: Programming
 skills:
-- name: Java
-  levels:
-    basic: 'Schrijft productie Java code in Spring Boot microservices, begrijpt OOP principes, gebruikt Collections en Streams voor dagelijkse taken, kan RESTful endpoints implementeren'
-    decent: 'Beheerst moderne Java features (records, sealed classes, pattern matching), schrijft idiomatische code met functionele programming, begrijpt JVM memory management, implementeert effectieve exception handling en logging'
-    good: 'Diepgaande kennis van JVM internals en garbage collection, optimaliseert performance en geheugengebruik, beheerst concurrency en threading, past design patterns toe voor schaalbare microservice architecturen'
-    excellent: 'Expert in JVM tuning en troubleshooting, begrijpt bytecode en class loading, draagt bij aan Java libraries/frameworks, mentort teams in geavanceerde Java technieken en best practices'
-- name: Python
-  levels:
-    basic: 'Schrijft Python scripts voor automation taken, begrijpt basis syntax en datastructuren, kan simpele tools bouwen voor development workflow'
-    decent: 'Bouwt Python services met frameworks zoals Flask of FastAPI, gebruikt virtual environments en dependency management, schrijft unit tests, begrijpt list comprehensions en decorators'
-    good: 'Ontwikkelt productie-ready Python applicaties, beheerst async/await patterns, gebruikt type hints effectief, integreert Python services in microservice landschap'
-    excellent: 'Python expert die libraries ontwikkelt, performance optimaliseert met profiling tools, beheerst advanced features (metaclasses, descriptors), begeleidt teams in Python best practices'
-- name: SQL
-  levels:
-    basic: 'Schrijft SELECT, INSERT, UPDATE, DELETE queries, begrijpt basis JOINs, kan tabellen aanmaken en data manipuleren voor applicatie features'
-    decent: 'Schrijft complexe queries met multiple JOINs en subqueries, begrijpt indexes en query execution plans, kan database schema wijzigingen doorvoeren, gebruikt transactions effectief'
-    good: 'Optimaliseert query performance met indexes en query rewriting, ontwerpt database schemas voor microservices, begrijpt database constraints en normalisatie, implementeert data migratie strategieën'
-    excellent: 'Database expert die sharding en partitioning strategieën ontwerpt, optimaliseert database performance op systeem niveau, begrijst replication en high availability, adviseert over database architectuur keuzes'
-- name: Spring Framework
-  levels:
-    basic: 'Gebruikt Spring Boot voor microservices, begrijpt dependency injection en annotations (@Service, @Repository, @Controller), kan REST endpoints en data repositories implementeren'
-    decent: 'Configureert Spring applicaties (properties, profiles), gebruikt Spring Data JPA effectief, implementeert Spring Security voor authentication/authorization, begrijpt transactie management'
-    good: 'Integreert meerdere Spring modules (Cloud, Actuator, WebFlux), implementeert event-driven patterns, configureert service discovery en load balancing, schrijft custom Spring configurations en auto-configurations'
-    excellent: 'Spring expert die framework internals begrijpt, ontwikkelt custom Spring Boot starters, optimaliseert Spring applicatie performance, mentort teams in Spring architectuur patterns en reactive programming'
-- name: Git
-  levels:
-    basic: 'Dagelijkse Git operaties (clone, branch, commit, push, pull), kan merge conflicts oplossen, werkt met feature branches volgens team workflow'
-    decent: 'Gebruikt rebase voor clean history, beheert release branches, cherry-picks commits, schrijft effectieve commit messages, voert code reviews uit met Git tools'
-    good: 'Implementeert branching strategies (GitFlow, trunk-based), beheert complexe merges en repository restructuring, configureert Git hooks, optimaliseert team Git workflows'
-    excellent: 'Git expert die advanced troubleshooting uitvoert (reflog, bisect), ontwerpt repository strategieën voor mono/polyrepo setups, traint teams in Git internals en best practices'
+  - name: Java
+    levels: { basic: 'Kan basis Java code schrijven, begrijpt syntax en eenvoudige datastructuren',
+              decent: 'Schrijft schone code, begrijpt OOP en functionele principes, gebruikt
+      collections effectief', good: 'Ontwikkelt onderhoudbare systemen, is bedreven
+      met streams en generics', excellent: 'Beheerst geavanceerde patronen, draagt
+      bij aan architectonische beslissingen' }
+  - name: Python
+    levels: { basic: Kan scripts en eenvoudige programma's schrijven, decent: 'Gebruikt
+      standaardbibliotheek effectief, schrijft leesbare code', good: 'Bouw applicaties
+      met frameworks, begrijpt async patronen', excellent: 'Creëert bibliotheken,
+      optimaliseert performance, mentort anderen' }
+  - name: SQL
+    levels: { basic: 'Schrijft eenvoudige SELECT, INSERT, UPDATE queries', decent: 'Gebruikt
+      JOINs, subqueries, begrijpt indexes', good: 'Optimaliseert complexe queries,
+      ontwerpt schemas', excellent: 'Stemt database performance af, ontwerpt schaalbare
+      datamodellen' }
+  - name: Spring/Quarkus/Microprofile
+    levels: { basic: 'Begrijpt basis Java framework concepten, kan bestaande applicaties uitbreiden',
+              decent: 'Bouw applicaties met Spring Boot of Quarkus, begrijpt dependency injection', good: 'Integreert
+      verschillende modules (Security, Data, MVC/RESTEasy), werkt met MicroProfile',
+              excellent: 'Architecteert
+      complexe systemen met Spring/Quarkus/MicroProfile, optimaliseert performance' }
+  - name: Git
+    levels: { basic: 'Kan basis Git commando''s uitvoeren (add, commit, push)', decent: 'Beheert
+      branches, merge conflicts, begrijpt Git workflows', good: 'Levert code reviews,
+      gebruikt geavanceerde Git features', excellent: 'Definieert Git strategies,
+      traint teams in best practices' }
+  - name: Maven/Gradle
+    levels: { basic: 'Begrijpt basis build tooling, kan projecten builden en dependencies toevoegen',
+              decent: 'Beheert build lifecycles, begrijpt dependency management en multi-module projecten',
+              good: 'Configureert geavanceerde build processen, optimaliseert build times en dependency trees',
+              excellent: 'Architecteert build strategieën, implementeert CI/CD pipelines en custom plugins' }

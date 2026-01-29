@@ -4,20 +4,22 @@ seniorityOrder: 1
 description: Hybride rol die hands-on team leadership combineert met architectonisch
   design, overbrugt technische implementatie en organisatorische strategie
 requirements:
-- {skill: Java, category: Programming, level: good}
-- {skill: SQL, category: Programming, level: good }
-- {skill: Design Patterns, category: Software Design, level: excellent}
-- {skill: Architecture, category: Software Design, level: good}
-- {skill: API Design, category: Software Design, level: excellent}
-- {skill: CI/CD, category: DevOps & Infrastructure, level: good}
-- {skill: Kubernetes, category: DevOps & Infrastructure, level: decent}
-- {skill: Cloud Platforms, category: DevOps & Infrastructure, level: decent}
-- {skill: Code Review, category: Quality & Testing, level: excellent}
-- {skill: Communication, category: Soft Skills, level: excellent}
-- {skill: Mentoring, category: Soft Skills, level: excellent}
-- {skill: Problem Solving, category: Soft Skills, level: excellent}
-- {skill: Presentation, category: Soft Skills, level: good}
-- {skill: Stakeholder Management, category: Soft Skills, level: good}
-- {skill: Motiveren, category: Soft Skills, level: decent}
-- {skill: iSAQB, category: Architecture Frameworks, level: decent}
-- {skill: ArchiMate, category: Architecture Frameworks, level: basic}
+  - { skill: Java, category: Programming, level: good }
+  - { skill: Design Patterns, category: Software Design, level: excellent }
+  - { skill: Git, category: Programming, level: decent }
+  - { skill: Maven/Gradle, category: Programming, level: good }
+  - { skill: Architecture, category: Software Design, level: good }
+  - { skill: API Design, category: Software Design, level: excellent }
+  - { skill: CI/CD, category: DevOps & Infrastructure, level: good }
+  - { skill: Kubernetes, category: DevOps & Infrastructure, level: decent }
+  - { skill: Cloud Platforms, category: DevOps & Infrastructure, level: decent }
+  - { skill: Code Review, category: Quality & Testing, level: excellent }
+  - { skill: Communication, category: Soft Skills, level: excellent }
+  - { skill: Mentoring, category: Soft Skills, level: excellent }
+  - { skill: Problem Solving, category: Soft Skills, level: excellent }
+  - { skill: Presentation, category: Soft Skills, level: good }
+  - { skill: Stakeholder Management, category: Soft Skills, level: good }
+  - { skill: Motiveren, category: Soft Skills, level: decent }
+  - { skill: iSAQB, category: Architecture Frameworks, level: decent }
+  - { skill: ArchiMate, category: Architecture Frameworks, level: basic }
+  - { skill: Spring/Quarkus/Microprofile, category: Programming, level: good }

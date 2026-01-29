@@ -4,23 +4,24 @@ seniorityOrder: 5
 description: Begeleidt development team door technische beslissingen, verwijdert blockers,
   en zorgt voor delivery kwaliteit terwijl hands-on development behouden blijft
 requirements:
-- {skill: Java, category: Programming, level: good}
-- {skill: Spring Framework, category: Programming, level: good}
-- {skill: Git, category: Programming, level: good}
-- {skill: Python, category: Programming, level: decent}
-- {skill: SQL, category: Programming, level: good}
-- {skill: Design Patterns, category: Software Design, level: good}
-- {skill: Architecture, category: Software Design, level: good}
-- {skill: API Design, category: Software Design, level: good}
-- {skill: CI/CD, category: DevOps & Infrastructure, level: decent}
-- {skill: Unit Testing, category: Quality & Testing, level: good}
-- {skill: Integration Testing, category: Quality & Testing, level: good}
-- {skill: Code Review, category: Quality & Testing, level: excellent}
-- {skill: Communication, category: Soft Skills, level: excellent}
-- {skill: Mentoring, category: Soft Skills, level: good}
-- {skill: Problem Solving, category: Soft Skills, level: excellent}
-- {skill: Presentation, category: Soft Skills, level: decent}
-- {skill: Stakeholder Management, category: Soft Skills, level: decent}
-- {skill: Motiveren, category: Soft Skills, level: decent}
-- {skill: Technical Leadership, category: Soft Skills, level: good}
-- {skill: Project Management, category: Soft Skills, level: basic}
+  - { skill: Java, category: Programming, level: good }
+  - { skill: Spring/Quarkus/Microprofile, category: Programming, level: good }
+  - { skill: Git, category: Programming, level: good }
+  - { skill: Maven/Gradle, category: Programming, level: good }
+  - { skill: Python, category: Programming, level: decent }
+  - { skill: SQL, category: Programming, level: good }
+  - { skill: Design Patterns, category: Software Design, level: good }
+  - { skill: Architecture, category: Software Design, level: good }
+  - { skill: API Design, category: Software Design, level: good }
+  - { skill: CI/CD, category: DevOps & Infrastructure, level: decent }
+  - { skill: Unit Testing, category: Quality & Testing, level: good }
+  - { skill: Integration Testing, category: Quality & Testing, level: good }
+  - { skill: Code Review, category: Quality & Testing, level: excellent }
+  - { skill: Communication, category: Soft Skills, level: excellent }
+  - { skill: Mentoring, category: Soft Skills, level: good }
+  - { skill: Problem Solving, category: Soft Skills, level: excellent }
+  - { skill: Presentation, category: Soft Skills, level: decent }
+  - { skill: Stakeholder Management, category: Soft Skills, level: decent }
+  - { skill: Motiveren, category: Soft Skills, level: decent }
+  - { skill: Technical Leadership, category: Soft Skills, level: good }
+  - { skill: Project Management, category: Soft Skills, level: basic }

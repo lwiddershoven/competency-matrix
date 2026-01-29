@@ -1,23 +1,23 @@
 name: DevOps & Infrastructure
 skills:
-- name: CI/CD
-  levels: {basic: 'Gebruikt bestaande pipelines, begrijpt basis concepten', decent: Creëert
+  - name: CI/CD
+    levels: {                        basic: 'Gebruikt bestaande pipelines, begrijpt basis concepten', decent: Creëert
       en onderhoudt build pipelines, good: 'Ontwerpt deployment strategieën, implementeert
       blue-green deployments', excellent: 'Architecteert CI/CD platforms, optimaliseert
-      build tijden'}
-- name: Kubernetes
-  levels: {basic: 'Deployt basis applicaties, begrijpt pods en services', decent: 'Beheert
+      build tijden' }
+  - name: Kubernetes
+    levels: { basic: 'Deployt basis applicaties, begrijpt pods en services', decent: 'Beheert
       deployments, configureert ingress en volumes', good: 'Ontwerpt hoogbeschikbare
       deployments, implementeert autoscaling', excellent: 'Beheert productie clusters,
-      definieert platform standaarden'}
-- name: Cloud Platforms
-  levels: {basic: 'Gebruikt basis cloud services (compute, storage)', decent: 'Deployt
+      definieert platform standaarden' }
+  - name: Cloud Platforms
+    levels: { basic: 'Gebruikt basis cloud services (compute, storage)', decent: 'Deployt
       applicaties, beheert cloud resources', good: 'Ontwerpt cloud-native architecturen,
       implementeert IaC', excellent: 'Optimaliseert kosten, architecteert multi-regio
-      oplossingen'}
-- name: Docker
-  levels: {basic: 'Kan bestaande Docker images runnen, begrijpt containers', decent: 'Creëert
+      oplossingen' }
+  - name: Docker
+    levels: { basic: 'Kan bestaande Docker images runnen, begrijpt containers', decent: 'Creëert
       Dockerfiles, gebruikt Docker Compose, weet dat er verschillende docker implementaties
       zijn', good: 'Optimaliseert images, implementeert multi-stage builds, kan omgaan
       met verschillende container repositories', excellent: 'Architecteert container
-      strategieën, definieert container standaarden'}
+      strategieën, definieert container standaarden' }

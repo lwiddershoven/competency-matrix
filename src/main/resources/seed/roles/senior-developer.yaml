@@ -3,26 +3,27 @@ roleFamily: Developer
 seniorityOrder: 3
 description: Technische leider die team beslissingen begeleidt en mentort
 requirements:
-- {skill: Java, category: Programming, level: good}
-- {skill: Spring Framework, category: Programming, level: decent}
-- {skill: Git, category: Programming, level: good}
-- {skill: Python, category: Programming, level: basic}
-- {skill: SQL, category: Programming, level: good}
-- {skill: Design Patterns, category: Software Design, level: good}
-- {skill: Architecture, category: Software Design, level: decent}
-- {skill: API Design, category: Software Design, level: good}
-- {skill: Microservices Architectuur, category: Software Design, level: decent}
-- {skill: Object-Oriented Programming, category: Software Design, level: decent}
-- {skill: Test-Driven Development, category: Software Design, level: good}
-- {skill: CI/CD, category: DevOps & Infrastructure, level: decent}
-- {skill: Docker, category: DevOps & Infrastructure, level: decent}
-- {skill: Kubernetes, category: DevOps & Infrastructure, level: good}
-- {skill: Cloud Platforms, category: DevOps & Infrastructure, level: decent}
-- {skill: Unit Testing, category: Quality & Testing, level: good}
-- {skill: Integration Testing, category: Quality & Testing, level: decent}
-- {skill: End-to-end Testing, category: Quality & Testing, level: good}
-- {skill: Automated Testing, category: Quality & Testing, level: good}
-- {skill: Code Review, category: Quality & Testing, level: good}
-- {skill: Communication, category: Soft Skills, level: good}
-- {skill: Mentoring, category: Soft Skills, level: decent}
-- {skill: Problem Solving, category: Soft Skills, level: good}
+  - { skill: Java, category: Programming, level: good }
+  - { skill: Spring/Quarkus/Microprofile, category: Programming, level: good }
+  - { skill: Git, category: Programming, level: good }
+  - { skill: Maven/Gradle, category: Programming, level: good }
+  - { skill: Python, category: Programming, level: decent }
+  - { skill: SQL, category: Programming, level: good }
+  - { skill: Design Patterns, category: Software Design, level: good }
+  - { skill: Architecture, category: Software Design, level: decent }
+  - { skill: API Design, category: Software Design, level: good }
+  - { skill: Microservices Architectuur, category: Software Design, level: decent }
+  - { skill: Object-Oriented Programming, category: Software Design, level: decent }
+  - { skill: Test-Driven Development, category: Software Design, level: good }
+  - { skill: CI/CD, category: DevOps & Infrastructure, level: decent }
+  - { skill: Docker, category: DevOps & Infrastructure, level: decent }
+  - { skill: Kubernetes, category: DevOps & Infrastructure, level: good }
+  - { skill: Cloud Platforms, category: DevOps & Infrastructure, level: decent }
+  - { skill: Unit Testing, category: Quality & Testing, level: good }
+  - { skill: Integration Testing, category: Quality & Testing, level: decent }
+  - { skill: End-to-end Testing, category: Quality & Testing, level: good }
+  - { skill: Automated Testing, category: Quality & Testing, level: good }
+  - { skill: Code Review, category: Quality & Testing, level: good }
+  - { skill: Communication, category: Soft Skills, level: good }
+  - { skill: Mentoring, category: Soft Skills, level: decent }
+  - { skill: Problem Solving, category: Soft Skills, level: good }

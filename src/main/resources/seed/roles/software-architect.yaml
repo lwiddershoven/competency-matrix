@@ -5,19 +5,22 @@ description: Definieert technische strategie en standaarden across development e
   platform teams, aligneert architectuur met IT management doelstellingen, en zorgt
   voor technische coherentie across de IT organisatie
 requirements:
-- {skill: Java, category: Programming, level: good}
-- { skill: SQL, category: Programming, level: decent }
-- {skill: Design Patterns, category: Software Design, level: excellent}
-- {skill: Architecture, category: Software Design, level: excellent}
-- {skill: API Design, category: Software Design, level: excellent}
-- {skill: CI/CD, category: DevOps & Infrastructure, level: good}
-- {skill: Kubernetes, category: DevOps & Infrastructure, level: good}
-- {skill: Cloud Platforms, category: DevOps & Infrastructure, level: good}
-- {skill: Communication, category: Soft Skills, level: excellent}
-- {skill: Mentoring, category: Soft Skills, level: excellent}
-- {skill: Problem Solving, category: Soft Skills, level: excellent}
-- {skill: Presentation, category: Soft Skills, level: excellent}
-- {skill: Stakeholder Management, category: Soft Skills, level: excellent}
-- {skill: ArchiMate, category: Architecture Frameworks, level: decent}
-- {skill: iSAQB, category: Architecture Frameworks, level: excellent}
-- {skill: TOGAF, category: Architecture Frameworks, level: basic}
+  - { skill: Java, category: Programming, level: good }
+  - { skill: Python, category: Programming, level: decent }
+  - { skill: Git, category: Programming, level: decent }
+  - { skill: Maven/Gradle, category: Programming, level: good }
+  - { skill: SQL, category: Programming, level: decent }
+  - { skill: Design Patterns, category: Software Design, level: excellent }
+  - { skill: Architecture, category: Software Design, level: excellent }
+  - { skill: API Design, category: Software Design, level: excellent }
+  - { skill: CI/CD, category: DevOps & Infrastructure, level: good }
+  - { skill: Kubernetes, category: DevOps & Infrastructure, level: good }
+  - { skill: Cloud Platforms, category: DevOps & Infrastructure, level: good }
+  - { skill: Communication, category: Soft Skills, level: excellent }
+  - { skill: Mentoring, category: Soft Skills, level: excellent }
+  - { skill: Problem Solving, category: Soft Skills, level: excellent }
+  - { skill: Presentation, category: Soft Skills, level: excellent }
+  - { skill: Stakeholder Management, category: Soft Skills, level: excellent }
+  - { skill: ArchiMate, category: Architecture Frameworks, level: decent }
+  - { skill: iSAQB, category: Architecture Frameworks, level: excellent }
+  - { skill: TOGAF, category: Architecture Frameworks, level: basic }

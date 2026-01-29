@@ -5,15 +5,16 @@ description: Partnert met business stakeholders om vereisten te begrijpen, model
   business processen en domeinen, en ontwerpt oplossingen die business value leveren
   terwijl integratie met enterprise architectuur gewaarborgd is
 requirements:
-- {skill: Java, category: Programming, level: decent}
-- {skill: Design Patterns, category: Software Design, level: good}
-- {skill: Architecture, category: Software Design, level: excellent}
-- {skill: API Design, category: Software Design, level: excellent}
-- {skill: Cloud Platforms, category: DevOps & Infrastructure, level: good}
-- {skill: Communication, category: Soft Skills, level: excellent}
-- {skill: Problem Solving, category: Soft Skills, level: excellent}
-- {skill: Presentation, category: Soft Skills, level: excellent}
-- {skill: Stakeholder Management, category: Soft Skills, level: excellent}
-- {skill: TOGAF, category: Architecture Frameworks, level: decent}
-- {skill: ArchiMate, category: Architecture Frameworks, level: good}
-- {skill: iSAQB, category: Architecture Frameworks, level: decent}
+  - { skill: Java, category: Programming, level: decent }
+  - { skill: Maven/Gradle, category: Programming, level: good }
+  - { skill: Design Patterns, category: Software Design, level: good }
+  - { skill: Architecture, category: Software Design, level: excellent }
+  - { skill: API Design, category: Software Design, level: excellent }
+  - { skill: Cloud Platforms, category: DevOps & Infrastructure, level: good }
+  - { skill: Communication, category: Soft Skills, level: excellent }
+  - { skill: Problem Solving, category: Soft Skills, level: excellent }
+  - { skill: Presentation, category: Soft Skills, level: excellent }
+  - { skill: Stakeholder Management, category: Soft Skills, level: excellent }
+  - { skill: TOGAF, category: Architecture Frameworks, level: decent }
+  - { skill: ArchiMate, category: Architecture Frameworks, level: good }
+  - { skill: iSAQB, category: Architecture Frameworks, level: decent }
