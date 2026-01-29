@@ -11,6 +11,7 @@ import jakarta.ws.rs.NotFoundException;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.QueryParam;
 import jakarta.ws.rs.core.MediaType;
 import nl.leonw.competencymatrix.model.Skill;
 import nl.leonw.competencymatrix.service.CompetencyService;
@@ -22,7 +23,31 @@ public class SkillResource {
     Template skill;
 
     @Inject
+    Template skills;
+
+    @Inject
     CompetencyService competencyService;
+
+    @GET
+    @Produces(MediaType.TEXT_HTML)
+    @Blocking
+    public TemplateInstance skillsOverview(@QueryParam("category") @DefaultValue("") String categoryId,
+                                           @CookieParam("theme") @DefaultValue("light") String theme) {
+        Integer categoryFilter = null;
+        if (categoryId != null && !categoryId.trim().isEmpty()) {
+            try {
+                categoryFilter = Integer.parseInt(categoryId);
+            } catch (NumberFormatException e) {
+                // Invalid category ID, show all skills
+            }
+        }
+
+        return skills
+                .data("skillsByCategory", competencyService.getAllSkillsByCategory(categoryFilter))
+                .data("categories", competencyService.getAllCategories())
+                .data("selectedCategoryId", categoryFilter != null ? categoryFilter.toString() : "")
+                .data("theme", theme);
+    }
 
     @GET
     @Path("{id}")

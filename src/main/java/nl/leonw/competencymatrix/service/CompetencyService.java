@@ -118,6 +118,30 @@ public class CompetencyService {
     }
 
     /**
+     * Get all skills grouped by category with optional category filtering
+     */
+    public Map<CompetencyCategory, List<Skill>> getAllSkillsByCategory(Integer categoryId) {
+        List<CompetencyCategory> categories = categoryRepository.findAllOrderByDisplayOrder();
+
+        Map<CompetencyCategory, List<Skill>> result = new LinkedHashMap<>();
+
+        for (CompetencyCategory category : categories) {
+            if (categoryId == null || categoryId.equals(category.id())) {
+                List<Skill> skills = skillRepository.findByCategoryId(category.id());
+
+                // Sort skills alphabetically (case-insensitive)
+                skills.sort((s1, s2) -> s1.name().compareToIgnoreCase(s2.name()));
+
+                if (!skills.isEmpty()) {
+                    result.put(category, skills);
+                }
+            }
+        }
+
+        return result;
+    }
+
+    /**
      * Compare skill requirements between two roles
      */
     public List<SkillComparison> compareRoles(Integer fromRoleId, Integer toRoleId) {

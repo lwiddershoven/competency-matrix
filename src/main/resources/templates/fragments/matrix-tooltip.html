@@ -1,10 +1,4 @@
 <div class="tooltip-content">
     <h4>{skill.name}</h4>
-    <p class="tooltip-level">
-        <strong>Level:</strong>
-        <span class="level-badge level-{level.name().toLowerCase()}">{level.displayName}</span>
-    </p>
-    <div class="tooltip-description">
-        <p>{description}</p>
-    </div>
+    {#include fragments/skill-levels-list skill=skill levels=levels currentLevel=currentLevel /}
 </div>

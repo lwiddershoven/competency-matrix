@@ -1,0 +1,112 @@
+{#include layout title="All Skills"}
+    {#content}
+        <nav class="breadcrumb">
+            <a href="/">Home</a> >
+            <span>All Skills</span>
+        </nav>
+
+        <hgroup>
+            <h1>All Skills</h1>
+            <p>Browse all competencies organized by category</p>
+        </hgroup>
+
+        {#if categories && categories.size() > 1}
+            <div class="matrix-filters">
+                <form method="GET" action="/skills" class="filter-form">
+                    <label for="categoryFilter">Filter by Category:</label>
+                    <select name="category" id="categoryFilter" onchange="this.form.submit()">
+                        <option value="">All Categories</option>
+                        {#for category in categories}
+                            <option value="{category.id}"
+                                    {#if selectedCategoryId == category.id.toString()}selected{/if}>
+                                {category.name}
+                            </option>
+                        {/for}
+                    </select>
+                    <noscript>
+                        <button type="submit">Apply Filter</button>
+                    </noscript>
+                </form>
+            </div>
+        {/if}
+
+        {#if skillsByCategory.isEmpty()}
+            <p>No skills found. Please load seed data first.</p>
+        {#else}
+            {#for entry in skillsByCategory}
+                <div class="category-section">
+                    <h3>{entry.key.name}</h3>
+                    <div class="category-skills-table">
+                        <table class="skills-table">
+                            <thead>
+                                <tr>
+                                    <th class="skill-name">Skill</th>
+                                    <th>Required Level</th>
+                                    <th>Level Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {#for skill in entry.value}
+                                {#if skill != null}
+                                <tr class="skill-level-group">
+                                    <td class="skill-name">
+                                        <a href="/skills/{skill.id()}">{skill.name()}</a>
+                                    </td>
+                                    <td class="skill-level">
+                                        <span class="level-badge level-basic">Basic</span>
+                                    </td>
+                                    <td class="skill-description">
+                                        {#if skill.basicDescription()}
+                                            <p>{skill.basicDescription()}</p>
+                                        {/if}
+                                    </td>
+                                </tr>
+                                <tr class="skill-level-group">
+                                    <td class="skill-name">
+                                        <!-- Empty for grouped levels -->
+                                    </td>
+                                    <td class="skill-level">
+                                        <span class="level-badge level-decent">Decent</span>
+                                    </td>
+                                    <td class="skill-description">
+                                        {#if skill.decentDescription()}
+                                            <p>{skill.decentDescription()}</p>
+                                        {/if}
+                                    </td>
+                                </tr>
+                                <tr class="skill-level-group">
+                                    <td class="skill-name">
+                                        <!-- Empty for grouped levels -->
+                                    </td>
+                                    <td class="skill-level">
+                                        <span class="level-badge level-good">Good</span>
+                                    </td>
+                                    <td class="skill-description">
+                                        {#if skill.goodDescription()}
+                                            <p>{skill.goodDescription()}</p>
+                                        {/if}
+                                    </td>
+                                </tr>
+                                <tr class="skill-level-group">
+                                    <td class="skill-name">
+                                        <!-- Empty for grouped levels -->
+                                    </td>
+                                    <td class="skill-level">
+                                        <span class="level-badge level-excellent">Excellent</span>
+                                    </td>
+                                    <td class="skill-description">
+                                        {#if skill.excellentDescription()}
+                                            <p>{skill.excellentDescription()}</p>
+                                        {/if}
+                                    </td>
+                                </tr>
+                                {/if}
+                                {/for}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            {/for}
+        {/if}
+    {/content}
+{/include}

@@ -1,0 +1,12 @@
+<div class="skill-levels">
+    {#for level in levels}
+    <div class="skill-level-item {#if level == currentLevel}current-level{/if}">
+        <div class="skill-level-header">
+            <span class="level-badge level-{level.name().toLowerCase()}">{level.displayName}</span>
+        </div>
+        <div class="skill-level-description">
+            {skill.getDescriptionForLevel(level)}
+        </div>
+    </div>
+    {/for}
+</div>

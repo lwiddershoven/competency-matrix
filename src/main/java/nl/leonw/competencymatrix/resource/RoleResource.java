@@ -85,6 +85,7 @@ public class RoleResource {
         return skillModal
                 .data("skill", skill)
                 .data("requiredLevel", requiredLevel)
+                .data("levels", ProficiencyLevel.values())
                 .data("theme", theme);
     }
 }
