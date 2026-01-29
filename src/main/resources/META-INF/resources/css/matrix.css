@@ -157,27 +157,6 @@
     text-transform: uppercase;
 }
 
-/* Proficiency level colors */
-.level-basic .level-badge {
-    background-color: #e3f2fd;
-    color: #1976d2;
-}
-
-.level-decent .level-badge {
-    background-color: #fff3e0;
-    color: #f57c00;
-}
-
-.level-good .level-badge {
-    background-color: #f3e5f5;
-    color: #7b1fa2;
-}
-
-.level-excellent .level-badge {
-    background-color: #e8f5e9;
-    color: #388e3c;
-}
-
 /* Empty cells */
 .matrix-cell {
     background-color: var(--pico-background-color);
