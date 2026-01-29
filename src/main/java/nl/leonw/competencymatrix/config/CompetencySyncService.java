@@ -482,7 +482,8 @@ public class CompetencySyncService {
             Role existing = roleIndex.get(normalizedName);
 
             if (existing == null) {
-                Role created = roleRepository.save(new Role(yamlRole.name(), yamlRole.description()));
+                Role created = roleRepository.save(new Role(yamlRole.name(), yamlRole.description(),
+                        yamlRole.roleFamily(), yamlRole.seniorityOrder()));
                 roleIndex.put(normalizedName, created);
                 counters.rolesAdded++;
                 log.info("Role added: {}", created.name());
