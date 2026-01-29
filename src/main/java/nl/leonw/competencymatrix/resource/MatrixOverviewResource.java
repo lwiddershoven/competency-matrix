@@ -78,12 +78,12 @@ public class MatrixOverviewResource {
     }
 
     /**
-     * Get tooltip content for a skill at a specific proficiency level. Task: T032 - Tooltip endpoint for User Story 2
+     * Get tooltip content for a skill showing all proficiency levels. Task: T032 - Tooltip endpoint for User Story 2
      *
      * @param skillId ID of the skill
-     * @param level   Proficiency level (BASIC, DECENT, GOOD, EXCELLENT)
+     * @param level   Proficiency level (BASIC, DECENT, GOOD, EXCELLENT) - used to highlight the current level
      * @param theme   User's theme preference from cookie
-     * @return Tooltip HTML fragment with skill details
+     * @return Tooltip HTML fragment with all skill levels
      */
     @GET
     @Path("tooltips/skill/{skillId}")
@@ -94,20 +94,19 @@ public class MatrixOverviewResource {
         nl.leonw.competencymatrix.model.Skill skill = competencyService.getSkillById(skillId)
             .orElseThrow(() -> new NotFoundException("Skill not found: " + skillId));
 
-        // Get description for the specified level
-        nl.leonw.competencymatrix.model.ProficiencyLevel proficiencyLevel;
+        // Parse the current level for highlighting
+        nl.leonw.competencymatrix.model.ProficiencyLevel currentLevel;
         try {
-            proficiencyLevel = nl.leonw.competencymatrix.model.ProficiencyLevel.valueOf(level.toUpperCase());
+            currentLevel = nl.leonw.competencymatrix.model.ProficiencyLevel.valueOf(level.toUpperCase());
         } catch (IllegalArgumentException e) {
             throw new BadRequestException("Invalid proficiency level: " + level);
         }
 
-        String description = skill.getDescriptionForLevel(proficiencyLevel);
-
+        // Pass all levels to the template
         return matrixTooltip
             .data("skill", skill)
-            .data("level", proficiencyLevel)
-            .data("description", description)
+            .data("currentLevel", currentLevel)
+            .data("levels", nl.leonw.competencymatrix.model.ProficiencyLevel.values())
             .data("theme", theme);
     }
 

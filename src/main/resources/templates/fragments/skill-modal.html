@@ -4,35 +4,13 @@
 </header>
 
 {#if requiredLevel != null}
-<p>
+<p class="required-level-banner">
     Required level for this role:
     <span class="level-badge level-{requiredLevel.name().toLowerCase()}">{requiredLevel.displayName}</span>
 </p>
 {/if}
 
-<div class="level-descriptions">
-    <h4>Proficiency Levels</h4>
-
-    <div class="level-description {#if requiredLevel?.name() == 'BASIC'}highlighted{/if}">
-        <h5><span class="level-badge level-basic">Basic</span></h5>
-        <p>{skill.basicDescription ?: 'No description available'}</p>
-    </div>
-
-    <div class="level-description {#if requiredLevel?.name() == 'DECENT'}highlighted{/if}">
-        <h5><span class="level-badge level-decent">Decent</span></h5>
-        <p>{skill.decentDescription ?: 'No description available'}</p>
-    </div>
-
-    <div class="level-description {#if requiredLevel?.name() == 'GOOD'}highlighted{/if}">
-        <h5><span class="level-badge level-good">Good</span></h5>
-        <p>{skill.goodDescription ?: 'No description available'}</p>
-    </div>
-
-    <div class="level-description {#if requiredLevel?.name() == 'EXCELLENT'}highlighted{/if}">
-        <h5><span class="level-badge level-excellent">Excellent</span></h5>
-        <p>{skill.excellentDescription ?: 'No description available'}</p>
-    </div>
-</div>
+{#include fragments/skill-levels-list skill=skill levels=levels currentLevel=requiredLevel /}
 
 <footer>
     <button onclick="closeSkillModal()">Close</button>

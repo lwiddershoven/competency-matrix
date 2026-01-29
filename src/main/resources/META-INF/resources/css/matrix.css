@@ -200,17 +200,42 @@
 
 .tooltip-content h4 {
     margin-top: 0;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.75rem;
     font-size: 1.1rem;
 }
 
-.tooltip-level {
-    margin-bottom: 0.75rem;
+.skill-levels {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
 }
 
-.tooltip-description {
-    font-size: 0.9rem;
-    line-height: 1.5;
+.skill-level-item {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--pico-muted-border-color);
+}
+
+.skill-level-item:last-child {
+    border-bottom: none;
+}
+
+.skill-level-item.current-level {
+    background-color: var(--pico-muted-background-color);
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    margin-left: -0.5rem;
+    margin-right: -0.5rem;
+    border-radius: 4px;
+}
+
+.skill-level-header {
+    margin-bottom: 0.25rem;
+}
+
+.skill-level-description {
+    font-size: 0.875rem;
+    line-height: 1.4;
+    color: var(--pico-muted-color);
 }
 
 .tooltip-loading {
@@ -488,6 +513,18 @@
     max-width: 600px;
     max-height: 80vh;
     overflow-y: auto;
+}
+
+.required-level-banner {
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    background-color: var(--pico-muted-background-color);
+    border-radius: 4px;
+    text-align: center;
+}
+
+.required-level-banner .level-badge {
+    margin-left: 0.5rem;
 }
 
 .skill-modal-header {
