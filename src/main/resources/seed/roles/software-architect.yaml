@@ -8,6 +8,7 @@ requirements:
   - { skill: Java, category: Programming, level: good }
   - { skill: Python, category: Programming, level: decent }
   - { skill: Git, category: Programming, level: decent }
+  - { skill: Maven/Gradle, category: Programming, level: good }
   - { skill: SQL, category: Programming, level: decent }
   - { skill: Design Patterns, category: Software Design, level: excellent }
   - { skill: Architecture, category: Software Design, level: excellent }

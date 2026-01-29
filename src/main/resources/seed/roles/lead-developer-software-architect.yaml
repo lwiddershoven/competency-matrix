@@ -7,6 +7,7 @@ requirements:
   - { skill: Java, category: Programming, level: good }
   - { skill: Design Patterns, category: Software Design, level: excellent }
   - { skill: Git, category: Programming, level: decent }
+  - { skill: Maven/Gradle, category: Programming, level: good }
   - { skill: Architecture, category: Software Design, level: good }
   - { skill: API Design, category: Software Design, level: excellent }
   - { skill: CI/CD, category: DevOps & Infrastructure, level: good }
@@ -21,5 +22,4 @@ requirements:
   - { skill: Motiveren, category: Soft Skills, level: decent }
   - { skill: iSAQB, category: Architecture Frameworks, level: decent }
   - { skill: ArchiMate, category: Architecture Frameworks, level: basic }
-  - { skill: Spring (alt. Quarkus), category: Programming, level: good }
-  - { skill: Quarkus (alt. Spring), category: Programming, level: good }
+  - { skill: Spring/Quarkus/Microprofile, category: Programming, level: good }

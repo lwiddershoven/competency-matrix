@@ -5,9 +5,9 @@ description: Begeleidt development team door technische beslissingen, verwijdert
   en zorgt voor delivery kwaliteit terwijl hands-on development behouden blijft
 requirements:
   - { skill: Java, category: Programming, level: good }
-  - { skill: Spring (alt. Quarkus), category: Programming, level: good }
-  - { skill: Quarkus (alt. Spring), category: Programming, level: good }
+  - { skill: Spring/Quarkus/Microprofile, category: Programming, level: good }
   - { skill: Git, category: Programming, level: good }
+  - { skill: Maven/Gradle, category: Programming, level: good }
   - { skill: Python, category: Programming, level: decent }
   - { skill: SQL, category: Programming, level: good }
   - { skill: Design Patterns, category: Software Design, level: good }

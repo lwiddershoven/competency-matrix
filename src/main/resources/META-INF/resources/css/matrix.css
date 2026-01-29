@@ -4,6 +4,55 @@
  * Tasks: T023-T025 - Matrix table layout, sticky headers, level badges
  */
 
+/**
+ * Matrix Overview Styles
+ * Feature: 004-matrix-overview
+ * Tasks: T023-T025 - Matrix table layout, sticky headers, level badges
+ */
+
+/* Database reload button styles */
+.matrix-actions {
+    display: flex;
+    gap: 1rem;
+    margin: 1rem 0;
+    align-items: center;
+}
+
+.btn-warning {
+    background-color: #ff6b35;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.btn-warning:hover {
+    background-color: #e55a2b;
+    opacity: 0.9;
+}
+
+.btn-warning:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.htmx-indicator {
+    display: none;
+    color: var(--pico-muted-color);
+    font-style: italic;
+}
+
+.htmx-request .htmx-indicator {
+    display: inline;
+}
+
 /* T023: Matrix table layout */
 .matrix-container {
     position: relative;

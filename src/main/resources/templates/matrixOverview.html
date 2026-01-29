@@ -10,6 +10,21 @@
             <p>Overview of all competencies across all roles</p>
         </hgroup>
 
+        {#if allowReload}
+        <div class="matrix-actions">
+            <button
+                hx-post="/matrix/reload"
+                hx-swap="none"
+                hx-indicator=".reload-indicator"
+                hx-on="htmx:afterRequest: if (event.detail.xhr.status === 200) { window.location.href = '/matrix'; }"
+                class="btn btn-warning"
+                onclick="return confirm('This will delete all current data and reload from seed files. Continue?')">
+                🔄 Reload Database
+            </button>
+            <div class="reload-indicator htmx-indicator">Reloading database...</div>
+        </div>
+        {/if}
+
         {#if matrix.categories && matrix.categories.size() > 1}
             <div class="matrix-filters">
                 <form method="GET" action="/matrix" class="filter-form">

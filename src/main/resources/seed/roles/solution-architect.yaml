@@ -6,6 +6,7 @@ description: Partnert met business stakeholders om vereisten te begrijpen, model
   terwijl integratie met enterprise architectuur gewaarborgd is
 requirements:
   - { skill: Java, category: Programming, level: decent }
+  - { skill: Maven/Gradle, category: Programming, level: good }
   - { skill: Design Patterns, category: Software Design, level: good }
   - { skill: Architecture, category: Software Design, level: excellent }
   - { skill: API Design, category: Software Design, level: excellent }

@@ -16,18 +16,19 @@ skills:
       JOINs, subqueries, begrijpt indexes', good: 'Optimaliseert complexe queries,
       ontwerpt schemas', excellent: 'Stemt database performance af, ontwerpt schaalbare
       datamodellen' }
-  - name: Spring (alt. Quarkus)
-    levels: { basic: 'Begrijpt basis Spring concepten, kan bestaande applicaties uitbreiden',
-              decent: 'Bouw applicaties met Spring Boot, begrijpt dependency injection', good: 'Integreert
-      verschillende Spring modules (Security, Data, MVC)', excellent: 'Architecteert
-      complexe Spring systemen, optimaliseert performance' }
-  - name: Quarkus (alt. Spring)
-    levels: { basic: 'Begrijpt basis Quarkus concepten, kan bestaande applicaties uitbreiden',
-              decent: 'Bouw applicaties met Quarkus, begrijpt dependency injection en reactive programming', good: 'Integreert
-      verschillende Quarkus features (Security, Data, RESTEasy), optimaliseert voor serverless', excellent: 'Architecteert
-      complexe Quarkus systemen, implementeert geavanceerde patterns' }
+  - name: Spring/Quarkus/Microprofile
+    levels: { basic: 'Begrijpt basis Java framework concepten, kan bestaande applicaties uitbreiden',
+              decent: 'Bouw applicaties met Spring Boot of Quarkus, begrijpt dependency injection', good: 'Integreert
+      verschillende modules (Security, Data, MVC/RESTEasy), werkt met MicroProfile',
+              excellent: 'Architecteert
+      complexe systemen met Spring/Quarkus/MicroProfile, optimaliseert performance' }
   - name: Git
     levels: { basic: 'Kan basis Git commando''s uitvoeren (add, commit, push)', decent: 'Beheert
       branches, merge conflicts, begrijpt Git workflows', good: 'Levert code reviews,
       gebruikt geavanceerde Git features', excellent: 'Definieert Git strategies,
       traint teams in best practices' }
+  - name: Maven/Gradle
+    levels: { basic: 'Begrijpt basis build tooling, kan projecten builden en dependencies toevoegen',
+              decent: 'Beheert build lifecycles, begrijpt dependency management en multi-module projecten',
+              good: 'Configureert geavanceerde build processen, optimaliseert build times en dependency trees',
+              excellent: 'Architecteert build strategieën, implementeert CI/CD pipelines en custom plugins' }
