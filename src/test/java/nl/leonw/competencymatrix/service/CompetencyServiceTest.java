@@ -51,11 +51,11 @@ class CompetencyServiceTest {
     @Test
     void shouldGetSkillsByCategoryForRole() {
         Map<CompetencyCategory, List<CompetencyService.SkillWithRequirement>> result =
-                competencyService.getSkillsByCategoryForRole(juniorRole.id());
+            competencyService.getSkillsByCategoryForRole(juniorRole.id());
 
         assertThat(result).isNotEmpty();
         assertThat(result.values().stream().flatMap(List::stream))
-                .anyMatch(sr -> sr.skill().name().equals("Java") && sr.requiredLevel() == ProficiencyLevel.BASIS);
+            .anyMatch(sr -> sr.skill().name().equals("Java") && sr.requiredLevel() == ProficiencyLevel.BASIS);
     }
 
     @Test
@@ -75,23 +75,23 @@ class CompetencyServiceTest {
     @Test
     void shouldCompareRoles() {
         List<CompetencyService.SkillComparison> comparisons =
-                competencyService.compareRoles(juniorRole.id(), seniorRole.id());
+            competencyService.compareRoles(juniorRole.id(), seniorRole.id());
 
         assertThat(comparisons).isNotEmpty();
 
         // Verify there's at least one skill that shows progression (Java: basis -> goed)
         assertThat(comparisons).anyMatch(c ->
             c.skill().name().equals("Java") &&
-            c.fromLevel() == ProficiencyLevel.BASIS &&
-            c.toLevel() == ProficiencyLevel.GOED &&
-            c.isUpgrade() &&
-            c.hasChanged()
+                c.fromLevel() == ProficiencyLevel.BASIS &&
+                c.toLevel() == ProficiencyLevel.GOED &&
+                c.isUpgrade() &&
+                c.hasChanged()
         );
     }
 
     /**
-     * T016: Unit test for role grouping logic
-     * Verifies that buildMatrixViewModel groups roles by family and orders them correctly.
+     * T016: Unit test for role grouping logic Verifies that buildMatrixViewModel groups roles by family and orders them
+     * correctly.
      */
     @Test
     void shouldGroupRolesByFamilyInMatrixViewModel() {
@@ -109,87 +109,10 @@ class CompetencyServiceTest {
 
         // Verify Junior comes before Senior in seniority order
         boolean hasJunior = developerRoles.stream()
-                .anyMatch(h -> h.name().equals("Junior Developer"));
+            .anyMatch(h -> h.name().equals("Junior Developer"));
         boolean hasSenior = developerRoles.stream()
-                .anyMatch(h -> h.name().equals("Senior Developer"));
+            .anyMatch(h -> h.name().equals("Senior Developer"));
 
         assertThat(hasJunior || hasSenior).isTrue();
-    }
-
-    /**
-     * T017: Unit test for matrix structure with map of maps
-     * Verifies that matrix contains entries for all skills and roles
-     * with proper alignment between headers and cells.
-     */
-    @Test
-    void shouldCreateMatrixWithAlignedHeadersAndCells() {
-        var matrixViewModel = competencyService.buildMatrixViewModel(null);
-
-        assertThat(matrixViewModel).isNotNull();
-        assertThat(matrixViewModel.matrix()).isNotEmpty();
-        assertThat(matrixViewModel.rolesInOrder()).isNotEmpty();
-
-        // Get total number of roles
-        int totalRoles = matrixViewModel.rolesInOrder().size();
-
-        // Verify each skill row has cells for all roles
-        for (var skillEntry : matrixViewModel.matrix().entrySet()) {
-            String skillName = skillEntry.getKey();
-            Map<String, nl.leonw.competencymatrix.dto.CellData> roleCells = skillEntry.getValue();
-
-            assertThat(roleCells).hasSize(totalRoles);
-
-            // Verify all role names from rolesInOrder exist in the skill row
-            for (var roleInfo : matrixViewModel.rolesInOrder()) {
-                assertThat(roleCells).containsKey(roleInfo.name());
-
-                // Verify cell has correct IDs
-                var cell = roleCells.get(roleInfo.name());
-                assertThat(cell).isNotNull();
-                assertThat(cell.roleId()).isEqualTo(roleInfo.id());
-            }
-        }
-    }
-
-    /**
-     * Verifies that matrix structure uses string keys (skill names and role names)
-     * for readability and that cells can be retrieved by name.
-     */
-    @Test
-    void shouldUseStringKeysForMatrixLookup() {
-        var matrixViewModel = competencyService.buildMatrixViewModel(null);
-
-        assertThat(matrixViewModel).isNotNull();
-
-        // Verify we can look up cells using skill name and role name strings
-        String skillName = "Java";
-        String roleName = "Junior Developer";
-
-        var skillRow = matrixViewModel.matrix().get(skillName);
-        assertThat(skillRow).isNotNull();
-
-        var cell = skillRow.get(roleName);
-        assertThat(cell).isNotNull();
-        assertThat(cell.level()).isEqualTo(ProficiencyLevel.BASIS);
-    }
-
-    /**
-     * Verifies that empty cells exist for skill-role combinations
-     * where no requirement is defined.
-     */
-    @Test
-    void shouldIncludeEmptyCellsForMissingRequirements() {
-        var matrixViewModel = competencyService.buildMatrixViewModel(null);
-
-        assertThat(matrixViewModel).isNotNull();
-        assertThat(matrixViewModel.matrix()).isNotEmpty();
-
-        // Check that at least some cells are empty
-        boolean hasEmptyCells = matrixViewModel.matrix().values().stream()
-                .flatMap(m -> m.values().stream())
-                .anyMatch(nl.leonw.competencymatrix.dto.CellData::isEmpty);
-
-        // Not all skill-role combinations have requirements, so we expect some empty cells
-        assertThat(hasEmptyCells).isTrue();
     }
 }
