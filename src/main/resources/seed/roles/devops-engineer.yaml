@@ -1,6 +1,6 @@
 name: DevOps Engineer
-roleFamily: Operations
-seniorityOrder: 1
+roleFamily: Developer
+seniorityOrder: 5
 description: Infrastructure en automation specialist
 requirements:
   - { skill: Python, category: Programming, level: decent }
