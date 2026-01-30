@@ -65,15 +65,16 @@
                         </tr>
                     </thead>
                     <tbody>
-                        {#for skillEntry in matrix.matrix.entrySet()}
+                        {#for skillName in matrix.skillNames}
+                            {#let skillRow=matrix.matrix.get(skillName)}
                             <tr>
                                 <th class="skill-header">
-                                    <a href="/skills/{skillEntry.value.values().iterator().next.skillId}" class="skill-name-link" title="View details for {skillEntry.key}">
-                                        {skillEntry.key}
+                                    <a href="/skills/{skillRow.values().iterator().next.skillId}" class="skill-name-link" title="View details for {skillName}">
+                                        {skillName}
                                     </a>
                                 </th>
                                 {#for roleInfo in matrix.rolesInOrder}
-                                    {#let cell=skillEntry.value.get(roleInfo.name)}
+                                    {#let cell=skillRow.get(roleInfo.name)}
                                     <td class="matrix-cell {cell.levelCssClass}">
                                         {#if !cell.isEmpty}
                                             <button
@@ -98,6 +99,7 @@
                                     {/let}
                                 {/for}
                             </tr>
+                            {/let}
                         {/for}
                     </tbody>
                 </table>

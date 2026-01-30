@@ -12,6 +12,7 @@ import java.util.Map;
  */
 public record MatrixViewModel(
     Map<String, Map<String, CellData>> matrix,
+    List<String> skillNames,
     List<RoleInfo> rolesInOrder,
     Map<String, List<RoleInfo>> rolesByFamily,
     List<CompetencyCategory> categories,
@@ -29,7 +30,10 @@ public record MatrixViewModel(
         if (matrix == null || rolesInOrder == null || rolesByFamily == null || categories == null) {
             throw new IllegalArgumentException("All parameters must not be null");
         }
-        return new MatrixViewModel(matrix, rolesInOrder, rolesByFamily, categories, null);
+        List<String> sortedSkillNames = matrix.keySet().stream()
+            .sorted(String.CASE_INSENSITIVE_ORDER)
+            .toList();
+        return new MatrixViewModel(matrix, sortedSkillNames, rolesInOrder, rolesByFamily, categories, null);
     }
 
     /**
@@ -48,7 +52,10 @@ public record MatrixViewModel(
         if (selectedCategoryId == null || selectedCategoryId.isEmpty()) {
             throw new IllegalArgumentException("selectedCategoryId must not be null or empty for filtered view");
         }
-        return new MatrixViewModel(matrix, rolesInOrder, rolesByFamily, categories, selectedCategoryId);
+        List<String> sortedSkillNames = matrix.keySet().stream()
+            .sorted(String.CASE_INSENSITIVE_ORDER)
+            .toList();
+        return new MatrixViewModel(matrix, sortedSkillNames, rolesInOrder, rolesByFamily, categories, selectedCategoryId);
     }
 
     /**
@@ -56,15 +63,6 @@ public record MatrixViewModel(
      */
     public boolean hasFilter() {
         return selectedCategoryId != null && !selectedCategoryId.isEmpty();
-    }
-
-    /**
-     * Get all skill names in sorted order.
-     */
-    public List<String> getSkillNames() {
-        return matrix.keySet().stream()
-            .sorted(String.CASE_INSENSITIVE_ORDER)
-            .toList();
     }
 
     /**
@@ -80,11 +78,12 @@ public record MatrixViewModel(
 
     // Validation in canonical constructor
     public MatrixViewModel {
-        if (matrix == null || rolesInOrder == null || rolesByFamily == null || categories == null) {
+        if (matrix == null || skillNames == null || rolesInOrder == null || rolesByFamily == null || categories == null) {
             throw new IllegalArgumentException("All parameters must not be null");
         }
         // Defensive copies to ensure immutability
         matrix = Map.copyOf(matrix);
+        skillNames = List.copyOf(skillNames);
         rolesInOrder = List.copyOf(rolesInOrder);
         rolesByFamily = Map.copyOf(rolesByFamily);
         categories = List.copyOf(categories);
