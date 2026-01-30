@@ -4,23 +4,24 @@ seniorityOrder: 4
 description: Technische teamlid dat Agile processen faciliteert, impediments verwijdert, 
   en het team coacht in zelforganisatie terwijl 50% hands-on development behouden blijft
 requirements:
-  - { skill: Java, category: Programming, level: decent }
-  - { skill: Spring/Quarkus/Microprofile, category: Programming, level: decent }
-  - { skill: Git, category: Programming, level: decent }
-  - { skill: Architecture, category: Software Design, level: decent }
-  - { skill: API Design, category: Software Design, level: decent }
-  - { skill: Test-Driven Development, category: Software Design, level: decent }
-  - { skill: Automated Testing, category: Quality & Testing, level: decent }
-  - { skill: Code Review, category: Quality & Testing, level: decent }
-  - { skill: Communication, category: Soft Skills, level: excellent }
-  - { skill: Mentoring, category: Soft Skills, level: good }
-  - { skill: Problem Solving, category: Soft Skills, level: good }
-  - { skill: Presentation, category: Soft Skills, level: good }
-  - { skill: Stakeholder Management, category: Soft Skills, level: good }
-  - { skill: Project Management, category: Soft Skills, level: decent }
-  - { skill: Motiveren, category: Soft Skills, level: good }
-  - { skill: Agile Methodologieën, category: Soft Skills, level: good }
-  - { skill: Facilitatie, category: Soft Skills, level: excellent }
-  - { skill: Servant Leadership, category: Soft Skills, level: good }
-  - { skill: Team Dynamiek, category: Soft Skills, level: good }
-  - { skill: Retrospective Leadership, category: Soft Skills, level: good }
+  - { skill: Java, category: Programming, level: redelijk }
+  - { skill: Spring/Quarkus/Microprofile, category: Programming, level: redelijk }
+  - { skill: Git, category: Programming, level: redelijk }
+  - { skill: Architecture, category: Software Design, level: redelijk }
+  - { skill: API Design, category: Software Design, level: redelijk }
+  - { skill: Test-Driven Development, category: Software Design, level: redelijk }
+  - { skill: Automated Testing, category: Quality & Testing, level: redelijk }
+  - { skill: Code Review, category: Quality & Testing, level: redelijk }
+  - { skill: Communication, category: Soft Skills, level: uitstekend }
+  - { skill: Mentoring, category: Soft Skills, level: goed }
+  - { skill: Problem Solving, category: Soft Skills, level: goed }
+  - { skill: Presentation, category: Soft Skills, level: goed }
+  - { skill: Stakeholder Management, category: Soft Skills, level: goed }
+  - { skill: Project Management, category: Soft Skills, level: redelijk }
+  - { skill: Motiveren, category: Soft Skills, level: goed }
+  - { skill: Agile Methodologieën, category: Soft Skills, level: goed }
+  - { skill: Facilitatie, category: Soft Skills, level: uitstekend }
+  - { skill: Servant Leadership, category: Soft Skills, level: goed }
+  - { skill: Team Dynamiek, category: Soft Skills, level: goed }
+  - { skill: Retrospective Leadership, category: Soft Skills, level: goed }
+  - { skill: AI coding, category: AI & Emerging Technologies, level: basis }

@@ -5,16 +5,32 @@ description: Partnert met business stakeholders om vereisten te begrijpen, model
   business processen en domeinen, en ontwerpt oplossingen die business value leveren
   terwijl integratie met enterprise architectuur gewaarborgd is
 requirements:
-  - { skill: Java, category: Programming, level: decent }
-  - { skill: Maven/Gradle, category: Programming, level: good }
-  - { skill: Design Patterns, category: Software Design, level: good }
-  - { skill: Architecture, category: Software Design, level: excellent }
-  - { skill: API Design, category: Software Design, level: excellent }
-  - { skill: Cloud Platforms, category: DevOps & Infrastructure, level: good }
-  - { skill: Communication, category: Soft Skills, level: excellent }
-  - { skill: Problem Solving, category: Soft Skills, level: excellent }
-  - { skill: Presentation, category: Soft Skills, level: excellent }
-  - { skill: Stakeholder Management, category: Soft Skills, level: excellent }
-  - { skill: TOGAF, category: Architecture Frameworks, level: decent }
-  - { skill: ArchiMate, category: Architecture Frameworks, level: good }
-  - { skill: iSAQB, category: Architecture Frameworks, level: decent }
+  - { skill: Java, category: Programming, level: redelijk }
+  - { skill: Maven/Gradle, category: Programming, level: goed }
+  - { skill: Design Patterns, category: Software Design, level: goed }
+  - { skill: Architecture, category: Software Design, level: uitstekend }
+  - { skill: API Design, category: Software Design, level: uitstekend }
+  - { skill: Cloud Platforms, category: DevOps & Infrastructure, level: goed }
+  - { skill: Communication, category: Soft Skills, level: uitstekend }
+  - { skill: Problem Solving, category: Soft Skills, level: uitstekend }
+  - { skill: Presentation, category: Soft Skills, level: uitstekend }
+  - { skill: Stakeholder Management, category: Soft Skills, level: uitstekend }
+  - { skill: TOGAF, category: Architecture Frameworks, level: redelijk }
+  - { skill: ArchiMate, category: Architecture Frameworks, level: goed }
+  - { skill: iSAQB, category: Architecture Frameworks, level: redelijk }
+  - { skill: Security Architecture, category: Security, level: goed }
+  - { skill: Data Architecture, category: Data & Integration, level: uitstekend }
+  - { skill: Integration Patterns, category: Data & Integration, level: uitstekend }
+  - { skill: Event-Driven Architecture, category: Data & Integration, level: goed }
+  - { skill: Domain-Driven Design, category: Advanced Architecture, level: uitstekend }
+  - { skill: Architecture Documentation, category: Advanced Architecture, level: uitstekend }
+  - { skill: Clean Architecture, category: Advanced Architecture, level: goed }
+  - { skill: Infrastructure as Code, category: DevOps & Infrastructure, level: redelijk }
+  - { skill: Strategic Thinking, category: Soft Skills, level: uitstekend }
+  - { skill: Vendor Management, category: Soft Skills, level: uitstekend }
+  - { skill: Risk Management, category: Soft Skills, level: uitstekend }
+  - { skill: Cost Management, category: Soft Skills, level: goed }
+  - { skill: Compliance & Governance, category: Soft Skills, level: uitstekend }
+  - { skill: Conflict Resolution, category: Soft Skills, level: goed }
+  - { skill: AI coding, category: AI & Emerging Technologies, level: basis }
+  - { skill: AI voor klanten, category: AI & Emerging Technologies, level: basis }

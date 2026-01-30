@@ -1,0 +1,32 @@
+name: Data & Integration
+skills:
+  - name: Data Architecture
+    levels:
+      basis: Begrijpt basis database normalisatie en schema design
+      redelijk: Ontwerpt relationele datamodellen, begrijpt CAP theorem
+      goed: Past data modeling patterns toe, balanceert ACID vs BASE trade-offs
+      uitstekend: Architecteert enterprise datamodellen, definieert data governance strategieën
+  - name: NoSQL Databases
+    levels:
+      basis: Begrijpt verschillen tussen relationele en NoSQL databases
+      redelijk: Gebruikt document stores (MongoDB) of key-value stores (Redis) voor specifieke use cases
+      goed: Kiest juiste database type per use case, implementeert polyglot persistence
+      uitstekend: Architecteert gedistribueerde data systemen, optimaliseert consistency vs availability
+  - name: Integration Patterns
+    levels:
+      basis: Begrijpt basis integration concepten (REST, messaging)
+      redelijk: Past Enterprise Integration Patterns toe, begrijpt synchrone vs asynchrone communicatie
+      goed: Ontwerpt complexe integraties, implementeert saga patterns
+      uitstekend: Definieert integration strategie, architecteert enterprise service bus oplossingen
+  - name: Message Brokers
+    levels:
+      basis: Gebruikt bestaande message queues voor async communicatie
+      redelijk: Configureert Kafka/RabbitMQ, begrijpt pub/sub en point-to-point patterns
+      goed: Ontwerpt event streaming architecturen, implementeert message ordering en idempotency
+      uitstekend: Architecteert enterprise messaging platforms, definieert event-driven strategieën
+  - name: Event-Driven Architecture
+    levels:
+      basis: Begrijpt basis event concepten en async messaging
+      redelijk: Implementeert event publishers en consumers met message brokers
+      goed: Ontwerpt event-driven systemen, implementeert event choreography
+      uitstekend: Architecteert complexe event-driven platforms, definieert event governance

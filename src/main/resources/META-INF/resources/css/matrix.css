@@ -157,44 +157,44 @@
     text-transform: uppercase;
 }
 
-/* Proficiency level colors - matching theme.css for consistency */
-.level-basic .level-badge {
+/* Proficiency level colors for matrix table badges */
+.matrix-table .level-badge.level-basis {
     background-color: #e3f2fd;
     color: #1565c0;
 }
 
-.level-decent .level-badge {
+.matrix-table .level-badge.level-redelijk {
     background-color: #e8f5e9;
     color: #2e7d32;
 }
 
-.level-good .level-badge {
+.matrix-table .level-badge.level-goed {
     background-color: #fff3e0;
     color: #e65100;
 }
 
-.level-excellent .level-badge {
+.matrix-table .level-badge.level-uitstekend {
     background-color: #fce4ec;
     color: #c2185b;
 }
 
-/* Dark mode support for matrix overview page */
-[data-theme="dark"] .level-basic .level-badge {
+/* Dark mode support for matrix overview page - scoped to table cells */
+[data-theme="dark"] .matrix-table .level-badge.level-basis {
     background-color: #1565c0;
     color: #e3f2fd;
 }
 
-[data-theme="dark"] .level-decent .level-badge {
+[data-theme="dark"] .matrix-table .level-badge.level-redelijk {
     background-color: #2e7d32;
     color: #e8f5e9;
 }
 
-[data-theme="dark"] .level-good .level-badge {
+[data-theme="dark"] .matrix-table .level-badge.level-goed {
     background-color: #e65100;
     color: #fff3e0;
 }
 
-[data-theme="dark"] .level-excellent .level-badge {
+[data-theme="dark"] .matrix-table .level-badge.level-uitstekend {
     background-color: #c2185b;
     color: #fce4ec;
 }

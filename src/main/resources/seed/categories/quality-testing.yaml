@@ -1,27 +1,32 @@
 name: Quality & Testing
 skills:
   - name: Unit Testing
-    levels: { basic: Schrijft basis unit tests, decent: 'Gebruikt mocking, bereikt goede
-      dekking', good: 'Praktiseert TDD, ontwerpt testbare code', excellent: 'Definieert
-      test strategieën, mentort test practices' }
+    levels:
+      basis: Schrijft basis unit tests
+      redelijk: Gebruikt mocking, bereikt goede dekking
+      goed: Praktiseert TDD, ontwerpt testbare code
+      uitstekend: Definieert test strategieën, mentort test practices
   - name: Integration Testing
-    levels: {                   basic: Begrijpt integratie testing concepten, decent: Schrijft integratie
-      tests met test databases, good: 'Test complexe integraties, gebruikt contract
-      testing', excellent: Ontwerpt integratie test frameworks }
+    levels:
+      basis: Begrijpt integratie testing concepten
+      redelijk: Schrijft integratie tests met test databases
+      goed: Test complexe integraties, gebruikt contract testing
+      uitstekend: Ontwerpt integratie test frameworks
   - name: End-to-end Testing
-    levels: {                               basic: Begrijpt E2E testing concepten en gebruiksscenario's, decent: Schrijft
-      E2E tests met tooling zoals Selenium, good: 'Ontwerpt robuuste E2E test suites,
-      implementeert parallelle testing', excellent: 'Architecteert E2E testing strategieën,
-      integreert met CI/CD' }
+    levels:
+      basis: Begrijpt E2E testing concepten en gebruiksscenario's
+      redelijk: Schrijft E2E tests met tooling zoals Selenium
+      goed: Ontwerpt robuuste E2E test suites, implementeert parallelle testing
+      uitstekend: Architecteert E2E testing strategieën, integreert met CI/CD
   - name: Automated Testing
-    levels: {                                                        basic: Begrijpt automated testing voordelen en types, decent: Schrijft
-      automated junit en integratie tests met de gekozen frameworks, good: 'Gebruikt
-      test automation frameworks, implementeert test data management, zorgt voor voldoende
-      coverage met een bewuste keuze tussen junit tests, integratie tests en keten
-      tests', excellent: Architecteert complete test automation strategieën }
+    levels:
+      basis: Begrijpt automated testing voordelen en types
+      redelijk: Schrijft automated junit en integratie tests met de gekozen frameworks
+      goed: Gebruikt test automation frameworks, implementeert test data management, zorgt voor voldoende coverage met een bewuste keuze tussen junit tests, integratie tests en keten tests
+      uitstekend: Architecteert complete test automation strategieën
   - name: Code Review
-    levels: { basic: Neemt deel aan code reviews, decent: Geeft constructieve feedback,
-              good: 'Geeft constructieve feedback op de huidige code, het onderliggende ontwerp,
-      en deelt op welke punten een andere beslissing genomen had kunnen worden en
-      welke impact dat zou hebben op de nonfunctionals.', excellent: 'Beoordeelt architectonische
-      beslissingen, mentort junioren' }
+    levels:
+      basis: Neemt deel aan code reviews
+      redelijk: Geeft constructieve feedback
+      goed: Geeft constructieve feedback op de huidige code, het onderliggende ontwerp, en deelt op welke punten een andere beslissing genomen had kunnen worden en welke impact dat zou hebben op de nonfunctionals
+      uitstekend: Beoordeelt architectonische beslissingen, mentort junioren

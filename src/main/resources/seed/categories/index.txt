@@ -1,6 +1,10 @@
+advanced-architecture.yaml
+ai-emerging-tech.yaml
 architecture-frameworks.yaml
+data-integration.yaml
 devops-infrastructure.yaml
 programming.yaml
 quality-testing.yaml
+security.yaml
 soft-skills.yaml
 software-design.yaml

@@ -48,7 +48,7 @@ public record YamlCompetencyData(
     public record RequirementData(
         String skillName,
         String categoryName,
-        String level  // Values: BASIC, DECENT, GOOD, EXCELLENT
+        String level  // Values: BASIS, REDELIJK, GOED, UITSTEKEND
     ) {}
 
     /**

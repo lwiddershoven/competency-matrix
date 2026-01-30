@@ -52,7 +52,7 @@ class CompetencySyncIntegrationTest {
     @Transactional
     void replaceMode_replacesExistingDataCompletely() {
         CompetencyCategory category = categoryRepository.save(new CompetencyCategory(null, "ToBeDeleted", 1));
-        Skill skill = skillRepository.save(new Skill(null, "OldSkill", category.id(), "Basic", "Decent", "Good", "Excellent"));
+        Skill skill = skillRepository.save(new Skill(null, "OldSkill", category.id(), "Basis", "Redelijk", "Goed", "Uitstekend"));
         Role role = roleRepository.save(new Role(null, "OldRole", "Old description", "Other", 999));
 
         SyncResult result = syncService.syncReplace(createTestYamlData());
@@ -108,7 +108,7 @@ class CompetencySyncIntegrationTest {
         YamlCompetencyData.SkillData yamlSkill = new YamlCompetencyData.SkillData(
                 "Java",
                 "Programming",
-                Map.of("basic", "Can write basic Java code", "decent", "Writes clean Java code", "good", "Develops maintainable systems", "excellent", "Masters advanced Java patterns")
+                Map.of("basis", "Kan basis Java code schrijven", "redelijk", "Schrijft schone code", "goed", "Ontwikkelt onderhoudbare systemen", "uitstekend", "Beheerst geavanceerde patronen")
         );
 
         YamlCompetencyData.CategoryData yamlCategory = new YamlCompetencyData.CategoryData(
@@ -122,7 +122,7 @@ class CompetencySyncIntegrationTest {
                 "Technical leader who guides team decisions",
                 "Developer",
                 3,
-                List.of(new YamlCompetencyData.RequirementData("Java", "Programming", "good"))
+                List.of(new YamlCompetencyData.RequirementData("Java", "Programming", "goed"))
         );
 
         return new YamlCompetencyData(
@@ -136,7 +136,7 @@ class CompetencySyncIntegrationTest {
     @Transactional
     void noneMode_skipsSyncAndLeavesDatabaseUnchanged() {
         CompetencyCategory existingCategory = categoryRepository.save(new CompetencyCategory(null, "ExistingCategory", 1));
-        Skill existingSkill = skillRepository.save(new Skill(null, "ExistingSkill", existingCategory.id(), "Basic", "Decent", "Good", "Excellent"));
+        Skill existingSkill = skillRepository.save(new Skill(null, "ExistingSkill", existingCategory.id(), "Basis", "Redelijk", "Goed", "Uitstekend"));
         Role existingRole = roleRepository.save(new Role(null, "ExistingRole", "Description", "Other", 999));
 
         YamlCompetencyData yamlData = createTestYamlData();

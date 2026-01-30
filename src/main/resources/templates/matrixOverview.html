@@ -75,7 +75,7 @@
                                 </th>
                                 {#for roleInfo in matrix.rolesInOrder}
                                     {#let cell=skillRow.get(roleInfo.name)}
-                                    <td class="matrix-cell {cell.levelCssClass}">
+                                    <td class="matrix-cell">
                                         {#if !cell.isEmpty}
                                             <button
                                                 class="level-badge-button"
@@ -85,7 +85,7 @@
                                                 hx-target="#tooltip-{cell.skillId}-{cell.roleId}"
                                                 hx-swap="innerHTML"
                                                 aria-describedby="tooltip-{cell.skillId}-{cell.roleId}">
-                                                <span class="level-badge">{cell.displayText}</span>
+                                                <span class="level-badge level-{cell.level.name().toLowerCase()}">{cell.displayText}</span>
                                             </button>
                                             <div
                                                 popover="manual"

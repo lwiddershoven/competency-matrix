@@ -17,10 +17,10 @@ public record Skill(
 
     public String getDescriptionForLevel(ProficiencyLevel level) {
         return switch (level) {
-            case BASIC -> basicDescription;
-            case DECENT -> decentDescription;
-            case GOOD -> goodDescription;
-            case EXCELLENT -> excellentDescription;
+            case BASIS -> basicDescription;
+            case REDELIJK -> decentDescription;
+            case GOED -> goodDescription;
+            case UITSTEKEND -> excellentDescription;
         };
     }
 }

@@ -1,23 +1,38 @@
 name: DevOps & Infrastructure
 skills:
   - name: CI/CD
-    levels: {                        basic: 'Gebruikt bestaande pipelines, begrijpt basis concepten', decent: Creëert
-      en onderhoudt build pipelines, good: 'Ontwerpt deployment strategieën, implementeert
-      blue-green deployments', excellent: 'Architecteert CI/CD platforms, optimaliseert
-      build tijden' }
+    levels:
+      basis: Gebruikt bestaande pipelines, begrijpt basis concepten
+      redelijk: Creëert en onderhoudt build pipelines
+      goed: Ontwerpt deployment strategieën, implementeert blue-green deployments
+      uitstekend: Architecteert CI/CD platforms, optimaliseert build tijden
   - name: Kubernetes
-    levels: { basic: 'Deployt basis applicaties, begrijpt pods en services', decent: 'Beheert
-      deployments, configureert ingress en volumes', good: 'Ontwerpt hoogbeschikbare
-      deployments, implementeert autoscaling', excellent: 'Beheert productie clusters,
-      definieert platform standaarden' }
+    levels:
+      basis: Deployt basis applicaties, begrijpt pods en services
+      redelijk: Beheert deployments, configureert ingress en volumes
+      goed: Ontwerpt hoogbeschikbare deployments, implementeert autoscaling
+      uitstekend: Beheert productie clusters, definieert platform standaarden
   - name: Cloud Platforms
-    levels: { basic: 'Gebruikt basis cloud services (compute, storage)', decent: 'Deployt
-      applicaties, beheert cloud resources', good: 'Ontwerpt cloud-native architecturen,
-      implementeert IaC', excellent: 'Optimaliseert kosten, architecteert multi-regio
-      oplossingen' }
+    levels:
+      basis: Gebruikt basis cloud services (compute, storage)
+      redelijk: Deployt applicaties, beheert cloud resources
+      goed: Ontwerpt cloud-native architecturen, implementeert IaC
+      uitstekend: Optimaliseert kosten, architecteert multi-regio oplossingen
   - name: Docker
-    levels: { basic: 'Kan bestaande Docker images runnen, begrijpt containers', decent: 'Creëert
-      Dockerfiles, gebruikt Docker Compose, weet dat er verschillende docker implementaties
-      zijn', good: 'Optimaliseert images, implementeert multi-stage builds, kan omgaan
-      met verschillende container repositories', excellent: 'Architecteert container
-      strategieën, definieert container standaarden' }
+    levels:
+      basis: Kan bestaande Docker images runnen, begrijpt containers
+      redelijk: Creëert Dockerfiles, gebruikt Docker Compose, weet dat er verschillende docker implementaties zijn
+      goed: Optimaliseert images, implementeert multi-stage builds, kan omgaan met verschillende container repositories
+      uitstekend: Architecteert container strategieën, definieert container standaarden
+  - name: Infrastructure as Code
+    levels:
+      basis: Begrijpt IaC concepten, kan bestaande templates aanpassen
+      redelijk: Creëert Terraform/Ansible scripts, beheert infrastructure via code
+      goed: Ontwerpt herbruikbare IaC modules, implementeert GitOps workflows
+      uitstekend: Architecteert IaC platforms, definieert infrastructure standaarden
+  - name: Service Mesh
+    levels:
+      basis: Begrijpt service mesh concepten (mTLS, traffic management)
+      redelijk: Configureert Istio/Linkerd voor service-to-service communicatie
+      goed: Implementeert advanced traffic patterns (canary, blue-green), gebruikt observability features
+      uitstekend: Architecteert service mesh strategieën, definieert mesh governance

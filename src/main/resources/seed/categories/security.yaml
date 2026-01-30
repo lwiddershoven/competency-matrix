@@ -1,0 +1,20 @@
+name: Security
+skills:
+  - name: Security Architecture
+    levels:
+      basis: Begrijpt basis security concepten (HTTPS, encryptie, hashing)
+      redelijk: Implementeert authenticatie en autorisatie patronen, begrijpt OWASP Top 10
+      goed: Ontwerpt veilige systemen met OAuth/OIDC, implementeert security best practices
+      uitstekend: Definieert security strategie, leidt security audits en penetratietesten
+  - name: Authentication & Authorization
+    levels:
+      basis: Implementeert basis login functionaliteit met wachtwoorden
+      redelijk: Gebruikt JWT tokens, begrijpt session management en RBAC
+      goed: Implementeert OAuth 2.0/OIDC flows, multi-factor authenticatie
+      uitstekend: Architecteert identity platforms, implementeert zero-trust architectuur
+  - name: Security Patterns
+    levels:
+      basis: Past basis security patterns toe (input validatie, parameterized queries)
+      redelijk: Implementeert defense in depth, begrijpt threat modeling
+      goed: Ontwerpt secure by design systemen, implementeert secrets management
+      uitstekend: Leidt security architecture reviews, definieert security frameworks

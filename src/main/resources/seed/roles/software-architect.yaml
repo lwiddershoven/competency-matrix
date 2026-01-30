@@ -5,22 +5,45 @@ description: Definieert technische strategie en standaarden across development e
   platform teams, aligneert architectuur met IT management doelstellingen, en zorgt
   voor technische coherentie across de IT organisatie
 requirements:
-  - { skill: Java, category: Programming, level: good }
-  - { skill: Python, category: Programming, level: decent }
-  - { skill: Git, category: Programming, level: decent }
-  - { skill: Maven/Gradle, category: Programming, level: good }
-  - { skill: SQL, category: Programming, level: decent }
-  - { skill: Design Patterns, category: Software Design, level: excellent }
-  - { skill: Architecture, category: Software Design, level: excellent }
-  - { skill: API Design, category: Software Design, level: excellent }
-  - { skill: CI/CD, category: DevOps & Infrastructure, level: good }
-  - { skill: Kubernetes, category: DevOps & Infrastructure, level: good }
-  - { skill: Cloud Platforms, category: DevOps & Infrastructure, level: good }
-  - { skill: Communication, category: Soft Skills, level: excellent }
-  - { skill: Mentoring, category: Soft Skills, level: excellent }
-  - { skill: Problem Solving, category: Soft Skills, level: excellent }
-  - { skill: Presentation, category: Soft Skills, level: excellent }
-  - { skill: Stakeholder Management, category: Soft Skills, level: excellent }
-  - { skill: ArchiMate, category: Architecture Frameworks, level: decent }
-  - { skill: iSAQB, category: Architecture Frameworks, level: excellent }
-  - { skill: TOGAF, category: Architecture Frameworks, level: basic }
+  - { skill: Java, category: Programming, level: goed }
+  - { skill: Python, category: Programming, level: redelijk }
+  - { skill: Git, category: Programming, level: redelijk }
+  - { skill: Maven/Gradle, category: Programming, level: goed }
+  - { skill: SQL, category: Programming, level: redelijk }
+  - { skill: Design Patterns, category: Software Design, level: uitstekend }
+  - { skill: Architecture, category: Software Design, level: uitstekend }
+  - { skill: API Design, category: Software Design, level: uitstekend }
+  - { skill: CI/CD, category: DevOps & Infrastructure, level: goed }
+  - { skill: Kubernetes, category: DevOps & Infrastructure, level: goed }
+  - { skill: Cloud Platforms, category: DevOps & Infrastructure, level: goed }
+  - { skill: Communication, category: Soft Skills, level: uitstekend }
+  - { skill: Mentoring, category: Soft Skills, level: uitstekend }
+  - { skill: Problem Solving, category: Soft Skills, level: uitstekend }
+  - { skill: Presentation, category: Soft Skills, level: uitstekend }
+  - { skill: Stakeholder Management, category: Soft Skills, level: uitstekend }
+  - { skill: ArchiMate, category: Architecture Frameworks, level: redelijk }
+  - { skill: iSAQB, category: Architecture Frameworks, level: uitstekend }
+  - { skill: TOGAF, category: Architecture Frameworks, level: basis }
+  - { skill: Security Architecture, category: Security, level: uitstekend }
+  - { skill: Authentication & Authorization, category: Security, level: uitstekend }
+  - { skill: Security Patterns, category: Security, level: uitstekend }
+  - { skill: Data Architecture, category: Data & Integration, level: uitstekend }
+  - { skill: NoSQL Databases, category: Data & Integration, level: goed }
+  - { skill: Integration Patterns, category: Data & Integration, level: uitstekend }
+  - { skill: Message Brokers, category: Data & Integration, level: goed }
+  - { skill: Event-Driven Architecture, category: Data & Integration, level: uitstekend }
+  - { skill: Domain-Driven Design, category: Advanced Architecture, level: uitstekend }
+  - { skill: Resilience Patterns, category: Advanced Architecture, level: uitstekend }
+  - { skill: Performance & Scalability, category: Advanced Architecture, level: uitstekend }
+  - { skill: Observability & Monitoring, category: Advanced Architecture, level: uitstekend }
+  - { skill: Architecture Documentation, category: Advanced Architecture, level: uitstekend }
+  - { skill: Event Sourcing & CQRS, category: Advanced Architecture, level: goed }
+  - { skill: Clean Architecture, category: Advanced Architecture, level: uitstekend }
+  - { skill: Infrastructure as Code, category: DevOps & Infrastructure, level: goed }
+  - { skill: Service Mesh, category: DevOps & Infrastructure, level: goed }
+  - { skill: Strategic Thinking, category: Soft Skills, level: goed }
+  - { skill: Risk Management, category: Soft Skills, level: goed }
+  - { skill: Conflict Resolution, category: Soft Skills, level: goed }
+  - { skill: Docker, category: DevOps & Infrastructure, level: goed }
+  - { skill: AI coding, category: AI & Emerging Technologies, level: basis }
+  - { skill: AI voor klanten, category: AI & Emerging Technologies, level: basis }

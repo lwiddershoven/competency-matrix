@@ -3,27 +3,39 @@ roleFamily: Developer
 seniorityOrder: 3
 description: Technische leider die team beslissingen begeleidt en mentort
 requirements:
-  - { skill: Java, category: Programming, level: good }
-  - { skill: Spring/Quarkus/Microprofile, category: Programming, level: good }
-  - { skill: Git, category: Programming, level: good }
-  - { skill: Maven/Gradle, category: Programming, level: good }
-  - { skill: Python, category: Programming, level: decent }
-  - { skill: SQL, category: Programming, level: good }
-  - { skill: Design Patterns, category: Software Design, level: good }
-  - { skill: Architecture, category: Software Design, level: decent }
-  - { skill: API Design, category: Software Design, level: good }
-  - { skill: Microservices Architectuur, category: Software Design, level: decent }
-  - { skill: Object-Oriented Programming, category: Software Design, level: decent }
-  - { skill: Test-Driven Development, category: Software Design, level: good }
-  - { skill: CI/CD, category: DevOps & Infrastructure, level: decent }
-  - { skill: Docker, category: DevOps & Infrastructure, level: decent }
-  - { skill: Kubernetes, category: DevOps & Infrastructure, level: good }
-  - { skill: Cloud Platforms, category: DevOps & Infrastructure, level: decent }
-  - { skill: Unit Testing, category: Quality & Testing, level: good }
-  - { skill: Integration Testing, category: Quality & Testing, level: decent }
-  - { skill: End-to-end Testing, category: Quality & Testing, level: good }
-  - { skill: Automated Testing, category: Quality & Testing, level: good }
-  - { skill: Code Review, category: Quality & Testing, level: good }
-  - { skill: Communication, category: Soft Skills, level: good }
-  - { skill: Mentoring, category: Soft Skills, level: decent }
-  - { skill: Problem Solving, category: Soft Skills, level: good }
+  - { skill: Java, category: Programming, level: goed }
+  - { skill: Spring/Quarkus/Microprofile, category: Programming, level: goed }
+  - { skill: Git, category: Programming, level: goed }
+  - { skill: Maven/Gradle, category: Programming, level: goed }
+  - { skill: Python, category: Programming, level: redelijk }
+  - { skill: SQL, category: Programming, level: goed }
+  - { skill: Design Patterns, category: Software Design, level: goed }
+  - { skill: Architecture, category: Software Design, level: redelijk }
+  - { skill: API Design, category: Software Design, level: goed }
+  - { skill: Microservices Architectuur, category: Software Design, level: redelijk }
+  - { skill: Object-Oriented Programming, category: Software Design, level: redelijk }
+  - { skill: Test-Driven Development, category: Software Design, level: goed }
+  - { skill: CI/CD, category: DevOps & Infrastructure, level: redelijk }
+  - { skill: Docker, category: DevOps & Infrastructure, level: redelijk }
+  - { skill: Kubernetes, category: DevOps & Infrastructure, level: goed }
+  - { skill: Cloud Platforms, category: DevOps & Infrastructure, level: redelijk }
+  - { skill: Unit Testing, category: Quality & Testing, level: goed }
+  - { skill: Integration Testing, category: Quality & Testing, level: redelijk }
+  - { skill: End-to-end Testing, category: Quality & Testing, level: goed }
+  - { skill: Automated Testing, category: Quality & Testing, level: goed }
+  - { skill: Code Review, category: Quality & Testing, level: goed }
+  - { skill: Communication, category: Soft Skills, level: goed }
+  - { skill: Mentoring, category: Soft Skills, level: redelijk }
+  - { skill: Problem Solving, category: Soft Skills, level: goed }
+  - { skill: Security Architecture, category: Security, level: redelijk }
+  - { skill: Security Patterns, category: Security, level: redelijk }
+  - { skill: Data Architecture, category: Data & Integration, level: redelijk }
+  - { skill: Integration Patterns, category: Data & Integration, level: basis }
+  - { skill: Domain-Driven Design, category: Advanced Architecture, level: basis }
+  - { skill: Resilience Patterns, category: Advanced Architecture, level: basis }
+  - { skill: Performance & Scalability, category: Advanced Architecture, level: redelijk }
+  - { skill: Observability & Monitoring, category: Advanced Architecture, level: redelijk }
+  - { skill: Architecture Documentation, category: Advanced Architecture, level: redelijk }
+  - { skill: Clean Architecture, category: Advanced Architecture, level: basis }
+  - { skill: Infrastructure as Code, category: DevOps & Infrastructure, level: basis }
+  - { skill: AI coding, category: AI & Emerging Technologies, level: basis }

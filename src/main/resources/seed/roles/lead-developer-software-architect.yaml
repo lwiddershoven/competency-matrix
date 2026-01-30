@@ -4,22 +4,43 @@ seniorityOrder: 1
 description: Hybride rol die hands-on team leadership combineert met architectonisch
   design, overbrugt technische implementatie en organisatorische strategie
 requirements:
-  - { skill: Java, category: Programming, level: good }
-  - { skill: Design Patterns, category: Software Design, level: excellent }
-  - { skill: Git, category: Programming, level: decent }
-  - { skill: Maven/Gradle, category: Programming, level: good }
-  - { skill: Architecture, category: Software Design, level: good }
-  - { skill: API Design, category: Software Design, level: excellent }
-  - { skill: CI/CD, category: DevOps & Infrastructure, level: good }
-  - { skill: Kubernetes, category: DevOps & Infrastructure, level: decent }
-  - { skill: Cloud Platforms, category: DevOps & Infrastructure, level: decent }
-  - { skill: Code Review, category: Quality & Testing, level: excellent }
-  - { skill: Communication, category: Soft Skills, level: excellent }
-  - { skill: Mentoring, category: Soft Skills, level: excellent }
-  - { skill: Problem Solving, category: Soft Skills, level: excellent }
-  - { skill: Presentation, category: Soft Skills, level: good }
-  - { skill: Stakeholder Management, category: Soft Skills, level: good }
-  - { skill: Motiveren, category: Soft Skills, level: decent }
-  - { skill: iSAQB, category: Architecture Frameworks, level: decent }
-  - { skill: ArchiMate, category: Architecture Frameworks, level: basic }
-  - { skill: Spring/Quarkus/Microprofile, category: Programming, level: good }
+  - { skill: Java, category: Programming, level: goed }
+  - { skill: Design Patterns, category: Software Design, level: uitstekend }
+  - { skill: Git, category: Programming, level: redelijk }
+  - { skill: Maven/Gradle, category: Programming, level: goed }
+  - { skill: Architecture, category: Software Design, level: goed }
+  - { skill: API Design, category: Software Design, level: uitstekend }
+  - { skill: CI/CD, category: DevOps & Infrastructure, level: goed }
+  - { skill: Kubernetes, category: DevOps & Infrastructure, level: redelijk }
+  - { skill: Cloud Platforms, category: DevOps & Infrastructure, level: redelijk }
+  - { skill: Code Review, category: Quality & Testing, level: uitstekend }
+  - { skill: Communication, category: Soft Skills, level: uitstekend }
+  - { skill: Mentoring, category: Soft Skills, level: uitstekend }
+  - { skill: Problem Solving, category: Soft Skills, level: uitstekend }
+  - { skill: Presentation, category: Soft Skills, level: goed }
+  - { skill: Stakeholder Management, category: Soft Skills, level: goed }
+  - { skill: Motiveren, category: Soft Skills, level: redelijk }
+  - { skill: iSAQB, category: Architecture Frameworks, level: redelijk }
+  - { skill: ArchiMate, category: Architecture Frameworks, level: basis }
+  - { skill: Spring/Quarkus/Microprofile, category: Programming, level: goed }
+  - { skill: Security Architecture, category: Security, level: goed }
+  - { skill: Authentication & Authorization, category: Security, level: goed }
+  - { skill: Security Patterns, category: Security, level: goed }
+  - { skill: Data Architecture, category: Data & Integration, level: goed }
+  - { skill: Integration Patterns, category: Data & Integration, level: goed }
+  - { skill: Message Brokers, category: Data & Integration, level: redelijk }
+  - { skill: Event-Driven Architecture, category: Data & Integration, level: redelijk }
+  - { skill: Domain-Driven Design, category: Advanced Architecture, level: goed }
+  - { skill: Resilience Patterns, category: Advanced Architecture, level: goed }
+  - { skill: Performance & Scalability, category: Advanced Architecture, level: goed }
+  - { skill: Observability & Monitoring, category: Advanced Architecture, level: goed }
+  - { skill: Architecture Documentation, category: Advanced Architecture, level: goed }
+  - { skill: Event Sourcing & CQRS, category: Advanced Architecture, level: redelijk }
+  - { skill: Clean Architecture, category: Advanced Architecture, level: goed }
+  - { skill: Infrastructure as Code, category: DevOps & Infrastructure, level: redelijk }
+  - { skill: Service Mesh, category: DevOps & Infrastructure, level: basis }
+  - { skill: Strategic Thinking, category: Soft Skills, level: redelijk }
+  - { skill: Risk Management, category: Soft Skills, level: redelijk }
+  - { skill: Docker, category: DevOps & Infrastructure, level: goed }
+  - { skill: AI coding, category: AI & Emerging Technologies, level: basis }
+  - { skill: AI voor klanten, category: AI & Emerging Technologies, level: basis }

@@ -1,0 +1,44 @@
+name: Advanced Architecture
+skills:
+  - name: Domain-Driven Design
+    levels:
+      basis: Begrijpt DDD basics (entities, value objects, aggregates)
+      redelijk: Identificeert bounded contexts, past ubiquitous language toe
+      goed: Ontwerpt aggregates en domain events, implementeert repositories
+      uitstekend: Leidt strategic design sessies, architecteert complexe domain modellen
+  - name: Resilience Patterns
+    levels:
+      basis: Begrijpt basis resilience concepten (retry, timeout)
+      redelijk: Implementeert circuit breaker en bulkhead patterns
+      goed: Ontwerpt fault-tolerante systemen, implementeert graceful degradation
+      uitstekend: Architecteert highly available systemen, definieert SLA/SLO strategieën
+  - name: Performance & Scalability
+    levels:
+      basis: Identificeert performance bottlenecks met profiling tools
+      redelijk: Past caching toe (Redis, Caffeine), begrijpt horizontal vs vertical scaling
+      goed: Optimaliseert applicatie performance, implementeert load balancing strategieën
+      uitstekend: Architecteert high-performance systemen, definieert capacity planning
+  - name: Observability & Monitoring
+    levels:
+      basis: Gebruikt logs voor troubleshooting, begrijpt basis metrics
+      redelijk: Implementeert structured logging, configureert dashboards en alerts
+      goed: Implementeert distributed tracing, definieert SLIs en SLOs
+      uitstekend: Architecteert observability platforms, definieert monitoring strategieën
+  - name: Architecture Documentation
+    levels:
+      basis: Documenteert beslissingen in comments en basic diagrams
+      redelijk: Creëert C4 model diagrammen, schrijft Architecture Decision Records (ADR)
+      goed: Onderhoudt coherente architectuur documentatie, gebruikt diagram as code
+      uitstekend: Definieert documentatie standaarden, leidt knowledge management strategieën
+  - name: Event Sourcing & CQRS
+    levels:
+      basis: Begrijpt event sourcing en CQRS concepten
+      redelijk: Implementeert event stores, scheidt read en write modellen
+      goed: Ontwerpt event-sourced systemen, implementeert projections en snapshots
+      uitstekend: Architecteert complexe CQRS platforms, definieert event modeling strategieën
+  - name: Clean Architecture
+    levels:
+      basis: Begrijpt layered architecture en dependency inversion
+      redelijk: Implementeert hexagonal architecture (ports & adapters)
+      goed: Past clean architecture toe in complexe systemen, begrijpt onion architecture
+      uitstekend: Definieert architectuur standaarden, mentort teams in architectural patterns
