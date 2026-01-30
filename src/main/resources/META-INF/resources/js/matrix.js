@@ -9,6 +9,9 @@
  * Listens for popover toggle events and positions tooltips correctly
  */
 document.addEventListener('DOMContentLoaded', function() {
+    const tooltipPortal = document.createElement('div');
+    tooltipPortal.id = 'matrix-tooltip-portal';
+    document.body.appendChild(tooltipPortal);
     /**
      * T040: Viewport boundary detection for tooltips
      * Ensures tooltips stay within viewport bounds
@@ -20,6 +23,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         const tooltip = event.target;
+        if (tooltip.parentElement !== tooltipPortal) {
+            tooltipPortal.appendChild(tooltip);
+        }
         const trigger = document.querySelector(`[popovertarget="${tooltip.id}"]`);
 
         if (!trigger) {
