@@ -9,6 +9,8 @@
  * Listens for popover toggle events and positions tooltips correctly
  */
 document.addEventListener('DOMContentLoaded', function() {
+    const showTimeouts = new Map();
+    const hideTimeouts = new Map();
     const tooltipPortal = document.createElement('div');
     tooltipPortal.id = 'matrix-tooltip-portal';
     document.body.appendChild(tooltipPortal);
@@ -76,42 +78,53 @@ document.addEventListener('DOMContentLoaded', function() {
      * but we enhance it with manual control for better hover experience
      */
     document.querySelectorAll('.level-badge-button').forEach(function(button) {
-        let showTimeout;
-        let hideTimeout;
+        const tooltipId = button.getAttribute('popovertarget');
+        const tooltip = tooltipId ? document.getElementById(tooltipId) : null;
+
+        if (!tooltip) {
+            return;
+        }
 
         button.addEventListener('mouseenter', function() {
-            clearTimeout(hideTimeout);
-            const tooltipId = button.getAttribute('popovertarget');
-            const tooltip = document.getElementById(tooltipId);
-
-            if (tooltip) {
-                // Delay showing tooltip by 300ms (WCAG compliance)
-                showTimeout = setTimeout(function() {
-                    try {
-                        tooltip.showPopover();
-                    } catch (e) {
-                        // Fallback for browsers without Popover API support
-                        console.log('Popover API not supported');
-                    }
-                }, 300);
-            }
+            clearTimeout(hideTimeouts.get(tooltipId));
+            // Delay showing tooltip by 300ms (WCAG compliance)
+            const showTimeout = setTimeout(function() {
+                try {
+                    tooltip.showPopover();
+                } catch (e) {
+                    // Fallback for browsers without Popover API support
+                    console.log('Popover API not supported');
+                }
+            }, 300);
+            showTimeouts.set(tooltipId, showTimeout);
         });
 
         button.addEventListener('mouseleave', function() {
-            clearTimeout(showTimeout);
-            const tooltipId = button.getAttribute('popovertarget');
-            const tooltip = document.getElementById(tooltipId);
+            clearTimeout(showTimeouts.get(tooltipId));
+            // Hide after a short delay to allow moving to tooltip
+            const hideTimeout = setTimeout(function() {
+                try {
+                    tooltip.hidePopover();
+                } catch (e) {
+                    // Fallback for browsers without Popover API support
+                }
+            }, 100);
+            hideTimeouts.set(tooltipId, hideTimeout);
+        });
 
-            if (tooltip) {
-                // Hide after a short delay to allow moving to tooltip
-                hideTimeout = setTimeout(function() {
-                    try {
-                        tooltip.hidePopover();
-                    } catch (e) {
-                        // Fallback for browsers without Popover API support
-                    }
-                }, 100);
-            }
+        tooltip.addEventListener('mouseenter', function() {
+            clearTimeout(hideTimeouts.get(tooltipId));
+        });
+
+        tooltip.addEventListener('mouseleave', function() {
+            const hideTimeout = setTimeout(function() {
+                try {
+                    tooltip.hidePopover();
+                } catch (e) {
+                    // Fallback for browsers without Popover API support
+                }
+            }, 100);
+            hideTimeouts.set(tooltipId, hideTimeout);
         });
     });
 
@@ -119,16 +132,11 @@ document.addEventListener('DOMContentLoaded', function() {
      * Keep tooltip visible when hovering over it
      */
     document.querySelectorAll('.tooltip-popover').forEach(function(tooltip) {
-        tooltip.addEventListener('mouseenter', function() {
-            // Cancel any pending hide
-            clearTimeout(hideTimeout);
-        });
-
-        tooltip.addEventListener('mouseleave', function() {
-            try {
-                tooltip.hidePopover();
-            } catch (e) {
-                // Fallback for browsers without Popover API support
+        tooltip.addEventListener('beforetoggle', function(event) {
+            if (event.newState === 'open') {
+                const tooltipId = tooltip.id;
+                clearTimeout(hideTimeouts.get(tooltipId));
+                clearTimeout(showTimeouts.get(tooltipId));
             }
         });
     });
