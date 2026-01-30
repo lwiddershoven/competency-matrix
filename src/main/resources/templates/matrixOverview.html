@@ -53,43 +53,43 @@
                     <thead>
                         <tr>
                             <th class="skill-header">Skill</th>
-                            {#for entry in matrix.rolesByFamily.entrySet()}
-                                {#for roleInfo in entry.value}
-                                    <th class="role-header" title="{roleInfo.name}">
-                                        <a href="/roles/{roleInfo.id}" class="role-name-link" title="View details for {roleInfo.name}">
-                                            <div class="role-name">{roleInfo.name}</div>
-                                        </a>
-                                    </th>
-                                {/for}
+                            {#for roleInfo in matrix.rolesInOrder}
+                                <th class="role-header" title="{roleInfo.name}">
+                                    <a href="/roles/{roleInfo.id}" class="role-name-link" title="View details for {roleInfo.name}">
+                                        <div class="role-name">{roleInfo.name}</div>
+                                    </a>
+                                </th>
                             {/for}
                         </tr>
                     </thead>
                     <tbody>
-                        {#for skillName in matrix.skillNames}
-                            {#let skillRow=matrix.matrix.get(skillName)}
+                        {#for skillInfo in matrix.skillsInOrder}
                             <tr>
                                 <th class="skill-header">
-                                    <a href="/skills/{skillRow.values().iterator().next.skillId}" class="skill-name-link" title="View details for {skillName}">
-                                        {skillName}
+                                    <a href="/skills/{skillInfo.id}" class="skill-name-link" title="View details for {skillInfo.name}">
+                                        {skillInfo.name}
                                     </a>
                                 </th>
                                 {#for roleInfo in matrix.rolesInOrder}
-                                    {#let cell=skillRow.get(roleInfo.name)}
+                                    {#let level=matrix.matrix.getLevel(roleInfo.name, skillInfo.name)}
+                                    {#let levelClass=matrix.matrix.getLevelClass(roleInfo.name, skillInfo.name)}
+                                    {#let levelName=matrix.matrix.getLevelName(roleInfo.name, skillInfo.name)}
+                                    {#let hasReq=matrix.matrix.hasRequirement(roleInfo.name, skillInfo.name)}
                                     <td class="matrix-cell">
-                                        {#if !cell.isEmpty}
+                                        {#if hasReq}
                                             <button
                                                 class="level-badge-button"
-                                                popovertarget="tooltip-{cell.skillId}-{cell.roleId}"
-                                                hx-get="/matrix/tooltips/skill/{cell.skillId}?level={cell.level.name()}"
+                                                popovertarget="tooltip-{skillInfo.id}-{roleInfo.id}"
+                                                hx-get="/matrix/tooltips/skill/{skillInfo.id}?level={levelName}"
                                                 hx-trigger="mouseenter once, focus once"
-                                                hx-target="#tooltip-{cell.skillId}-{cell.roleId}"
+                                                hx-target="#tooltip-{skillInfo.id}-{roleInfo.id}"
                                                 hx-swap="innerHTML"
-                                                aria-describedby="tooltip-{cell.skillId}-{cell.roleId}">
-                                                <span class="level-badge level-{cell.level.name().toLowerCase()}">{cell.displayText}</span>
+                                                aria-describedby="tooltip-{skillInfo.id}-{roleInfo.id}">
+                                                <span class="level-badge {levelClass}">{level}</span>
                                             </button>
                                             <div
                                                 popover="manual"
-                                                id="tooltip-{cell.skillId}-{cell.roleId}"
+                                                id="tooltip-{skillInfo.id}-{roleInfo.id}"
                                                 role="tooltip"
                                                 class="tooltip-popover">
                                                 <div class="tooltip-loading" aria-busy="true">Loading...</div>
@@ -97,9 +97,11 @@
                                         {/if}
                                     </td>
                                     {/let}
+                                    {/let}
+                                    {/let}
+                                    {/let}
                                 {/for}
                             </tr>
-                            {/let}
                         {/for}
                     </tbody>
                 </table>
