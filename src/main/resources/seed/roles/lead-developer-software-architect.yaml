@@ -23,3 +23,22 @@ requirements:
   - { skill: iSAQB, category: Architecture Frameworks, level: decent }
   - { skill: ArchiMate, category: Architecture Frameworks, level: basic }
   - { skill: Spring/Quarkus/Microprofile, category: Programming, level: good }
+  - { skill: Security Architecture, category: Security, level: good }
+  - { skill: Authentication & Authorization, category: Security, level: good }
+  - { skill: Security Patterns, category: Security, level: good }
+  - { skill: Data Architecture, category: Data & Integration, level: good }
+  - { skill: Integration Patterns, category: Data & Integration, level: good }
+  - { skill: Message Brokers, category: Data & Integration, level: decent }
+  - { skill: Event-Driven Architecture, category: Data & Integration, level: decent }
+  - { skill: Domain-Driven Design, category: Advanced Architecture, level: good }
+  - { skill: Resilience Patterns, category: Advanced Architecture, level: good }
+  - { skill: Performance & Scalability, category: Advanced Architecture, level: good }
+  - { skill: Observability & Monitoring, category: Advanced Architecture, level: good }
+  - { skill: Architecture Documentation, category: Advanced Architecture, level: good }
+  - { skill: Event Sourcing & CQRS, category: Advanced Architecture, level: decent }
+  - { skill: Clean Architecture, category: Advanced Architecture, level: good }
+  - { skill: Infrastructure as Code, category: DevOps & Infrastructure, level: decent }
+  - { skill: Service Mesh, category: DevOps & Infrastructure, level: basic }
+  - { skill: Strategic Thinking, category: Soft Skills, level: decent }
+  - { skill: Risk Management, category: Soft Skills, level: decent }
+  - { skill: Docker, category: DevOps & Infrastructure, level: good }

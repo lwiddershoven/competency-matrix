@@ -18,3 +18,17 @@ requirements:
   - { skill: TOGAF, category: Architecture Frameworks, level: decent }
   - { skill: ArchiMate, category: Architecture Frameworks, level: good }
   - { skill: iSAQB, category: Architecture Frameworks, level: decent }
+  - { skill: Security Architecture, category: Security, level: good }
+  - { skill: Data Architecture, category: Data & Integration, level: excellent }
+  - { skill: Integration Patterns, category: Data & Integration, level: excellent }
+  - { skill: Event-Driven Architecture, category: Data & Integration, level: good }
+  - { skill: Domain-Driven Design, category: Advanced Architecture, level: excellent }
+  - { skill: Architecture Documentation, category: Advanced Architecture, level: excellent }
+  - { skill: Clean Architecture, category: Advanced Architecture, level: good }
+  - { skill: Infrastructure as Code, category: DevOps & Infrastructure, level: decent }
+  - { skill: Strategic Thinking, category: Soft Skills, level: excellent }
+  - { skill: Vendor Management, category: Soft Skills, level: excellent }
+  - { skill: Risk Management, category: Soft Skills, level: excellent }
+  - { skill: Cost Management, category: Soft Skills, level: good }
+  - { skill: Compliance & Governance, category: Soft Skills, level: excellent }
+  - { skill: Conflict Resolution, category: Soft Skills, level: good }

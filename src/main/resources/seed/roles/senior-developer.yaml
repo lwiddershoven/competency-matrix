@@ -27,3 +27,14 @@ requirements:
   - { skill: Communication, category: Soft Skills, level: good }
   - { skill: Mentoring, category: Soft Skills, level: decent }
   - { skill: Problem Solving, category: Soft Skills, level: good }
+  - { skill: Security Architecture, category: Security, level: decent }
+  - { skill: Security Patterns, category: Security, level: decent }
+  - { skill: Data Architecture, category: Data & Integration, level: decent }
+  - { skill: Integration Patterns, category: Data & Integration, level: basic }
+  - { skill: Domain-Driven Design, category: Advanced Architecture, level: basic }
+  - { skill: Resilience Patterns, category: Advanced Architecture, level: basic }
+  - { skill: Performance & Scalability, category: Advanced Architecture, level: decent }
+  - { skill: Observability & Monitoring, category: Advanced Architecture, level: decent }
+  - { skill: Architecture Documentation, category: Advanced Architecture, level: decent }
+  - { skill: Clean Architecture, category: Advanced Architecture, level: basic }
+  - { skill: Infrastructure as Code, category: DevOps & Infrastructure, level: basic }

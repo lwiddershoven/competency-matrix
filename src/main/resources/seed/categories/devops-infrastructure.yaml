@@ -21,3 +21,15 @@ skills:
       zijn', good: 'Optimaliseert images, implementeert multi-stage builds, kan omgaan
       met verschillende container repositories', excellent: 'Architecteert container
       strategieën, definieert container standaarden' }
+  - name: Infrastructure as Code
+    levels:
+      basic: Begrijpt IaC concepten, kan bestaande templates aanpassen
+      decent: Creëert Terraform/Ansible scripts, beheert infrastructure via code
+      good: Ontwerpt herbruikbare IaC modules, implementeert GitOps workflows
+      excellent: Architecteert IaC platforms, definieert infrastructure standaarden
+  - name: Service Mesh
+    levels:
+      basic: Begrijpt service mesh concepten (mTLS, traffic management)
+      decent: Configureert Istio/Linkerd voor service-to-service communicatie
+      good: Implementeert advanced traffic patterns (canary, blue-green), gebruikt observability features
+      excellent: Architecteert service mesh strategieën, definieert mesh governance

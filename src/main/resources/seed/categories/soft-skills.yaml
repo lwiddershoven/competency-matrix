@@ -56,3 +56,39 @@ skills:
     levels: { basic: 'Voert basale retrospectives', decent: 'Faciliteert actionable team verbeteringen',
       good: 'Identificeert systemische issues en patronen', excellent: 'Drift continuous improvement
       cultuur' }
+  - name: Conflict Resolution
+    levels:
+      basic: Herkent en escaleert conflicten naar teamleider
+      decent: Bemiddelt in technische meningsverschillen binnen team
+      good: Faciliteert constructieve conflictoplossing, bouwt consensus
+      excellent: Transformeert conflicten in kansen, definieert conflict resolution strategieën
+  - name: Strategic Thinking
+    levels:
+      basic: Begrijpt team en project doelen op korte termijn
+      decent: Denkt vooruit over technische schuld en toekomstige requirements
+      good: Ontwikkelt technologie roadmaps, aligneert techniek met business strategie
+      excellent: Definieert lange termijn technische visie, beïnvloedt organisatie richting
+  - name: Vendor Management
+    levels:
+      basic: Begrijpt build vs buy beslissingen
+      decent: Evalueert technologie vendors op basis van requirements
+      good: Leidt vendor selectie processen, onderhandelt contracten
+      excellent: Definieert vendor governance strategieën, beheert strategische partnerships
+  - name: Risk Management
+    levels:
+      basic: Identificeert technische risicos in eigen werk
+      decent: Analyseert risicos en voorstelt mitigatie strategieën
+      good: Leidt risk assessments, balanceert risico vs innovatie trade-offs
+      excellent: Definieert enterprise risk management frameworks, leidt business continuity planning
+  - name: Cost Management
+    levels:
+      basic: Begrijpt basis cloud kosten en resource usage
+      decent: Optimaliseert resource usage, monitort kosten dashboards
+      good: Past FinOps practices toe, voert TCO analyses uit
+      excellent: Definieert cost optimization strategieën, leidt cloud financial governance
+  - name: Compliance & Governance
+    levels:
+      basic: Begrijpt basis compliance vereisten (GDPR, privacy)
+      decent: Implementeert compliance controls, begrijpt audit requirements
+      good: Ontwerpt compliant architecturen, leidt compliance assessments
+      excellent: Definieert governance frameworks, leidt enterprise compliance strategieën
