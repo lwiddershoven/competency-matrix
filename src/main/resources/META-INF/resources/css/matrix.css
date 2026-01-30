@@ -157,45 +157,44 @@
     text-transform: uppercase;
 }
 
-/* Proficiency level colors - scoped to matrix table cells only */
-/* This ensures tooltip badges use global styles from theme.css */
-.matrix-table .level-basic .level-badge {
+/* Proficiency level colors for matrix table badges */
+.matrix-table .level-badge.level-basic {
     background-color: #e3f2fd;
     color: #1565c0;
 }
 
-.matrix-table .level-decent .level-badge {
+.matrix-table .level-badge.level-decent {
     background-color: #e8f5e9;
     color: #2e7d32;
 }
 
-.matrix-table .level-good .level-badge {
+.matrix-table .level-badge.level-good {
     background-color: #fff3e0;
     color: #e65100;
 }
 
-.matrix-table .level-excellent .level-badge {
+.matrix-table .level-badge.level-excellent {
     background-color: #fce4ec;
     color: #c2185b;
 }
 
 /* Dark mode support for matrix overview page - scoped to table cells */
-[data-theme="dark"] .matrix-table .level-basic .level-badge {
+[data-theme="dark"] .matrix-table .level-badge.level-basic {
     background-color: #1565c0;
     color: #e3f2fd;
 }
 
-[data-theme="dark"] .matrix-table .level-decent .level-badge {
+[data-theme="dark"] .matrix-table .level-badge.level-decent {
     background-color: #2e7d32;
     color: #e8f5e9;
 }
 
-[data-theme="dark"] .matrix-table .level-good .level-badge {
+[data-theme="dark"] .matrix-table .level-badge.level-good {
     background-color: #e65100;
     color: #fff3e0;
 }
 
-[data-theme="dark"] .matrix-table .level-excellent .level-badge {
+[data-theme="dark"] .matrix-table .level-badge.level-excellent {
     background-color: #c2185b;
     color: #fce4ec;
 }
