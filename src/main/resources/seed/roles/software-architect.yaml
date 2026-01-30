@@ -45,3 +45,5 @@ requirements:
   - { skill: Risk Management, category: Soft Skills, level: good }
   - { skill: Conflict Resolution, category: Soft Skills, level: good }
   - { skill: Docker, category: DevOps & Infrastructure, level: good }
+  - { skill: AI coding, category: AI & Emerging Technologies, level: basic }
+  - { skill: AI voor klanten, category: AI & Emerging Technologies, level: basic }

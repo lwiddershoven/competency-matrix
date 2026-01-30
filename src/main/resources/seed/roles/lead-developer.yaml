@@ -25,3 +25,4 @@ requirements:
   - { skill: Motiveren, category: Soft Skills, level: decent }
   - { skill: Technical Leadership, category: Soft Skills, level: good }
   - { skill: Project Management, category: Soft Skills, level: basic }
+  - { skill: AI coding, category: AI & Emerging Technologies, level: basic }

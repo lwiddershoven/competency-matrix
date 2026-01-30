@@ -38,3 +38,4 @@ requirements:
   - { skill: Architecture Documentation, category: Advanced Architecture, level: decent }
   - { skill: Clean Architecture, category: Advanced Architecture, level: basic }
   - { skill: Infrastructure as Code, category: DevOps & Infrastructure, level: basic }
+  - { skill: AI coding, category: AI & Emerging Technologies, level: basic }

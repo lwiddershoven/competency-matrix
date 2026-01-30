@@ -26,3 +26,4 @@ requirements:
   - { skill: Communication, category: Soft Skills, level: good }
   - { skill: Mentoring, category: Soft Skills, level: decent }
   - { skill: Problem Solving, category: Soft Skills, level: good }
+  - { skill: AI coding, category: AI & Emerging Technologies, level: basic }

@@ -42,3 +42,5 @@ requirements:
   - { skill: Strategic Thinking, category: Soft Skills, level: decent }
   - { skill: Risk Management, category: Soft Skills, level: decent }
   - { skill: Docker, category: DevOps & Infrastructure, level: good }
+  - { skill: AI coding, category: AI & Emerging Technologies, level: basic }
+  - { skill: AI voor klanten, category: AI & Emerging Technologies, level: basic }

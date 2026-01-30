@@ -10,3 +10,4 @@ requirements:
   - { skill: Unit Testing, category: Quality & Testing, level: basic }
   - { skill: Communication, category: Soft Skills, level: basic }
   - { skill: Problem Solving, category: Soft Skills, level: basic }
+  - { skill: AI coding, category: AI & Emerging Technologies, level: basic }

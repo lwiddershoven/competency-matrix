@@ -32,3 +32,5 @@ requirements:
   - { skill: Cost Management, category: Soft Skills, level: good }
   - { skill: Compliance & Governance, category: Soft Skills, level: excellent }
   - { skill: Conflict Resolution, category: Soft Skills, level: good }
+  - { skill: AI coding, category: AI & Emerging Technologies, level: basic }
+  - { skill: AI voor klanten, category: AI & Emerging Technologies, level: basic }
