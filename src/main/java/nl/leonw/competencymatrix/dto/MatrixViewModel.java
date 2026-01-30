@@ -7,75 +7,85 @@ import java.util.Map;
 
 /**
  * View model for the competency matrix overview page.
- *
- * Feature: 004-matrix-overview
- * Purpose: Provides complete matrix data with role grouping and category filtering support
+ * Uses a map of maps structure with string keys for readability and alignment.
+ * Structure: skillName -> (roleName -> cellData)
  */
 public record MatrixViewModel(
-    List<MatrixRow> rows,
-    Map<String, List<MatrixColumnHeader>> rolesByFamily,
+    Map<String, Map<String, CellData>> matrix,
+    List<RoleInfo> rolesInOrder,
+    Map<String, List<RoleInfo>> rolesByFamily,
     List<CompetencyCategory> categories,
     String selectedCategoryId
 ) {
     /**
      * Create unfiltered matrix view model (all skills).
-     *
-     * @param rows All skill rows in the matrix
-     * @param rolesByFamily Roles grouped by family (Developer, Architect, Operations)
-     * @param categories All available categories for filtering
-     * @return MatrixViewModel with no category filter applied
      */
     public static MatrixViewModel unfiltered(
-        List<MatrixRow> rows,
-        Map<String, List<MatrixColumnHeader>> rolesByFamily,
+        Map<String, Map<String, CellData>> matrix,
+        List<RoleInfo> rolesInOrder,
+        Map<String, List<RoleInfo>> rolesByFamily,
         List<CompetencyCategory> categories
     ) {
-        if (rows == null || rolesByFamily == null || categories == null) {
-            throw new IllegalArgumentException("rows, rolesByFamily, and categories must not be null");
+        if (matrix == null || rolesInOrder == null || rolesByFamily == null || categories == null) {
+            throw new IllegalArgumentException("All parameters must not be null");
         }
-        return new MatrixViewModel(rows, rolesByFamily, categories, null);
+        return new MatrixViewModel(matrix, rolesInOrder, rolesByFamily, categories, null);
     }
 
     /**
      * Create filtered matrix view model (skills from specific category).
-     *
-     * @param rows Filtered skill rows in the matrix
-     * @param rolesByFamily Roles grouped by family (Developer, Architect, Operations)
-     * @param categories All available categories for filtering
-     * @param selectedCategoryId ID of the currently selected category
-     * @return MatrixViewModel with category filter applied
      */
     public static MatrixViewModel filtered(
-        List<MatrixRow> rows,
-        Map<String, List<MatrixColumnHeader>> rolesByFamily,
+        Map<String, Map<String, CellData>> matrix,
+        List<RoleInfo> rolesInOrder,
+        Map<String, List<RoleInfo>> rolesByFamily,
         List<CompetencyCategory> categories,
         String selectedCategoryId
     ) {
-        if (rows == null || rolesByFamily == null || categories == null) {
-            throw new IllegalArgumentException("rows, rolesByFamily, and categories must not be null");
+        if (matrix == null || rolesInOrder == null || rolesByFamily == null || categories == null) {
+            throw new IllegalArgumentException("All parameters must not be null");
         }
         if (selectedCategoryId == null || selectedCategoryId.isEmpty()) {
             throw new IllegalArgumentException("selectedCategoryId must not be null or empty for filtered view");
         }
-        return new MatrixViewModel(rows, rolesByFamily, categories, selectedCategoryId);
+        return new MatrixViewModel(matrix, rolesInOrder, rolesByFamily, categories, selectedCategoryId);
     }
 
     /**
      * Check if a category filter is currently active.
-     *
-     * @return true if a category filter is applied, false otherwise
      */
     public boolean hasFilter() {
         return selectedCategoryId != null && !selectedCategoryId.isEmpty();
     }
 
+    /**
+     * Get all skill names in sorted order.
+     */
+    public List<String> getSkillNames() {
+        return matrix.keySet().stream()
+            .sorted(String.CASE_INSENSITIVE_ORDER)
+            .toList();
+    }
+
+    /**
+     * Get cell data for a specific skill and role.
+     */
+    public CellData getCell(String skillName, String roleName) {
+        Map<String, CellData> skillRow = matrix.get(skillName);
+        if (skillRow == null) {
+            return null;
+        }
+        return skillRow.get(roleName);
+    }
+
     // Validation in canonical constructor
     public MatrixViewModel {
-        if (rows == null || rolesByFamily == null || categories == null) {
-            throw new IllegalArgumentException("rows, rolesByFamily, and categories must not be null");
+        if (matrix == null || rolesInOrder == null || rolesByFamily == null || categories == null) {
+            throw new IllegalArgumentException("All parameters must not be null");
         }
         // Defensive copies to ensure immutability
-        rows = List.copyOf(rows);
+        matrix = Map.copyOf(matrix);
+        rolesInOrder = List.copyOf(rolesInOrder);
         rolesByFamily = Map.copyOf(rolesByFamily);
         categories = List.copyOf(categories);
     }

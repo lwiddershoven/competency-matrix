@@ -45,7 +45,7 @@
             </div>
         {/if}
 
-        {#if matrix.rolesByFamily.isEmpty()}
+        {#if matrix.rolesInOrder.isEmpty()}
             <p>No roles found. Please load seed data first.</p>
         {#else}
             <div class="matrix-container">
@@ -54,10 +54,10 @@
                         <tr>
                             <th class="skill-header">Skill</th>
                             {#for entry in matrix.rolesByFamily.entrySet()}
-                                {#for columnHeader in entry.value}
-                                    <th class="role-header" title="{columnHeader.role.name}">
-                                        <a href="/roles/{columnHeader.role.id}" class="role-name-link" title="View details for {columnHeader.role.name}">
-                                            <div class="role-name">{columnHeader.role.name}</div>
+                                {#for roleInfo in entry.value}
+                                    <th class="role-header" title="{roleInfo.name}">
+                                        <a href="/roles/{roleInfo.id}" class="role-name-link" title="View details for {roleInfo.name}">
+                                            <div class="role-name">{roleInfo.name}</div>
                                         </a>
                                     </th>
                                 {/for}
@@ -65,20 +65,21 @@
                         </tr>
                     </thead>
                     <tbody>
-                        {#for row in matrix.rows}
+                        {#for skillEntry in matrix.matrix.entrySet()}
                             <tr>
                                 <th class="skill-header">
-                                    <a href="/skills/{row.skill.id}" class="skill-name-link" title="View details for {row.skill.name}">
-                                        {row.skill.name}
+                                    <a href="/skills/{skillEntry.value.values().iterator().next.skillId}" class="skill-name-link" title="View details for {skillEntry.key}">
+                                        {skillEntry.key}
                                     </a>
                                 </th>
-                                {#for cell in row.cells}
+                                {#for roleInfo in matrix.rolesInOrder}
+                                    {#let cell=skillEntry.value.get(roleInfo.name)}
                                     <td class="matrix-cell {cell.levelCssClass}">
                                         {#if !cell.isEmpty}
                                             <button
                                                 class="level-badge-button"
                                                 popovertarget="tooltip-{cell.skillId}-{cell.roleId}"
-                                                hx-get="/matrix/tooltips/skill/{cell.skillId}?level={cell.requiredLevel.name()}"
+                                                hx-get="/matrix/tooltips/skill/{cell.skillId}?level={cell.level.name()}"
                                                 hx-trigger="mouseenter once, focus once"
                                                 hx-target="#tooltip-{cell.skillId}-{cell.roleId}"
                                                 hx-swap="innerHTML"
@@ -94,6 +95,7 @@
                                             </div>
                                         {/if}
                                     </td>
+                                    {/let}
                                 {/for}
                             </tr>
                         {/for}

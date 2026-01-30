@@ -180,63 +180,71 @@ public class CompetencyService {
     }
 
     /**
-     * Build matrix view model with all skills and roles.
+     * Build matrix view model with all skills and roles using map structure.
      * Feature: 004-matrix-overview
-     * Tasks: T018-T020 - Implementation for Phase 3 User Story 1
+     * Uses map of maps with string keys (skillName -> roleName -> cellData)
+     * for perfect alignment between headers and cells.
      *
      * @param categoryId Optional category ID to filter skills (null = show all)
-     * @return MatrixViewModel with rows, column headers, and filter state
+     * @return MatrixViewModel with matrix map, ordered roles, and filter state
      */
     public MatrixViewModel buildMatrixViewModel(Integer categoryId) {
-        // T018: Core logic - fetch data and build structure
-        // 1. Fetch skills (filtered or all)
+        // Fetch skills (filtered or all)
         List<Skill> skills = (categoryId != null)
                 ? skillRepository.findByCategoryId(categoryId)
                 : skillRepository.findAllOrderByName();
 
-        // 2. Fetch all roles ordered by family + seniority
+        // Fetch all roles ordered by family + seniority
         List<Role> allRoles = roleRepository.findAllOrderByFamilyAndSeniority();
 
-        // 3. Fetch all requirements once to avoid N+1 queries
+        // Fetch all requirements once to avoid N+1 queries
         List<RoleSkillRequirement> allRequirements = requirementRepository.findAll();
 
         // Create lookup map: (skillId, roleId) -> ProficiencyLevel
-        Map<String, nl.leonw.competencymatrix.model.ProficiencyLevel> requirementsMap = new HashMap<>();
+        Map<String, ProficiencyLevel> requirementsMap = new HashMap<>();
         for (RoleSkillRequirement req : allRequirements) {
             String key = req.skillId() + ":" + req.roleId();
             requirementsMap.put(key, req.getProficiencyLevel());
         }
 
-        // T019: Role grouping and sorting - group roles by family
-        Map<String, List<nl.leonw.competencymatrix.dto.MatrixColumnHeader>> rolesByFamily = new LinkedHashMap<>();
+        // Build rolesInOrder - the canonical order for both headers and cells
+        List<nl.leonw.competencymatrix.dto.RoleInfo> rolesInOrder = new ArrayList<>();
         for (Role role : allRoles) {
-            rolesByFamily
-                    .computeIfAbsent(role.roleFamily(), k -> new ArrayList<>())
-                    .add(nl.leonw.competencymatrix.dto.MatrixColumnHeader.from(role));
+            rolesInOrder.add(new nl.leonw.competencymatrix.dto.RoleInfo(
+                    role.id(), role.name(), role.roleFamily()
+            ));
         }
 
-        // T020: MatrixRow construction with empty cell handling
-        List<nl.leonw.competencymatrix.dto.MatrixRow> rows = new ArrayList<>();
-        for (Skill skill : skills) {
-            List<nl.leonw.competencymatrix.dto.MatrixCell> cells = new ArrayList<>();
+        // Build rolesByFamily - grouped by family for header display
+        Map<String, List<nl.leonw.competencymatrix.dto.RoleInfo>> rolesByFamily = new LinkedHashMap<>();
+        for (nl.leonw.competencymatrix.dto.RoleInfo roleInfo : rolesInOrder) {
+            rolesByFamily
+                    .computeIfAbsent(roleInfo.family(), k -> new ArrayList<>())
+                    .add(roleInfo);
+        }
 
-            // Create cell for each role (empty if no requirement exists)
-            for (Role role : allRoles) {
-                String key = skill.id() + ":" + role.id();
-                nl.leonw.competencymatrix.model.ProficiencyLevel level = requirementsMap.get(key);
+        // Build matrix: skillName -> (roleName -> cellData)
+        Map<String, Map<String, nl.leonw.competencymatrix.dto.CellData>> matrix = new LinkedHashMap<>();
+        for (Skill skill : skills) {
+            Map<String, nl.leonw.competencymatrix.dto.CellData> skillRow = new LinkedHashMap<>();
+
+            // Create cell for each role in the same order as rolesInOrder
+            for (nl.leonw.competencymatrix.dto.RoleInfo roleInfo : rolesInOrder) {
+                String key = skill.id() + ":" + roleInfo.id();
+                ProficiencyLevel level = requirementsMap.get(key);
 
                 if (level != null) {
-                    cells.add(nl.leonw.competencymatrix.dto.MatrixCell.withLevel(
-                            skill.id().longValue(), role.id(), level
+                    skillRow.put(roleInfo.name(), nl.leonw.competencymatrix.dto.CellData.withLevel(
+                            skill.id().longValue(), roleInfo.id(), level
                     ));
                 } else {
-                    cells.add(nl.leonw.competencymatrix.dto.MatrixCell.empty(
-                            skill.id().longValue(), role.id()
+                    skillRow.put(roleInfo.name(), nl.leonw.competencymatrix.dto.CellData.empty(
+                            skill.id().longValue(), roleInfo.id()
                     ));
                 }
             }
 
-            rows.add(new nl.leonw.competencymatrix.dto.MatrixRow(skill, cells));
+            matrix.put(skill.name(), skillRow);
         }
 
         // Fetch all categories for filter dropdown
@@ -244,12 +252,12 @@ public class CompetencyService {
 
         // Return filtered or unfiltered view model
         if (categoryId != null) {
-            return nl.leonw.competencymatrix.dto.MatrixViewModel.filtered(
-                    rows, rolesByFamily, categories, categoryId.toString()
+            return MatrixViewModel.filtered(
+                    matrix, rolesInOrder, rolesByFamily, categories, categoryId.toString()
             );
         } else {
-            return nl.leonw.competencymatrix.dto.MatrixViewModel.unfiltered(
-                    rows, rolesByFamily, categories
+            return MatrixViewModel.unfiltered(
+                    matrix, rolesInOrder, rolesByFamily, categories
             );
         }
     }
