@@ -1,10 +1,10 @@
 package nl.leonw.competencymatrix.model;
 
 public enum ProficiencyLevel {
-    BASIC("Basic"),
-    DECENT("Decent"),
-    GOOD("Good"),
-    EXCELLENT("Excellent");
+    BASIS("Basis"),
+    REDELIJK("Redelijk"),
+    GOED("Goed"),
+    UITSTEKEND("Uitstekend");
 
     private final String displayName;
 

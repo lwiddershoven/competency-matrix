@@ -54,17 +54,17 @@ class CompetencySyncServiceTest {
                     skills:
                       - name: "Java"
                         levels:
-                          basic: "Basic Java"
-                          decent: "Decent Java"
-                          good: "Good Java"
-                          excellent: "Excellent Java"
+                          basis: "Basis Java"
+                          redelijk: "Redelijk Java"
+                          goed: "Goed Java"
+                          uitstekend: "Uitstekend Java"
                 roles:
                   - name: "Developer"
                     description: "Software developer"
                     requirements:
                       - skill: "Java"
                         category: "Programming"
-                        level: "decent"
+                        level: "redelijk"
                 progressions:
                   - from: "Junior"
                     to: "Senior"
@@ -118,7 +118,7 @@ class CompetencySyncServiceTest {
         YamlCompetencyData.CategoryData category = new YamlCompetencyData.CategoryData(
                 "Programming", 1,
                 java.util.List.of(new YamlCompetencyData.SkillData("Java", "Programming",
-                        java.util.Map.of("basic", "B", "decent", "D", "good", "G", "excellent", "E")))
+                        java.util.Map.of("basis", "B", "redelijk", "R", "goed", "G", "uitstekend", "U")))
         );
         YamlCompetencyData.RoleData role = new YamlCompetencyData.RoleData(
                 "Developer", "Desc", "Other", 999, java.util.List.of()
@@ -154,7 +154,7 @@ class CompetencySyncServiceTest {
     void testValidateYaml_missingSkillLevels() {
         // Given - skill without all required levels
         YamlCompetencyData.SkillData skill = new YamlCompetencyData.SkillData(
-                "Java", "Programming", java.util.Map.of("basic", "B")  // Missing decent, good, excellent
+                "Java", "Programming", java.util.Map.of("basis", "B")  // Missing redelijk, goed, uitstekend
         );
         YamlCompetencyData.CategoryData category = new YamlCompetencyData.CategoryData(
                 "Programming", 1, java.util.List.of(skill)
@@ -198,7 +198,7 @@ class CompetencySyncServiceTest {
         YamlCompetencyData.SkillData yamlSkill = new YamlCompetencyData.SkillData(
                 "MergeSkill",
                 "SkillCategory",
-                Map.of("basic", "New", "decent", "New", "good", "New", "excellent", "New")
+                Map.of("basis", "New", "redelijk", "New", "goed", "New", "uitstekend", "New")
         );
         YamlCompetencyData data = new YamlCompetencyData(
                 List.of(new YamlCompetencyData.CategoryData("SkillCategory", 1, List.of(yamlSkill))),
@@ -242,7 +242,7 @@ class CompetencySyncServiceTest {
         CompetencyCategory category = categoryRepository.save(new CompetencyCategory(null, "ReplaceCategory", 1));
         Skill skill = skillRepository.save(new Skill(null, "ReplaceSkill", category.id(), "B", "D", "G", "E"));
         Role role = roleRepository.save(new Role(null, "ReplaceRole", "Desc", "Other", 999));
-        requirementRepository.save(new RoleSkillRequirement(null, role.id(), skill.id(), "GOOD"));
+        requirementRepository.save(new RoleSkillRequirement(null, role.id(), skill.id(), "GOED"));
         Role toRole = roleRepository.save(new Role(null, "ReplaceRoleNext", "Desc", "Other", 999));
         progressionRepository.save(new RoleProgression(null, role.id(), toRole.id()));
 

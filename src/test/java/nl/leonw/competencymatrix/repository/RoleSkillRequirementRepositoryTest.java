@@ -30,7 +30,7 @@ class RoleSkillRequirementRepositoryTest {
         CompetencyCategory category = categoryRepository.save(new CompetencyCategory(null, "TestCategoryForReq", 999));
         Skill skill = skillRepository.save(new Skill(null, "TestSkillForReq", category.id(), "B", "D", "G", "E"));
         Role role = roleRepository.save(new Role(null, "TestRoleForReq", "Desc", "Other", 999));
-        RoleSkillRequirement req1 = requirementRepository.save(new RoleSkillRequirement(null, role.id(), skill.id(), "DECENT"));
+        RoleSkillRequirement req1 = requirementRepository.save(new RoleSkillRequirement(null, role.id(), skill.id(), "REDELIJK"));
 
         // Verify data exists
         assertTrue(requirementRepository.findById(req1.id()).isPresent());

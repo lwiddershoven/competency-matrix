@@ -148,9 +148,9 @@ public class CompetencySyncService {
                 if (skill.levels() == null || skill.levels().size() != 4) {
                     throw new RuntimeException("Invalid YAML: Skill '" + skill.name() + "' must have all four levels (basic, decent, good, excellent)");
                 }
-                if (!skill.levels().containsKey("basic") || !skill.levels().containsKey("decent") ||
-                    !skill.levels().containsKey("good") || !skill.levels().containsKey("excellent")) {
-                    throw new RuntimeException("Invalid YAML: Skill '" + skill.name() + "' must have levels: basic, decent, good, excellent");
+                if (!skill.levels().containsKey("basis") || !skill.levels().containsKey("redelijk") ||
+                    !skill.levels().containsKey("goed") || !skill.levels().containsKey("uitstekend")) {
+                    throw new RuntimeException("Invalid YAML: Skill '" + skill.name() + "' must have levels: basis, redelijk, goed, uitstekend");
                 }
             }
         }
@@ -445,20 +445,20 @@ public class CompetencySyncService {
                 String normalizedSkill = normalize(yamlSkill.name());
                 Skill existing = existingSkillsByName.get(normalizedSkill);
                 Map<String, String> levels = yamlSkill.levels();
-                String basic = levels.get("basic");
-                String decent = levels.get("decent");
-                String good = levels.get("good");
-                String excellent = levels.get("excellent");
+                String basis = levels.get("basis");
+                String redelijk = levels.get("redelijk");
+                String goed = levels.get("goed");
+                String uitstekend = levels.get("uitstekend");
 
                 if (existing == null) {
                     Skill created = skillRepository.save(new Skill(
-                            yamlSkill.name(), category.id(), basic, decent, good, excellent));
+                            yamlSkill.name(), category.id(), basis, redelijk, goed, uitstekend));
                     skillIndex.put(skillKey(category.name(), created.name()), created);
                     counters.skillsAdded++;
                     log.info("Skill added: {} in category {}", created.name(), category.name());
                 } else if (skillNeedsUpdate(existing, yamlSkill)) {
                     Skill updated = skillRepository.save(new Skill(
-                            existing.id(), yamlSkill.name(), category.id(), basic, decent, good, excellent));
+                            existing.id(), yamlSkill.name(), category.id(), basis, redelijk, goed, uitstekend));
                     skillIndex.put(skillKey(category.name(), updated.name()), updated);
                     counters.skillsUpdated++;
                     log.info("Skill updated: {} in category {}", updated.name(), category.name());
@@ -559,10 +559,10 @@ public class CompetencySyncService {
     private boolean skillNeedsUpdate(Skill existing, YamlCompetencyData.SkillData yamlSkill) {
         Map<String, String> levels = yamlSkill.levels();
         return !existing.name().equals(yamlSkill.name())
-                || !Objects.equals(existing.basicDescription(), levels.get("basic"))
-                || !Objects.equals(existing.decentDescription(), levels.get("decent"))
-                || !Objects.equals(existing.goodDescription(), levels.get("good"))
-                || !Objects.equals(existing.excellentDescription(), levels.get("excellent"));
+                || !Objects.equals(existing.basicDescription(), levels.get("basis"))
+                || !Objects.equals(existing.decentDescription(), levels.get("redelijk"))
+                || !Objects.equals(existing.goodDescription(), levels.get("goed"))
+                || !Objects.equals(existing.excellentDescription(), levels.get("uitstekend"));
     }
 
     private boolean roleNeedsUpdate(Role existing, YamlCompetencyData.RoleData yamlRole) {

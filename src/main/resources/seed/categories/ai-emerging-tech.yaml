@@ -2,13 +2,13 @@ name: AI & Emerging Technologies
 skills:
   - name: AI coding
     levels:
-      basic: Gebruikt AI coding assistants (GitHub Copilot, Claude Code) voor basis code generatie
-      decent: Past AI tools effectief toe voor refactoring en code review, begrijpt limitaties
-      good: Integreert AI in development workflow, gebruikt prompt engineering voor complexe taken
-      excellent: Definieert AI-assisted development strategieën, mentort teams in effectief AI gebruik
+      basis: Gebruikt AI coding assistants (GitHub Copilot, Claude Code) voor basis code generatie
+      redelijk: Past AI tools effectief toe voor refactoring en code review, begrijpt limitaties
+      goed: Integreert AI in development workflow, gebruikt prompt engineering voor complexe taken
+      uitstekend: Definieert AI-assisted development strategieën, mentort teams in effectief AI gebruik
   - name: AI voor klanten
     levels:
-      basic: Begrijpt basis AI concepten en kan klanten informeren over mogelijkheden
-      decent: Identificeert use cases voor AI in klant oplossingen, begrijpt ML basics
-      good: Ontwerpt AI-powered features, integreert AI APIs en services in architectuur
-      excellent: Definieert AI strategie voor klanten, architecteert end-to-end ML platforms
+      basis: Begrijpt basis AI concepten en kan klanten informeren over mogelijkheden
+      redelijk: Identificeert use cases voor AI in klant oplossingen, begrijpt ML basics
+      goed: Ontwerpt AI-powered features, integreert AI APIs en services in architectuur
+      uitstekend: Definieert AI strategie voor klanten, architecteert end-to-end ML platforms

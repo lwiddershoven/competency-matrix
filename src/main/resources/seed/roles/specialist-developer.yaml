@@ -5,16 +5,16 @@ description: Diepgaand technisch expert met beheersing in ten minste één techn
   domein (bijv. Java ecosysteem, data engineering, beveiliging) die gespecialiseerde
   consulting levert en excellentie in hun gebied stimuleert
 requirements:
-  - { skill: Java, category: Programming, level: excellent }
-  - { skill: SQL, category: Programming, level: good }
-  - { skill: Git, category: Programming, level: excellent }
-  - { skill: Maven/Gradle, category: Programming, level: good }
-  - { skill: Design Patterns, category: Software Design, level: excellent }
-  - { skill: Architecture, category: Software Design, level: decent }
-  - { skill: Unit Testing, category: Quality & Testing, level: excellent }
-  - { skill: Integration Testing, category: Quality & Testing, level: good }
-  - { skill: Code Review, category: Quality & Testing, level: excellent }
-  - { skill: Communication, category: Soft Skills, level: good }
-  - { skill: Mentoring, category: Soft Skills, level: good }
-  - { skill: Problem Solving, category: Soft Skills, level: excellent }
-  - { skill: AI coding, category: AI & Emerging Technologies, level: basic }
+  - { skill: Java, category: Programming, level: uitstekend }
+  - { skill: SQL, category: Programming, level: goed }
+  - { skill: Git, category: Programming, level: uitstekend }
+  - { skill: Maven/Gradle, category: Programming, level: goed }
+  - { skill: Design Patterns, category: Software Design, level: uitstekend }
+  - { skill: Architecture, category: Software Design, level: redelijk }
+  - { skill: Unit Testing, category: Quality & Testing, level: uitstekend }
+  - { skill: Integration Testing, category: Quality & Testing, level: goed }
+  - { skill: Code Review, category: Quality & Testing, level: uitstekend }
+  - { skill: Communication, category: Soft Skills, level: goed }
+  - { skill: Mentoring, category: Soft Skills, level: goed }
+  - { skill: Problem Solving, category: Soft Skills, level: uitstekend }
+  - { skill: AI coding, category: AI & Emerging Technologies, level: basis }

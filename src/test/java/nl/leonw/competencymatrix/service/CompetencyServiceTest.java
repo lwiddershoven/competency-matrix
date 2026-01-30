@@ -55,7 +55,7 @@ class CompetencyServiceTest {
 
         assertThat(result).isNotEmpty();
         assertThat(result.values().stream().flatMap(List::stream))
-                .anyMatch(sr -> sr.skill().name().equals("Java") && sr.requiredLevel() == ProficiencyLevel.BASIC);
+                .anyMatch(sr -> sr.skill().name().equals("Java") && sr.requiredLevel() == ProficiencyLevel.BASIS);
     }
 
     @Test
@@ -79,11 +79,11 @@ class CompetencyServiceTest {
 
         assertThat(comparisons).isNotEmpty();
 
-        // Verify there's at least one skill that shows progression (Java: basic -> good)
+        // Verify there's at least one skill that shows progression (Java: basis -> goed)
         assertThat(comparisons).anyMatch(c ->
             c.skill().name().equals("Java") &&
-            c.fromLevel() == ProficiencyLevel.BASIC &&
-            c.toLevel() == ProficiencyLevel.GOOD &&
+            c.fromLevel() == ProficiencyLevel.BASIS &&
+            c.toLevel() == ProficiencyLevel.GOED &&
             c.isUpgrade() &&
             c.hasChanged()
         );
@@ -170,7 +170,7 @@ class CompetencyServiceTest {
 
         var cell = skillRow.get(roleName);
         assertThat(cell).isNotNull();
-        assertThat(cell.level()).isEqualTo(ProficiencyLevel.BASIC);
+        assertThat(cell.level()).isEqualTo(ProficiencyLevel.BASIS);
     }
 
     /**

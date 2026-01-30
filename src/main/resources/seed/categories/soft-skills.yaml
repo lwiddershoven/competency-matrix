@@ -1,94 +1,116 @@
 name: Soft Skills
 skills:
   - name: Communication
-    levels: {                                         basic: 'Communiceert binnen team, stelt vragen', decent: Legt technische
-      concepten uit aan niet-technische stakeholders, good: 'Faciliteert discussies,
-      presenteert aan grotere groepen', excellent: 'Vertegenwoordigt team extern,
-      beïnvloedt stakeholders' }
+    levels:
+      basis: Communiceert binnen team, stelt vragen
+      redelijk: Legt technische concepten uit aan niet-technische stakeholders
+      goed: Faciliteert discussies, presenteert aan grotere groepen
+      uitstekend: Vertegenwoordigt team extern, beïnvloedt stakeholders
   - name: Mentoring
-    levels: {      basic: Helpt teamgenoten wanneer gevraagd, decent: Deelt actief kennis
-      binnen team, good: Mentort formeel junior developers, excellent: 'Ontwikkelt
-      mentoring programma''s, groeit toekomstige mentors' }
+    levels:
+      basis: Helpt teamgenoten wanneer gevraagd
+      redelijk: Deelt actief kennis binnen team
+      goed: Mentort formeel junior developers
+      uitstekend: Ontwikkelt mentoring programma's, groeit toekomstige mentors
   - name: Problem Solving
-    levels: {                  basic: Lost goed gedefinieerde problemen op, decent: Breekt complexe problemen
-      op in beheersbare delen, good: 'Identificeert root causes, stelt systemische
-      oplossingen voor', excellent: 'Lost ambigue problemen op, innoveert oplossingen' }
+    levels:
+      basis: Lost goed gedefinieerde problemen op
+      redelijk: Breekt complexe problemen op in beheersbare delen
+      goed: Identificeert root causes, stelt systemische oplossingen voor
+      uitstekend: Lost ambigue problemen op, innoveert oplossingen
   - name: Presentation
-    levels: { basic: Presenteert werk duidelijk in kleine bijeenkomsten, decent: Legt
-      technische onderwerpen uit met visuele ondersteuning,                                     good: Levert gestructureerde
-                presentaties aan grotere groepen, excellent: Vormt narratieven en beïnvloedt
-                grote publieks }
+    levels:
+      basis: Presenteert werk duidelijk in kleine bijeenkomsten
+      redelijk: Legt technische onderwerpen uit met visuele ondersteuning
+      goed: Levert gestructureerde presentaties aan grotere groepen
+      uitstekend: Vormt narratieven en beïnvloedt grote publieks
   - name: Stakeholder Management
-    levels: { basic: Identificeert belangrijke stakeholders en verwachtingen, decent: Onderhoudt
-      duidelijke communicatie met stakeholders,                  good: Stemt stakeholders af op prioriteiten
-                en trade-offs, excellent: Bouw langetermijn vertrouwen op in de organisatie }
+    levels:
+      basis: Identificeert belangrijke stakeholders en verwachtingen
+      redelijk: Onderhoudt duidelijke communicatie met stakeholders
+      goed: Stemt stakeholders af op prioriteiten en trade-offs
+      uitstekend: Bouw langetermijn vertrouwen op in de organisatie
   - name: Project Management
-    levels: {                       basic: Begrijpt project lifecycle en planning basics, decent: Beheert eigen
-      taken en deadlines effectief, good: 'Coördineert kleine projecten, beheert resources',
-                                    excellent: 'Leidt complexe projecten, definieert project strategieën' }
+    levels:
+      basis: Begrijpt project lifecycle en planning basics
+      redelijk: Beheert eigen taken en deadlines effectief
+      goed: Coördineert kleine projecten, beheert resources
+      uitstekend: Leidt complexe projecten, definieert project strategieën
   - name: Technical Leadership
-    levels: {                 basic: Neemt technische ownership van eigen werk, decent: Leidt technische
-      discussies binnen team, good: 'Begeleidt technische beslissingen, mentort junior
-      developers', excellent: 'Definieert technische visie, beïnvloedt technische
-      richting organisatie' }
+    levels:
+      basis: Neemt technische ownership van eigen werk
+      redelijk: Leidt technische discussies binnen team
+      goed: Begeleidt technische beslissingen, mentort junior developers
+      uitstekend: Definieert technische visie, beïnvloedt technische richting organisatie
   - name: Motiveren
-    levels: { basic: Toont enthousiasme en energie in eigen werk, decent: Inspireert
-      teamgenoten door positieve houding,             good: Motiveert anderen door doelen en vooruitgang
-                te tonen, excellent: Creëert een cultuur van motivatie en eigenaarschap }
+    levels:
+      basis: Toont enthousiasme en energie in eigen werk
+      redelijk: Inspireert teamgenoten door positieve houding
+      goed: Motiveert anderen door doelen en vooruitgang te tonen
+      uitstekend: Creëert een cultuur van motivatie en eigenaarschap
   - name: Agile Methodologieën
-    levels: { basic: 'Begrijpt Scrum framework basics en ceremonies', decent: 'Faciliteert
-      Scrum events effectief (Daily, Planning, Review, Retrospective)', good: 'Optimaliseert
-      team Agile practices, begrijpt Kanban en hybride methodieken', excellent: 'Mentort
-      andere teams in Agile adoptie, implementeert SAFe en schaalt Agile across organisatie' }
+    levels:
+      basis: Begrijpt Scrum framework basics en ceremonies
+      redelijk: Faciliteert Scrum events effectief (Daily, Planning, Review, Retrospective)
+      goed: Optimaliseert team Agile practices, begrijpt Kanban en hybride methodieken
+      uitstekend: Mentort andere teams in Agile adoptie, implementeert SAFe en schaalt Agile across organisatie
   - name: Facilitatie
-    levels: { basic: 'Voert basale team meetings', decent: 'Faciliteert productieve discussies
-      en besluitvorming', good: 'Handelt moeilijke gesprekken en conflicten af', excellent: 'Creëert
-      collaboratieve omgevingen en workshops over teams heen' }
+    levels:
+      basis: Voert basale team meetings
+      redelijk: Faciliteert productieve discussies en besluitvorming
+      goed: Handelt moeilijke gesprekken en conflicten af
+      uitstekend: Creëert collaboratieve omgevingen en workshops over teams heen
   - name: Servant Leadership
-    levels: { basic: 'Ondersteunt teamleden wanneer gevraagd', decent: 'Prioriteert team behoeften
-      boven persoonlijke agenda', good: 'Empowert team om beslissingen te maken', excellent: 'Bouw
-      zelforganiserende, high-performing teams' }
+    levels:
+      basis: Ondersteunt teamleden wanneer gevraagd
+      redelijk: Prioriteert team behoeften boven persoonlijke agenda
+      goed: Empowert team om beslissingen te maken
+      uitstekend: Bouw zelforganiserende, high-performing teams
   - name: Team Dynamiek
-    levels: { basic: 'Herken basis team interactie patronen', decent: 'Identificeert en adresseert
-      team conflicten', good: 'Optimaliseert team performance en samenwerking', excellent: 'Transformeert
-      team cultuur en engagement' }
+    levels:
+      basis: Herkent basis team interactie patronen
+      redelijk: Identificeert en adresseert team conflicten
+      goed: Optimaliseert team performance en samenwerking
+      uitstekend: Transformeert team cultuur en engagement
   - name: Retrospective Leadership
-    levels: { basic: 'Voert basale retrospectives', decent: 'Faciliteert actionable team verbeteringen',
-      good: 'Identificeert systemische issues en patronen', excellent: 'Drift continuous improvement
-      cultuur' }
+    levels:
+      basis: Voert basale retrospectives
+      redelijk: Faciliteert actionable team verbeteringen
+      goed: Identificeert systemische issues en patronen
+      uitstekend: Drijft continuous improvement cultuur
   - name: Conflict Resolution
     levels:
-      basic: Herkent en escaleert conflicten naar teamleider
-      decent: Bemiddelt in technische meningsverschillen binnen team
-      good: Faciliteert constructieve conflictoplossing, bouwt consensus
-      excellent: Transformeert conflicten in kansen, definieert conflict resolution strategieën
+      basis: Herkent en escaleert conflicten naar teamleider
+      redelijk: Bemiddelt in technische meningsverschillen binnen team
+      goed: Faciliteert constructieve conflictoplossing, bouwt consensus
+      uitstekend: Transformeert conflicten in kansen, definieert conflict resolution strategieën
   - name: Strategic Thinking
     levels:
-      basic: Begrijpt team en project doelen op korte termijn
-      decent: Denkt vooruit over technische schuld en toekomstige requirements
-      good: Ontwikkelt technologie roadmaps, aligneert techniek met business strategie
-      excellent: Definieert lange termijn technische visie, beïnvloedt organisatie richting
+      basis: Begrijpt team en project doelen op korte termijn
+      redelijk: Denkt vooruit over technische schuld en toekomstige requirements
+      goed: Ontwikkelt technologie roadmaps, aligneert techniek met business strategie
+      uitstekend: Definieert lange termijn technische visie, beïnvloedt organisatie richting
   - name: Vendor Management
     levels:
-      basic: Begrijpt build vs buy beslissingen
-      decent: Evalueert technologie vendors op basis van requirements
-      good: Leidt vendor selectie processen, onderhandelt contracten
-      excellent: Definieert vendor governance strategieën, beheert strategische partnerships
+      basis: Begrijpt build vs buy beslissingen
+      redelijk: Evalueert technologie vendors op basis van requirements
+      goed: Leidt vendor selectie processen, onderhandelt contracten
+      uitstekend: Definieert vendor governance strategieën, beheert strategische partnerships
   - name: Risk Management
     levels:
-      basic: Identificeert technische risicos in eigen werk
-      decent: Analyseert risicos en voorstelt mitigatie strategieën
-      good: Leidt risk assessments, balanceert risico vs innovatie trade-offs
-      excellent: Definieert enterprise risk management frameworks, leidt business continuity planning
+      basis: Identificeert technische risicos in eigen werk
+      redelijk: Analyseert risicos en voorstelt mitigatie strategieën
+      goed: Leidt risk assessments, balanceert risico vs innovatie trade-offs
+      uitstekend: Definieert enterprise risk management frameworks, leidt business continuity planning
   - name: Cost Management
     levels:
-      basic: Begrijpt basis cloud kosten en resource usage
-      decent: Optimaliseert resource usage, monitort kosten dashboards
-      good: Past FinOps practices toe, voert TCO analyses uit
-      excellent: Definieert cost optimization strategieën, leidt cloud financial governance
+      basis: Begrijpt basis cloud kosten en resource usage
+      redelijk: Optimaliseert resource usage, monitort kosten dashboards
+      goed: Past FinOps practices toe, voert TCO analyses uit
+      uitstekend: Definieert cost optimization strategieën, leidt cloud financial governance
   - name: Compliance & Governance
     levels:
-      basic: Begrijpt basis compliance vereisten (GDPR, privacy)
-      decent: Implementeert compliance controls, begrijpt audit requirements
-      good: Ontwerpt compliant architecturen, leidt compliance assessments
-      excellent: Definieert governance frameworks, leidt enterprise compliance strategieën
+      basis: Begrijpt basis compliance vereisten (GDPR, privacy)
+      redelijk: Implementeert compliance controls, begrijpt audit requirements
+      goed: Ontwerpt compliant architecturen, leidt compliance assessments
+      uitstekend: Definieert governance frameworks, leidt enterprise compliance strategieën

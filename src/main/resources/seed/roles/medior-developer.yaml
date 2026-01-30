@@ -3,27 +3,27 @@ roleFamily: Developer
 seniorityOrder: 2
 description: Ervaren developer die zelfstandig aan features werkt
 requirements:
-  - { skill: Java, category: Programming, level: good }
-  - { skill: Spring/Quarkus/Microprofile, category: Programming, level: decent }
-  - { skill: Git, category: Programming, level: decent }
-  - { skill: Maven/Gradle, category: Programming, level: decent }
-  - { skill: Python, category: Programming, level: basic }
-  - { skill: SQL, category: Programming, level: decent }
-  - { skill: Design Patterns, category: Software Design, level: decent }
-  - { skill: API Design, category: Software Design, level: decent }
-  - { skill: Microservices Architectuur, category: Software Design, level: decent }
-  - { skill: Object-Oriented Programming, category: Software Design, level: decent }
-  - { skill: Test-Driven Development, category: Software Design, level: good }
-  - { skill: Architecture, category: Software Design, level: decent }
-  - { skill: CI/CD, category: DevOps & Infrastructure, level: decent }
-  - { skill: Docker, category: DevOps & Infrastructure, level: basic }
-  - { skill: Kubernetes, category: DevOps & Infrastructure, level: basic }
-  - { skill: Cloud Platforms, category: DevOps & Infrastructure, level: basic }
-  - { skill: Unit Testing, category: Quality & Testing, level: good }
-  - { skill: Integration Testing, category: Quality & Testing, level: good }
-  - { skill: End-to-end Testing, category: Quality & Testing, level: decent }
-  - { skill: Automated Testing, category: Quality & Testing, level: good }
-  - { skill: Communication, category: Soft Skills, level: good }
-  - { skill: Mentoring, category: Soft Skills, level: decent }
-  - { skill: Problem Solving, category: Soft Skills, level: good }
-  - { skill: AI coding, category: AI & Emerging Technologies, level: basic }
+  - { skill: Java, category: Programming, level: goed }
+  - { skill: Spring/Quarkus/Microprofile, category: Programming, level: redelijk }
+  - { skill: Git, category: Programming, level: redelijk }
+  - { skill: Maven/Gradle, category: Programming, level: redelijk }
+  - { skill: Python, category: Programming, level: basis }
+  - { skill: SQL, category: Programming, level: redelijk }
+  - { skill: Design Patterns, category: Software Design, level: redelijk }
+  - { skill: API Design, category: Software Design, level: redelijk }
+  - { skill: Microservices Architectuur, category: Software Design, level: redelijk }
+  - { skill: Object-Oriented Programming, category: Software Design, level: redelijk }
+  - { skill: Test-Driven Development, category: Software Design, level: goed }
+  - { skill: Architecture, category: Software Design, level: redelijk }
+  - { skill: CI/CD, category: DevOps & Infrastructure, level: redelijk }
+  - { skill: Docker, category: DevOps & Infrastructure, level: basis }
+  - { skill: Kubernetes, category: DevOps & Infrastructure, level: basis }
+  - { skill: Cloud Platforms, category: DevOps & Infrastructure, level: basis }
+  - { skill: Unit Testing, category: Quality & Testing, level: goed }
+  - { skill: Integration Testing, category: Quality & Testing, level: goed }
+  - { skill: End-to-end Testing, category: Quality & Testing, level: redelijk }
+  - { skill: Automated Testing, category: Quality & Testing, level: goed }
+  - { skill: Communication, category: Soft Skills, level: goed }
+  - { skill: Mentoring, category: Soft Skills, level: redelijk }
+  - { skill: Problem Solving, category: Soft Skills, level: goed }
+  - { skill: AI coding, category: AI & Emerging Technologies, level: basis }

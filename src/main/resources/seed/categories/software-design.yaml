@@ -1,30 +1,38 @@
 name: Software Design
 skills:
   - name: Design Patterns
-    levels: {                          basic: Herkent bekende patronen zoals Singleton en Factory, decent: 'Past
-      patronen toe waar passend, begrijpt trade-offs', good: Combineert patronen om
-      complexe problemen op te lossen, excellent: 'Creëert domeinspecifieke patronen,
-      leert anderen' }
+    levels:
+      basis: Herkent bekende patronen zoals Singleton en Factory
+      redelijk: Past patronen toe waar passend, begrijpt trade-offs
+      goed: Combineert patronen om complexe problemen op te lossen
+      uitstekend: Creëert domeinspecifieke patronen, leert anderen
   - name: Architecture
-    levels: {                 basic: Begrijpt basis gelaagde architectuur, decent: Ontwerpt componenten
-      met duidelijke grenzen, good: 'Ontwerpt microservices, evalueert architectonische
-      trade-offs', excellent: 'Leidt systeemarchitectuur, definieert technische strategie' }
+    levels:
+      basis: Begrijpt basis gelaagde architectuur
+      redelijk: Ontwerpt componenten met duidelijke grenzen
+      goed: Ontwerpt microservices, evalueert architectonische trade-offs
+      uitstekend: Leidt systeemarchitectuur, definieert technische strategie
   - name: API Design
-    levels: { basic: Creëert basis REST endpoints, decent: 'Ontwerpt consistente, gedocumenteerde
-      API''s', good: Bouw schaalbare API's met versiebeheer en foutafhandeling, excellent: 'Definieert
-      API standaarden, ontwerpt complexe integraties' }
+    levels:
+      basis: Creëert basis REST endpoints
+      redelijk: Ontwerpt consistente, gedocumenteerde API's
+      goed: Bouwt schaalbare API's met versiebeheer en foutafhandeling
+      uitstekend: Definieert API standaarden, ontwerpt complexe integraties
   - name: Object-Oriented Programming
-    levels: { basic: 'Begrijpt basis OOP concepten (classes, objects, inheritance)',
-              decent: 'Past encapsulation, inheritance en polymorphism toe', good: 'Ontwerpt
-      complexe object modellen, begrijpt SOLID principes', excellent: 'Creëert elegant
-      OOP architecturen, mentort anderen in OOP' }
+    levels:
+      basis: Begrijpt basis OOP concepten (classes, objects, inheritance)
+      redelijk: Past encapsulation, inheritance en polymorphism toe
+      goed: Ontwerpt complexe object modellen, begrijpt SOLID principes
+      uitstekend: Creëert elegante OOP architecturen, mentort anderen in OOP
   - name: Microservices Architectuur
-    levels: {                                    basic: Begrijpt microservices concepten en voordelen, decent: Implementeert
-      eenvoudige microservices met communicatie, good: 'Ontwerpt service boundaries,
-      implementeert service discovery', excellent: 'Architecteert microservices platformen,
-      implementeert observability' }
+    levels:
+      basis: Begrijpt microservices concepten en voordelen
+      redelijk: Implementeert eenvoudige microservices met communicatie
+      goed: Ontwerpt service boundaries, implementeert service discovery
+      uitstekend: Architecteert microservices platformen, implementeert observability
   - name: Test-Driven Development
-    levels: {                                basic: 'Begrijpt TDD cyclus: Red-Green-Refactor', decent: Schrijft tests
-      eerst voor eenvoudige functionaliteit, good: 'Past TDD toe in complexe features,
-      bereikt hoge test coverage', excellent: 'Leidt TDD implementatie in teams, definieert
-      testing strategieën' }
+    levels:
+      basis: Begrijpt TDD cyclus - Red-Green-Refactor
+      redelijk: Schrijft tests eerst voor eenvoudige functionaliteit
+      goed: Past TDD toe in complexe features, bereikt hoge test coverage
+      uitstekend: Leidt TDD implementatie in teams, definieert testing strategieën

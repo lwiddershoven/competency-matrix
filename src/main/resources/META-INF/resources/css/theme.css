@@ -32,42 +32,42 @@
     font-weight: 500;
 }
 
-.level-basic {
+.level-basis {
     background-color: #e3f2fd;
     color: #1565c0;
 }
 
-.level-decent {
+.level-redelijk {
     background-color: #e8f5e9;
     color: #2e7d32;
 }
 
-.level-good {
+.level-goed {
     background-color: #fff3e0;
     color: #e65100;
 }
 
-.level-excellent {
+.level-uitstekend {
     background-color: #fce4ec;
     color: #c2185b;
 }
 
-[data-theme="dark"] .level-basic {
+[data-theme="dark"] .level-basis {
     background-color: #1565c0;
     color: #e3f2fd;
 }
 
-[data-theme="dark"] .level-decent {
+[data-theme="dark"] .level-redelijk {
     background-color: #2e7d32;
     color: #e8f5e9;
 }
 
-[data-theme="dark"] .level-good {
+[data-theme="dark"] .level-goed {
     background-color: #e65100;
     color: #fff3e0;
 }
 
-[data-theme="dark"] .level-excellent {
+[data-theme="dark"] .level-uitstekend {
     background-color: #c2185b;
     color: #fce4ec;
 }

@@ -81,7 +81,7 @@ public class MatrixOverviewResource {
      * Get tooltip content for a skill showing all proficiency levels. Task: T032 - Tooltip endpoint for User Story 2
      *
      * @param skillId ID of the skill
-     * @param level   Proficiency level (BASIC, DECENT, GOOD, EXCELLENT) - used to highlight the current level
+     * @param level   Proficiency level (BASIS, REDELIJK, GOED, UITSTEKEND) - used to highlight the current level
      * @param theme   User's theme preference from cookie
      * @return Tooltip HTML fragment with all skill levels
      */

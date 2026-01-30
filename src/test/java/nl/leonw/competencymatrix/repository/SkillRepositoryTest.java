@@ -25,7 +25,7 @@ class SkillRepositoryTest {
     void testFindByNameAndCategoryIdIgnoreCase_exactMatch() {
         // Given
         CompetencyCategory category = categoryRepository.save(new CompetencyCategory(null, "TestSkillCategoryExact", 1));
-        Skill skill = new Skill(null, "TestSkillExact", category.id(), "Basic", "Decent", "Good", "Excellent");
+        Skill skill = new Skill(null, "TestSkillExact", category.id(), "Basis", "Redelijk", "Goed", "Uitstekend");
         skillRepository.save(skill);
 
         // When
@@ -41,7 +41,7 @@ class SkillRepositoryTest {
     void testFindByNameAndCategoryIdIgnoreCase_lowercase() {
         // Given
         CompetencyCategory category = categoryRepository.save(new CompetencyCategory(null, "TestSkillCategoryLower", 1));
-        Skill skill = new Skill(null, "TestSkillLower", category.id(), "Basic", "Decent", "Good", "Excellent");
+        Skill skill = new Skill(null, "TestSkillLower", category.id(), "Basis", "Redelijk", "Goed", "Uitstekend");
         skillRepository.save(skill);
 
         // When
@@ -57,7 +57,7 @@ class SkillRepositoryTest {
     void testFindByNameAndCategoryIdIgnoreCase_uppercase() {
         // Given
         CompetencyCategory category = categoryRepository.save(new CompetencyCategory(null, "TestSkillCategoryUpper", 1));
-        Skill skill = new Skill(null, "TestSkillUpper", category.id(), "Basic", "Decent", "Good", "Excellent");
+        Skill skill = new Skill(null, "TestSkillUpper", category.id(), "Basis", "Redelijk", "Goed", "Uitstekend");
         skillRepository.save(skill);
 
         // When
@@ -73,7 +73,7 @@ class SkillRepositoryTest {
     void testFindByNameAndCategoryIdIgnoreCase_withSpaces() {
         // Given
         CompetencyCategory category = categoryRepository.save(new CompetencyCategory(null, "TestSkillCategorySpaces", 1));
-        Skill skill = new Skill(null, "TestSkillSpaces", category.id(), "Basic", "Decent", "Good", "Excellent");
+        Skill skill = new Skill(null, "TestSkillSpaces", category.id(), "Basis", "Redelijk", "Goed", "Uitstekend");
         skillRepository.save(skill);
 
         // When
@@ -90,7 +90,7 @@ class SkillRepositoryTest {
         // Given
         CompetencyCategory category1 = categoryRepository.save(new CompetencyCategory(null, "TestSkillCategoryOne", 1));
         CompetencyCategory category2 = categoryRepository.save(new CompetencyCategory(null, "TestSkillCategoryTwo", 2));
-        Skill skill = new Skill(null, "TestSkillWrongCategory", category1.id(), "Basic", "Decent", "Good", "Excellent");
+        Skill skill = new Skill(null, "TestSkillWrongCategory", category1.id(), "Basis", "Redelijk", "Goed", "Uitstekend");
         skillRepository.save(skill);
 
         // When
@@ -105,7 +105,7 @@ class SkillRepositoryTest {
     void testFindByNameAndCategoryIdIgnoreCase_notFound() {
         // Given
         CompetencyCategory category = categoryRepository.save(new CompetencyCategory(null, "TestSkillCategoryMissing", 1));
-        Skill skill = new Skill(null, "TestSkillMissing", category.id(), "Basic", "Decent", "Good", "Excellent");
+        Skill skill = new Skill(null, "TestSkillMissing", category.id(), "Basis", "Redelijk", "Goed", "Uitstekend");
         skillRepository.save(skill);
 
         // When

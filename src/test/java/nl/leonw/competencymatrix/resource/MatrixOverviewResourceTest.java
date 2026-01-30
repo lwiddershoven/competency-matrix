@@ -92,11 +92,11 @@ class MatrixOverviewResourceTest {
                 .orElseThrow(() -> new RuntimeException("No skills in test database"));
 
         given()
-            .queryParam("level", "BASIC")
+            .queryParam("level", "BASIS")
             .when().get("/matrix/tooltips/skill/{skillId}", skill.id())
             .then()
                 .statusCode(200)
                 .body(containsString(skill.name()))
-                .body(containsString("Basic"));
+                .body(containsString("Basis"));
     }
 }
