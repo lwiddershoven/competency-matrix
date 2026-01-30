@@ -4,8 +4,10 @@ import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
 import nl.leonw.competencymatrix.dto.CellData;
+import nl.leonw.competencymatrix.dto.CompetencyMatrix;
 import nl.leonw.competencymatrix.dto.MatrixViewModel;
 import nl.leonw.competencymatrix.dto.RoleInfo;
+import nl.leonw.competencymatrix.dto.SkillInfo;
 import nl.leonw.competencymatrix.model.CompetencyCategory;
 import nl.leonw.competencymatrix.model.ProficiencyLevel;
 import nl.leonw.competencymatrix.model.Role;
@@ -182,44 +184,60 @@ public class CompetencyService {
     }
 
     /**
-     * Build matrix view model with all skills and roles using map structure.
+     * Build matrix view model with all skills and roles using explicit lookup.
      * Feature: 004-matrix-overview
-     * Uses map of maps with string keys (skillName -> roleName -> cellData)
-     * for perfect alignment between headers and cells.
+     * Uses CompetencyMatrix with get(roleName, skillName) for explicit cell lookups.
      *
      * @param categoryId Optional category ID to filter skills (null = show all)
-     * @return MatrixViewModel with matrix map, ordered roles, and filter state
+     * @return MatrixViewModel with matrix, ordered roles/skills, and filter state
      */
     public MatrixViewModel buildMatrixViewModel(Integer categoryId) {
-        List<Skill> skills = loadSkills(categoryId);
-        List<Role> roles = loadRoles();
-        Map<String, ProficiencyLevel> requirementsMap = loadRequirementsMap();
+        // Load data in correct order
+        List<Skill> skills = loadSkillsAlphabetical(categoryId);
+        List<Role> roles = loadRolesOrderedByFamilyAndSeniority();
+
+        // Build ordered lists with IDs
+        List<SkillInfo> skillsInOrder = buildSkillInfos(skills);
         List<RoleInfo> rolesInOrder = buildRoleInfos(roles);
+
+        // Build matrix with role->skill->level mapping
+        CompetencyMatrix matrix = buildCompetencyMatrix(roles, skills);
+
+        // Build auxiliary data structures
         Map<String, List<RoleInfo>> rolesByFamily = groupRolesByFamily(rolesInOrder);
-        Map<String, Map<String, CellData>> matrix = buildMatrix(skills, rolesInOrder, requirementsMap);
         List<CompetencyCategory> categories = categoryRepository.findAllOrderByDisplayOrder();
 
-        return buildMatrixViewModel(categoryId, matrix, rolesInOrder, rolesByFamily, categories);
+        return buildMatrixViewModel(categoryId, matrix, skillsInOrder, rolesInOrder, rolesByFamily, categories);
     }
 
-    private List<Skill> loadSkills(Integer categoryId) {
+    /**
+     * Load skills in alphabetical order (pure alphabetical, no category grouping).
+     */
+    private List<Skill> loadSkillsAlphabetical(Integer categoryId) {
+        List<Skill> skills;
         if (categoryId == null) {
-            return skillRepository.findAllOrderByName();
+            skills = skillRepository.findAllOrderByName();
+        } else {
+            skills = skillRepository.findByCategoryId(categoryId);
         }
-        return skillRepository.findByCategoryId(categoryId);
+        // Ensure alphabetical ordering (case-insensitive)
+        skills.sort((s1, s2) -> s1.name().compareToIgnoreCase(s2.name()));
+        return skills;
     }
 
-    private List<Role> loadRoles() {
+    /**
+     * Load roles ordered by role family (alphabetical), then seniority order (ascending).
+     */
+    private List<Role> loadRolesOrderedByFamilyAndSeniority() {
         return roleRepository.findAllOrderByFamilyAndSeniority();
     }
 
-    private Map<String, ProficiencyLevel> loadRequirementsMap() {
-        List<RoleSkillRequirement> allRequirements = requirementRepository.findAll();
-        Map<String, ProficiencyLevel> requirementsMap = new HashMap<>();
-        for (RoleSkillRequirement req : allRequirements) {
-            requirementsMap.put(requirementKey(req.skillId(), req.roleId()), req.getProficiencyLevel());
+    private List<SkillInfo> buildSkillInfos(List<Skill> skills) {
+        List<SkillInfo> skillInfos = new ArrayList<>();
+        for (Skill skill : skills) {
+            skillInfos.add(new SkillInfo(skill.id(), skill.name()));
         }
-        return requirementsMap;
+        return skillInfos;
     }
 
     private List<RoleInfo> buildRoleInfos(List<Role> roles) {
@@ -240,29 +258,34 @@ public class CompetencyService {
         return rolesByFamily;
     }
 
-    private Map<String, Map<String, CellData>> buildMatrix(
-            List<Skill> skills,
-            List<RoleInfo> rolesInOrder,
-            Map<String, ProficiencyLevel> requirementsMap
-    ) {
-        Map<String, Map<String, CellData>> matrix = new LinkedHashMap<>();
-        for (Skill skill : skills) {
-            Map<String, CellData> skillRow = new LinkedHashMap<>();
-            for (RoleInfo roleInfo : rolesInOrder) {
-                skillRow.put(roleInfo.name(), buildCell(skill, roleInfo, requirementsMap));
-            }
-            matrix.put(skill.name(), skillRow);
+    /**
+     * Build CompetencyMatrix with role->skill->level mappings.
+     * Uses explicit role and skill names for lookups.
+     */
+    private CompetencyMatrix buildCompetencyMatrix(List<Role> roles, List<Skill> skills) {
+        // Load all requirements into a map for efficient lookup
+        List<RoleSkillRequirement> allRequirements = requirementRepository.findAll();
+        Map<String, ProficiencyLevel> requirementsMap = new HashMap<>();
+        for (RoleSkillRequirement req : allRequirements) {
+            requirementsMap.put(requirementKey(req.skillId(), req.roleId()), req.getProficiencyLevel());
         }
-        return matrix;
-    }
 
-    private CellData buildCell(Skill skill, RoleInfo roleInfo, Map<String, ProficiencyLevel> requirementsMap) {
-        String key = requirementKey(skill.id(), roleInfo.id());
-        ProficiencyLevel level = requirementsMap.get(key);
-        if (level == null) {
-            return CellData.empty(skill.id().longValue(), roleInfo.id());
+        // Build role->skill->level map
+        Map<String, Map<String, String>> matrixData = new HashMap<>();
+
+        for (Role role : roles) {
+            Map<String, String> skillLevels = new HashMap<>();
+            for (Skill skill : skills) {
+                String key = requirementKey(skill.id(), role.id());
+                ProficiencyLevel level = requirementsMap.get(key);
+                if (level != null) {
+                    skillLevels.put(skill.name(), level.getDisplayName());
+                }
+            }
+            matrixData.put(role.name(), skillLevels);
         }
-        return CellData.withLevel(skill.id().longValue(), roleInfo.id(), level);
+
+        return new CompetencyMatrix(matrixData);
     }
 
     private String requirementKey(Integer skillId, Integer roleId) {
@@ -271,18 +294,19 @@ public class CompetencyService {
 
     private MatrixViewModel buildMatrixViewModel(
             Integer categoryId,
-            Map<String, Map<String, CellData>> matrix,
+            CompetencyMatrix matrix,
+            List<SkillInfo> skillsInOrder,
             List<RoleInfo> rolesInOrder,
             Map<String, List<RoleInfo>> rolesByFamily,
             List<CompetencyCategory> categories
     ) {
         if (categoryId != null) {
             return MatrixViewModel.filtered(
-                    matrix, rolesInOrder, rolesByFamily, categories, categoryId.toString()
+                    matrix, skillsInOrder, rolesInOrder, rolesByFamily, categories, categoryId.toString()
             );
         }
         return MatrixViewModel.unfiltered(
-                matrix, rolesInOrder, rolesByFamily, categories
+                matrix, skillsInOrder, rolesInOrder, rolesByFamily, categories
         );
     }
 
