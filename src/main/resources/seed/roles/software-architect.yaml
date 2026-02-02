@@ -21,8 +21,8 @@ requirements:
   - { skill: Problem Solving, category: Soft Skills, level: uitstekend }
   - { skill: Presentation, category: Soft Skills, level: uitstekend }
   - { skill: Stakeholder Management, category: Soft Skills, level: uitstekend }
-  - { skill: ArchiMate, category: Architecture Frameworks, level: redelijk }
-  - { skill: iSAQB, category: Architecture Frameworks, level: uitstekend }
+  - { skill: ArchiMate, category: Architecture Frameworks, level: basis }
+  - { skill: iSAQB, category: Architecture Frameworks, level: goed }
   - { skill: TOGAF, category: Architecture Frameworks, level: basis }
   - { skill: Security Architecture, category: Security, level: uitstekend }
   - { skill: Authentication & Authorization, category: Security, level: uitstekend }
