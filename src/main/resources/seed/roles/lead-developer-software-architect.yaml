@@ -20,22 +20,22 @@ requirements:
   - { skill: Presenteren, category: Core Soft Skills, level: goed }
   - { skill: Stakeholder Management, category: Core Soft Skills, level: redelijk }
   - { skill: Motiveren, category: Core Soft Skills, level: goed }
-  - { skill: iSAQB, category: Architecture Frameworks, level: redelijk }
-  - { skill: ArchiMate, category: Architecture Frameworks, level: basis }
+  - { skill: iSAQB, category: Architectuur Frameworks, level: redelijk }
+  - { skill: ArchiMate, category: Architectuur Frameworks, level: basis }
   - { skill: Spring/Quarkus/Microprofile, category: Programming, level: goed }
-  - { skill: Security Architecture, category: Security, level: goed }
+  - { skill: Security Architectuur, category: Security, level: goed }
   - { skill: Authentication & Authorization, category: Security, level: goed }
   - { skill: Security Patterns, category: Security, level: goed }
-  - { skill: Data Architecture, category: Data & Integration, level: goed }
+  - { skill: Data Architectuur, category: Data & Integration, level: goed }
   - { skill: Integration Patterns, category: Data & Integration, level: goed }
   - { skill: Message Brokers, category: Data & Integration, level: redelijk }
-  - { skill: Event-Driven Architecture, category: Data & Integration, level: redelijk }
-  - { skill: Domain-Driven Design, category: Advanced Architecture, level: goed }
-  - { skill: Resilience Patterns, category: Advanced Architecture, level: goed }
-  - { skill: Performance & Scalability, category: Advanced Architecture, level: goed }
-  - { skill: Observability & Monitoring, category: Advanced Architecture, level: goed }
-  - { skill: Architecture Documentation, category: Advanced Architecture, level: goed }
-  - { skill: Event Sourcing & CQRS, category: Advanced Architecture, level: redelijk }
+  - { skill: Event-Driven Architectuur, category: Data & Integration, level: redelijk }
+  - { skill: Domain-Driven Design, category: Advanced Architectuur, level: goed }
+  - { skill: Resilience Patterns, category: Advanced Architectuur, level: goed }
+  - { skill: Performance & Scalability, category: Advanced Architectuur, level: goed }
+  - { skill: Observability & Monitoring, category: Advanced Architectuur, level: goed }
+  - { skill: Architectuur Documentation, category: Advanced Architectuur, level: goed }
+  - { skill: Event Sourcing & CQRS, category: Advanced Architectuur, level: redelijk }
   - { skill: Infrastructure as Code, category: DevOps & Infrastructure, level: redelijk }
   - { skill: Service Mesh, category: DevOps & Infrastructure, level: basis }
   - { skill: Strategic Thinking, category: Leadership & Management, level: redelijk }

@@ -10,7 +10,7 @@ requirements:
   - { skill: Maven/Gradle, category: Programming, level: goed }
   - { skill: Python, category: Programming, level: redelijk }
   - { skill: SQL, category: Programming, level: goed }
-  - { skill: Event Sourcing & CQRS, category: Advanced Architecture, level: redelijk }
+  - { skill: Event Sourcing & CQRS, category: Advanced Architectuur, level: redelijk }
   - { skill: Design Patterns, category: Software Design, level: goed }
   - { skill: Architectuur, category: Software Design, level: goed }
   - { skill: API Design, category: Software Design, level: goed }
@@ -30,5 +30,5 @@ requirements:
   - { skill: Chat gebruik voor het ophalen van kennis, category: AI & Emerging Technologies, level: redelijk }
   - { skill: Applicaties genereren met behulp van AI tooling, category: AI & Emerging Technologies, level: basis }
   - { skill: Bouwen klant functionaliteit dat gebruik maakt van AI, category: AI & Emerging Technologies, level: basis }
-  - { skill: Observability & Monitoring, category: Advanced Architecture, level: redelijk }
+  - { skill: Observability & Monitoring, category: Advanced Architectuur, level: redelijk }
   - { skill: Conflict Resolution, category: Core Soft Skills, level: goed }

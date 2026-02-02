@@ -1,4 +1,4 @@
-name: Advanced Architecture
+name: Advanced Architectuur
 skills:
   - name: Domain-Driven Design
     levels:
@@ -24,10 +24,10 @@ skills:
       redelijk: Implementeert structured logging, configureert dashboards en alerts, implementeert distributed tracing
       goed: Ontwerpt distributed tracing, definieert SLIs en SLOs en zorgt voor metrics die een functioneel helder beeld schetsen van de applicatie
       uitstekend: Architecteert observability platforms, definieert monitoring strategieën
-  - name: Architecture Documentation
+  - name: Architectuur Documentation
     levels:
       basis: Documenteert beslissingen in comments en basic diagrams
-      redelijk: Creëert C4 model diagrammen, schrijft Architecture Decision Records (ADR)
+      redelijk: Creëert C4 model diagrammen, schrijft Architectuur Decision Records (ADR)
       goed: Onderhoudt coherente architectuur documentatie, gebruikt diagram as code
       uitstekend: Definieert documentatie standaarden, leidt knowledge management strategieën
   - name: Event Sourcing & CQRS

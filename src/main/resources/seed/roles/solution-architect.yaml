@@ -15,15 +15,15 @@ requirements:
   - { skill: Problem Solving, category: Core Soft Skills, level: uitstekend }
   - { skill: Presenteren, category: Core Soft Skills, level: goed }
   - { skill: Stakeholder Management, category: Core Soft Skills, level: uitstekend }
-  - { skill: TOGAF, category: Architecture Frameworks, level: redelijk }
-  - { skill: ArchiMate, category: Architecture Frameworks, level: goed }
-  - { skill: iSAQB, category: Architecture Frameworks, level: redelijk }
-  - { skill: Security Architecture, category: Security, level: goed }
-  - { skill: Data Architecture, category: Data & Integration, level: uitstekend }
+  - { skill: TOGAF, category: Architectuur Frameworks, level: redelijk }
+  - { skill: ArchiMate, category: Architectuur Frameworks, level: goed }
+  - { skill: iSAQB, category: Architectuur Frameworks, level: redelijk }
+  - { skill: Security Architectuur, category: Security, level: goed }
+  - { skill: Data Architectuur, category: Data & Integration, level: uitstekend }
   - { skill: Integration Patterns, category: Data & Integration, level: uitstekend }
-  - { skill: Event-Driven Architecture, category: Data & Integration, level: goed }
-  - { skill: Domain-Driven Design, category: Advanced Architecture, level: uitstekend }
-  - { skill: Architecture Documentation, category: Advanced Architecture, level: uitstekend }
+  - { skill: Event-Driven Architectuur, category: Data & Integration, level: goed }
+  - { skill: Domain-Driven Design, category: Advanced Architectuur, level: uitstekend }
+  - { skill: Architectuur Documentation, category: Advanced Architectuur, level: uitstekend }
   - { skill: Infrastructure as Code, category: DevOps & Infrastructure, level: redelijk }
   - { skill: Strategic Thinking, category: Leadership & Management, level: uitstekend }
   - { skill: Vendor Management, category: Leadership & Management, level: uitstekend }

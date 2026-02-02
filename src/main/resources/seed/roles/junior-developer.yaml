@@ -12,6 +12,6 @@ requirements:
   - { skill: Problem Solving, category: Core Soft Skills, level: basis }
   - { skill: Algemene AI kennis, category: AI & Emerging Technologies, level: basis }
   - { skill: Chat gebruik voor het ophalen van kennis, category: AI & Emerging Technologies, level: basis }
-  - { skill: Observability & Monitoring, category: Advanced Architecture, level: basis }
-  - { skill: Resilience Patterns, category: Advanced Architecture, level: basis }
+  - { skill: Observability & Monitoring, category: Advanced Architectuur, level: basis }
+  - { skill: Resilience Patterns, category: Advanced Architectuur, level: basis }
 

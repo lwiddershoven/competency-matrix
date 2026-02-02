@@ -13,7 +13,7 @@ requirements:
   - { skill: API Design, category: Software Design, level: redelijk }
   - { skill: Microservices Architectuur, category: Software Design, level: redelijk }
   - { skill: Object-Oriented Programming, category: Software Design, level: redelijk }
-  - { skill: Event Sourcing & CQRS, category: Advanced Architecture, level: basis }
+  - { skill: Event Sourcing & CQRS, category: Advanced Architectuur, level: basis }
   - { skill: Test-Driven Development, category: Software Design, level: goed }
   - { skill: Architectuur, category: Software Design, level: redelijk }
   - { skill: CI/CD, category: DevOps & Infrastructure, level: redelijk }
@@ -31,6 +31,6 @@ requirements:
   - { skill: Chat gebruik voor het ophalen van kennis, category: AI & Emerging Technologies, level: redelijk }
   - { skill: Applicaties genereren met behulp van AI tooling, category: AI & Emerging Technologies, level: basis }
   - { skill: Bouwen klant functionaliteit dat gebruik maakt van AI, category: AI & Emerging Technologies, level: basis }
-  - { skill: Observability & Monitoring, category: Advanced Architecture, level: basis }
-  - { skill: Resilience Patterns, category: Advanced Architecture, level: redelijk }
+  - { skill: Observability & Monitoring, category: Advanced Architectuur, level: basis }
+  - { skill: Resilience Patterns, category: Advanced Architectuur, level: redelijk }
   - { skill: Conflict Resolution, category: Core Soft Skills, level: basis }

@@ -1,6 +1,6 @@
 name: Security
 skills:
-  - name: Security Architecture
+  - name: Security Architectuur
     levels:
       basis: Begrijpt basis security concepten (HTTPS, encryptie, hashing)
       redelijk: Implementeert authenticatie en autorisatie patronen, begrijpt OWASP Top 10
@@ -17,4 +17,4 @@ skills:
       basis: Past basis security patterns toe (input validatie, parameterized queries)
       redelijk: Implementeert defense in depth, begrijpt threat modeling
       goed: Ontwerpt secure by design systemen, implementeert secrets management
-      uitstekend: Leidt security architecture reviews, definieert security frameworks
+      uitstekend: Leidt security Architectuur reviews, definieert security frameworks

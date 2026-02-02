@@ -1,6 +1,6 @@
 name: Data & Integration
 skills:
-  - name: Data Architecture
+  - name: Data Architectuur
     levels:
       basis: Begrijpt basis database normalisatie en schema design
       redelijk: Ontwerpt relationele datamodellen, begrijpt CAP theorem
@@ -22,9 +22,9 @@ skills:
     levels:
       basis: Gebruikt bestaande message queues voor async communicatie
       redelijk: Configureert Kafka/RabbitMQ, begrijpt pub/sub en point-to-point patterns
-      goed: Ontwerpt event streaming architecturen, implementeert message ordering en idempotency
+      goed: Ontwerpt event streaming Architectuurn, implementeert message ordering en idempotency
       uitstekend: Architecteert enterprise messaging platforms, definieert event-driven strategieën
-  - name: Event-Driven Architecture
+  - name: Event-Driven Architectuur
     levels:
       basis: Begrijpt basis event concepten en async messaging
       redelijk: Implementeert event publishers en consumers met message brokers
