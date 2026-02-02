@@ -13,12 +13,13 @@
         {#if allowReload}
         <div class="matrix-actions">
             <button
+                id="reload-button"
                 hx-post="/matrix/reload"
+                hx-vals='js:{"selectedCategoryName": document.getElementById("reload-button")?.dataset.categoryName || null}'
                 hx-swap="none"
                 hx-indicator=".reload-indicator"
-                hx-on="htmx:afterRequest: if (event.detail.xhr.status === 200) { window.location.href = '/matrix'; }"
-                class="btn btn-warning"
-                onclick="return confirm('This will delete all current data and reload from seed files. Continue?')">
+                hx-timeout="60000"
+                class="btn btn-warning">
                 🔄 Reload Database
             </button>
             <div class="reload-indicator htmx-indicator">Reloading database...</div>

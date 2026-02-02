@@ -140,4 +140,60 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+
+    /**
+     * Database reload with category filter preservation
+     */
+    const reloadButton = document.getElementById('reload-button');
+    if (reloadButton) {
+        // Handle click to capture category name and show confirmation
+        reloadButton.addEventListener('click', function(event) {
+            // Show confirmation dialog
+            if (!confirm('This will delete all current data and reload from seed files. Continue?')) {
+                event.preventDefault();
+                return;
+            }
+
+            // Capture selected category name (display text, not ID)
+            const categorySelect = document.getElementById('categoryFilter');
+            let selectedCategoryName = null;
+
+            if (categorySelect && categorySelect.value) {
+                // Get the display text of selected option (e.g., "Programming")
+                selectedCategoryName = categorySelect.selectedOptions[0]?.textContent.trim();
+            }
+
+            // Store in button dataset for hx-vals to access
+            reloadButton.dataset.categoryName = selectedCategoryName || '';
+        });
+
+        // Handle response and redirect to URL from backend
+        document.body.addEventListener('htmx:afterRequest', function(event) {
+            // Only handle reload button responses
+            if (event.detail.target !== reloadButton) return;
+
+            if (event.detail.xhr.status === 200) {
+                try {
+                    const response = JSON.parse(event.detail.xhr.responseText);
+
+                    if (response.success && response.redirectUrl) {
+                        // Use redirect URL from backend (preserves category filter)
+                        window.location.href = response.redirectUrl;
+                    } else {
+                        // Fallback to default matrix page
+                        console.warn('Reload response missing redirectUrl, falling back to /matrix');
+                        window.location.href = '/matrix';
+                    }
+                } catch (e) {
+                    // JSON parse error - fallback to default
+                    console.error('Failed to parse reload response:', e);
+                    window.location.href = '/matrix';
+                }
+            } else {
+                // HTTP error - show error and stay on page
+                console.error('Reload failed with status:', event.detail.xhr.status);
+                alert('Database reload failed. Please check the logs and try again.');
+            }
+        });
+    }
 });

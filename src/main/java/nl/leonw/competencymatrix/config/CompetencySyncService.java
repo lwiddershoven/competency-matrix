@@ -245,7 +245,7 @@ public class CompetencySyncService {
         Map<String, CompetencyCategory> categoryIndex = processCategories(data.categories(), counters);
         Map<String, Skill> skillIndex = processSkills(data.categories(), categoryIndex, counters);
         Map<String, Role> roleIndex = processRoles(data.roles(), counters);
-        processRequirements(data.roles(), roleIndex, categoryIndex, skillIndex, counters);
+        processRequirementsMerge(data.roles(), roleIndex, categoryIndex, skillIndex, counters);
         processProgressions(data.progressions(), roleIndex, counters);
 
         return counters.toResult();
@@ -267,7 +267,7 @@ public class CompetencySyncService {
         Map<String, CompetencyCategory> categoryIndex = processCategories(data.categories(), counters);
         Map<String, Skill> skillIndex = processSkills(data.categories(), categoryIndex, counters);
         Map<String, Role> roleIndex = processRoles(data.roles(), counters);
-        processRequirements(data.roles(), roleIndex, categoryIndex, skillIndex, counters);
+        processRequirementsReplace(data.roles(), roleIndex, categoryIndex, skillIndex, counters);
         processProgressions(data.progressions(), roleIndex, counters);
 
         return counters.toResult();
@@ -501,36 +501,85 @@ public class CompetencySyncService {
         return roleIndex;
     }
 
-    private void processRequirements(List<YamlCompetencyData.RoleData> roles,
-                                     Map<String, Role> roleIndex,
-                                     Map<String, CompetencyCategory> categoryIndex,
-                                     Map<String, Skill> skillIndex,
-                                     SyncCounters counters) {
+    /**
+     * Process requirements in REPLACE mode - pure batch insert.
+     * Since deleteAllEntities() was called first, no requirements exist.
+     * This method accumulates all requirements and performs a single batch insert,
+     * drastically reducing connection churn compared to individual inserts.
+     */
+    private void processRequirementsReplace(List<YamlCompetencyData.RoleData> roles,
+                                            Map<String, Role> roleIndex,
+                                            Map<String, CompetencyCategory> categoryIndex,
+                                            Map<String, Skill> skillIndex,
+                                            SyncCounters counters) {
+        List<RoleSkillRequirement> allRequirements = new ArrayList<>();
+
         for (YamlCompetencyData.RoleData yamlRole : roles) {
             Role role = resolveRole(yamlRole.name(), roleIndex);
 
             for (YamlCompetencyData.RequirementData requirement : yamlRole.requirements()) {
                 CompetencyCategory category = resolveCategory(requirement.categoryName(), categoryIndex);
                 Skill skill = resolveSkill(requirement, category, skillIndex);
-
                 String requiredLevel = requirement.level().toUpperCase();
+
+                allRequirements.add(new RoleSkillRequirement(null, role.id(), skill.id(), requiredLevel));
+            }
+        }
+
+        // Single batch insert for all requirements
+        if (!allRequirements.isEmpty()) {
+            int inserted = requirementRepository.insertAll(allRequirements);
+            counters.requirementsAdded = inserted;
+            log.info("Batch inserted {} requirements", inserted);
+        }
+    }
+
+    /**
+     * Process requirements in MERGE mode - check then batch.
+     * Checks for existing requirements and batches updates/inserts.
+     * This method reduces connection churn by batching operations instead of
+     * performing individual database calls for each requirement.
+     */
+    private void processRequirementsMerge(List<YamlCompetencyData.RoleData> roles,
+                                          Map<String, Role> roleIndex,
+                                          Map<String, CompetencyCategory> categoryIndex,
+                                          Map<String, Skill> skillIndex,
+                                          SyncCounters counters) {
+        List<RoleSkillRequirement> toInsert = new ArrayList<>();
+        List<RoleSkillRequirement> toUpdate = new ArrayList<>();
+
+        for (YamlCompetencyData.RoleData yamlRole : roles) {
+            Role role = resolveRole(yamlRole.name(), roleIndex);
+
+            for (YamlCompetencyData.RequirementData requirement : yamlRole.requirements()) {
+                CompetencyCategory category = resolveCategory(requirement.categoryName(), categoryIndex);
+                Skill skill = resolveSkill(requirement, category, skillIndex);
+                String requiredLevel = requirement.level().toUpperCase();
+
                 Optional<RoleSkillRequirement> existing =
                         requirementRepository.findByRoleIdAndSkillId(role.id(), skill.id());
 
                 if (existing.isPresent()) {
                     RoleSkillRequirement current = existing.get();
                     if (requirementNeedsUpdate(current, requiredLevel)) {
-                        requirementRepository.save(new RoleSkillRequirement(
-                                current.id(), role.id(), skill.id(), requiredLevel));
-                        counters.requirementsUpdated++;
-                        log.info("Requirement updated: {} -> {} at {}", role.name(), skill.name(), requiredLevel);
+                        toUpdate.add(new RoleSkillRequirement(current.id(), role.id(), skill.id(), requiredLevel));
                     }
                 } else {
-                    requirementRepository.save(new RoleSkillRequirement(role.id(), skill.id(), requiredLevel));
-                    counters.requirementsAdded++;
-                    log.info("Requirement added: {} -> {} at {}", role.name(), skill.name(), requiredLevel);
+                    toInsert.add(new RoleSkillRequirement(null, role.id(), skill.id(), requiredLevel));
                 }
             }
+        }
+
+        // Batch operations
+        if (!toInsert.isEmpty()) {
+            int inserted = requirementRepository.insertAll(toInsert);
+            counters.requirementsAdded = inserted;
+            log.info("Batch inserted {} requirements", inserted);
+        }
+        if (!toUpdate.isEmpty()) {
+            int updated = requirementRepository.updateAll(toUpdate);
+            counters.requirementsUpdated = updated;
+            log.info("Batch updated {} requirements", updated);
         }
     }
 

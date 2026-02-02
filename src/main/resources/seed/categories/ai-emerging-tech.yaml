@@ -12,3 +12,40 @@ skills:
       redelijk: Identificeert use cases voor AI in klant oplossingen, begrijpt ML basics
       goed: Ontwerpt AI-powered features, integreert AI APIs en services in architectuur
       uitstekend: Definieert AI strategie voor klanten, architecteert end-to-end ML platforms
+  - name: Algemene AI kennis
+    levels:
+      basis: |-
+        - bredere blok dan LLMs
+        - Kent termen als LLM, ML, embed, RAG, MCP, Agents, reasoning (thinking) models, multimodal
+      redelijk: |-
+        Weet ongeveer waarom temperatuur en context window relevant zijn
+      goed: TODO
+      uitstekend: TODO
+  - name: Chat gebruik voor het ophalen van kennis
+    levels:
+      basis: |-
+        - Weten dat het een proces op basis van statistisch woorden zoeken is, niet een systeem op basis van begrip
+        - Kritisch zijn mbt gegenereerde antwoorden en actief zijn in het volgen van referenties (controleren of ze bestaan)
+        - Is zich ervan bewust dat er verschillende modellen zijn met elk eigen sterke en zwakke punten
+        - Weet dat bedrijfsgegevens en andere vertrouwelijke informatie niet zomaar in de chat geplakt mogen worden omdat dat verzonden wordt naar een externe partij
+        - Is zich bewust van de AI policy van de opdrachtgever
+      redelijk: TODO
+      goed: TODO
+      uitstekend: TODO
+  - name: Applicaties genereren met behulp van AI tooling
+    levels:
+      basis: |-
+        - Weet dat er tools zijn waarmee code gegenereerd kan worden (Windsurf, Cursor, Claude Code, Aider, etc.)
+        - Weet dat er andere AI workflows zijn dan vibe coding, zoals spec-driven development, die beter passen bij een enterprise omgeving
+        - Weet dat er modelen zijn die erg goed zijn in code genereren en modellen die hier niet zo goed in zijn
+      redelijk: |-
+        - Weet dat de kern van effectief ontwikkelen niet een one-shot is maar eerst een plan laten genereren
+      goed: TODO
+      uitstekend: TODO
+  - name: Bouwen klant functionaliteit dat gebruik maakt van AI
+    levels:
+      basis: |-
+        - Weet dat er Java libraries zijn om LLMs te ontsluiten (Spring AI, Quarkus LangChain4j, etc.)
+      redelijk: TODO
+      goed: TODO
+      uitstekend: TODO
