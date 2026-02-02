@@ -13,5 +13,4 @@ requirements:
   - { skill: AI coding, category: AI & Emerging Technologies, level: basis }
   - { skill: Algemene AI kennis, category: AI & Emerging Technologies, level: basis }
   - { skill: Chat gebruik voor het ophalen van kennis, category: AI & Emerging Technologies, level: basis }
-  - { skill: Applicaties genereren met behulp van AI tooling, category: AI & Emerging Technologies, level: basis }
-  - { skill: Bouwen klant functionaliteit dat gebruik maakt van AI, category: AI & Emerging Technologies, level: basis }
+
