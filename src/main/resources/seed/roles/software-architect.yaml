@@ -35,7 +35,7 @@ requirements:
   - { skill: Domain-Driven Design, category: Advanced Architecture, level: uitstekend }
   - { skill: Resilience Patterns, category: Advanced Architecture, level: uitstekend }
   - { skill: Performance & Scalability, category: Advanced Architecture, level: uitstekend }
-  - { skill: Observability & Monitoring, category: Advanced Architecture, level: uitstekend }
+  - { skill: Observability & Monitoring, category: Advanced Architecture, level: goed }
   - { skill: Architecture Documentation, category: Advanced Architecture, level: uitstekend }
   - { skill: Event Sourcing & CQRS, category: Advanced Architecture, level: goed }
   - { skill: Infrastructure as Code, category: DevOps & Infrastructure, level: goed }
@@ -48,4 +48,3 @@ requirements:
   - { skill: Chat gebruik voor het ophalen van kennis, category: AI & Emerging Technologies, level: redelijk }
   - { skill: Applicaties genereren met behulp van AI tooling, category: AI & Emerging Technologies, level: redelijk }
   - { skill: Bouwen klant functionaliteit dat gebruik maakt van AI, category: AI & Emerging Technologies, level: redelijk }
-  - { skill: Observability & Monitoring, category: Advanced Architecture, level: goed }
