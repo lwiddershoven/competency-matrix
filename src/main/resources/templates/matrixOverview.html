@@ -2,12 +2,12 @@
     {#content}
         <nav class="breadcrumb">
             <a href="/">Home</a> &gt;
-            <span>Competency Matrix</span>
+            <span>Competentie Matrix</span>
         </nav>
 
         <hgroup>
-            <h1>Competency Matrix</h1>
-            <p>Overview of all competencies across all roles</p>
+            <h1>Competentie Matrix</h1>
+            <p>Overzicht van alle competenties en alle rollen</p>
         </hgroup>
 
         {#if allowReload}
@@ -31,7 +31,7 @@
                 <form method="GET" action="/matrix" class="filter-form">
                     <label for="categoryFilter">Filter by Category:</label>
                     <select name="category" id="categoryFilter" onchange="this.form.submit()">
-                        <option value="">All Categories</option>
+                        <option value="">Alle categorieëen.</option>
                         {#for category in matrix.categories}
                             <option value="{category.id}" 
                                     {#if matrix.selectedCategoryId == category.id.toString()}selected{/if}>

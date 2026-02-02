@@ -19,28 +19,28 @@ requirements:
   - { skill: Docker, category: DevOps & Infrastructure, level: redelijk }
   - { skill: Kubernetes, category: DevOps & Infrastructure, level: goed }
   - { skill: Cloud Platforms, category: DevOps & Infrastructure, level: redelijk }
-  - { skill: Unit Testing, category: Quality & Testing, level: goed }
-  - { skill: Integration Testing, category: Quality & Testing, level: redelijk }
-  - { skill: End-to-end Testing, category: Quality & Testing, level: goed }
-  - { skill: Automated Testing, category: Quality & Testing, level: goed }
-  - { skill: Code Review, category: Quality & Testing, level: goed }
-  - { skill: Communication, category: Core Soft Skills, level: goed }
+  - { skill: Unit Testen, category: Kwaliteit & Testen, level: goed }
+  - { skill: Integratietesten, category: Kwaliteit & Testen, level: redelijk }
+  - { skill: End-to-end Testen, category: Kwaliteit & Testen, level: goed }
+  - { skill: Geautomatiseerd Testen, category: Kwaliteit & Testen, level: goed }
+  - { skill: Code Review, category: Kwaliteit & Testen, level: goed }
+  - { skill: Communicatie, category: Core Soft Skills, level: goed }
   - { skill: Mentoring, category: Core Soft Skills, level: redelijk }
-  - { skill: Problem Solving, category: Core Soft Skills, level: goed }
+  - { skill: Probleemoplossing, category: Core Soft Skills, level: goed }
   - { skill: Security Architectuur, category: Security, level: redelijk }
   - { skill: Security Patterns, category: Security, level: redelijk }
   - { skill: Data Architectuur, category: Data & Integration, level: redelijk }
-  - { skill: Integration Patterns, category: Data & Integration, level: basis }
-  - { skill: Domain-Driven Design, category: Advanced Architectuur, level: basis }
+  - { skill: Integratiepatronen, category: Data & Integration, level: basis }
+  - { skill: Domain-Driven Design, category: Software Architectuur, level: basis }
   - { skill: Motiveren, category: Core Soft Skills, level: redelijk }
-  - { skill: Resilience Patterns, category: Advanced Architectuur, level: goed }
-  - { skill: Event Sourcing & CQRS, category: Advanced Architectuur, level: redelijk }
-  - { skill: Performance & Scalability, category: Advanced Architectuur, level: redelijk }
-  - { skill: Observability & Monitoring, category: Advanced Architectuur, level: redelijk }
-  - { skill: Architectuur Documentation, category: Advanced Architectuur, level: redelijk }
+  - { skill: Resilience Patronen, category: Software Architectuur, level: goed }
+  - { skill: Event Sourcing & CQRS, category: Software Architectuur, level: redelijk }
+  - { skill: Performance & Schaalbaarheid, category: Software Architectuur, level: redelijk }
+  - { skill: Observability & Monitoring, category: Software Architectuur, level: redelijk }
+  - { skill: Architectuurdocumentatie, category: Software Architectuur, level: redelijk }
   - { skill: Infrastructure as Code, category: DevOps & Infrastructure, level: basis }
-  - { skill: Algemene AI kennis, category: AI & Emerging Technologies, level: redelijk }
-  - { skill: Chat gebruik voor het ophalen van kennis, category: AI & Emerging Technologies, level: redelijk }
-  - { skill: Applicaties genereren met behulp van AI tooling, category: AI & Emerging Technologies, level: basis }
-  - { skill: Bouwen klant functionaliteit dat gebruik maakt van AI, category: AI & Emerging Technologies, level: basis }
-  - { skill: Conflict Resolution, category: Core Soft Skills, level: redelijk }
+  - { skill: Algemene AI Kennis, category: AI & Emerging Technologies, level: redelijk }
+  - { skill: AI Chat gebruiken als kennisbron, category: AI & Emerging Technologies, level: redelijk }
+  - { skill: Applicaties Genereren met AI Tooling, category: AI & Emerging Technologies, level: basis }
+  - { skill: AI-functionaliteit Bouwen, category: AI & Emerging Technologies, level: basis }
+  - { skill: Conflictoplossing, category: Core Soft Skills, level: redelijk }

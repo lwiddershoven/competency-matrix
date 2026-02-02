@@ -1,13 +1,13 @@
 {#include layout title="Home"}
     {#content}
         <hgroup>
-            <h1>Career Competency Matrix</h1>
-            <p>Explore roles and their skill requirements to plan your career development</p>
+            <h1>Competentie Matrix</h1>
+            <p>Plan je carriere</p>
         </hgroup>
 
         <section>
-            <h2>Roles</h2>
-            <p>Select a role to view its required competencies and discover potential career paths.</p>
+            <h2>Rollen</h2>
+            <p>Selecteer een rol en bekijk de skills die aangeraden worden en de groeipaden die je kan nemen.</p>
 
             <div class="roles-grid">
                 {#for role in roles}
@@ -20,8 +20,8 @@
         </section>
 
         <section>
-            <h2>Compare Roles</h2>
-            <p>Select two roles to compare their skill requirements side by side.</p>
+            <h2>Vergelijk rollen</h2>
+            <p>Vergelijk twee rollen.</p>
 
             <form action="/compare" method="get" class="compare-form">
                 <div>

@@ -6,7 +6,7 @@ skills:
       redelijk: Implementeert authenticatie en autorisatie patronen, begrijpt OWASP Top 10
       goed: Ontwerpt veilige systemen met OAuth/OIDC, implementeert security best practices
       uitstekend: Definieert security strategie, leidt security audits en penetratietesten
-  - name: Authentication & Authorization
+  - name: Authenticatie & Autorisatie
     levels:
       basis: Implementeert basis login functionaliteit met wachtwoorden
       redelijk: Gebruikt JWT tokens, begrijpt session management en RBAC

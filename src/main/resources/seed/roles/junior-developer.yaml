@@ -7,11 +7,11 @@ requirements:
   - { skill: SQL, category: Programming, level: basis }
   - { skill: Git, category: Programming, level: basis }
   - { skill: Maven/Gradle, category: Programming, level: basis }
-  - { skill: Unit Testing, category: Quality & Testing, level: basis }
-  - { skill: Communication, category: Core Soft Skills, level: basis }
-  - { skill: Problem Solving, category: Core Soft Skills, level: basis }
-  - { skill: Algemene AI kennis, category: AI & Emerging Technologies, level: basis }
-  - { skill: Chat gebruik voor het ophalen van kennis, category: AI & Emerging Technologies, level: basis }
-  - { skill: Observability & Monitoring, category: Advanced Architectuur, level: basis }
-  - { skill: Resilience Patterns, category: Advanced Architectuur, level: basis }
+  - { skill: Unit Testen, category: Kwaliteit & Testen, level: basis }
+  - { skill: Communicatie, category: Core Soft Skills, level: basis }
+  - { skill: Probleemoplossing, category: Core Soft Skills, level: basis }
+  - { skill: Algemene AI Kennis, category: AI & Emerging Technologies, level: basis }
+  - { skill: AI Chat gebruiken als kennisbron, category: AI & Emerging Technologies, level: basis }
+  - { skill: Observability & Monitoring, category: Software Architectuur, level: basis }
+  - { skill: Resilience Patronen, category: Software Architectuur, level: basis }
 

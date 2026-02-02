@@ -1,12 +1,12 @@
 name: Core Soft Skills
 skills:
-  - name: Communication
+  - name: Communicatie
     levels:
       basis: Communiceert binnen team, stelt vragen
       redelijk: Legt technische concepten uit aan niet-technische stakeholders
       goed: Faciliteert discussies, presenteert aan grotere groepen
       uitstekend: Vertegenwoordigt team extern, beïnvloedt stakeholders
-  - name: Problem Solving
+  - name: Probleemoplossing
     levels:
       basis: Lost goed gedefinieerde problemen op
       redelijk: Breekt complexe problemen op in beheersbare delen
@@ -24,7 +24,7 @@ skills:
       redelijk: Deelt actief kennis binnen team
       goed: Mentort formeel junior developers
       uitstekend: Ontwikkelt mentoring programma's, groeit toekomstige mentors
-  - name: Conflict Resolution
+  - name: Conflictoplossing
     levels:
       basis: Herkent en escaleert conflicten naar teamleider
       redelijk: Bemiddelt in technische meningsverschillen binnen team
@@ -36,7 +36,7 @@ skills:
       redelijk: Inspireert teamgenoten door positieve houding
       goed: Motiveert anderen door doelen en vooruitgang te tonen
       uitstekend: Creëert een cultuur van motivatie en eigenaarschap
-  - name: Stakeholder Management
+  - name: Stakeholdermanagement
     levels:
       basis: Identificeert belangrijke stakeholders en verwachtingen
       redelijk: Onderhoudt duidelijke communicatie met stakeholders

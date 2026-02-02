@@ -1,12 +1,12 @@
 name: Leadership & Management
 skills:
-  - name: Project Management
+  - name: Projectmanagement
     levels:
       basis: Begrijpt project lifecycle en planning basics
       redelijk: Beheert eigen taken en deadlines effectief
       goed: Coördineert kleine projecten, beheert resources
       uitstekend: Leidt complexe projecten, definieert project strategieën
-  - name: Technical Leadership
+  - name: Technisch Leiderschap
     levels:
       basis: Neemt technische ownership van eigen werk
       redelijk: Leidt technische discussies binnen team
@@ -30,31 +30,31 @@ skills:
       redelijk: Identificeert en adresseert team conflicten
       goed: Optimaliseert team performance en samenwerking
       uitstekend: Transformeert team cultuur en engagement
-  - name: Retrospective Leadership
+  - name: Retrospective Leiderschap
     levels:
       basis: Voert basale retrospectives
       redelijk: Faciliteert actionable team verbeteringen
       goed: Identificeert systemische issues en patronen
       uitstekend: Drijft continuous improvement cultuur
-  - name: Strategic Thinking
+  - name: Strategisch Denken
     levels:
       basis: Begrijpt team en project doelen op korte termijn
       redelijk: Denkt vooruit over technische schuld en toekomstige requirements
       goed: Ontwikkelt technologie roadmaps, aligneert techniek met business strategie
       uitstekend: Definieert lange termijn technische visie, beïnvloedt organisatie richting
-  - name: Vendor Management
+  - name: Vendormanagement
     levels:
       basis: Begrijpt build vs buy beslissingen
       redelijk: Evalueert technologie vendors op basis van requirements
       goed: Leidt vendor selectie processen, onderhandelt contracten
       uitstekend: Definieert vendor governance strategieën, beheert strategische partnerships
-  - name: Risk Management
+  - name: Risicomanagement
     levels:
       basis: Identificeert technische risicos in eigen werk
       redelijk: Analyseert risicos en voorstelt mitigatie strategieën
       goed: Leidt risk assessments, balanceert risico vs innovatie trade-offs
       uitstekend: Definieert enterprise risk management frameworks, leidt business continuity planning
-  - name: Cost Management
+  - name: Kostenmanagement
     levels:
       basis: Begrijpt basis cloud kosten en resource usage
       redelijk: Optimaliseert resource usage, monitort kosten dashboards

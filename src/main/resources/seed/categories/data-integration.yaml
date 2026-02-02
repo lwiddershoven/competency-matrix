@@ -12,7 +12,7 @@ skills:
       redelijk: Gebruikt document stores (MongoDB) of key-value stores (Redis) voor specifieke use cases
       goed: Kiest juiste database type per use case, implementeert polyglot persistence
       uitstekend: Architecteert gedistribueerde data systemen, optimaliseert consistency vs availability
-  - name: Integration Patterns
+  - name: Integratiepatronen
     levels:
       basis: Begrijpt basis integration concepten (REST, messaging)
       redelijk: Past Enterprise Integration Patterns toe, begrijpt synchrone vs asynchrone communicatie

@@ -1,24 +1,24 @@
-name: Quality & Testing
+name: Kwaliteit & Testen
 skills:
-  - name: Unit Testing
+  - name: Unit Testen
     levels:
       basis: Schrijft basis unit tests
       redelijk: Gebruikt mocking, bereikt goede dekking
       goed: Praktiseert TDD, ontwerpt testbare code
       uitstekend: Definieert test strategieën, mentort test practices
-  - name: Integration Testing
+  - name: Integratietesten
     levels:
       basis: Begrijpt integratie testing concepten
       redelijk: Schrijft integratie tests met test databases
       goed: Test complexe integraties, gebruikt contract testing
       uitstekend: Ontwerpt integratie test frameworks
-  - name: End-to-end Testing
+  - name: End-to-end Testen
     levels:
       basis: Begrijpt E2E testing concepten en gebruiksscenario's
       redelijk: Schrijft E2E tests met tooling zoals Selenium
       goed: Ontwerpt robuuste E2E test suites, implementeert parallelle testing
       uitstekend: Architecteert E2E testing strategieën, integreert met CI/CD
-  - name: Automated Testing
+  - name: Geautomatiseerd Testen
     levels:
       basis: Begrijpt automated testing voordelen en types
       redelijk: Schrijft automated junit en integratie tests met de gekozen frameworks
