@@ -1,5 +1,5 @@
 name: Scrum Master
-roleFamily: Agile Leadership
+roleFamily: Team Support
 seniorityOrder: 4
 description: Technische teamlid dat Agile processen faciliteert, impediments verwijdert, 
   en het team coacht in zelforganisatie terwijl 50% hands-on development behouden blijft
@@ -24,7 +24,6 @@ requirements:
   - { skill: Servant Leadership, category: Soft Skills, level: goed }
   - { skill: Team Dynamiek, category: Soft Skills, level: goed }
   - { skill: Retrospective Leadership, category: Soft Skills, level: goed }
-  - { skill: AI coding, category: AI & Emerging Technologies, level: basis }
   - { skill: Algemene AI kennis, category: AI & Emerging Technologies, level: basis }
   - { skill: Chat gebruik voor het ophalen van kennis, category: AI & Emerging Technologies, level: basis }
   - { skill: Applicaties genereren met behulp van AI tooling, category: AI & Emerging Technologies, level: basis }

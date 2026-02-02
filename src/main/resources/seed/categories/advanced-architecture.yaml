@@ -36,9 +36,3 @@ skills:
       redelijk: Implementeert event stores, scheidt read en write modellen
       goed: Ontwerpt event-sourced systemen, implementeert projections en snapshots
       uitstekend: Architecteert complexe CQRS platforms, definieert event modeling strategieën
-  - name: Clean Architecture
-    levels:
-      basis: Begrijpt layered architecture en dependency inversion
-      redelijk: Implementeert hexagonal architecture (ports & adapters)
-      goed: Past clean architecture toe in complexe systemen, begrijpt onion architecture
-      uitstekend: Definieert architectuur standaarden, mentort teams in architectural patterns

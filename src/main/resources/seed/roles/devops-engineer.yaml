@@ -12,7 +12,6 @@ requirements:
   - { skill: Integration Testing, category: Quality & Testing, level: redelijk }
   - { skill: Communication, category: Soft Skills, level: redelijk }
   - { skill: Problem Solving, category: Soft Skills, level: goed }
-  - { skill: AI coding, category: AI & Emerging Technologies, level: basis }
   - { skill: Algemene AI kennis, category: AI & Emerging Technologies, level: redelijk }
   - { skill: Chat gebruik voor het ophalen van kennis, category: AI & Emerging Technologies, level: redelijk }
   - { skill: Applicaties genereren met behulp van AI tooling, category: AI & Emerging Technologies, level: redelijk }

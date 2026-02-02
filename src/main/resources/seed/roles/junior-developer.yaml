@@ -10,7 +10,6 @@ requirements:
   - { skill: Unit Testing, category: Quality & Testing, level: basis }
   - { skill: Communication, category: Soft Skills, level: basis }
   - { skill: Problem Solving, category: Soft Skills, level: basis }
-  - { skill: AI coding, category: AI & Emerging Technologies, level: basis }
   - { skill: Algemene AI kennis, category: AI & Emerging Technologies, level: basis }
   - { skill: Chat gebruik voor het ophalen van kennis, category: AI & Emerging Technologies, level: basis }
 

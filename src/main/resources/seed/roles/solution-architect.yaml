@@ -1,5 +1,5 @@
 name: Solution Architect
-roleFamily: Architect
+roleFamily: Technical/Architect
 seniorityOrder: 3
 description: Partnert met business stakeholders om vereisten te begrijpen, modelleert
   business processen en domeinen, en ontwerpt oplossingen die business value leveren
@@ -24,7 +24,6 @@ requirements:
   - { skill: Event-Driven Architecture, category: Data & Integration, level: goed }
   - { skill: Domain-Driven Design, category: Advanced Architecture, level: uitstekend }
   - { skill: Architecture Documentation, category: Advanced Architecture, level: uitstekend }
-  - { skill: Clean Architecture, category: Advanced Architecture, level: goed }
   - { skill: Infrastructure as Code, category: DevOps & Infrastructure, level: redelijk }
   - { skill: Strategic Thinking, category: Soft Skills, level: uitstekend }
   - { skill: Vendor Management, category: Soft Skills, level: uitstekend }
@@ -32,8 +31,6 @@ requirements:
   - { skill: Cost Management, category: Soft Skills, level: goed }
   - { skill: Compliance & Governance, category: Soft Skills, level: uitstekend }
   - { skill: Conflict Resolution, category: Soft Skills, level: goed }
-  - { skill: AI coding, category: AI & Emerging Technologies, level: basis }
-  - { skill: AI voor klanten, category: AI & Emerging Technologies, level: basis }
   - { skill: Algemene AI kennis, category: AI & Emerging Technologies, level: redelijk }
   - { skill: Chat gebruik voor het ophalen van kennis, category: AI & Emerging Technologies, level: redelijk }
   - { skill: Bouwen klant functionaliteit dat gebruik maakt van AI, category: AI & Emerging Technologies, level: basis }

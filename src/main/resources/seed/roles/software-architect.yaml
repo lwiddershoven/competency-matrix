@@ -1,5 +1,5 @@
 name: Software Architect
-roleFamily: Architect
+roleFamily: Technical/Architect
 seniorityOrder: 2
 description: Definieert technische strategie en standaarden across development en
   platform teams, aligneert architectuur met IT management doelstellingen, en zorgt
@@ -38,15 +38,12 @@ requirements:
   - { skill: Observability & Monitoring, category: Advanced Architecture, level: uitstekend }
   - { skill: Architecture Documentation, category: Advanced Architecture, level: uitstekend }
   - { skill: Event Sourcing & CQRS, category: Advanced Architecture, level: goed }
-  - { skill: Clean Architecture, category: Advanced Architecture, level: uitstekend }
   - { skill: Infrastructure as Code, category: DevOps & Infrastructure, level: goed }
   - { skill: Service Mesh, category: DevOps & Infrastructure, level: goed }
   - { skill: Strategic Thinking, category: Soft Skills, level: goed }
   - { skill: Risk Management, category: Soft Skills, level: goed }
   - { skill: Conflict Resolution, category: Soft Skills, level: goed }
   - { skill: Docker, category: DevOps & Infrastructure, level: goed }
-  - { skill: AI coding, category: AI & Emerging Technologies, level: basis }
-  - { skill: AI voor klanten, category: AI & Emerging Technologies, level: basis }
   - { skill: Algemene AI kennis, category: AI & Emerging Technologies, level: redelijk }
   - { skill: Chat gebruik voor het ophalen van kennis, category: AI & Emerging Technologies, level: redelijk }
   - { skill: Applicaties genereren met behulp van AI tooling, category: AI & Emerging Technologies, level: redelijk }
