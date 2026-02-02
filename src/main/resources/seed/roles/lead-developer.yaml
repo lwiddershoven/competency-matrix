@@ -10,23 +10,25 @@ requirements:
   - { skill: Maven/Gradle, category: Programming, level: goed }
   - { skill: Python, category: Programming, level: redelijk }
   - { skill: SQL, category: Programming, level: goed }
+  - { skill: Event Sourcing & CQRS, category: Advanced Architectuur, level: redelijk }
   - { skill: Design Patterns, category: Software Design, level: goed }
-  - { skill: Architecture, category: Software Design, level: goed }
+  - { skill: Architectuur, category: Software Design, level: goed }
   - { skill: API Design, category: Software Design, level: goed }
   - { skill: CI/CD, category: DevOps & Infrastructure, level: redelijk }
   - { skill: Unit Testing, category: Quality & Testing, level: goed }
   - { skill: Integration Testing, category: Quality & Testing, level: goed }
   - { skill: Code Review, category: Quality & Testing, level: uitstekend }
-  - { skill: Communication, category: Soft Skills, level: uitstekend }
-  - { skill: Mentoring, category: Soft Skills, level: goed }
-  - { skill: Problem Solving, category: Soft Skills, level: uitstekend }
-  - { skill: Presentation, category: Soft Skills, level: redelijk }
-  - { skill: Stakeholder Management, category: Soft Skills, level: redelijk }
-  - { skill: Motiveren, category: Soft Skills, level: redelijk }
-  - { skill: Technical Leadership, category: Soft Skills, level: goed }
-  - { skill: Project Management, category: Soft Skills, level: basis }
-  - { skill: AI coding, category: AI & Emerging Technologies, level: basis }
+  - { skill: Communication, category: Core Soft Skills, level: uitstekend }
+  - { skill: Mentoring, category: Core Soft Skills, level: goed }
+  - { skill: Problem Solving, category: Core Soft Skills, level: uitstekend }
+  - { skill: Presenteren, category: Core Soft Skills, level: redelijk }
+  - { skill: Stakeholder Management, category: Core Soft Skills, level: redelijk }
+  - { skill: Motiveren, category: Core Soft Skills, level: goed }
+  - { skill: Technical Leadership, category: Leadership & Management, level: goed }
+  - { skill: Project Management, category: Leadership & Management, level: basis }
   - { skill: Algemene AI kennis, category: AI & Emerging Technologies, level: redelijk }
   - { skill: Chat gebruik voor het ophalen van kennis, category: AI & Emerging Technologies, level: redelijk }
   - { skill: Applicaties genereren met behulp van AI tooling, category: AI & Emerging Technologies, level: basis }
   - { skill: Bouwen klant functionaliteit dat gebruik maakt van AI, category: AI & Emerging Technologies, level: basis }
+  - { skill: Observability & Monitoring, category: Advanced Architectuur, level: redelijk }
+  - { skill: Conflict Resolution, category: Core Soft Skills, level: goed }

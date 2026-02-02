@@ -1,5 +1,5 @@
 name: Lead Developer / Software Architect
-roleFamily: Architect
+roleFamily: Technical/Architect
 seniorityOrder: 1
 description: Hybride rol die hands-on team leadership combineert met architectonisch
   design, overbrugt technische implementatie en organisatorische strategie
@@ -8,43 +8,41 @@ requirements:
   - { skill: Design Patterns, category: Software Design, level: uitstekend }
   - { skill: Git, category: Programming, level: redelijk }
   - { skill: Maven/Gradle, category: Programming, level: goed }
-  - { skill: Architecture, category: Software Design, level: goed }
+  - { skill: Architectuur, category: Software Design, level: goed }
   - { skill: API Design, category: Software Design, level: uitstekend }
   - { skill: CI/CD, category: DevOps & Infrastructure, level: goed }
   - { skill: Kubernetes, category: DevOps & Infrastructure, level: redelijk }
   - { skill: Cloud Platforms, category: DevOps & Infrastructure, level: redelijk }
   - { skill: Code Review, category: Quality & Testing, level: uitstekend }
-  - { skill: Communication, category: Soft Skills, level: uitstekend }
-  - { skill: Mentoring, category: Soft Skills, level: uitstekend }
-  - { skill: Problem Solving, category: Soft Skills, level: uitstekend }
-  - { skill: Presentation, category: Soft Skills, level: goed }
-  - { skill: Stakeholder Management, category: Soft Skills, level: goed }
-  - { skill: Motiveren, category: Soft Skills, level: redelijk }
-  - { skill: iSAQB, category: Architecture Frameworks, level: redelijk }
-  - { skill: ArchiMate, category: Architecture Frameworks, level: basis }
+  - { skill: Communication, category: Core Soft Skills, level: uitstekend }
+  - { skill: Mentoring, category: Core Soft Skills, level: uitstekend }
+  - { skill: Problem Solving, category: Core Soft Skills, level: uitstekend }
+  - { skill: Presenteren, category: Core Soft Skills, level: goed }
+  - { skill: Stakeholder Management, category: Core Soft Skills, level: redelijk }
+  - { skill: Motiveren, category: Core Soft Skills, level: goed }
+  - { skill: iSAQB, category: Architectuur Frameworks, level: redelijk }
+  - { skill: ArchiMate, category: Architectuur Frameworks, level: basis }
   - { skill: Spring/Quarkus/Microprofile, category: Programming, level: goed }
-  - { skill: Security Architecture, category: Security, level: goed }
+  - { skill: Security Architectuur, category: Security, level: goed }
   - { skill: Authentication & Authorization, category: Security, level: goed }
   - { skill: Security Patterns, category: Security, level: goed }
-  - { skill: Data Architecture, category: Data & Integration, level: goed }
+  - { skill: Data Architectuur, category: Data & Integration, level: goed }
   - { skill: Integration Patterns, category: Data & Integration, level: goed }
   - { skill: Message Brokers, category: Data & Integration, level: redelijk }
-  - { skill: Event-Driven Architecture, category: Data & Integration, level: redelijk }
-  - { skill: Domain-Driven Design, category: Advanced Architecture, level: goed }
-  - { skill: Resilience Patterns, category: Advanced Architecture, level: goed }
-  - { skill: Performance & Scalability, category: Advanced Architecture, level: goed }
-  - { skill: Observability & Monitoring, category: Advanced Architecture, level: goed }
-  - { skill: Architecture Documentation, category: Advanced Architecture, level: goed }
-  - { skill: Event Sourcing & CQRS, category: Advanced Architecture, level: redelijk }
-  - { skill: Clean Architecture, category: Advanced Architecture, level: goed }
+  - { skill: Event-Driven Architectuur, category: Data & Integration, level: redelijk }
+  - { skill: Domain-Driven Design, category: Advanced Architectuur, level: goed }
+  - { skill: Resilience Patterns, category: Advanced Architectuur, level: goed }
+  - { skill: Performance & Scalability, category: Advanced Architectuur, level: goed }
+  - { skill: Observability & Monitoring, category: Advanced Architectuur, level: goed }
+  - { skill: Architectuur Documentation, category: Advanced Architectuur, level: goed }
+  - { skill: Event Sourcing & CQRS, category: Advanced Architectuur, level: redelijk }
   - { skill: Infrastructure as Code, category: DevOps & Infrastructure, level: redelijk }
   - { skill: Service Mesh, category: DevOps & Infrastructure, level: basis }
-  - { skill: Strategic Thinking, category: Soft Skills, level: redelijk }
-  - { skill: Risk Management, category: Soft Skills, level: redelijk }
+  - { skill: Strategic Thinking, category: Leadership & Management, level: redelijk }
+  - { skill: Risk Management, category: Leadership & Management, level: redelijk }
   - { skill: Docker, category: DevOps & Infrastructure, level: goed }
-  - { skill: AI coding, category: AI & Emerging Technologies, level: basis }
-  - { skill: AI voor klanten, category: AI & Emerging Technologies, level: basis }
   - { skill: Algemene AI kennis, category: AI & Emerging Technologies, level: redelijk }
   - { skill: Chat gebruik voor het ophalen van kennis, category: AI & Emerging Technologies, level: redelijk }
   - { skill: Applicaties genereren met behulp van AI tooling, category: AI & Emerging Technologies, level: redelijk }
   - { skill: Bouwen klant functionaliteit dat gebruik maakt van AI, category: AI & Emerging Technologies, level: redelijk }
+  - { skill: Conflict Resolution, category: Core Soft Skills, level: goed }

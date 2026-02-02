@@ -5,15 +5,16 @@ description: Infrastructure en automation specialist
 requirements:
   - { skill: Python, category: Programming, level: redelijk }
   - { skill: SQL, category: Programming, level: basis }
-  - { skill: Architecture, category: Software Design, level: redelijk }
+  - { skill: Architectuur, category: Software Design, level: redelijk }
   - { skill: CI/CD, category: DevOps & Infrastructure, level: goed }
   - { skill: Kubernetes, category: DevOps & Infrastructure, level: goed }
   - { skill: Cloud Platforms, category: DevOps & Infrastructure, level: goed }
   - { skill: Integration Testing, category: Quality & Testing, level: redelijk }
-  - { skill: Communication, category: Soft Skills, level: redelijk }
-  - { skill: Problem Solving, category: Soft Skills, level: goed }
-  - { skill: AI coding, category: AI & Emerging Technologies, level: basis }
+  - { skill: Communication, category: Core Soft Skills, level: redelijk }
+  - { skill: Problem Solving, category: Core Soft Skills, level: goed }
   - { skill: Algemene AI kennis, category: AI & Emerging Technologies, level: redelijk }
   - { skill: Chat gebruik voor het ophalen van kennis, category: AI & Emerging Technologies, level: redelijk }
   - { skill: Applicaties genereren met behulp van AI tooling, category: AI & Emerging Technologies, level: redelijk }
   - { skill: Bouwen klant functionaliteit dat gebruik maakt van AI, category: AI & Emerging Technologies, level: redelijk }
+  - { skill: Observability & Monitoring, category: Advanced Architectuur, level: goed }
+  - { skill: Performance & Scalability, category: Advanced Architectuur, level: goed }

@@ -1,5 +1,5 @@
 name: Scrum Master
-roleFamily: Agile Leadership
+roleFamily: Team Support
 seniorityOrder: 4
 description: Technische teamlid dat Agile processen faciliteert, impediments verwijdert, 
   en het team coacht in zelforganisatie terwijl 50% hands-on development behouden blijft
@@ -7,25 +7,24 @@ requirements:
   - { skill: Java, category: Programming, level: redelijk }
   - { skill: Spring/Quarkus/Microprofile, category: Programming, level: redelijk }
   - { skill: Git, category: Programming, level: redelijk }
-  - { skill: Architecture, category: Software Design, level: redelijk }
+  - { skill: Architectuur, category: Software Design, level: redelijk }
   - { skill: API Design, category: Software Design, level: redelijk }
   - { skill: Test-Driven Development, category: Software Design, level: redelijk }
   - { skill: Automated Testing, category: Quality & Testing, level: redelijk }
   - { skill: Code Review, category: Quality & Testing, level: redelijk }
-  - { skill: Communication, category: Soft Skills, level: uitstekend }
-  - { skill: Mentoring, category: Soft Skills, level: goed }
-  - { skill: Problem Solving, category: Soft Skills, level: goed }
-  - { skill: Presentation, category: Soft Skills, level: goed }
-  - { skill: Stakeholder Management, category: Soft Skills, level: goed }
-  - { skill: Project Management, category: Soft Skills, level: redelijk }
-  - { skill: Motiveren, category: Soft Skills, level: goed }
-  - { skill: Agile Methodologieën, category: Soft Skills, level: goed }
-  - { skill: Facilitatie, category: Soft Skills, level: uitstekend }
-  - { skill: Servant Leadership, category: Soft Skills, level: goed }
-  - { skill: Team Dynamiek, category: Soft Skills, level: goed }
-  - { skill: Retrospective Leadership, category: Soft Skills, level: goed }
-  - { skill: AI coding, category: AI & Emerging Technologies, level: basis }
+  - { skill: Communication, category: Core Soft Skills, level: uitstekend }
+  - { skill: Mentoring, category: Core Soft Skills, level: goed }
+  - { skill: Problem Solving, category: Core Soft Skills, level: goed }
+  - { skill: Presenteren, category: Core Soft Skills, level: goed }
+  - { skill: Stakeholder Management, category: Core Soft Skills, level: goed }
+  - { skill: Project Management, category: Leadership & Management, level: redelijk }
+  - { skill: Motiveren, category: Core Soft Skills, level: goed }
+  - { skill: Agile Methodologieën, category: Leadership & Management, level: goed }
+  - { skill: Facilitatie, category: Leadership & Management, level: uitstekend }
+  - { skill: Team Dynamiek, category: Leadership & Management, level: goed }
+  - { skill: Retrospective Leadership, category: Leadership & Management, level: goed }
   - { skill: Algemene AI kennis, category: AI & Emerging Technologies, level: basis }
   - { skill: Chat gebruik voor het ophalen van kennis, category: AI & Emerging Technologies, level: basis }
   - { skill: Applicaties genereren met behulp van AI tooling, category: AI & Emerging Technologies, level: basis }
   - { skill: Bouwen klant functionaliteit dat gebruik maakt van AI, category: AI & Emerging Technologies, level: basis }
+  - { skill: Conflict Resolution, category: Core Soft Skills, level: uitstekend }

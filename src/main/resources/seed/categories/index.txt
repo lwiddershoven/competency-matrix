@@ -3,6 +3,7 @@ ai-emerging-tech.yaml
 architecture-frameworks.yaml
 data-integration.yaml
 devops-infrastructure.yaml
+leadership-management.yaml
 programming.yaml
 quality-testing.yaml
 security.yaml

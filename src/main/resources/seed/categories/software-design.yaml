@@ -6,7 +6,7 @@ skills:
       redelijk: Past patronen toe waar passend, begrijpt trade-offs
       goed: Combineert patronen om complexe problemen op te lossen
       uitstekend: Creëert domeinspecifieke patronen, leert anderen
-  - name: Architecture
+  - name: Architectuur
     levels:
       basis: Begrijpt basis gelaagde architectuur
       redelijk: Ontwerpt componenten met duidelijke grenzen
@@ -23,7 +23,7 @@ skills:
       basis: Begrijpt basis OOP concepten (classes, objects, inheritance)
       redelijk: Past encapsulation, inheritance en polymorphism toe
       goed: Ontwerpt complexe object modellen, begrijpt SOLID principes
-      uitstekend: Creëert elegante OOP architecturen, mentort anderen in OOP
+      uitstekend: Creëert elegante OOP Architectuurn, mentort anderen in OOP
   - name: Microservices Architectuur
     levels:
       basis: Begrijpt microservices concepten en voordelen
