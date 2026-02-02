@@ -16,11 +16,11 @@ requirements:
   - { skill: CI/CD, category: DevOps & Infrastructure, level: goed }
   - { skill: Kubernetes, category: DevOps & Infrastructure, level: goed }
   - { skill: Cloud Platforms, category: DevOps & Infrastructure, level: goed }
-  - { skill: Communication, category: Soft Skills, level: uitstekend }
-  - { skill: Mentoring, category: Soft Skills, level: uitstekend }
-  - { skill: Problem Solving, category: Soft Skills, level: uitstekend }
-  - { skill: Presentation, category: Soft Skills, level: uitstekend }
-  - { skill: Stakeholder Management, category: Soft Skills, level: uitstekend }
+  - { skill: Communication, category: Core Soft Skills, level: uitstekend }
+  - { skill: Mentoring, category: Core Soft Skills, level: uitstekend }
+  - { skill: Problem Solving, category: Core Soft Skills, level: uitstekend }
+  - { skill: Presentation, category: Core Soft Skills, level: uitstekend }
+  - { skill: Stakeholder Management, category: Core Soft Skills, level: uitstekend }
   - { skill: ArchiMate, category: Architecture Frameworks, level: basis }
   - { skill: iSAQB, category: Architecture Frameworks, level: goed }
   - { skill: TOGAF, category: Architecture Frameworks, level: basis }
@@ -40,9 +40,9 @@ requirements:
   - { skill: Event Sourcing & CQRS, category: Advanced Architecture, level: goed }
   - { skill: Infrastructure as Code, category: DevOps & Infrastructure, level: goed }
   - { skill: Service Mesh, category: DevOps & Infrastructure, level: goed }
-  - { skill: Strategic Thinking, category: Soft Skills, level: goed }
-  - { skill: Risk Management, category: Soft Skills, level: goed }
-  - { skill: Conflict Resolution, category: Soft Skills, level: goed }
+  - { skill: Strategic Thinking, category: Leadership & Management, level: goed }
+  - { skill: Risk Management, category: Leadership & Management, level: goed }
+  - { skill: Conflict Resolution, category: Core Soft Skills, level: goed }
   - { skill: Docker, category: DevOps & Infrastructure, level: goed }
   - { skill: Algemene AI kennis, category: AI & Emerging Technologies, level: redelijk }
   - { skill: Chat gebruik voor het ophalen van kennis, category: AI & Emerging Technologies, level: redelijk }

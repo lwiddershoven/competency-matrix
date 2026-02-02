@@ -24,9 +24,9 @@ requirements:
   - { skill: End-to-end Testing, category: Quality & Testing, level: goed }
   - { skill: Automated Testing, category: Quality & Testing, level: goed }
   - { skill: Code Review, category: Quality & Testing, level: goed }
-  - { skill: Communication, category: Soft Skills, level: goed }
-  - { skill: Mentoring, category: Soft Skills, level: redelijk }
-  - { skill: Problem Solving, category: Soft Skills, level: goed }
+  - { skill: Communication, category: Core Soft Skills, level: goed }
+  - { skill: Mentoring, category: Core Soft Skills, level: redelijk }
+  - { skill: Problem Solving, category: Core Soft Skills, level: goed }
   - { skill: Security Architecture, category: Security, level: redelijk }
   - { skill: Security Patterns, category: Security, level: redelijk }
   - { skill: Data Architecture, category: Data & Integration, level: redelijk }

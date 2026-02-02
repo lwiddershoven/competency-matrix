@@ -12,17 +12,17 @@ requirements:
   - { skill: Test-Driven Development, category: Software Design, level: redelijk }
   - { skill: Automated Testing, category: Quality & Testing, level: redelijk }
   - { skill: Code Review, category: Quality & Testing, level: redelijk }
-  - { skill: Communication, category: Soft Skills, level: uitstekend }
-  - { skill: Mentoring, category: Soft Skills, level: goed }
-  - { skill: Problem Solving, category: Soft Skills, level: goed }
-  - { skill: Presentation, category: Soft Skills, level: goed }
-  - { skill: Stakeholder Management, category: Soft Skills, level: goed }
-  - { skill: Project Management, category: Soft Skills, level: redelijk }
-  - { skill: Motiveren, category: Soft Skills, level: goed }
-  - { skill: Agile Methodologieën, category: Soft Skills, level: goed }
-  - { skill: Facilitatie, category: Soft Skills, level: uitstekend }
-  - { skill: Team Dynamiek, category: Soft Skills, level: goed }
-  - { skill: Retrospective Leadership, category: Soft Skills, level: goed }
+  - { skill: Communication, category: Core Soft Skills, level: uitstekend }
+  - { skill: Mentoring, category: Core Soft Skills, level: goed }
+  - { skill: Problem Solving, category: Core Soft Skills, level: goed }
+  - { skill: Presentation, category: Core Soft Skills, level: goed }
+  - { skill: Stakeholder Management, category: Core Soft Skills, level: goed }
+  - { skill: Project Management, category: Leadership & Management, level: redelijk }
+  - { skill: Motiveren, category: Core Soft Skills, level: goed }
+  - { skill: Agile Methodologieën, category: Leadership & Management, level: goed }
+  - { skill: Facilitatie, category: Leadership & Management, level: uitstekend }
+  - { skill: Team Dynamiek, category: Leadership & Management, level: goed }
+  - { skill: Retrospective Leadership, category: Leadership & Management, level: goed }
   - { skill: Algemene AI kennis, category: AI & Emerging Technologies, level: basis }
   - { skill: Chat gebruik voor het ophalen van kennis, category: AI & Emerging Technologies, level: basis }
   - { skill: Applicaties genereren met behulp van AI tooling, category: AI & Emerging Technologies, level: basis }

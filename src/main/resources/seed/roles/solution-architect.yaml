@@ -11,10 +11,10 @@ requirements:
   - { skill: Architecture, category: Software Design, level: uitstekend }
   - { skill: API Design, category: Software Design, level: uitstekend }
   - { skill: Cloud Platforms, category: DevOps & Infrastructure, level: goed }
-  - { skill: Communication, category: Soft Skills, level: uitstekend }
-  - { skill: Problem Solving, category: Soft Skills, level: uitstekend }
-  - { skill: Presentation, category: Soft Skills, level: uitstekend }
-  - { skill: Stakeholder Management, category: Soft Skills, level: uitstekend }
+  - { skill: Communication, category: Core Soft Skills, level: uitstekend }
+  - { skill: Problem Solving, category: Core Soft Skills, level: uitstekend }
+  - { skill: Presentation, category: Core Soft Skills, level: uitstekend }
+  - { skill: Stakeholder Management, category: Core Soft Skills, level: uitstekend }
   - { skill: TOGAF, category: Architecture Frameworks, level: redelijk }
   - { skill: ArchiMate, category: Architecture Frameworks, level: goed }
   - { skill: iSAQB, category: Architecture Frameworks, level: redelijk }
@@ -25,12 +25,12 @@ requirements:
   - { skill: Domain-Driven Design, category: Advanced Architecture, level: uitstekend }
   - { skill: Architecture Documentation, category: Advanced Architecture, level: uitstekend }
   - { skill: Infrastructure as Code, category: DevOps & Infrastructure, level: redelijk }
-  - { skill: Strategic Thinking, category: Soft Skills, level: uitstekend }
-  - { skill: Vendor Management, category: Soft Skills, level: uitstekend }
-  - { skill: Risk Management, category: Soft Skills, level: uitstekend }
-  - { skill: Cost Management, category: Soft Skills, level: goed }
-  - { skill: Compliance & Governance, category: Soft Skills, level: uitstekend }
-  - { skill: Conflict Resolution, category: Soft Skills, level: goed }
+  - { skill: Strategic Thinking, category: Leadership & Management, level: uitstekend }
+  - { skill: Vendor Management, category: Leadership & Management, level: uitstekend }
+  - { skill: Risk Management, category: Leadership & Management, level: uitstekend }
+  - { skill: Cost Management, category: Leadership & Management, level: goed }
+  - { skill: Compliance & Governance, category: Leadership & Management, level: uitstekend }
+  - { skill: Conflict Resolution, category: Core Soft Skills, level: goed }
   - { skill: Algemene AI kennis, category: AI & Emerging Technologies, level: redelijk }
   - { skill: Chat gebruik voor het ophalen van kennis, category: AI & Emerging Technologies, level: redelijk }
   - { skill: Bouwen klant functionaliteit dat gebruik maakt van AI, category: AI & Emerging Technologies, level: basis }
