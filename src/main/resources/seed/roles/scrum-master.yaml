@@ -10,21 +10,21 @@ requirements:
   - { skill: Architectuur, category: Software Design, level: redelijk }
   - { skill: API Design, category: Software Design, level: redelijk }
   - { skill: Test-Driven Development, category: Software Design, level: redelijk }
-  - { skill: Automated Testing, category: Quality & Testing, level: redelijk }
-  - { skill: Code Review, category: Quality & Testing, level: redelijk }
-  - { skill: Communication, category: Core Soft Skills, level: uitstekend }
+  - { skill: Geautomatiseerd Testen, category: Kwaliteit & Testen, level: redelijk }
+  - { skill: Code Review, category: Kwaliteit & Testen, level: redelijk }
+  - { skill: Communicatie, category: Core Soft Skills, level: uitstekend }
   - { skill: Mentoring, category: Core Soft Skills, level: goed }
-  - { skill: Problem Solving, category: Core Soft Skills, level: goed }
+  - { skill: Probleemoplossing, category: Core Soft Skills, level: goed }
   - { skill: Presenteren, category: Core Soft Skills, level: goed }
-  - { skill: Stakeholder Management, category: Core Soft Skills, level: goed }
-  - { skill: Project Management, category: Leadership & Management, level: redelijk }
+  - { skill: Stakeholdermanagement, category: Core Soft Skills, level: goed }
+  - { skill: Projectmanagement, category: Leadership & Management, level: redelijk }
   - { skill: Motiveren, category: Core Soft Skills, level: goed }
   - { skill: Agile Methodologieën, category: Leadership & Management, level: goed }
   - { skill: Facilitatie, category: Leadership & Management, level: uitstekend }
   - { skill: Team Dynamiek, category: Leadership & Management, level: goed }
-  - { skill: Retrospective Leadership, category: Leadership & Management, level: goed }
-  - { skill: Algemene AI kennis, category: AI & Emerging Technologies, level: basis }
-  - { skill: Chat gebruik voor het ophalen van kennis, category: AI & Emerging Technologies, level: basis }
-  - { skill: Applicaties genereren met behulp van AI tooling, category: AI & Emerging Technologies, level: basis }
-  - { skill: Bouwen klant functionaliteit dat gebruik maakt van AI, category: AI & Emerging Technologies, level: basis }
-  - { skill: Conflict Resolution, category: Core Soft Skills, level: uitstekend }
+  - { skill: Retrospective Leiderschap, category: Leadership & Management, level: goed }
+  - { skill: Algemene AI Kennis, category: AI & Emerging Technologies, level: basis }
+  - { skill: AI Chat gebruiken als kennisbron, category: AI & Emerging Technologies, level: basis }
+  - { skill: Applicaties Genereren met AI Tooling, category: AI & Emerging Technologies, level: basis }
+  - { skill: AI-functionaliteit Bouwen, category: AI & Emerging Technologies, level: basis }
+  - { skill: Conflictoplossing, category: Core Soft Skills, level: uitstekend }

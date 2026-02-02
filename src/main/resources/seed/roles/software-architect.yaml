@@ -16,35 +16,35 @@ requirements:
   - { skill: CI/CD, category: DevOps & Infrastructure, level: goed }
   - { skill: Kubernetes, category: DevOps & Infrastructure, level: goed }
   - { skill: Cloud Platforms, category: DevOps & Infrastructure, level: goed }
-  - { skill: Communication, category: Core Soft Skills, level: uitstekend }
+  - { skill: Communicatie, category: Core Soft Skills, level: uitstekend }
   - { skill: Mentoring, category: Core Soft Skills, level: redelijk }
-  - { skill: Problem Solving, category: Core Soft Skills, level: uitstekend }
+  - { skill: Probleemoplossing, category: Core Soft Skills, level: uitstekend }
   - { skill: Presenteren, category: Core Soft Skills, level: goed }
-  - { skill: Stakeholder Management, category: Core Soft Skills, level: uitstekend }
+  - { skill: Stakeholdermanagement, category: Core Soft Skills, level: uitstekend }
   - { skill: ArchiMate, category: Architectuur Frameworks, level: basis }
   - { skill: iSAQB, category: Architectuur Frameworks, level: goed }
   - { skill: TOGAF, category: Architectuur Frameworks, level: basis }
   - { skill: Security Architectuur, category: Security, level: uitstekend }
-  - { skill: Authentication & Authorization, category: Security, level: uitstekend }
+  - { skill: Authenticatie & Autorisatie, category: Security, level: uitstekend }
   - { skill: Security Patterns, category: Security, level: uitstekend }
   - { skill: Data Architectuur, category: Data & Integration, level: uitstekend }
   - { skill: NoSQL Databases, category: Data & Integration, level: goed }
-  - { skill: Integration Patterns, category: Data & Integration, level: uitstekend }
+  - { skill: Integratiepatronen, category: Data & Integration, level: uitstekend }
   - { skill: Message Brokers, category: Data & Integration, level: goed }
   - { skill: Event-Driven Architectuur, category: Data & Integration, level: uitstekend }
-  - { skill: Domain-Driven Design, category: Advanced Architectuur, level: uitstekend }
-  - { skill: Resilience Patterns, category: Advanced Architectuur, level: uitstekend }
-  - { skill: Performance & Scalability, category: Advanced Architectuur, level: uitstekend }
-  - { skill: Observability & Monitoring, category: Advanced Architectuur, level: goed }
-  - { skill: Architectuur Documentation, category: Advanced Architectuur, level: uitstekend }
-  - { skill: Event Sourcing & CQRS, category: Advanced Architectuur, level: goed }
+  - { skill: Domain-Driven Design, category: Software Architectuur, level: uitstekend }
+  - { skill: Resilience Patronen, category: Software Architectuur, level: uitstekend }
+  - { skill: Performance & Schaalbaarheid, category: Software Architectuur, level: uitstekend }
+  - { skill: Observability & Monitoring, category: Software Architectuur, level: goed }
+  - { skill: Architectuurdocumentatie, category: Software Architectuur, level: uitstekend }
+  - { skill: Event Sourcing & CQRS, category: Software Architectuur, level: goed }
   - { skill: Infrastructure as Code, category: DevOps & Infrastructure, level: goed }
   - { skill: Service Mesh, category: DevOps & Infrastructure, level: goed }
-  - { skill: Strategic Thinking, category: Leadership & Management, level: goed }
-  - { skill: Risk Management, category: Leadership & Management, level: goed }
-  - { skill: Conflict Resolution, category: Core Soft Skills, level: goed }
+  - { skill: Strategisch Denken, category: Leadership & Management, level: goed }
+  - { skill: Risicomanagement, category: Leadership & Management, level: goed }
+  - { skill: Conflictoplossing, category: Core Soft Skills, level: goed }
   - { skill: Docker, category: DevOps & Infrastructure, level: goed }
-  - { skill: Algemene AI kennis, category: AI & Emerging Technologies, level: redelijk }
-  - { skill: Chat gebruik voor het ophalen van kennis, category: AI & Emerging Technologies, level: redelijk }
-  - { skill: Applicaties genereren met behulp van AI tooling, category: AI & Emerging Technologies, level: redelijk }
-  - { skill: Bouwen klant functionaliteit dat gebruik maakt van AI, category: AI & Emerging Technologies, level: redelijk }
+  - { skill: Algemene AI Kennis, category: AI & Emerging Technologies, level: redelijk }
+  - { skill: AI Chat gebruiken als kennisbron, category: AI & Emerging Technologies, level: redelijk }
+  - { skill: Applicaties Genereren met AI Tooling, category: AI & Emerging Technologies, level: redelijk }
+  - { skill: AI-functionaliteit Bouwen, category: AI & Emerging Technologies, level: redelijk }

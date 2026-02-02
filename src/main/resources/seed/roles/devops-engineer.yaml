@@ -9,12 +9,12 @@ requirements:
   - { skill: CI/CD, category: DevOps & Infrastructure, level: goed }
   - { skill: Kubernetes, category: DevOps & Infrastructure, level: goed }
   - { skill: Cloud Platforms, category: DevOps & Infrastructure, level: goed }
-  - { skill: Integration Testing, category: Quality & Testing, level: redelijk }
-  - { skill: Communication, category: Core Soft Skills, level: redelijk }
-  - { skill: Problem Solving, category: Core Soft Skills, level: goed }
-  - { skill: Algemene AI kennis, category: AI & Emerging Technologies, level: redelijk }
-  - { skill: Chat gebruik voor het ophalen van kennis, category: AI & Emerging Technologies, level: redelijk }
-  - { skill: Applicaties genereren met behulp van AI tooling, category: AI & Emerging Technologies, level: redelijk }
-  - { skill: Bouwen klant functionaliteit dat gebruik maakt van AI, category: AI & Emerging Technologies, level: redelijk }
-  - { skill: Observability & Monitoring, category: Advanced Architectuur, level: goed }
-  - { skill: Performance & Scalability, category: Advanced Architectuur, level: goed }
+  - { skill: Integratietesten, category: Kwaliteit & Testen, level: redelijk }
+  - { skill: Communicatie, category: Core Soft Skills, level: redelijk }
+  - { skill: Probleemoplossing, category: Core Soft Skills, level: goed }
+  - { skill: Algemene AI Kennis, category: AI & Emerging Technologies, level: redelijk }
+  - { skill: AI Chat gebruiken als kennisbron, category: AI & Emerging Technologies, level: redelijk }
+  - { skill: Applicaties Genereren met AI Tooling, category: AI & Emerging Technologies, level: redelijk }
+  - { skill: AI-functionaliteit Bouwen, category: AI & Emerging Technologies, level: redelijk }
+  - { skill: Observability & Monitoring, category: Software Architectuur, level: goed }
+  - { skill: Performance & Schaalbaarheid, category: Software Architectuur, level: goed }

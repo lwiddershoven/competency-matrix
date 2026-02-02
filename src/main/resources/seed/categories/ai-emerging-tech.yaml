@@ -1,6 +1,6 @@
 name: AI & Emerging Technologies
 skills:
-  - name: Algemene AI kennis
+  - name: Algemene AI Kennis
     levels:
       basis: |-
         - bredere blok dan LLMs
@@ -9,7 +9,7 @@ skills:
         Weet ongeveer waarom temperatuur en context window relevant zijn
       goed: TODO
       uitstekend: TODO
-  - name: Chat gebruik voor het ophalen van kennis
+  - name: AI Chat gebruiken als kennisbron
     levels:
       basis: |-
         - Weten dat het een proces op basis van statistisch woorden zoeken is, niet een systeem op basis van begrip
@@ -20,7 +20,7 @@ skills:
       redelijk: TODO
       goed: TODO
       uitstekend: TODO
-  - name: Applicaties genereren met behulp van AI tooling
+  - name: Applicaties Genereren met AI Tooling
     levels:
       basis: |-
         - Weet dat er tools zijn waarmee code gegenereerd kan worden (Windsurf, Cursor, Claude Code, Aider, etc.)
@@ -30,7 +30,7 @@ skills:
         - Weet dat de kern van effectief ontwikkelen niet een one-shot is maar eerst een plan laten genereren
       goed: TODO
       uitstekend: TODO
-  - name: Bouwen klant functionaliteit dat gebruik maakt van AI
+  - name: AI-functionaliteit Bouwen
     levels:
       basis: |-
         - Weet dat er Java libraries zijn om LLMs te ontsluiten (Spring AI, Quarkus LangChain4j, etc.)

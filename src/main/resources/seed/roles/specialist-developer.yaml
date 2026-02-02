@@ -11,13 +11,13 @@ requirements:
   - { skill: Maven/Gradle, category: Programming, level: goed }
   - { skill: Design Patterns, category: Software Design, level: uitstekend }
   - { skill: Architectuur, category: Software Design, level: redelijk }
-  - { skill: Unit Testing, category: Quality & Testing, level: uitstekend }
-  - { skill: Integration Testing, category: Quality & Testing, level: goed }
-  - { skill: Code Review, category: Quality & Testing, level: uitstekend }
-  - { skill: Communication, category: Core Soft Skills, level: goed }
+  - { skill: Unit Testen, category: Kwaliteit & Testen, level: uitstekend }
+  - { skill: Integratietesten, category: Kwaliteit & Testen, level: goed }
+  - { skill: Code Review, category: Kwaliteit & Testen, level: uitstekend }
+  - { skill: Communicatie, category: Core Soft Skills, level: goed }
   - { skill: Mentoring, category: Core Soft Skills, level: redelijk }
-  - { skill: Problem Solving, category: Core Soft Skills, level: uitstekend }
-  - { skill: Algemene AI kennis, category: AI & Emerging Technologies, level: redelijk }
-  - { skill: Chat gebruik voor het ophalen van kennis, category: AI & Emerging Technologies, level: redelijk }
-  - { skill: Applicaties genereren met behulp van AI tooling, category: AI & Emerging Technologies, level: redelijk }
-  - { skill: Bouwen klant functionaliteit dat gebruik maakt van AI, category: AI & Emerging Technologies, level: redelijk }
+  - { skill: Probleemoplossing, category: Core Soft Skills, level: uitstekend }
+  - { skill: Algemene AI Kennis, category: AI & Emerging Technologies, level: redelijk }
+  - { skill: AI Chat gebruiken als kennisbron, category: AI & Emerging Technologies, level: redelijk }
+  - { skill: Applicaties Genereren met AI Tooling, category: AI & Emerging Technologies, level: redelijk }
+  - { skill: AI-functionaliteit Bouwen, category: AI & Emerging Technologies, level: redelijk }
