@@ -8,9 +8,9 @@ skills:
       uitstekend: Leidt strategic design sessies, architecteert complexe domain modellen
   - name: Resilience Patterns
     levels:
-      basis: Begrijpt basis resilience concepten (retry, timeout)
+      basis: Begrijpt basis resilience concepten (retry, timeout) en dat netwerk omgevingen niet 100% stabiel zijn.
       redelijk: Implementeert circuit breaker en bulkhead patterns
-      goed: Ontwerpt fault-tolerante systemen, implementeert graceful degradation
+      goed: Ontwerpt fault-tolerante systemen, implementeert graceful degradation op basis van SLA criteria
       uitstekend: Architecteert highly available systemen, definieert SLA/SLO strategieën
   - name: Performance & Scalability
     levels:
@@ -20,9 +20,9 @@ skills:
       uitstekend: Architecteert high-performance systemen, definieert capacity planning
   - name: Observability & Monitoring
     levels:
-      basis: Gebruikt logs voor troubleshooting, begrijpt basis metrics
-      redelijk: Implementeert structured logging, configureert dashboards en alerts
-      goed: Implementeert distributed tracing, definieert SLIs en SLOs
+      basis: Gebruikt logs voor troubleshooting, begrijpt de waarde van basis metrics
+      redelijk: Implementeert structured logging, configureert dashboards en alerts, implementeert distributed tracing
+      goed: Ontwerpt distributed tracing, definieert SLIs en SLOs en zorgt voor metrics die een functioneel helder beeld schetsen van de applicatie
       uitstekend: Architecteert observability platforms, definieert monitoring strategieën
   - name: Architecture Documentation
     levels:
