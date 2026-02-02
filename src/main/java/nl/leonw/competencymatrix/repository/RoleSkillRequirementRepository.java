@@ -174,6 +174,61 @@ public class RoleSkillRequirementRepository {
         }
     }
 
+    /**
+     * Batch insert multiple requirements.
+     * Used by REPLACE mode sync for efficient bulk inserts.
+     * Reduces connection churn by batching all inserts into a single operation.
+     */
+    public int insertAll(List<RoleSkillRequirement> requirements) {
+        if (requirements.isEmpty()) {
+            return 0;
+        }
+
+        String sql = "INSERT INTO role_skill_requirement (role_id, skill_id, required_level) VALUES (?, ?, ?)";
+        try (Connection conn = dataSource.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            for (RoleSkillRequirement req : requirements) {
+                stmt.setInt(1, req.roleId());
+                stmt.setInt(2, req.skillId());
+                stmt.setString(3, req.requiredLevel());
+                stmt.addBatch();
+            }
+
+            int[] results = stmt.executeBatch();
+            return results.length;
+        } catch (SQLException e) {
+            throw new RuntimeException("Failed to batch insert requirements", e);
+        }
+    }
+
+    /**
+     * Batch update multiple requirements.
+     * Used by MERGE mode sync when requirements already exist.
+     * Reduces connection churn by batching all updates into a single operation.
+     */
+    public int updateAll(List<RoleSkillRequirement> requirements) {
+        if (requirements.isEmpty()) {
+            return 0;
+        }
+
+        String sql = "UPDATE role_skill_requirement SET required_level = ? WHERE id = ?";
+        try (Connection conn = dataSource.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            for (RoleSkillRequirement req : requirements) {
+                stmt.setString(1, req.requiredLevel());
+                stmt.setInt(2, req.id());
+                stmt.addBatch();
+            }
+
+            int[] results = stmt.executeBatch();
+            return results.length;
+        } catch (SQLException e) {
+            throw new RuntimeException("Failed to batch update requirements", e);
+        }
+    }
+
     private RoleSkillRequirement mapRow(ResultSet rs) throws SQLException {
         return new RoleSkillRequirement(
                 rs.getInt("id"),
