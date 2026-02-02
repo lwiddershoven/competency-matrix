@@ -32,7 +32,7 @@ skills:
       uitstekend: Definieert documentatie standaarden, leidt knowledge management strategieën
   - name: Event Sourcing & CQRS
     levels:
-      basis: Begrijpt event sourcing en CQRS concepten
+      basis: Begrijpt event sourcing en CQRS concepten, en het verschil met event streaming
       redelijk: Implementeert event stores, scheidt read en write modellen
       goed: Ontwerpt event-sourced systemen, implementeert projections en snapshots
       uitstekend: Architecteert complexe CQRS platforms, definieert event modeling strategieën

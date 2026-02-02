@@ -33,6 +33,7 @@ requirements:
   - { skill: Integration Patterns, category: Data & Integration, level: basis }
   - { skill: Domain-Driven Design, category: Advanced Architecture, level: basis }
   - { skill: Resilience Patterns, category: Advanced Architecture, level: basis }
+  - { skill: Event Sourcing & CQRS, category: Advanced Architecture, level: redelijk }
   - { skill: Performance & Scalability, category: Advanced Architecture, level: redelijk }
   - { skill: Observability & Monitoring, category: Advanced Architecture, level: redelijk }
   - { skill: Architecture Documentation, category: Advanced Architecture, level: redelijk }

@@ -13,6 +13,7 @@ requirements:
   - { skill: API Design, category: Software Design, level: redelijk }
   - { skill: Microservices Architectuur, category: Software Design, level: redelijk }
   - { skill: Object-Oriented Programming, category: Software Design, level: redelijk }
+  - { skill: Event Sourcing & CQRS, category: Advanced Architecture, level: basis }
   - { skill: Test-Driven Development, category: Software Design, level: goed }
   - { skill: Architecture, category: Software Design, level: redelijk }
   - { skill: CI/CD, category: DevOps & Infrastructure, level: redelijk }
