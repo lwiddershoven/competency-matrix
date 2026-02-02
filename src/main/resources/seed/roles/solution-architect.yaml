@@ -8,12 +8,12 @@ requirements:
   - { skill: Java, category: Programming, level: redelijk }
   - { skill: Maven/Gradle, category: Programming, level: goed }
   - { skill: Design Patterns, category: Software Design, level: goed }
-  - { skill: Architecture, category: Software Design, level: uitstekend }
+  - { skill: Architectuur, category: Software Design, level: uitstekend }
   - { skill: API Design, category: Software Design, level: uitstekend }
   - { skill: Cloud Platforms, category: DevOps & Infrastructure, level: goed }
   - { skill: Communication, category: Core Soft Skills, level: uitstekend }
   - { skill: Problem Solving, category: Core Soft Skills, level: uitstekend }
-  - { skill: Presentation, category: Core Soft Skills, level: uitstekend }
+  - { skill: Presenteren, category: Core Soft Skills, level: goed }
   - { skill: Stakeholder Management, category: Core Soft Skills, level: uitstekend }
   - { skill: TOGAF, category: Architecture Frameworks, level: redelijk }
   - { skill: ArchiMate, category: Architecture Frameworks, level: goed }

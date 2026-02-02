@@ -7,7 +7,7 @@ requirements:
   - { skill: Java, category: Programming, level: redelijk }
   - { skill: Spring/Quarkus/Microprofile, category: Programming, level: redelijk }
   - { skill: Git, category: Programming, level: redelijk }
-  - { skill: Architecture, category: Software Design, level: redelijk }
+  - { skill: Architectuur, category: Software Design, level: redelijk }
   - { skill: API Design, category: Software Design, level: redelijk }
   - { skill: Test-Driven Development, category: Software Design, level: redelijk }
   - { skill: Automated Testing, category: Quality & Testing, level: redelijk }
@@ -15,7 +15,7 @@ requirements:
   - { skill: Communication, category: Core Soft Skills, level: uitstekend }
   - { skill: Mentoring, category: Core Soft Skills, level: goed }
   - { skill: Problem Solving, category: Core Soft Skills, level: goed }
-  - { skill: Presentation, category: Core Soft Skills, level: goed }
+  - { skill: Presenteren, category: Core Soft Skills, level: goed }
   - { skill: Stakeholder Management, category: Core Soft Skills, level: goed }
   - { skill: Project Management, category: Leadership & Management, level: redelijk }
   - { skill: Motiveren, category: Core Soft Skills, level: goed }
@@ -27,3 +27,4 @@ requirements:
   - { skill: Chat gebruik voor het ophalen van kennis, category: AI & Emerging Technologies, level: basis }
   - { skill: Applicaties genereren met behulp van AI tooling, category: AI & Emerging Technologies, level: basis }
   - { skill: Bouwen klant functionaliteit dat gebruik maakt van AI, category: AI & Emerging Technologies, level: basis }
+  - { skill: Conflict Resolution, category: Core Soft Skills, level: uitstekend }

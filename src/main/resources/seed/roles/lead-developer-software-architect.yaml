@@ -8,7 +8,7 @@ requirements:
   - { skill: Design Patterns, category: Software Design, level: uitstekend }
   - { skill: Git, category: Programming, level: redelijk }
   - { skill: Maven/Gradle, category: Programming, level: goed }
-  - { skill: Architecture, category: Software Design, level: goed }
+  - { skill: Architectuur, category: Software Design, level: goed }
   - { skill: API Design, category: Software Design, level: uitstekend }
   - { skill: CI/CD, category: DevOps & Infrastructure, level: goed }
   - { skill: Kubernetes, category: DevOps & Infrastructure, level: redelijk }
@@ -17,9 +17,9 @@ requirements:
   - { skill: Communication, category: Core Soft Skills, level: uitstekend }
   - { skill: Mentoring, category: Core Soft Skills, level: uitstekend }
   - { skill: Problem Solving, category: Core Soft Skills, level: uitstekend }
-  - { skill: Presentation, category: Core Soft Skills, level: goed }
-  - { skill: Stakeholder Management, category: Core Soft Skills, level: goed }
-  - { skill: Motiveren, category: Core Soft Skills, level: redelijk }
+  - { skill: Presenteren, category: Core Soft Skills, level: goed }
+  - { skill: Stakeholder Management, category: Core Soft Skills, level: redelijk }
+  - { skill: Motiveren, category: Core Soft Skills, level: goed }
   - { skill: iSAQB, category: Architecture Frameworks, level: redelijk }
   - { skill: ArchiMate, category: Architecture Frameworks, level: basis }
   - { skill: Spring/Quarkus/Microprofile, category: Programming, level: goed }
@@ -45,3 +45,4 @@ requirements:
   - { skill: Chat gebruik voor het ophalen van kennis, category: AI & Emerging Technologies, level: redelijk }
   - { skill: Applicaties genereren met behulp van AI tooling, category: AI & Emerging Technologies, level: redelijk }
   - { skill: Bouwen klant functionaliteit dat gebruik maakt van AI, category: AI & Emerging Technologies, level: redelijk }
+  - { skill: Conflict Resolution, category: Core Soft Skills, level: goed }

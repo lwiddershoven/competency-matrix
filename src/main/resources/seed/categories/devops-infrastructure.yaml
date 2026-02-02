@@ -16,7 +16,7 @@ skills:
     levels:
       basis: Gebruikt basis cloud services (compute, storage)
       redelijk: Deployt applicaties, beheert cloud resources
-      goed: Ontwerpt cloud-native architecturen, implementeert IaC
+      goed: Ontwerpt cloud-native Architectuurn, implementeert IaC
       uitstekend: Optimaliseert kosten, architecteert multi-regio oplossingen
   - name: Docker
     levels:

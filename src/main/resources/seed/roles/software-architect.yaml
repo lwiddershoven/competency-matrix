@@ -11,15 +11,15 @@ requirements:
   - { skill: Maven/Gradle, category: Programming, level: goed }
   - { skill: SQL, category: Programming, level: redelijk }
   - { skill: Design Patterns, category: Software Design, level: uitstekend }
-  - { skill: Architecture, category: Software Design, level: uitstekend }
+  - { skill: Architectuur, category: Software Design, level: uitstekend }
   - { skill: API Design, category: Software Design, level: uitstekend }
   - { skill: CI/CD, category: DevOps & Infrastructure, level: goed }
   - { skill: Kubernetes, category: DevOps & Infrastructure, level: goed }
   - { skill: Cloud Platforms, category: DevOps & Infrastructure, level: goed }
   - { skill: Communication, category: Core Soft Skills, level: uitstekend }
-  - { skill: Mentoring, category: Core Soft Skills, level: uitstekend }
+  - { skill: Mentoring, category: Core Soft Skills, level: redelijk }
   - { skill: Problem Solving, category: Core Soft Skills, level: uitstekend }
-  - { skill: Presentation, category: Core Soft Skills, level: uitstekend }
+  - { skill: Presenteren, category: Core Soft Skills, level: goed }
   - { skill: Stakeholder Management, category: Core Soft Skills, level: uitstekend }
   - { skill: ArchiMate, category: Architecture Frameworks, level: basis }
   - { skill: iSAQB, category: Architecture Frameworks, level: goed }

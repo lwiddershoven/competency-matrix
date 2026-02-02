@@ -15,7 +15,7 @@ requirements:
   - { skill: Object-Oriented Programming, category: Software Design, level: redelijk }
   - { skill: Event Sourcing & CQRS, category: Advanced Architecture, level: basis }
   - { skill: Test-Driven Development, category: Software Design, level: goed }
-  - { skill: Architecture, category: Software Design, level: redelijk }
+  - { skill: Architectuur, category: Software Design, level: redelijk }
   - { skill: CI/CD, category: DevOps & Infrastructure, level: redelijk }
   - { skill: Docker, category: DevOps & Infrastructure, level: basis }
   - { skill: Kubernetes, category: DevOps & Infrastructure, level: basis }
@@ -24,7 +24,7 @@ requirements:
   - { skill: Integration Testing, category: Quality & Testing, level: goed }
   - { skill: End-to-end Testing, category: Quality & Testing, level: redelijk }
   - { skill: Automated Testing, category: Quality & Testing, level: goed }
-  - { skill: Communication, category: Core Soft Skills, level: goed }
+  - { skill: Communication, category: Core Soft Skills, level: redelijk }
   - { skill: Mentoring, category: Core Soft Skills, level: redelijk }
   - { skill: Problem Solving, category: Core Soft Skills, level: goed }
   - { skill: Algemene AI kennis, category: AI & Emerging Technologies, level: redelijk }
@@ -33,3 +33,4 @@ requirements:
   - { skill: Bouwen klant functionaliteit dat gebruik maakt van AI, category: AI & Emerging Technologies, level: basis }
   - { skill: Observability & Monitoring, category: Advanced Architecture, level: basis }
   - { skill: Resilience Patterns, category: Advanced Architecture, level: redelijk }
+  - { skill: Conflict Resolution, category: Core Soft Skills, level: basis }
